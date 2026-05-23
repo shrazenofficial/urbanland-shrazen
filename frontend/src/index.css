@@ -14,9 +14,9 @@ body {
 	background-color: #181717;
 	font-family: "Inter", sans-serif;
 	scrollbar-width: none;
-	/* Chrome, Edge, Safari */
 	-ms-overflow-style: none;
-	/* IE & Edge */
+	overflow-x: hidden;
+	width: 100%;
 }
 
 
@@ -199,6 +199,7 @@ body {
 /* ------------------ Sticky Section Style ------------------- */
 .sticky-cols {
 	padding: 0rem;
+	overflow: hidden;
 
 	/* .sticky-cols-wrapper {
 		position: relative;
