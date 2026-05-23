@@ -1,43 +1,43 @@
 export const feedbackH1LG = [
     [
-        "Staying at Capsules® in the",
-        "California desert redefined my",
-        "retreat — modern design meets",
-        "nature, and every sunset feels",
-        "like a serene masterpiece."
+        "Urbanland® outdoor furniture elevated",
+        "our township's luxury index — modern",
+        "design, durable WPC benches, and",
+        "stunning cabanas that our premium",
+        "residents absolutely love."
     ],
     [
-        "Capsules® offered the perfect",
-        "escape — sleek, modern spaces",
-        "surrounded by desert stillness.",
-        "Each moment felt peaceful,",
-        "grounded, and truly unique."
+        "Partnering with India's premium hotel",
+        "outdoor furniture manufacturer was key",
+        "for our poolside. Sleek, weather-proof",
+        "wicker sets that perfectly match our",
+        "luxury design language."
     ],
     [
-        "Capsules® was the perfect",
-        "desert hideaway — stylish,",
-        "peaceful, and fully surrounded",
-        "by stunning views day and",
-        " night."
+        "The heavy-duty GFRC planters and",
+        "smart public shelters transformed our",
+        "Smart City walkways. Exceptional",
+        "strength, vandal-resistant, and built",
+        "for the absolute highest footfall."
     ]
 ];
 
 export const feedbackReviewLG = [
     [
-        "Marcus Simpson",
-        "New York",
+        "Rohan Mehta",
+        "Director, Prestige Group (Bengaluru)",
         "review1",
         "33%"
     ],
     [
-        "Lena Morrison",
-        "Los Angeles",
+        "Priya Sharma",
+        "VP Design, Taj Resorts (Goa)",
         "review2",
         "66%"
     ],
     [
-        "Jason Whitaker",
-        "San Francisco",
+        "Dr. Amit Verma",
+        "Chief Planner, Smart Cities Council",
         "review3",
         "100%"
     ]

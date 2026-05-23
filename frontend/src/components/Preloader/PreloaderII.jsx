@@ -1,13 +1,24 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
+import React, { useState, useEffect } from "react";
 // import { ArrowRight, Menu } from "lucide-react";
 
 import "./preloaderII.css";
 
 gsap.registerPlugin(SplitText);
 export default function PreloaderII() {
+    const [fontsLoaded, setFontsLoaded] = useState(false);
+
+    useEffect(() => {
+        document.fonts.ready.then(() => {
+            setFontsLoaded(true);
+        });
+    }, []);
+
     useGSAP(() => {
+        if (!fontsLoaded) return;
+        
         function createSplitTexts(elements) {
             const splits = {};
             elements.forEach(({ key, selector, type }) => {
@@ -119,14 +130,14 @@ export default function PreloaderII() {
                 },
                 "<"
             );
-    }, []);
+    }, { dependencies: [fontsLoaded] });
 
     return (
         <div className="size-full fixed z-51 overflow-hidden pointer-events-none">
             <div className="preloader-progress">
                 <div className="preloader-progress-bar"></div>
                 <div className="preloader-logo">
-                    <h1>Capsule</h1>
+                    <h1>Urbanland</h1>
                 </div>
             </div>
 
@@ -135,8 +146,8 @@ export default function PreloaderII() {
             <div className="preloader-content">
                 <div className="preloader-footer">
                     <p className="text-sm">
-                        Meet Capsules®—modern and cozy<br />
-                        houses, in the California desert.
+                        Meet Urbanland®—premium urban<br />
+                        and outdoor furniture solutions.
                     </p>
                 </div>
             </div>

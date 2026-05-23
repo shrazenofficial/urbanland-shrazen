@@ -74,7 +74,7 @@ const Feedback = () => {
 
                     <div className="relative z-9 w-70 h-[0.1rem] bg-[#4f4b48]">
                         <div
-                            className="progress-line absolute z-10 bg-[#f4efe7] h-[0.1rem] top-1/2 -translate-y-1/2 left-0"
+                            className="progress-line absolute z-10 bg-[#0a7c41] h-[0.1rem] top-1/2 -translate-y-1/2 left-0"
                             style={{ width: progressWidth }}
                         ></div>
                     </div>

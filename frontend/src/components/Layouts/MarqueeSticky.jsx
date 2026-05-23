@@ -19,15 +19,12 @@ const MarqueeSticky = () => {
             },
         });
 
-        // 1️⃣ Animate height from 20vh → 0
-        tl.fromTo(
-            ".sticky-spacer",
-            { height: "20vh" },
-            { height: "0vh", ease: "none" }
+        // Animate out without collapsing the document height!
+        // Collapsing document height during scrub destroys all GSAP pinned trigger measurements.
+        tl.to(
+            ".marquee-con-none",
+            { opacity: 0, yPercent: -50, duration: 1, ease: "none" }
         );
-
-        // 2️⃣ Then remove it from layout
-        tl.set(".sticky-spacer, .marquee-con-none", { display: "none" });
     });
 
     return (
@@ -37,7 +34,7 @@ const MarqueeSticky = () => {
                     <p className="text-[0.7rem] text-[#eae5dd] choose-subtitle">
                         Want to learn more about
                         <br />
-                        the benefits of—Capsules<span>®</span>?
+                        the benefits of—Urbanland<span>®</span>?
                     </p>
                 </div>
 

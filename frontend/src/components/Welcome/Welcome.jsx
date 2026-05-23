@@ -1,45 +1,53 @@
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap/all";
-import { useMediaQuery } from "react-responsive";
+import gsap from "gsap";
 import { welcomeLinesLG, welcomeLinesSM } from "../../constants/welcome";
 import w1 from "../../assets/welcome-1.png"
 import w2 from "../../assets/welcome-2.png"
 
 const Welcome = () => {
-
-    const isMobile = useMediaQuery({ maxWidth: 768 });
-    const welcomeLines = isMobile ? welcomeLinesSM : welcomeLinesLG;
+    const sectionRef = useRef(null);
 
     useGSAP(() => {
-        const lines = gsap.utils.toArray(".clip-text-welcome");
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".welcome-section",
-                start: "top 75%",
-                end: "bottom 75%",
-                scrub: true,
-                // markers: true
-            },
-        });
+        const mm = gsap.matchMedia();
 
-        lines.forEach((line) => {
-            tl.to(line, {
+        // Shared animation logic for both breakpoints
+        const createTextReveal = () => {
+            const lines = gsap.utils.toArray(".clip-text-welcome");
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".welcome-text",
+                    start: "top 85%",
+                    end: "top 45%",
+                    scrub: true,
+                },
+            });
+
+            tl.to(lines, {
                 clipPath: "inset(0% 0% 0% 0%)",
                 ease: "none",
-                stagger: 0.2,
+                stagger: 0.15,
                 duration: 1,
             });
-        });
+        };
 
-    });
+        mm.add("(min-width: 769px)", createTextReveal);
+        mm.add("(max-width: 768px)", createTextReveal);
+
+        return () => mm.revert();
+    }, { scope: sectionRef });
+
+    // Determine text lines based on screen width (uses CSS media query check at render time)
+    const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
+    const welcomeLines = isMobile ? welcomeLinesSM : welcomeLinesLG;
 
     return (
-        <div className='welcome-section w-full h-[120vh] text-[#2A2725]  md:px-7 px-6 '>
+        <div ref={sectionRef} className='welcome-section w-full min-h-screen h-auto py-12 md:py-16 md:h-[110vh] flex flex-col justify-between text-[#2A2725] md:px-7 px-6'>
             <div className='flex flex-col gap-2 tracking-[-4] leading-2'>
-                <div className="w-full md:w-[86%] md:text-[64px] text-[34px] welcome-line md:pt-20">
+                <div className="w-full md:w-[86%] md:text-[64px] text-[34px] welcome-line md:pt-10">
                     <div className="w-full welcome-text flex flex-col justify-center items-start">
                         {welcomeLines.map((text, index) => (
-                            <span key={index} className="relative block text-darkBrown md:tracking-[-0.010em] tracking-[0.015em]">
+                            <span key={index} className="relative block text-darkBrown md:tracking-[-0.010em] tracking-[0.015em] overflow-visible">
                                 {text}
                                 <span className="clip-text-welcome md:tracking-[-0.010em] tracking-[0.015em]">{text}</span>
                             </span>
@@ -54,8 +62,7 @@ const Welcome = () => {
                 </div>
                 <div className="md:w-1/2 w-full md:mt-0 mt-10">
                     <p className="md:text-[2rem] text-[1.4rem] text-[#b1a696] md:leading-[1.1] md:pr-24 font-normal leading-[26px] tracking-[-0.2px]">
-                        <span>A place where you can be with yourself and your loved ones.</span><br />
-                        <span>A place where you can experience unforgettable desert things.</span>
+                        <span>Experience the perfect blend of nature and modern design with our premium urban furniture, crafted for the most breathtaking landscapes in India.</span>
                     </p>
                 </div>
             </div>

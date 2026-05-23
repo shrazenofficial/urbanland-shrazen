@@ -1,8 +1,8 @@
 .footer-title {
     position: absolute;
-    top: 60%;
+    bottom: 0px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: 100%;
     text-align: center;
     z-index: 2;
@@ -11,7 +11,7 @@
 
 .footer-title h1 {
     position: relative;
-    line-height: 1;
+    line-height: 0.8;
     color: #f4efe7;
 }
 

@@ -7,27 +7,29 @@ import MarqueeText from '../Marquee/MarqueeText';
 
 const Footer = () => {
     return (
-        <section className='w-screen h-dvh px-6 mt-10'>
-            <p className='text-[.7rem] text-[#eae5dd] choose-subtitle mt-10'>Interested in an amazing adventure?<br />Reserve one of our Capsules<span>®</span></p>
+        <section className='w-full h-auto px-6 pt-36 pb-24 md:pt-48 md:pb-32 bg-[#181717]'>
+            <div className='flex flex-col md:flex-row w-full h-auto justify-between border-b-1 pb-16 border-[#c4c1b9] ' >
+                <p className='text-[.7rem] text-[#eae5dd] choose-subtitle mt-10'>Interested in transforming your space?<br />Explore solutions by Urbanland<span>®</span></p>
+            </div>
             <div>
                 <MarqueeText />
             </div>
 
             <div className='flex justify-between items-center text-2xl mt-14'>
-                <h3 className='text-[#b1a696]'>This website is just the concept<br />
-                    work done by—Moyra to showcase<br />
-                    our capabilities.<br /><br />
-                    If you would like to outsource a similar<br />
-                    website project—<a href="#" className='text-[#f4efe7] hover:text-[#c4c1b9] underline'> contact us.</a>
+                <h3 className='text-[#b1a696]'>This website showcases the premium<br />
+                    outdoor furniture solutions by—Urbanland®<br />
+                    across architectural projects.<br /><br />
+                    If you would like to explore our range<br />
+                    or request a custom quote—<a href="#" className='text-[#f4efe7] hover:text-[#c4c1b9] underline'> contact us.</a>
                 </h3>
 
                 <div className='flex flex-col justify-center items-end'>
                     <a href="#welcome" className='text-[#f2ede5] text-2xl'>Welcome</a>
-                    <a href="#welcome" className='text-[#f2ede5] text-2xl'>Introduction</a>
-                    <a href="#welcome" className='text-[#f2ede5] text-2xl'>Houses</a>
-                    <a href="#welcome" className='text-[#f2ede5] text-2xl'>Why Capsules®</a>
-                    <a href="#welcome" className='text-[#f2ede5] text-2xl'>Activites</a>
-                    <a href="#welcome" className='text-[#f2ede5] text-2xl'>Feedback</a>
+                    <a href="#products" className='text-[#f2ede5] text-2xl'>Products</a>
+                    <a href="#solutions" className='text-[#f2ede5] text-2xl'>Solutions</a>
+                    <a href="#why-urbanland" className='text-[#f2ede5] text-2xl'>Why Urbanland®</a>
+                    <a href="#projects" className='text-[#f2ede5] text-2xl'>Projects</a>
+                    <a href="#testimonials" className='text-[#f2ede5] text-2xl'>Testimonials</a>
                 </div>
             </div>
 
@@ -41,8 +43,8 @@ const Footer = () => {
 
                 <div>
                     <p className="text-[0.8rem] text-[#b1a696] text-right">
-                        Meet Capsules®—modern and cozy<br />
-                        houses, in the California desert.
+                        Meet Urbanland®—premium urban<br />
+                        and outdoor furniture solutions.
                     </p>
                 </div>
             </div>

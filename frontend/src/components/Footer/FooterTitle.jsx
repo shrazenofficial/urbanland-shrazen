@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import "./footertitle.css";
 
@@ -10,9 +10,16 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const FooterTitle = () => {
     const ftConRef = useRef(null);
+    const [fontsLoaded, setFontsLoaded] = useState(false);
+
+    React.useEffect(() => {
+        document.fonts.ready.then(() => {
+            setFontsLoaded(true);
+        });
+    }, []);
 
     useGSAP(() => {
-        if (!ftConRef.current) return;
+        if (!ftConRef.current || !fontsLoaded) return;
 
         // Get the original HTML before splitting
         const originalHTML = ftConRef.current.querySelector(".footer-title h1").innerHTML;
@@ -66,13 +73,13 @@ const FooterTitle = () => {
             ftConRef.current.querySelector(".footer-title h1").innerHTML = originalHTML;
         };
 
-    }, { scope: ftConRef });
+    }, { scope: ftConRef, dependencies: [fontsLoaded] });
 
     return (
-        <section ref={ftConRef} className='relative z-1 w-screen h-[40vh] border-1 border-t-[#c4c1b9]'>
-            <div className='w-full flex justify-between items-center px-6 mt-8'>
+        <section ref={ftConRef} className='relative z-1 w-full h-[55vh] md:h-[60vh] border-1 border-t-[#c4c1b9] bg-[#181717] overflow-hidden'>
+            <div className='flex flex-col justify-start items-center w-full pt-12 md:pt-16 gap-1.5' >
                 <p className='text-[#b1a696] text-[0.7rem]'>
-                    Website made by—<a href="#" className='text-[#f2ede5]'>Moyra.co</a>
+                    Designed & Crafted for—<a href="#" className='text-[#f2ede5]'>Urbanland®</a>
                 </p>
                 <p className='text-[#b1a696] text-[0.7rem]'>
                     This website is using <a href="#" className='text-[#f2ede5]'>cookies</a>
@@ -84,7 +91,7 @@ const FooterTitle = () => {
 
             <div className='footer-title w-full text-center'>
                 <h1 className='text-[18vw] font-bold'>
-                    Capsules<sub>®</sub>
+                    Urbanland<sub>®</sub>
                 </h1>
             </div>
         </section>

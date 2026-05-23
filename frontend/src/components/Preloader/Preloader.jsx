@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(SplitText);
@@ -52,7 +51,7 @@ const Preloader = () => {
                     const tl = gsap.timeline();
                     const counterSteps = 3;
                     let currentProgress = 0;
-
+ 
                     for (let i = 0; i < counterSteps; i++) {
                         const finalStep = i === counterSteps - 1;
                         const targetProgress = finalStep
@@ -78,8 +77,7 @@ const Preloader = () => {
                     ease: "power4.inOut",
                 })
                     .add(animateProgress(), "<")
-                    .to
-                    (
+                    .to(
                         splits.footerLines.lines,
                         {
                             yPercent: 0,
@@ -97,8 +95,7 @@ const Preloader = () => {
                         ease: "power4.inOut",
                     }, "-=0.5")
                     .set(logoSplit.chars, { overflow: "hidden" }, "<")
-                    .to
-                    (
+                    .to(
                         splits.footerLines.lines,
                         {
                             yPercent: -100,
@@ -143,7 +140,7 @@ const Preloader = () => {
             <div className="preloader-progress">
                 <div className="preloader-progress-bar"></div>
                 <div className="preloader-logo">
-                    <h1 ref={preloaderLogoRef} className="logo-text">Capsule</h1>
+                    <h1 ref={preloaderLogoRef} className="logo-text">Urbanland</h1>
                 </div>
             </div>
 

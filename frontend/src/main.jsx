@@ -1,3 +1,4 @@
+import "./lib/gsap-register"; // One-time GSAP plugin registration (must be first)
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";

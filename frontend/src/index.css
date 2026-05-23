@@ -9,10 +9,10 @@
 
 html,
 body {
+	margin: 0;
+	padding: 0;
 	background-color: #181717;
-	scroll-behavior: smooth;
 	font-family: "Inter", sans-serif;
-	scroll-behavior: smooth;
 	scrollbar-width: none;
 	/* Chrome, Edge, Safari */
 	-ms-overflow-style: none;
@@ -134,7 +134,7 @@ body {
 /* --------------- Welcome Section Styles -------------- */
 
 .text-darkBrown {
-	color: #2A2725;
+	color: rgba(244, 239, 231, 0.07);
 	position: relative;
 	display: inline-block;
 	overflow: hidden;
@@ -147,7 +147,7 @@ body {
 	top: 0;
 	left: 0;
 	color: #f4efe7;
-	clip-path: inset(0 0 100% 0);
+	clip-path: inset(0% 0% 100% 0%);
 	white-space: nowrap;
 	transition: none;
 }
@@ -174,7 +174,7 @@ body {
 }
 
 .choose-title-break {
-	color: #181717;
+	color: rgba(244, 239, 231, 0.07);
 	position: relative;
 	display: inline-block;
 	overflow: hidden;
@@ -239,16 +239,21 @@ body {
 		position: relative;
 		width: 100%;
 		height: 100%;
-		padding: 0.5rem;
+		padding: 0rem;
 	}
 
 	.col-3 {
 		transform: translateX(100%) translateY(100%);
-		padding: 0.5rem;
+		padding: 0rem;
 	}
 
 	.col-4 {
 		transform: translateX(100%) translateY(100%);
+	}
+
+	.col-5 {
+		transform: translateX(100%) translateY(100%);
+		padding: 0rem;
 	}
 
 	.col-content-wrapper {
@@ -264,17 +269,20 @@ body {
 		width: 100%;
 		height: 100%;
 		background-color: #2a2725;
-		border-radius: 3rem;
+		border-radius: 0rem;
 		overflow: hidden;
 	}
 
 	.col-content-wrapper-2 {
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: 0rem;
+		left: 0rem;
 		width: 100%;
 		height: 100%;
-		padding: 2.5rem;
+		background-color: #2a2725;
+		border-radius: 0rem;
+		overflow: hidden;
+		padding: 1.5rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -328,4 +336,13 @@ body {
 	.preloader-footer {
 		width: 75%;
 	}
+}
+
+/* Hide scrollbars but allow scrolling functionality */
+.scrollbar-none::-webkit-scrollbar {
+	display: none !important;
+}
+.scrollbar-none {
+	-ms-overflow-style: none !important;  /* IE and Edge */
+	scrollbar-width: none !important;  /* Firefox */
 }

@@ -5,7 +5,6 @@ import './marqueetext.css';
 const MarqueeText = () => {
     const animationRef = useRef(null);
     const isForwardRef = useRef(true);
-    const starRotationRef = useRef(0); // Track current rotation
 
     useEffect(() => {
         // Start with default forward animation
@@ -16,7 +15,6 @@ const MarqueeText = () => {
             }
 
             const duration = 10; // Fixed duration (lower = faster)
-            const repeatDelay = 0;
 
             if (direction === 'forward') {
                 animationRef.current = gsap.to(".marquee-text-marquee", {
@@ -85,7 +83,7 @@ const MarqueeText = () => {
     // Create multiple marquee items
     const marqueeItems = Array(6).fill(null).map((_, index) => (
         <div key={index} className="marquee-text-marquee">
-            <h1>Why Capsules®?<span className='star-rotate'>*</span></h1>
+            <h1>Why Urbanland®?<span className='star-rotate'>*</span></h1>
         </div>
     ));
 

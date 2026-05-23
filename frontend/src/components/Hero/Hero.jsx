@@ -1,91 +1,260 @@
-import gsap from "gsap/all";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import smoke from "../../assets/smoke_final.mp4";
-import mobileHeroBg from "../../assets/hero-mobile.png"
 import { useGSAP } from "@gsap/react";
-import { useMediaQuery } from "react-responsive";
+
+// Hero Images
+import benchImg from "../../assets/Bench.jpeg";
+import benchPlanterImg from "../../assets/Bench_Planter.jpeg";
+import busSheltersImg from "../../assets/Bus_Shelters.jpeg";
+import canteenTablesImg from "../../assets/Canteen_Tables.jpeg";
+import carShelterImg from "../../assets/Car_Shelter.jpeg";
+import dustbinsImg from "../../assets/Dustbins.jpeg";
+import plantersBoxImg from "../../assets/Planters_Box.jpeg";
+import wickerFurnitureImg from "../../assets/Wicker_Furniture.jpeg";
 
 const Hero = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const progressRef = useRef(null);
+  const heroSectionRef = useRef(null);
 
-    const isMobHero = useMediaQuery({
-        query: "(max-width:768px)",
+  const slides = [
+    {
+      image: wickerFurnitureImg,
+      title: "Wicker Furniture",
+      subtext: "Crafted outdoor seating with refined design and lasting finish."
+    },
+    {
+      image: plantersBoxImg,
+      title: "Planter Boxes",
+      subtext: "Architectural forms designed for modern landscapes."
+    },
+    {
+      image: dustbinsImg,
+      title: "Dustbins",
+      subtext: "Outdoor waste management solutions in modern materials and finishes."
+    },
+    {
+      image: carShelterImg,
+      title: "Car Shelters",
+      subtext: "Engineered parking structures for organized outdoor spaces."
+    },
+    {
+      image: canteenTablesImg,
+      title: "Canteen Tables",
+      subtext: "Heavy-duty dining solutions for institutional and commercial spaces."
+    },
+    {
+      image: busSheltersImg,
+      title: "Bus Shelters",
+      subtext: "Public transport infrastructure built for urban environments."
+    },
+    {
+      image: benchImg,
+      title: "Benches",
+      subtext: "Outdoor seating systems designed for public and private spaces."
+    },
+    {
+      image: benchPlanterImg,
+      title: "Bench Planters",
+      subtext: "Integrated seating and landscape elements for modern spaces."
+    }
+  ];
+
+  // Scroll parallax effect for slider background images — uses gsap.matchMedia instead of react-responsive
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 769px)", () => {
+      gsap.to(".hero-slide-bg", {
+        yPercent: 8,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        }
+      });
     });
 
+    return () => mm.revert();
+  }, { scope: heroSectionRef });
 
-    useGSAP(() => {
-        if (!isMobHero) {
-            gsap.to(".hero-section .hero-img", {
-                yPercent: "-5",
-                stagger: 0.02,
-                scale: 1.2,
-                ease: "power1.inOut",
-                scrollTrigger: {
-                    trigger: ".hero-section",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: 1.5,
-                    // markers: true
-                }
-            });
-        };
-    }, [isMobHero]);
+  // Handle active slide transitions
+  useEffect(() => {
+    // Kill ALL existing tweens before creating new ones to prevent stacking
+    gsap.killTweensOf(".slide-title");
+    gsap.killTweensOf(".slide-desc");
+    slides.forEach((_, idx) => {
+      gsap.killTweensOf(`.slide-bg-${idx}`);
+    });
 
-    return (
-        <section className="hero-section w-dvw md:h-dvh h-[100vh] md:p-2 p-2.5 mb-20">
-            <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden">
-                <div className="responsive-mobile">
-                    {/* Background image (down layer) */}
-                    <div className="hero-img absolute inset-0 bg-[url('./assets/cap1.png')] bg-no-repeat bg-cover bg-center z-0 md:block hidden" />
+    // Background cross-fade and zoom (Ken Burns effect)
+    slides.forEach((_, idx) => {
+      const bg = document.querySelector(`.slide-bg-${idx}`);
+      if (bg) {
+        if (idx === activeIndex) {
+          gsap.fromTo(bg,
+            { scale: 1.15, opacity: 0 },
+            { 
+              scale: 1, 
+              opacity: 1, 
+              duration: 1.4, 
+              ease: "power3.out",
+              zIndex: 1 
+            }
+          );
+        } else {
+          gsap.to(bg, { 
+            opacity: 0, 
+            duration: 1.2, 
+            ease: "power3.out",
+            zIndex: 0 
+          });
+        }
+      }
+    });
 
-                    {/* Mobile image fallback */}
-                    <div className="block lg:hidden mt-6 mb-6">
-                        <img
-                            src={mobileHeroBg}
-                            alt="mobile bg"
-                            className="w-full rounded-[2rem] object-cover shadow-[0_-25px_45px_-10px_rgba(255,0,0,0.15)]"
-                        />
-                    </div>
-
-                    {/* Smoke video (upper layer) */}
-                    <video
-                        src={smoke}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="absolute inset-0 md:w-full md:h-full object-cover z-10 pointer-events-none object-center opacity-50 mix-blend-hard-light md:top-0 top-[5%] h-[90%]  rounded-[2rem] md:px-0"
-                    ></video>
-                </div>
-                <div className="p-4 flex flex-col md:justify-center">
-                    <div className="relative h-dvh">
-                        <h1
-                            className="text-[#f4efe7] text-start text-6xl md:text-9xl font-bold tracking-wider lg:absolute  lg:left-2"
-                            style={{ textShadow: '2px 2px 4px #aaa' }}
-                        >
-                            Capsules®
-                        </h1>
-
-                        <div className="w-full h-auto absolute  top-24 md:bottom-[8%] lg:bottom-[9%] flex md:flex-row flex-col md:justify-between md:items-end">
-                            <h2
-                                className="text-start lg:mt-0 md:text-[#f4efe7] text-[#b1a696] text-2xl font-bold md:tracking-wider leading-5 flex flex-col gap-1"
-                                style={{ textShadow: '2px 2px 4px #000' }}
-                            >
-                                <span>Closer to</span>
-                                <span>Nature—Closer</span>
-                                <span>to Yourself</span>
-                            </h2>
-
-                            <p
-                                className="md:w-[20%] w-[80%] text-[#f4efe7] text-[0.7rem] font-bold  md:font-medium tracking-wide lg:text-end mt-2 text-justify"
-                                style={{ textShadow: '2px 2px 4px #000' }}
-                            >
-                                Spend unforgettable and remarkable time in the Californian desert with—Capsules.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // Stagger slide title and description animations
+    gsap.fromTo(".slide-title", 
+      { yPercent: 100, opacity: 0 },
+      { yPercent: 0, opacity: 1, duration: 0.8, ease: "power4.out" }
     );
+    gsap.fromTo(".slide-desc", 
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, delay: 0.12, ease: "power3.out" }
+    );
+
+    // Slide autoplay progress bar
+    gsap.killTweensOf(progressRef.current);
+    gsap.fromTo(progressRef.current,
+      { width: "0%" },
+      { 
+        width: "100%", 
+        duration: 5.5, 
+        ease: "none",
+        onComplete: () => {
+          handleNext();
+        }
+      }
+    );
+
+    return () => {
+      gsap.killTweensOf(progressRef.current);
+      gsap.killTweensOf(".slide-title");
+      gsap.killTweensOf(".slide-desc");
+      slides.forEach((_, idx) => {
+        gsap.killTweensOf(`.slide-bg-${idx}`);
+      });
+    };
+  }, [activeIndex]);
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % slides.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  return (
+    <section ref={heroSectionRef} className="hero-section w-full md:h-dvh h-[100vh] px-2.5 pb-2.5 pt-0 md:px-2 md:pb-2 md:pt-0 mb-20 relative">
+      <div className="relative w-full h-full rounded-b-[2.5rem] overflow-hidden bg-neutral-950">
+        
+        {/* Background Images */}
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`hero-slide-bg slide-bg-${index} absolute inset-0 bg-no-repeat bg-cover bg-center pointer-events-none opacity-0`}
+            style={{
+              backgroundImage: `url(${slide.image})`,
+            }}
+          />
+        ))}
+
+        {/* Ambient Overlay Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/55 z-10 pointer-events-none" />
+
+        {/* Fog/Smoke Video Layer */}
+        <video
+          src={smoke}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-15 pointer-events-none opacity-30 mix-blend-hard-light"
+        />
+
+        {/* Dynamic Text and UI Controls Overlay */}
+        <div className="relative z-20 w-full h-full flex flex-col justify-between p-6 sm:p-10 md:p-14 font-sans select-none">
+          
+          {/* Top Row Spacer */}
+          <div className="w-full h-12 pt-2" />
+
+          {/* Bottom Row: Product Info & Control Actions */}
+          <div className="w-full flex flex-col gap-6 md:gap-8">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 w-full">
+              
+              {/* Product Text Details */}
+              <div className="max-w-2xl flex flex-col gap-2 md:gap-4 overflow-hidden">
+                <div className="h-12 sm:h-20 md:h-24 overflow-hidden">
+                  <h1 
+                    className="slide-title text-[#f4efe7] text-5xl md:text-8xl font-bold tracking-wider leading-none"
+                    style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.35)' }}
+                  >
+                    {slides[activeIndex].title}
+                  </h1>
+                </div>
+                <div className="max-w-lg overflow-hidden">
+                  <p 
+                    className="slide-desc text-white/90 text-xs sm:text-sm font-medium tracking-wide leading-relaxed max-w-sm"
+                    style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}
+                  >
+                    {slides[activeIndex].subtext}
+                  </p>
+                </div>
+              </div>
+
+              {/* Slider Navigation & Counter */}
+              <div className="flex items-center gap-6 z-30">
+                <div className="text-white/50 text-xs sm:text-sm font-semibold tracking-widest font-mono select-none">
+                  <span className="text-[#f4efe7] text-base md:text-lg font-bold">{String(activeIndex + 1).padStart(2, '0')}</span> / {String(slides.length).padStart(2, '0')}
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <button 
+                    onClick={handlePrev}
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 flex items-center justify-center text-white bg-white/5 hover:bg-white/10 backdrop-blur-md cursor-pointer transition-colors duration-300 active:scale-95"
+                  >
+                    &larr;
+                  </button>
+                  <button 
+                    onClick={handleNext}
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 flex items-center justify-center text-white bg-white/5 hover:bg-white/10 backdrop-blur-md cursor-pointer transition-colors duration-300 active:scale-95"
+                  >
+                    &rarr;
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Visual Slide Autoplay Progress Line */}
+            <div className="w-full h-[2px] bg-white/15 rounded-full overflow-hidden">
+              <div 
+                ref={progressRef}
+                className="h-full bg-[#0a7c41] w-0"
+              />
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

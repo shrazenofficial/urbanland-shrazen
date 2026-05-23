@@ -1,4 +1,9 @@
 export const activitiesLinesLG = [
-    "Discover the",
-    "desert activities"
-]
+    "Trusted Across",
+    "India"
+];
+
+export const activitiesLinesSM = [
+    "Trusted Across",
+    "India"
+];

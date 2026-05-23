@@ -4,11 +4,67 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
-import acImg1 from "../../assets/activities-1.png";
-import acImg2 from "../../assets/activities-2.png";
-import acImg3 from "../../assets/activities-3.png";
+// Import Gallery assets for Solution Cards
+import gbg1 from '../../assets/gallery_real_estate.png';
+import gbg2 from '../../assets/gallery_hotels.png';
+import gbg3 from '../../assets/gallery_hospitals.png';
+import gbg4 from '../../assets/gallery_education.png';
+import gbg5 from '../../assets/gallery_smart_city.png';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+const showcaseSlides = [
+    {
+        title: "Real Estate & Townships",
+        tag: "OFFICE",
+        seoKeyword: "outdoor furniture for real estate projects",
+        image: gbg1,
+        desc: "Premium WPC benches, GFRC planters, car parking sheds, and cabanas that enhance property value and resident experience. Bulk supply with guaranteed timelines for your handover schedule.",
+        link: "/solutions/real-estate",
+        linkText: "Explore Real Estate Solutions →",
+        num: "01",
+    },
+    {
+        title: "Hotels & Resorts",
+        tag: "HOTEL",
+        seoKeyword: "hotel outdoor furniture manufacturer India",
+        image: gbg2,
+        desc: "Luxury poolside loungers, wicker dining sets, and canteen furniture engineered for high guest footfall. Custom finishes to match your property's design language.",
+        link: "/solutions/hotels-resorts",
+        linkText: "Explore Hospitality Solutions →",
+        num: "02",
+    },
+    {
+        title: "Hospitals & Healthcare",
+        tag: "HOSPITAL",
+        seoKeyword: "hospital outdoor furniture India",
+        image: gbg3,
+        desc: "Durable, low-maintenance benches, dustbins, and canteen tables built to withstand heavy daily use in medical campuses. Easy-clean materials that meet hygiene requirements.",
+        link: "/solutions/hospitals",
+        linkText: "Explore Healthcare Solutions →",
+        num: "03",
+    },
+    {
+        title: "Schools & Universities",
+        tag: "EDU",
+        seoKeyword: "campus outdoor furniture manufacturer",
+        image: gbg4,
+        desc: "Heavy-duty canteen tables, WPC benches, and GFRC planters built for high-footfall educational campuses. Resistant to vandalism, low on maintenance.",
+        link: "/solutions/education",
+        linkText: "Explore Campus Solutions →",
+        num: "04",
+    },
+    {
+        title: "Municipal & Smart Cities",
+        tag: "CITY",
+        seoKeyword: "smart city furniture manufacturer India",
+        image: gbg5,
+        desc: "Robust MS/SS bus shelters, stainless steel bollards, park benches, and outdoor dustbins for India's Smart City Mission projects. Compliant with urban infrastructure standards.",
+        link: "/solutions/smart-cities",
+        linkText: "Explore Smart City Solutions →",
+        num: "05",
+    }
+];
 
 const Showcase = () => {
     const containerRef = useRef(null);
@@ -17,49 +73,16 @@ const Showcase = () => {
     useGSAP(() => {
         if (!imgConRef.current || !containerRef.current) return;
 
-        // ✅ TARGET ONLY INNER IMAGES (NOT OUTER DIV)
-        const images = gsap.utils.toArray(".image-item");
-
-        const totalWidth =
-            imgConRef.current.scrollWidth - containerRef.current.offsetWidth;
-
-        let lastScroll = window.scrollY;
-        let velocity = 0;
-
-        // ✅ Horizontal scroll animation (unchanged)
         gsap.to(imgConRef.current, {
-            x: () => -totalWidth,
+            x: () => -(imgConRef.current.scrollWidth - containerRef.current.offsetWidth),
             ease: "none",
             scrollTrigger: {
                 trigger: containerRef.current,
-                start: "-10% 10%",
-                end: () => `+=${totalWidth}`,
+                start: "top top",
+                end: () => `+=${imgConRef.current.scrollWidth - containerRef.current.offsetWidth}`,
                 scrub: true,
                 pin: true,
-                // invalidateOnRefresh: true,
-                // markers: true,
-
-                // onUpdate: () => {
-                //     const currentScroll = window.scrollY;
-                //     velocity = currentScroll - lastScroll;
-                //     lastScroll = currentScroll;
-
-                //     // ✅ Smooth limited movement (no gap, no break)
-                //     const move = gsap.utils.clamp(
-                //         -60,
-                //         60,
-                //         velocity * 2.2
-                //     );
-
-                //     images.forEach((img, index) => {
-                //         gsap.to(img, {
-                //             x: move * (index % 2 === 0 ? 1 : -1),
-                //             duration: 0.4,
-                //             ease: "power3.out",
-                //             overwrite: "auto"
-                //         });
-                //     });
-                // }
+                invalidateOnRefresh: true,
             }
         });
     }, { scope: containerRef });
@@ -67,74 +90,66 @@ const Showcase = () => {
     return (
         <section
             ref={containerRef}
-            className='relative w-full h-dvh overflow-hidden'
+            className='relative w-full h-screen bg-[#181717] p-[10px] overflow-hidden'
         >
             <div
                 ref={imgConRef}
-                className="absolute top-0 left-0 h-full flex items-center justify-start gap-2 p-2 overflow-hidden"
+                className="absolute top-[10px] left-0 h-[calc(100vh-20px)] flex items-stretch justify-start gap-[10px] px-[10px] overflow-hidden"
             >
-                {/* Image 1 */}
-                <div className="relative flex-shrink-0 w-[80vw] h-full overflow-hidden">
-                    <div className="w-[77vw] absolute top-10 left-5 flex justify-between items-start text-[#f4efe7]">
-                        <h1 className="text-3xl font-bold">Buggy tours<br /> in the desert</h1>
-                        <p className="border-[1px] rounded-3xl px-2 py-1 text-center text-[0.7rem]">Easy</p>
-                    </div>
-                    <img
-                        src={acImg1}
-                        alt="Activity 1"
-                        className="image-item w-full h-full object-cover rounded-[2.5rem]"
-                    />
-                    <div className="w-[77vw] absolute bottom-10 left-5 flex justify-between items-start ">
-                        <p className="text-[0.68rem] font-bold text-[#f4efe7]">Explore the terrain on a guided buggy tour that takes<br />you through the desert’s vast and open landscapes.t</p>
-                        <div className="flex justify-center items-center">
-                            <p className="text-[#f4efe7] border-[1px] rounded-3xl px-[1vw] py-1 text-center text-[0.7rem]">01</p>
-                            <p className="text-[#4e484e] border-[1px] rounded-3xl px-[1vw] py-1 text-center text-[0.7rem]">03</p>
+                {showcaseSlides.map((slide, index) => (
+                    <div key={index} className="relative flex-shrink-0 w-[calc(100vw-20px)] h-full overflow-hidden rounded-[20px] shadow-2xl">
+                        
+                        {/* Top row with Category Title and Tag */}
+                        <div className="w-[88%] absolute top-12 md:top-16 left-[6%] flex justify-between items-start text-[#f4efe7] z-20">
+                            <h2 className="text-xl sm:text-2xl md:text-5xl lg:text-7xl font-black uppercase tracking-tight leading-none" style={{ textShadow: '2px 2px 10px rgba(0,0,0,0.7)' }}>
+                                {slide.title}
+                            </h2>
+                            <p className="border-[1px] border-white/20 rounded-full px-4 py-1.5 text-center text-[10px] md:text-xs bg-black/40 backdrop-blur-md uppercase tracking-widest font-bold">
+                                {slide.tag}
+                            </p>
+                        </div>
+                        
+                        <img
+                            src={slide.image}
+                            alt={slide.seoKeyword}
+                            className="image-item w-full h-full object-cover rounded-[20px]"
+                        />
+                        
+                        {/* Immersive overlay gradient for superb contrast and readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/50 pointer-events-none z-10 rounded-[20px]" />
+                        
+                        {/* Bottom Row with H3 Headline, Description, CTA Link and counter */}
+                        <div className="w-[88%] absolute bottom-12 md:bottom-16 left-[6%] flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-0 z-20">
+                            <div className="max-w-[95%] md:max-w-[65%] lg:max-w-[70%] flex flex-col items-start gap-3 sm:gap-4">
+                                {/* H3 Headline (SEO Keyword) */}
+                                <h3 className="text-[#b1a696] font-bold uppercase tracking-wider text-xs sm:text-sm md:text-base lg:text-xl mb-1 leading-snug" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}>
+                                    "{slide.seoKeyword}"
+                                </h3>
+                                {/* Description */}
+                                <p className="text-xs md:text-sm lg:text-lg font-normal text-white/95 leading-relaxed max-w-xl md:max-w-3xl" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}>
+                                    {slide.desc}
+                                </p>
+                                {/* CTA Link */}
+                                <a 
+                                    href={slide.link} 
+                                    className="text-[#f4efe7] hover:text-[#b1a696] text-[11px] md:text-xs font-semibold tracking-wider uppercase transition-colors duration-300 border-b border-[#f4efe7]/20 hover:border-[#b1a696]/40 pb-0.5 mt-2"
+                                >
+                                    {slide.linkText}
+                                </a>
+                            </div>
+                            
+                            {/* Counter */}
+                            <div className="flex justify-center items-center gap-1.5 flex-shrink-0 self-end md:self-auto">
+                                <p className="text-[#f4efe7] border-[1px] border-white/30 bg-black/40 backdrop-blur-md rounded-full px-4 py-1.5 text-center text-[10px] md:text-xs font-black tracking-widest">
+                                    {slide.num}
+                                </p>
+                                <p className="text-white/40 border-[1px] border-white/10 bg-black/20 rounded-full px-4 py-1.5 text-center text-[10px] md:text-xs font-black tracking-widest">
+                                    05
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                {/* Image 2 */}
-                <div className="relative flex-shrink-0 w-[80vw] h-full overflow-hidden">
-                    <div className="w-[77vw] absolute top-10 left-5 flex justify-between items-start text-[#f4efe7]">
-                        <h1 className="text-3xl font-bold">Breathtaking<br />desert hikes</h1>
-                        <p className="border-[1px] rounded-3xl px-2 py-1 text-center text-[0.7rem]">Medium</p>
-                    </div>
-                    <img
-                        src={acImg2}
-                        alt="Activity 1"
-                        className="image-item w-full h-full object-cover rounded-[2.5rem]"
-                    />
-                    <div className="w-[77vw] absolute bottom-10 left-5 flex justify-between items-start ">
-                        <p className="text-[0.68rem] font-bold text-[#f4efe7]">Explore the terrain on a guided buggy tour that takes<br />you through the desert’s vast and open landscapes.t</p>
-                        <div className="flex justify-center items-center">
-                            <p className="text-[#f4efe7] border-[1px] rounded-3xl px-[1vw] py-1 text-center text-[0.7rem]">02</p>
-                            <p className="text-[#4e484e] border-[1px] rounded-3xl px-[1vw] py-1 text-center text-[0.7rem]">03</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Image 3 */}
-                <div className="relative flex-shrink-0 w-[80vw] h-full overflow-hidden">
-                    <div className="w-[77vw] absolute top-10 left-5 flex justify-between items-start text-[#f4efe7]">
-                        <h1 className="text-3xl font-bold">Exciting<br /> rock climbing</h1>
-                        <p className="border-[1px] rounded-3xl px-2 py-1 text-center text-[0.7rem]">Hard</p>
-                    </div>
-                    <img
-                        src={acImg3}
-                        alt="Activity 1"
-                        className="image-item w-full h-full object-cover rounded-[2.5rem]"
-                    />
-                    <div className="w-[77vw] absolute bottom-10 left-5 flex justify-between items-start ">
-                        <p className="text-[0.68rem] font-bold text-[#f4efe7]">Explore the terrain on a guided buggy tour that takes<br />you through the desert’s vast and open landscapes.t</p>
-                        <div className="flex justify-center items-center">
-                            <p className="text-[#f4efe7] border-[1px] rounded-3xl px-[1vw] py-1 text-center text-[0.7rem]">03</p>
-                            <p className="text-[#4e484e] border-[1px] rounded-3xl px-[1vw] py-1 text-center text-[0.7rem]">03</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Extra space */}
-                {/* <div className="flex-shrink-0 w-[2%]"></div> */}
+                ))}
             </div>
         </section>
     );
