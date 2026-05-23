@@ -89,8 +89,8 @@ const FooterTitle = () => {
                 </p>
             </div>
 
-            <div className='footer-title w-full text-center'>
-                <h1 className='text-[clamp(5rem,15vw,12rem)] font-bold translate-y-[10%]'>
+            <div className='footer-title w-full text-center select-none'>
+                <h1 className='text-[clamp(5rem,15vw,12rem)] font-bold translate-y-[0%] leading-none'>
                     Urbanland<sub>®</sub>
                 </h1>
             </div>
