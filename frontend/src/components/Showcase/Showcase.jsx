@@ -97,11 +97,22 @@ const Showcase = () => {
                 className="absolute top-[10px] left-0 h-[calc(100vh-20px)] flex items-stretch justify-start gap-[10px] px-[10px] overflow-hidden"
             >
                 {showcaseSlides.map((slide, index) => (
-                    <div key={index} className="relative flex-shrink-0 w-[calc(100vw-20px)] h-full overflow-hidden rounded-[20px] shadow-2xl">
+                    <div 
+                        key={index} 
+                        className="relative flex-shrink-0 w-[calc(100vw-20px)] h-full overflow-hidden shadow-2xl"
+                        style={{ borderRadius: index === 0 ? '37.5px' : '37px' }}
+                    >
                         
                         {/* Top row with Category Title and Tag */}
                         <div className="w-[88%] absolute top-12 md:top-16 left-[6%] flex justify-between items-start text-[#f4efe7] z-20">
-                            <h2 className="text-xl sm:text-2xl md:text-5xl lg:text-7xl font-black uppercase tracking-tight leading-none" style={{ textShadow: '2px 2px 10px rgba(0,0,0,0.7)' }}>
+                            <h2 
+                                className="font-black uppercase tracking-tight leading-none" 
+                                style={{ 
+                                    fontSize: index === 0 ? '37px' : '35px',
+                                    fontWeight: 900,
+                                    textShadow: '2px 2px 10px rgba(0,0,0,0.7)' 
+                                }}
+                            >
                                 {slide.title}
                             </h2>
                             <p className="border-[1px] border-white/20 rounded-full px-4 py-1.5 text-center text-[10px] md:text-xs bg-black/40 backdrop-blur-md uppercase tracking-widest font-bold">
@@ -112,11 +123,15 @@ const Showcase = () => {
                         <img
                             src={slide.image}
                             alt={slide.seoKeyword}
-                            className="image-item w-full h-full object-cover rounded-[20px]"
+                            className="image-item w-full h-full object-cover"
+                            style={{ borderRadius: index === 0 ? '37.5px' : '37px' }}
                         />
                         
                         {/* Immersive overlay gradient for superb contrast and readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/50 pointer-events-none z-10 rounded-[20px]" />
+                        <div 
+                            className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/50 pointer-events-none z-10" 
+                            style={{ borderRadius: index === 0 ? '37.5px' : '37px' }}
+                        />
                         
                         {/* Bottom Row with H3 Headline, Description, CTA Link and counter */}
                         <div className="w-[88%] absolute bottom-12 md:bottom-16 left-[6%] flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-0 z-20">
