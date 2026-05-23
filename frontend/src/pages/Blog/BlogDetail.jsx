@@ -81,7 +81,7 @@ const BlogDetail = () => {
         <h2 className="text-3xl font-bold text-[#2D2D2D] mb-4">Article Not Found</h2>
         <p className="text-[#2D2D2D]/70 mb-8">The requested article could not be resolved from WordPress.</p>
         <Link 
-          to="/Urbanland/blog" 
+          to="/blog" 
           className="px-6 py-3 bg-[#2C5F2E] text-white rounded-full font-bold uppercase tracking-wider text-xs hover:bg-[#2D2D2D] transition-colors"
         >
           Back to Journal
@@ -104,12 +104,12 @@ const BlogDetail = () => {
         <div className="flex items-center gap-1 text-[10px] md:text-xs text-[#2D2D2D]/50 uppercase tracking-widest font-bold select-none">
           <Link to="/Urbanland" className="hover:text-[#2C5F2E] transition-colors">Catalog</Link>
           <MdKeyboardArrowRight className="text-sm" />
-          <Link to="/Urbanland/blog" className="hover:text-[#2C5F2E] transition-colors">Journal</Link>
+          <Link to="/blog" className="hover:text-[#2C5F2E] transition-colors">Journal</Link>
           <MdKeyboardArrowRight className="text-sm" />
           <span className="text-[#2D2D2D] font-black truncate max-w-[200px] sm:max-w-xs">{post.title?.rendered}</span>
         </div>
         <button 
-          onClick={() => navigate("/Urbanland/blog")}
+          onClick={() => navigate("/blog")}
           className="flex items-center gap-1.5 text-[10px] md:text-xs font-bold uppercase tracking-wider text-[#2C5F2E] hover:text-[#C9A84C] transition-colors cursor-pointer"
         >
           <MdArrowBack className="text-base" /> Back to Journal
@@ -161,7 +161,7 @@ const BlogDetail = () => {
         {/* Back to list & CTA row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-black/[0.08] pt-12 mt-16">
           <Link
-            to="/Urbanland/blog"
+            to="/blog"
             className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#2D2D2D] hover:text-[#2C5F2E] transition-all cursor-pointer"
           >
             ← Back to Journal list
@@ -186,7 +186,7 @@ const BlogDetail = () => {
             {relatedPosts.map((rPost) => (
               <Link
                 key={rPost.id}
-                to={`/Urbanland/blog/${rPost.slug}`}
+                to={`/blog/${rPost.slug}`}
                 className="bg-white rounded-[2rem] border border-black/[0.03] p-5 shadow-[0_5px_20px_rgba(0,0,0,0.01)] hover:shadow-[0_15px_45px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 flex flex-col sm:flex-row gap-6 cursor-pointer no-underline group"
               >
                 <div className="w-full sm:w-[40%] aspect-[16/10] sm:aspect-square rounded-xl overflow-hidden bg-black/5 shrink-0">

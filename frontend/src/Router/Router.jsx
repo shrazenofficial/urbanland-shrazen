@@ -8,7 +8,7 @@ import BlogDetail from "../pages/Blog/BlogDetail";
 
 const router = createBrowserRouter([
     {
-        path: "/Urbanland", // GitHub Pages repo name
+        path: "/", // Deployed at root domain
         element: <MainLayout />, // Layout wrapper
         children: [
             { path: "", element: <Home /> }, // default page

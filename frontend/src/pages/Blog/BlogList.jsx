@@ -150,7 +150,7 @@ const BlogList = () => {
                 return (
                   <Link
                     key={post.id}
-                    to={`/Urbanland/blog/${post.slug}`}
+                    to={`/blog/${post.slug}`}
                     className="bg-white rounded-[2.5rem] border border-black/[0.03] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between group cursor-pointer no-underline aspect-[4/5] p-6"
                   >
                     {/* Featured Image */}

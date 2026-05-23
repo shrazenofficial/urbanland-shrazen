@@ -229,7 +229,7 @@ const ProductDetail = () => {
                     key={p.id}
                     onClick={() => {
                       setDropdownOpen(false);
-                      navigate(`/Urbanland/product/${p.id}`);
+                      navigate(`/product/${p.id}`);
                     }}
                     className={`w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors flex justify-between items-center cursor-pointer ${
                       p.id === product.id 
@@ -721,7 +721,7 @@ const ProductDetail = () => {
           {relatedProducts.map((rel) => (
             <Link 
               key={rel.id} 
-              to={`/Urbanland/product/${rel.id}`}
+              to={`/product/${rel.id}`}
               className="bg-white rounded-3xl p-6 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.01)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 group no-underline flex flex-col justify-between items-stretch aspect-[4/5]"
             >
               <div className="flex justify-between items-start">

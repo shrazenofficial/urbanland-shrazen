@@ -246,7 +246,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
           filteredProducts.map((product) => (
             <Link
               key={product.id}
-              to={`/Urbanland/product/${product.id}`}
+              to={`/product/${product.id}`}
               className="catalog-card min-w-[280px] sm:min-w-[340px] md:min-w-[380px] lg:min-w-[420px] aspect-[4/5] bg-white rounded-[2rem] p-8 flex flex-col justify-between items-stretch snap-start shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-black/[0.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 group cursor-pointer no-underline block"
             >
               {/* Header info */}

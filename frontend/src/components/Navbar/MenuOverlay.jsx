@@ -24,13 +24,13 @@ const MenuOverlay = ({ isOpen, setIsOpen }) => {
   const bgImages = [capsuleImg, gbg1, gbg2, gbg3, gbg4, gbg5, gbg1];
 
   const links = [
-    { name: "Welcome", path: "/Urbanland#hero", hash: "#hero" },
-    { name: "Introduction", path: "/Urbanland#welcome", hash: "#welcome" },
-    { name: "Catalog", path: "/Urbanland#gallery", hash: "#gallery" },
-    { name: "Why Urbanland", path: "/Urbanland#map-link", hash: "#map-link" },
-    { name: "Journal", path: "/Urbanland/blog", hash: "" },
-    { name: "Activities", path: "/Urbanland#activities", hash: "#activities" },
-    { name: "Feedback", path: "/Urbanland#feedback", hash: "#feedback" }
+    { name: "Welcome", path: "/#hero", hash: "#hero" },
+    { name: "Introduction", path: "/#welcome", hash: "#welcome" },
+    { name: "Catalog", path: "/#gallery", hash: "#gallery" },
+    { name: "Why Urbanland", path: "/#map-link", hash: "#map-link" },
+    { name: "Journal", path: "/blog", hash: "" },
+    { name: "Activities", path: "/#activities", hash: "#activities" },
+    { name: "Feedback", path: "/#feedback", hash: "#feedback" }
   ];
 
   // Socials structure matching the circles
@@ -160,7 +160,7 @@ const MenuOverlay = ({ isOpen, setIsOpen }) => {
             <div className="flex flex-col gap-1 items-start justify-center flex-grow">
               {links.map((link, index) => {
                 const isHashLink = link.hash !== "";
-                const isOnHomePage = location.pathname === "/Urbanland" || location.pathname === "/Urbanland/";
+                const isOnHomePage = location.pathname === "/" || location.pathname === "/";
                 
                 if (isHashLink && isOnHomePage) {
                   return (
