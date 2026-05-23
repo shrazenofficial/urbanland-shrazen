@@ -199,9 +199,9 @@ const Hero = () => {
               
               {/* Product Text Details */}
               <div className="max-w-2xl flex flex-col gap-2 md:gap-4 overflow-hidden">
-                <div className="h-12 sm:h-20 md:h-24 overflow-hidden">
+                <div className="h-auto overflow-hidden py-1">
                   <h1 
-                    className="slide-title text-[#f4efe7] text-5xl md:text-8xl font-bold tracking-wider leading-none"
+                    className="slide-title text-[#f4efe7] text-[clamp(32px,8.5vw,48px)] sm:text-6xl md:text-8xl font-bold tracking-wider leading-none"
                     style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.35)' }}
                   >
                     {slides[activeIndex].title}

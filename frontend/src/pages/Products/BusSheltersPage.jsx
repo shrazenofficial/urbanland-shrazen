@@ -167,11 +167,11 @@ const BusSheltersPage = () => {
                             </span>
                         </div>
 
-                        <h1 className="text-[35px] sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-[1.05] mb-6">
+                        <h1 className="text-[clamp(26px,8.5vw,35px)] sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-[1.05] mb-6">
                             Premium Bus Shelters Manufactured in India — Custom Design for Smart Cities, Townships & Municipalities
                         </h1>
 
-                        <p className="text-[15px] sm:text-base md:text-lg text-white/85 leading-relaxed max-w-3xl mb-8">
+                        <p className="text-[clamp(13.5px,4vw,15px)] sm:text-base md:text-lg text-white/85 leading-relaxed max-w-3xl mb-8">
                             Robust, weather-resistant bus shelters engineered for India's smart city projects, real estate townships, and municipal transport systems. Available in mild steel, stainless steel, and aluminium with customizable roof materials. Backed by India's only 2-year comprehensive guarantee.
                         </p>
 
