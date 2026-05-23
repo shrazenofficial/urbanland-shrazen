@@ -8,6 +8,7 @@ import BlogDetail from "../pages/Blog/BlogDetail";
 
 // New Sitemap Pages Imports
 import ProductsHub from "../pages/Products/ProductsHub";
+import BusSheltersPage from "../pages/Products/BusSheltersPage";
 import CategoryDetail from "../pages/Products/CategoryDetail";
 import SolutionsHub from "../pages/Solutions/SolutionsHub";
 import SolutionsDetail from "../pages/Solutions/SolutionsDetail";
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
             
             // Products Sitemap Paths
             { path: "products", element: <ProductsHub /> },
+            { path: "products/bus-shelters", element: <BusSheltersPage /> },
             { path: "products/:category", element: <CategoryDetail /> },
             { path: "products/:category/:subcategory", element: <CategoryDetail /> },
             
