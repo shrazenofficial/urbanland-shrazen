@@ -46,7 +46,7 @@ const Gallery = () => {
                 .to(".gallery-page4 .gallery-background", {
                     width: "calc(100% - 1rem)",
                     height: "calc(100vh - 1rem)",
-                    borderRadius: "3.5rem",
+                    borderRadius: "37.5px",
                     transform: "translate(-50%, -56%)",
                 }, 'a')
                 .to(".gallery-page4 .gallery-background img", {
@@ -155,7 +155,7 @@ const Gallery = () => {
                 .to(".gallery-page4 .gallery-background", {
                     width: "calc(100% - 1rem)",
                     height: "calc(100vh - 1rem)",
-                    borderRadius: "3.5rem",
+                    borderRadius: "37.5px",
                     transform: "translate(-50%, -50%)",
                 }, 'a')
                 .to(".gallery-page4 .gallery-background img", {
