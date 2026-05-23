@@ -188,7 +188,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
       <div className="w-full flex flex-col lg:flex-row gap-10 items-stretch catalog-pills-row">
         
         {/* Left column: Principles and Active Tag Filters */}
-        <div className="w-full lg:w-[32%] shrink-0 flex flex-col justify-between p-8 bg-[#F7F4EF]/60 rounded-[2.5rem] border border-[#2D2D2D]/5 shadow-[0_10px_35px_rgba(0,0,0,0.01)] select-none">
+        <div className="w-full lg:w-[32%] shrink-0 flex flex-col justify-between p-5 sm:p-6 lg:p-6 xl:p-8 bg-[#F7F4EF]/60 rounded-[2.5rem] border border-[#2D2D2D]/5 shadow-[0_10px_35px_rgba(0,0,0,0.01)] select-none">
           <div>
             <span className="text-[0.75rem] font-bold uppercase tracking-wider text-[#2D2D2D]/70 leading-relaxed mb-6 block">
               All Urbanland® products are designed and built on the same principles:
@@ -229,53 +229,56 @@ const ProductsCatalog = ({ showTitle = true }) => {
           </div>
           
           {/* Bottom row: All Products + * + Navigation */}
-          <div className="mt-10 flex flex-wrap items-center gap-3 border-t border-[#2D2D2D]/10 pt-6">
+          <div className="mt-10 flex items-center justify-between border-t border-[#2D2D2D]/10 pt-6 w-full gap-2 flex-wrap sm:flex-nowrap">
             
-            {/* All Products Pill Button */}
-            <button
-              onClick={() => setActiveCategory("all")}
-              className={`flex items-center gap-2.5 px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                activeCategory === "all"
-                  ? "bg-[#2C5F2E] text-[#F7F4EF] shadow-md border border-[#2C5F2E] scale-95"
-                  : "bg-[#2D2D2D]/5 text-[#2D2D2D] border border-[#2D2D2D]/10 hover:bg-[#2D2D2D]/10"
-              }`}
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              All products
-            </button>
+            {/* Left side group: All Products + Asterisk */}
+            <div className="flex items-center gap-2 shrink-0 flex-nowrap">
+              {/* All Products Pill Button */}
+              <button
+                onClick={() => setActiveCategory("all")}
+                className={`flex items-center gap-1.5 px-4 py-2.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                  activeCategory === "all"
+                    ? "bg-[#2C5F2E] text-[#F7F4EF] shadow-md border border-[#2C5F2E] scale-95"
+                    : "bg-[#2D2D2D]/5 text-[#2D2D2D] border border-[#2D2D2D]/10 hover:bg-[#2D2D2D]/10"
+                }`}
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                All products
+              </button>
+              
+              {/* Custom Asterisk Button */}
+              <button
+                onClick={() => {
+                  const principles = ["Sustainable", "Nature—Care", "Smart", "Privacy", "Spacious", "Glassed-in"];
+                  const rand = principles[Math.floor(Math.random() * principles.length)];
+                  setActiveCategory(rand);
+                }}
+                className="w-10 h-10 rounded-full bg-[#EAE5DB] text-[#2D2D2D] hover:bg-[#EAE5DB]/80 flex justify-center items-center text-lg font-bold transition-all cursor-pointer shrink-0"
+                title="Surprise Me (Random Principle)"
+              >
+                ✳
+              </button>
+            </div>
             
-            {/* Custom Asterisk Button */}
-            <button
-              onClick={() => {
-                const principles = ["Sustainable", "Nature—Care", "Smart", "Privacy", "Spacious", "Glassed-in"];
-                const rand = principles[Math.floor(Math.random() * principles.length)];
-                setActiveCategory(rand);
-              }}
-              className="w-12 h-12 rounded-full bg-[#EAE5DB] text-[#2D2D2D] hover:bg-[#EAE5DB]/80 flex justify-center items-center text-xl font-bold transition-all cursor-pointer"
-              title="Surprise Me (Random Principle)"
-            >
-              ✳
-            </button>
-            
-            {/* Navigation Arrows */}
-            <div className="flex items-center gap-2 ml-auto lg:ml-0">
+            {/* Right side group: Navigation Arrows */}
+            <div className="flex items-center gap-2 flex-nowrap shrink-0 ml-auto sm:ml-0">
               <button
                 onClick={() => scroll("left")}
-                className="w-12 h-12 rounded-full bg-[#EAE5DB] text-[#2D2D2D] hover:bg-[#EAE5DB]/80 flex justify-center items-center transition-all cursor-pointer"
+                className="w-10 h-10 rounded-full bg-[#EAE5DB] text-[#2D2D2D] hover:bg-[#EAE5DB]/80 flex justify-center items-center transition-all cursor-pointer shrink-0"
                 aria-label="Scroll left"
               >
-                <svg className="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
               <button
                 onClick={() => scroll("right")}
-                className="w-12 h-12 rounded-full bg-[#2C5F2E] text-[#F7F4EF] hover:bg-[#2C5F2E]/90 flex justify-center items-center shadow-md transition-all cursor-pointer"
+                className="w-10 h-10 rounded-full bg-[#2C5F2E] text-[#F7F4EF] hover:bg-[#2C5F2E]/90 flex justify-center items-center shadow-md transition-all cursor-pointer shrink-0"
                 aria-label="Scroll right"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
