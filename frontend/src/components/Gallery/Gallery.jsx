@@ -70,7 +70,7 @@ const Gallery = () => {
                     <img src={gbg1} alt="outdoor furniture for real estate projects" />
                     <div className="gallery-topText">
                         <h4>Real Estate & Townships</h4>
-                        <h3>(Explore)</h3>
+                        <h3>Explore</h3>
                     </div>
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">
@@ -98,7 +98,7 @@ const Gallery = () => {
                     <img src={gbg2} alt="hotel outdoor furniture manufacturer India" />
                     <div className="gallery-topText">
                         <h4>Hotels & Resorts</h4>
-                        <h3>(Explore)</h3>
+                        <h3>Explore</h3>
                     </div>
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">
@@ -126,7 +126,7 @@ const Gallery = () => {
                     <img src={gbg3} alt="hospital outdoor furniture India" />
                     <div className="gallery-topText">
                         <h4>Hospitals & Healthcare</h4>
-                        <h3>(Explore)</h3>
+                        <h3>Explore</h3>
                     </div>
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">
@@ -154,7 +154,7 @@ const Gallery = () => {
                     <img src={gbg4} alt="campus outdoor furniture manufacturer" />
                     <div className="gallery-topText">
                         <h4>Schools & Universities</h4>
-                        <h3>(Explore)</h3>
+                        <h3>Explore</h3>
                     </div>
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">
@@ -182,7 +182,7 @@ const Gallery = () => {
                     <img src={gbg5} alt="smart city furniture manufacturer India" />
                     <div className="gallery-topText">
                         <h4>Municipal & Smart Cities</h4>
-                        <h3>(Explore)</h3>
+                        <h3>Explore</h3>
                     </div>
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">

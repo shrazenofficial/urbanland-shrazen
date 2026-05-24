@@ -53,7 +53,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    height: 90vh;
+    height: 85vh;
     padding-left: 6vw;
     padding-right: 20vw; /* Padding so the last card composed beautifully */
     gap: 10px;
@@ -145,19 +145,29 @@
 }
 
 .gallery-topText h3 {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #C9A84C; /* Gold Accent */
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #F7F4EF; /* Pure off-white to match reference */
     margin: 0;
-    border: 1px solid rgba(201, 168, 76, 0.35);
-    padding: 0.55rem 1.25rem;
+    border: 1.5px solid rgba(247, 244, 239, 0.85); /* Solid off-white border outline */
+    padding: 0.5rem 1.15rem;
     border-radius: 9999px;
-    background-color: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     line-height: 1;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.gallery-topText h3:hover {
+    background-color: #F7F4EF;
+    color: #181717;
+    border-color: #F7F4EF;
+    transform: scale(1.05);
 }
 
 .gallery-seo-keyword {
@@ -192,7 +202,7 @@
 /* Responsive Overrides for Mobile Viewports (< 800px) */
 @media (max-width: 800px) {
     .gallery-horizontal-track {
-        height: 90vh;
+        height: 85vh;
         padding-left: 4vw;
         padding-right: 15vw;
         gap: 10px;
@@ -216,8 +226,11 @@
     }
 
     .gallery-topText h3 {
-        font-size: 0.9rem !important;
-        padding: 0.3rem 0.8rem !important;
+        font-size: 0.75rem !important;
+        font-weight: 700 !important;
+        color: #F7F4EF !important;
+        border: 1.2px solid rgba(247, 244, 239, 0.85) !important;
+        padding: 0.35rem 0.85rem !important;
     }
 
     .gallery-bottomText {
