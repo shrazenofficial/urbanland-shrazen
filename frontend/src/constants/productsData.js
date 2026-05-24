@@ -1,15 +1,15 @@
 // Import product images
-import benchPlanterImg from "../assets/products/Product Images/Bench Planter/Make_it_8k_resolution_image_202605170101.jpeg";
-import benchesImg from "../assets/products/Product Images/Benches/Create_a_clean,_premium,_professional_202605162312.jpeg";
-import busSheltersImg from "../assets/products/Product Images/Bus Shelters/Create_a_clean,_premium,_professional_202605170115.jpeg";
-import cabanasImg from "../assets/products/Product Images/Cabanas/Create_a_clean,_premium,_professional_202605170136.jpeg";
-import caneFurniture2Img from "../assets/products/Product Images/Cane Furniture/2 Items.jpeg";
-import caneFurniture3Img from "../assets/products/Product Images/Cane Furniture/3 Items.jpeg";
-import canteenTableImg from "../assets/products/Product Images/Canteen Table/Create_a_clean,_premium,_professional_202605170053.jpeg";
-import carShelterImg from "../assets/products/Product Images/Car Shelter/Create_a_clean,_premium,_professional_202605170216.jpeg";
-import dustbinsImg from "../assets/products/Product Images/Dustbins/Create_a_clean,_premium,_professional_202605170106.jpeg";
-import plantersBoxImg from "../assets/products/Product Images/Planters Box/Create_a_clean,_premium,_professional_202605170111.jpeg";
-import poolsideLoungersImg from "../assets/products/Product Images/Poolside Loungers/Create_a_clean,_premium,_professional_202605170154.jpeg";
+import benchPlanterImg from "../assets/products/Product Images/Bench Planter/Make_it_8k_resolution_image_202605170101.png";
+import benchesImg from "../assets/products/Product Images/Benches/Create_a_clean,_premium,_professional_202605162312.png";
+import busSheltersImg from "../assets/products/Product Images/Bus Shelters/Create_a_clean,_premium,_professional_202605170115.png";
+import cabanasImg from "../assets/products/Product Images/Cabanas/Create_a_clean,_premium,_professional_202605170136.png";
+import caneFurniture2Img from "../assets/products/Product Images/Cane Furniture/2 Items.png";
+import caneFurniture3Img from "../assets/products/Product Images/Cane Furniture/3 Items.png";
+import canteenTableImg from "../assets/products/Product Images/Canteen Table/Create_a_clean,_premium,_professional_202605170053.png";
+import carShelterImg from "../assets/products/Product Images/Car Shelter/Create_a_clean,_premium,_professional_202605170216.png";
+import dustbinsImg from "../assets/products/Product Images/Dustbins/Create_a_clean,_premium,_professional_202605170106.png";
+import plantersBoxImg from "../assets/products/Product Images/Planters Box/Create_a_clean,_premium,_professional_202605170111.png";
+import poolsideLoungersImg from "../assets/products/Product Images/Poolside Loungers/Create_a_clean,_premium,_professional_202605170154.png";
 
 // Import showcase gallery assets
 import gbg1 from '../assets/gallery_real_estate.png';

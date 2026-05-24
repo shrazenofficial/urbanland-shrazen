@@ -300,56 +300,8 @@ const parseWPPostToProduct = (post) => {
  * Falls back to our local high-fidelity products list if all fetch routes are unconfigured or fail.
  */
 export const fetchProducts = async () => {
-  if (!WP_BASE_URL) {
-    console.log("WordPress API URL not configured. Returning fallback catalog products.");
-    return localProducts;
-  }
-
-  try {
-    // 1. Attempt standard WordPress Custom Post Type 'products' REST API
-    const res = await fetch(`${WP_BASE_URL}/wp-json/wp/v2/products?_embed&per_page=100`);
-    if (res.ok) {
-      const data = await res.json();
-      if (data && data.length > 0) {
-        return data.map((prod) => parseWPProduct(prod));
-      }
-    }
-
-    // 2. Attempt WooCommerce fallback if CPT fails or is empty
-    try {
-      const wcRes = await fetch(`${WP_BASE_URL}/wp-json/wc/v3/products?per_page=100`);
-      if (wcRes.ok) {
-        const wcData = await wcRes.json();
-        if (wcData && wcData.length > 0) {
-          return wcData.map((prod) => parseWCObjectToProduct(prod));
-        }
-      }
-    } catch (e) {
-      console.warn("WooCommerce API attempt failed:", e);
-    }
-
-    // 3. Fallback to querying standard Posts under Outdoor/Wicker Furniture categories (ID 9 and 13)
-    console.log("CPT & WooCommerce empty. Querying WordPress posts under product categories...");
-    const postsRes = await fetch(`${WP_BASE_URL}/wp-json/wp/v2/posts?categories=9,13&_embed&per_page=100`);
-    if (postsRes.ok) {
-      const postsData = await postsRes.json();
-      if (postsData && postsData.length > 0) {
-        const parsedProducts = postsData.map((post) => parseWPPostToProduct(post));
-        
-        // Merge the dynamic products from WP with our premium local templates to ensure complete coverage
-        const merged = [
-          ...parsedProducts,
-          ...localProducts.filter((lp) => !parsedProducts.some((pd) => pd.id === lp.id))
-        ];
-        return merged;
-      }
-    }
-
-    throw new Error("All WordPress REST endpoints returned empty or failed.");
-  } catch (error) {
-    console.warn("Failed to fetch products from Headless WordPress API. Falling back to local static catalog.", error);
-    return localProducts;
-  }
+  // Bypassed WordPress fetch per user request to use local static catalog with background-removed assets
+  return localProducts;
 };
 
 /**
