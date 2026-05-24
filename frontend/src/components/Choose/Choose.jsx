@@ -58,7 +58,7 @@ const Choose = () => {
     return (
         <section ref={sectionRef} id="choose" className="choose-section w-full min-h-screen p-8 pt-10 pb-20 flex flex-col justify-start items-start gap-12">
             <div className="w-full">
-                <p className='text-[.7rem] text-[#2D2D2D] choose-subtitle uppercase tracking-wider font-bold'>— Why Leading Developers Choose Urbanland</p>
+                <p className='text-[.7rem] text-[#2D2D2D] choose-subtitle uppercase tracking-wider font-bold'>— India's Premier B2B Outdoor & Urban Furniture Manufacturer</p>
                 <div className="lg:mt-10 mt-7 title-part origin-bottom">
                     {/* Desktop Choose Lines */}
                     <div className="hidden md:block">
