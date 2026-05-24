@@ -160,16 +160,17 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroSectionRef} id="hero" className="hero-section w-full md:h-dvh h-[100vh] p-[10px] pb-0 mb-20 relative">
-      <div className="relative w-full h-full rounded-[37.5px] overflow-hidden bg-neutral-950">
+    <section ref={heroSectionRef} id="hero" className="hero-section w-full md:h-dvh h-[100vh] relative">
+      <div className="relative w-full h-full overflow-hidden bg-[#1A1A1A]">
         
         {/* Background Images */}
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`hero-slide-bg slide-bg-${index} absolute inset-0 bg-no-repeat bg-cover bg-center pointer-events-none opacity-0`}
+            className={`hero-slide-bg slide-bg-${index} absolute inset-0 bg-no-repeat bg-cover bg-center pointer-events-none`}
             style={{
               backgroundImage: `url(${slide.image})`,
+              opacity: index === 0 ? 1 : 0,
             }}
           />
         ))}

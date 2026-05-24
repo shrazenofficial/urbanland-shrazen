@@ -79,7 +79,7 @@ const Welcome = () => {
             <div className="flex md:flex-row flex-col justify-between items-center md:p-4 md:mt-20 mt-10 gap-10 md:gap-16 w-full">
                 
                 {/* Premium Layered Overlapping Collage */}
-                <div className="relative w-[340px] h-[290px] sm:w-[440px] sm:h-[370px] md:w-[500px] md:h-[420px] lg:w-[580px] lg:h-[480px] xl:w-[620px] xl:h-[510px] flex-shrink-0 select-none">
+                <div className="relative w-[260px] h-[220px] sm:w-[320px] sm:h-[270px] md:w-[370px] md:h-[310px] lg:w-[420px] lg:h-[350px] xl:w-[460px] xl:h-[380px] flex-shrink-0 select-none">
                     {/* Background Layer Card */}
                     <div className="absolute top-0 left-0 w-[65%] h-[82%] rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] hover:scale-[1.03] hover:-rotate-2 transition-all duration-700 cursor-pointer border border-black/5 z-0">
                         <img src={w1} alt="Welcome layout urban furniture WPC bench supply" className="w-full h-full object-cover" />
