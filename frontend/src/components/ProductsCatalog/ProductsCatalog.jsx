@@ -205,49 +205,12 @@ const ProductsCatalog = ({ showTitle = true }) => {
         {/* Left column: Principles and Active Tag Filters */}
         <div className="w-full lg:w-[32%] shrink-0 flex flex-col justify-between p-5 sm:p-6 lg:p-6 xl:p-8 bg-[#F7F4EF]/60 rounded-[2.5rem] border border-[#2D2D2D]/5 shadow-[0_10px_35px_rgba(0,0,0,0.01)] select-none">
           <div>
-            <span className="text-[0.75rem] font-bold uppercase tracking-wider text-[#2D2D2D]/70 leading-relaxed mb-6 block">
-              All Urbanland® products are designed and built on the same principles:
-            </span>
-            
-            {/* Principles Tag Grid */}
-            <div className="flex flex-wrap gap-2.5 mt-4">
-              {[
-                { name: "Sustainable", type: "green" },
-                { name: "Nature—Care", type: "gold" },
-                { name: "Smart", type: "green" },
-                { name: "Privacy", type: "gold" },
-                { name: "Spacious", type: "green" },
-                { name: "Glassed-in", type: "gold" }
-              ].map((pill) => {
-                const isActive = activeCategory === pill.name;
-                const isGreen = pill.type === "green";
-                
-                return (
-                  <button
-                    key={pill.name}
-                    onClick={() => setActiveCategory(isActive ? "all" : pill.name)}
-                    className={`px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide border-[1.5px] transition-all duration-300 cursor-pointer ${
-                      isGreen
-                        ? isActive
-                          ? "bg-[#2C5F2E] text-[#F7F4EF] border-[#2C5F2E] shadow-sm scale-95"
-                          : "border-[#2C5F2E] text-[#2C5F2E] hover:bg-[#2C5F2E]/5"
-                        : isActive
-                          ? "bg-[#C9A84C] text-[#F7F4EF] border-[#C9A84C] shadow-sm scale-95"
-                          : "border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C]/5"
-                    }`}
-                  >
-                    {pill.name}
-                  </button>
-                );
-              })}
-            </div>
-
-            <span className="text-[0.75rem] font-bold uppercase tracking-wider text-[#2D2D2D]/70 leading-relaxed mt-8 mb-4 block border-t border-[#2D2D2D]/10 pt-6">
+            <span className="text-[0.75rem] font-bold uppercase tracking-wider text-[#2D2D2D]/70 leading-relaxed mb-4 block">
               Browse by Product Category:
             </span>
             
             {/* Categories Tag Grid */}
-            <div className="flex flex-wrap gap-2.5 mt-4">
+            <div className="flex flex-wrap gap-2.5 mt-2">
               {categories.filter(cat => cat.id !== "all").map((cat) => {
                 const isActive = activeCategory === cat.id;
                 
@@ -292,12 +255,12 @@ const ProductsCatalog = ({ showTitle = true }) => {
               {/* Custom Asterisk Button */}
               <button
                 onClick={() => {
-                  const principles = ["Sustainable", "Nature—Care", "Smart", "Privacy", "Spacious", "Glassed-in"];
-                  const rand = principles[Math.floor(Math.random() * principles.length)];
+                  const validCategories = ["Benches", "Wicker", "Shelters", "Planter", "Dustbin", "Cabanas", "Sheds", "Car sheds", "Pool"];
+                  const rand = validCategories[Math.floor(Math.random() * validCategories.length)];
                   setActiveCategory(rand);
                 }}
                 className="w-10 h-10 rounded-full bg-[#EAE5DB] text-[#2D2D2D] hover:bg-[#EAE5DB]/80 flex justify-center items-center text-lg font-bold transition-all cursor-pointer shrink-0"
-                title="Surprise Me (Random Principle)"
+                title="Surprise Me (Random Category)"
               >
                 ✳
               </button>
