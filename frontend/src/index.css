@@ -221,7 +221,7 @@ body {
 		width: 50%;
 		height: 100%;
 		will-change: transform;
-		padding: 0 5px;
+		padding: 0 10px;
 		box-sizing: border-box;
 	}
 
@@ -256,7 +256,6 @@ body {
 
 	.col-3 {
 		transform: translateX(100%) translateY(100%);
-		padding: 0rem;
 	}
 
 	.col-4 {
@@ -265,7 +264,6 @@ body {
 
 	.col-5 {
 		transform: translateX(100%) translateY(100%);
-		padding: 0rem;
 	}
 
 	.col-content-wrapper {
@@ -307,6 +305,8 @@ body {
 		left: 0;
 		width: 100%;
 		height: 100%;
+		border-radius: 37.5px;
+		overflow: hidden;
 	}
 
 	.col-img-2 {

@@ -76,12 +76,21 @@ const Welcome = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex md:flex-row flex-col justify-between items-center md:p-4 md:mt-20 mt-10">
-                <div className="flex flex-row justify-center items-center gap-1">
-                    <img src={w1} alt="welcome image" className="md:rounded-[8rem] rounded-[9rem] md:w-56 w-44" />
-                    <img src={w2} alt="welcome image" className="md:rounded-[8rem] rounded-[9rem] md:w-56 w-44" />
+            <div className="flex md:flex-row flex-col justify-between items-center md:p-4 md:mt-20 mt-10 gap-10 md:gap-16 w-full">
+                
+                {/* Premium Layered Overlapping Collage */}
+                <div className="relative w-[320px] h-[280px] sm:w-[380px] sm:h-[320px] md:w-[420px] md:h-[360px] flex-shrink-0 select-none">
+                    {/* Background Layer Card */}
+                    <div className="absolute top-0 left-0 w-[65%] h-[82%] rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] hover:scale-[1.03] hover:-rotate-2 transition-all duration-700 cursor-pointer border border-black/5 z-0">
+                        <img src={w1} alt="Welcome layout urban furniture WPC bench supply" className="w-full h-full object-cover" />
+                    </div>
+                    {/* Foreground Overlapping Layer Card */}
+                    <div className="absolute bottom-0 right-0 w-[60%] h-[72%] rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.2)] hover:scale-[1.05] hover:rotate-2 transition-all duration-700 cursor-pointer border-[8px] border-[#F7F4EF] z-10">
+                        <img src={w2} alt="Welcome layout luxury hotel synthetic wicker poolside lounger furniture" className="w-full h-full object-cover" />
+                    </div>
                 </div>
-                <div className="md:w-1/2 w-full md:mt-0 mt-10">
+
+                <div className="md:w-1/2 w-full">
                     <p className="md:text-[2rem] text-[1.4rem] text-[#b1a696] md:leading-[1.1] md:pr-24 font-normal leading-[26px] tracking-[-0.2px]">
                         <span>Each of our premium collections is manufactured to international standards in state-of-the-art facilities, specifying only the finest sustainable materials.</span>
                     </p>

@@ -154,7 +154,7 @@ const StickyCols = () => {
                                 <img src={colimg1} alt="Urbanland Products WPC benches and planters installed in Lodha township" />
                             </div>
                         </div>
-                        <div className="col col-img-2">
+                        <div className="col-img col-img-2">
                             <div className="col-img-wrapper">
                                 <img src={colimg2} alt="Outdoor urban furniture installed at Adani Realty residential project by Urbanland Products" />
                             </div>
@@ -225,7 +225,7 @@ const StickyCols = () => {
                                 <img src={colimg3} alt="Premium wicker furniture, poolside loungers, and cabanas crafted for Oberoi's luxury project" />
                             </div>
                         </div>
-                        <div className="col col-img-2">
+                        <div className="col-img col-img-2">
                             <div className="col-img-wrapper">
                                 <img src={colimg4} alt="MS/SS bus shelters, park benches, bollards, and outdoor dustbins delivered for urban infrastructure" />
                             </div>
@@ -383,18 +383,18 @@ const StickyCols = () => {
                 </div>
 
                 {/* Mobile Section CTAs */}
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8 pt-8 border-t border-[#1A1A1A]/10 w-full">
+                <div className="flex flex-row justify-center items-stretch gap-3 mt-8 pt-8 border-t border-[#1A1A1A]/10 w-full">
                     <a 
                         href="/projects" 
-                        className="w-full sm:w-auto text-center px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest bg-[#2D2D2D] border border-white/10 text-[#F7F4EF] hover:text-[#C9A84C] transition-all active:scale-95 cursor-pointer"
+                        className="flex-1 flex items-center justify-center text-center px-4 py-3 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest bg-[#2D2D2D] border border-white/10 text-[#F7F4EF] hover:text-[#C9A84C] transition-all active:scale-95 cursor-pointer leading-tight"
                     >
-                        ▸ View All Projects →
+                        ▸ View Projects →
                     </a>
                     <a 
                         href="/contact" 
-                        className="w-full sm:w-auto text-center px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest bg-[#2C5F2E] text-[#F7F4EF] hover:bg-[#2D2D2D] hover:text-[#C9A84C] transition-all active:scale-95 cursor-pointer"
+                        className="flex-1 flex items-center justify-center text-center px-4 py-3 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest bg-[#2C5F2E] text-[#F7F4EF] hover:bg-[#2D2D2D] hover:text-[#C9A84C] transition-all active:scale-95 cursor-pointer leading-tight"
                     >
-                        ▸ Get a Similar Solution for Your Project →
+                        ▸ Get Similar →
                     </a>
                 </div>
             </section>

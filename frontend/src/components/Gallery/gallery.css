@@ -53,10 +53,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    height: 82vh; /* Slightly adjusted to compose beautifully */
+    height: 98vh; /* Adjusted to fill the screen with an even smaller, clean gap */
     padding-left: 6vw;
     padding-right: 20vw; /* Padding so the last card composed beautifully */
-    gap: 24px; /* Symmetrical clean gap, exactly like the reference image */
+    gap: 8px; /* Symmetrical clean gap, exactly like the reference image */
     z-index: 10;
     will-change: transform;
     flex-shrink: 0;
@@ -183,7 +183,7 @@
 }
 
 .gallery-bottomText p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #f4efe7;
     line-height: 1.6;
     margin: 0;
@@ -221,7 +221,7 @@
 /* Responsive Overrides for Mobile Viewports (< 800px) */
 @media (max-width: 800px) {
     .gallery-horizontal-track {
-        height: 82vh;
+        height: 98vh; /* Adjusted to fill the screen with an even smaller, clean gap */
         padding-left: 4vw;
         padding-right: 15vw;
         gap: 16px;
@@ -271,7 +271,7 @@
     }
 
     .gallery-bottomText p {
-        font-size: 0.75rem !important;
+        font-size: 0.8rem !important;
         line-height: 1.4 !important;
     }
 

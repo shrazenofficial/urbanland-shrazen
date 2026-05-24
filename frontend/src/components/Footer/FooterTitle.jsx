@@ -83,8 +83,8 @@ const FooterTitle = () => {
                 </p>
             </div>
 
-            <div className='footer-title w-full text-center select-none'>
-                <h1 className='text-[clamp(4.5rem,14vw,11.5rem)] font-bold translate-y-[0%] leading-none flex items-baseline justify-center'>
+            <div className='footer-title w-full text-center select-none pb-14 md:pb-0'>
+                <h1 className='text-[clamp(3rem,16vw,18rem)] font-bold tracking-tighter translate-y-[0%] leading-none flex items-baseline justify-center'>
                     <span className="footer-brand-text">Urbanland</span>
                     <sub className="footer-brand-sub"><span>®</span></sub>
                 </h1>

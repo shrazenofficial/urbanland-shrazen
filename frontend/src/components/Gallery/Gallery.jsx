@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import './gallery.css';
-import { BsFillPlusCircleFill } from "react-icons/bs";
 
 import gbg1 from '../../assets/gallery_real_estate.png';
 import gbg2 from '../../assets/gallery_hotels.png';
@@ -75,12 +74,9 @@ const Gallery = () => {
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">
                             <h3 className="gallery-seo-keyword">outdoor furniture for real estate projects</h3>
-                            <div className="w-full flex justify-start items-start gap-2">
-                                <BsFillPlusCircleFill className="w-5 h-5 text-[#C9A84C] mt-1 flex-shrink-0" />
-                                <p className="text-[14px] text-[#f4efe7] font-medium leading-relaxed">
-                                    Premium WPC benches, GFRC planters, car parking sheds, and cabanas that enhance property value and resident experience. Bulk supply with guaranteed timelines for your handover schedule.
-                                </p>
-                            </div>
+                            <p className="text-[#f4efe7] font-medium leading-relaxed">
+                                Premium WPC benches, GFRC planters, car parking sheds, and cabanas that enhance property value and resident experience. Bulk supply with guaranteed timelines for your handover schedule.
+                            </p>
                         </div>
                         <div className="flex flex-col items-end justify-between min-h-[60px] gap-2.5">
                             <a href="/solutions/real-estate" className="gallery-link-btn text-[#C9A84C] hover:text-[#f4efe7] text-[13px] font-semibold tracking-wide uppercase transition-colors duration-300">
@@ -110,12 +106,9 @@ const Gallery = () => {
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">
                             <h3 className="gallery-seo-keyword">hotel outdoor furniture manufacturer India</h3>
-                            <div className="w-full flex justify-start items-start gap-2">
-                                <BsFillPlusCircleFill className="w-5 h-5 text-[#C9A84C] mt-1 flex-shrink-0" />
-                                <p className="text-[14px] text-[#f4efe7] font-medium leading-relaxed">
-                                    Luxury poolside loungers, wicker dining sets, and canteen furniture engineered for high guest footfall. Custom finishes to match your property's design language.
-                                </p>
-                            </div>
+                            <p className="text-[#f4efe7] font-medium leading-relaxed">
+                                Luxury poolside loungers, wicker dining sets, and canteen furniture engineered for high guest footfall. Custom finishes to match your property's design language.
+                            </p>
                         </div>
                         <div className="flex flex-col items-end justify-between min-h-[60px] gap-2.5">
                             <a href="/solutions/hotels-resorts" className="gallery-link-btn text-[#C9A84C] hover:text-[#f4efe7] text-[13px] font-semibold tracking-wide uppercase transition-colors duration-300">
@@ -145,12 +138,9 @@ const Gallery = () => {
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">
                             <h3 className="gallery-seo-keyword">hospital outdoor furniture India</h3>
-                            <div className="w-full flex justify-start items-start gap-2">
-                                <BsFillPlusCircleFill className="w-5 h-5 text-[#C9A84C] mt-1 flex-shrink-0" />
-                                <p className="text-[14px] text-[#f4efe7] font-medium leading-relaxed">
-                                    Durable, low-maintenance benches, dustbins, and canteen tables built to withstand heavy daily use in medical campuses. Easy-clean materials that meet hygiene requirements.
-                                </p>
-                            </div>
+                            <p className="text-[#f4efe7] font-medium leading-relaxed">
+                                Durable, low-maintenance benches, dustbins, and canteen tables built to withstand heavy daily use in medical campuses. Easy-clean materials that meet hygiene requirements.
+                            </p>
                         </div>
                         <div className="flex flex-col items-end justify-between min-h-[60px] gap-2.5">
                             <a href="/solutions/hospitals" className="gallery-link-btn text-[#C9A84C] hover:text-[#f4efe7] text-[13px] font-semibold tracking-wide uppercase transition-colors duration-300">
@@ -180,12 +170,9 @@ const Gallery = () => {
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">
                             <h3 className="gallery-seo-keyword">campus outdoor furniture manufacturer</h3>
-                            <div className="w-full flex justify-start items-start gap-2">
-                                <BsFillPlusCircleFill className="w-5 h-5 text-[#C9A84C] mt-1 flex-shrink-0" />
-                                <p className="text-[14px] text-[#f4efe7] font-medium leading-relaxed">
-                                    Heavy-duty canteen tables, WPC benches, and GFRC planters built for high-footfall educational campuses. Resistant to vandalism, low on maintenance.
-                                </p>
-                            </div>
+                            <p className="text-[#f4efe7] font-medium leading-relaxed">
+                                Heavy-duty canteen tables, WPC benches, and GFRC planters built for high-footfall educational campuses. Resistant to vandalism, low on maintenance.
+                            </p>
                         </div>
                         <div className="flex flex-col items-end justify-between min-h-[60px] gap-2.5">
                             <a href="/solutions/education" className="gallery-link-btn text-[#C9A84C] hover:text-[#f4efe7] text-[13px] font-semibold tracking-wide uppercase transition-colors duration-300">
@@ -215,12 +202,9 @@ const Gallery = () => {
                     <div className="gallery-bottomText">
                         <div className="flex flex-col items-start gap-1 max-w-[65%]">
                             <h3 className="gallery-seo-keyword">smart city furniture manufacturer India</h3>
-                            <div className="w-full flex justify-start items-start gap-2">
-                                <BsFillPlusCircleFill className="w-5 h-5 text-[#C9A84C] mt-1 flex-shrink-0" />
-                                <p className="text-[14px] text-[#f4efe7] font-medium leading-relaxed">
-                                    Robust MS/SS bus shelters, stainless steel bollards, park benches, and outdoor dustbins for India's Smart City Mission projects. Compliant with urban infrastructure standards.
-                                </p>
-                            </div>
+                            <p className="text-[#f4efe7] font-medium leading-relaxed">
+                                Robust MS/SS bus shelters, stainless steel bollards, park benches, and outdoor dustbins for India's Smart City Mission projects. Compliant with urban infrastructure standards.
+                            </p>
                         </div>
                         <div className="flex flex-col items-end justify-between min-h-[60px] gap-2.5">
                             <a href="/solutions/smart-cities" className="gallery-link-btn text-[#C9A84C] hover:text-[#f4efe7] text-[13px] font-semibold tracking-wide uppercase transition-colors duration-300">

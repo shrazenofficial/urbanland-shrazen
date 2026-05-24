@@ -91,35 +91,59 @@ const Choose = () => {
                 </div>
             </div>
 
-            {/* 4 Value Cards Grid Layout */}
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-6">
-                <div className="flex flex-col gap-4 p-6 bg-[#2D2D2D]/5 border border-[#2D2D2D]/10 hover:border-[#C9A84C]/50 rounded-2xl transition-all duration-300 group">
-                    <div className="w-12 h-12 flex items-center justify-center bg-[#2C5F2E]/10 rounded-xl text-[#2C5F2E] group-hover:bg-[#C9A84C]/10 group-hover:text-[#C9A84C] transition-colors">
-                        <FaShieldAlt className="w-6 h-6" />
+            {/* Ultra-Premium 3-Column Bento Grid Layout */}
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
+                
+                {/* Bento Card 1: India's Only 2-Year Guarantee (Wide Highlight Card) */}
+                <div className="md:col-span-2 flex flex-col md:flex-row items-start md:items-center gap-6 p-8 bg-[#2C5F2E] text-[#F7F4EF] rounded-[2rem] border border-[#2C5F2E]/20 hover:shadow-xl hover:shadow-[#2C5F2E]/10 transition-all duration-500 group relative overflow-hidden">
+                    {/* Decorative abstract background accent */}
+                    <div className="absolute right-0 bottom-0 w-32 h-32 bg-white/[0.03] rounded-full translate-x-10 translate-y-10 group-hover:scale-125 transition-transform duration-700 pointer-events-none" />
+                    
+                    <div className="w-16 h-16 flex items-center justify-center bg-white/10 rounded-2xl text-[#C9A84C] group-hover:bg-[#C9A84C] group-hover:text-[#2C5F2E] transition-all duration-500 flex-shrink-0 shadow-inner">
+                        <FaShieldAlt className="w-8 h-8" />
                     </div>
-                    <h3 className="text-lg font-bold text-[#1A1A1A]">India's Only 2-Year Guarantee</h3>
-                    <p className="text-xs text-[#2D2D2D]/80 leading-relaxed">Full coverage on every product — no other outdoor furniture manufacturer in India matches this commitment.</p>
+                    <div className="flex flex-col gap-2">
+                        <span className="text-[9px] font-black uppercase tracking-widest text-[#C9A84C]/90 bg-white/5 px-3 py-1 rounded-full w-fit border border-white/10 select-none">— TRUST EXCELLENCE</span>
+                        <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white group-hover:text-[#C9A84C] transition-colors">India's Only 2-Year Guarantee</h3>
+                        <p className="text-xs sm:text-sm text-white/80 leading-relaxed max-w-xl">Full coverage on every product — no other outdoor furniture manufacturer in India matches this commitment.</p>
+                    </div>
                 </div>
-                <div className="flex flex-col gap-4 p-6 bg-[#2D2D2D]/5 border border-[#2D2D2D]/10 hover:border-[#C9A84C]/50 rounded-2xl transition-all duration-300 group">
-                    <div className="w-12 h-12 flex items-center justify-center bg-[#2C5F2E]/10 rounded-xl text-[#2C5F2E] group-hover:bg-[#C9A84C]/10 group-hover:text-[#C9A84C] transition-colors">
+
+                {/* Bento Card 2: Proven on Landmark Projects (Normal Card) */}
+                <div className="md:col-span-1 flex flex-col justify-between gap-6 p-8 bg-[#EAE5DB]/45 border border-black/[0.05] hover:border-[#C9A84C]/50 hover:bg-[#EAE5DB]/70 rounded-[2rem] hover:shadow-lg transition-all duration-500 group">
+                    <div className="w-12 h-12 flex items-center justify-center bg-[#2C5F2E]/10 rounded-xl text-[#2C5F2E] group-hover:bg-[#C9A84C]/10 group-hover:text-[#C9A84C] transition-colors flex-shrink-0">
                         <FaBuilding className="w-6 h-6" />
                     </div>
-                    <h3 className="text-lg font-bold text-[#1A1A1A]">Proven on Landmark Projects</h3>
-                    <p className="text-xs text-[#2D2D2D]/80 leading-relaxed">420+ benches supplied to Lodha townships. Complete outdoor furniture solutions for Adani Realty and Oberoi projects.</p>
+                    <div className="flex flex-col gap-2 mt-2">
+                        <h3 className="text-lg font-bold text-[#1A1A1A] group-hover:text-[#2C5F2E] transition-colors">Proven on Landmark Projects</h3>
+                        <p className="text-xs text-[#2D2D2D]/80 leading-relaxed">420+ benches supplied to Lodha townships. Complete outdoor furniture solutions for Adani Realty and Oberoi projects.</p>
+                    </div>
                 </div>
-                <div className="flex flex-col gap-4 p-6 bg-[#2D2D2D]/5 border border-[#2D2D2D]/10 hover:border-[#C9A84C]/50 rounded-2xl transition-all duration-300 group">
-                    <div className="w-12 h-12 flex items-center justify-center bg-[#2C5F2E]/10 rounded-xl text-[#2C5F2E] group-hover:bg-[#C9A84C]/10 group-hover:text-[#C9A84C] transition-colors">
+
+                {/* Bento Card 3: Multi-Material Expertise (Normal Card) */}
+                <div className="md:col-span-1 flex flex-col justify-between gap-6 p-8 bg-[#EAE5DB]/45 border border-black/[0.05] hover:border-[#C9A84C]/50 hover:bg-[#EAE5DB]/70 rounded-[2rem] hover:shadow-lg transition-all duration-500 group">
+                    <div className="w-12 h-12 flex items-center justify-center bg-[#2C5F2E]/10 rounded-xl text-[#2C5F2E] group-hover:bg-[#C9A84C]/10 group-hover:text-[#C9A84C] transition-colors flex-shrink-0">
                         <FaBolt className="w-6 h-6" />
                     </div>
-                    <h3 className="text-lg font-bold text-[#1A1A1A]">Multi-Material Expertise</h3>
-                    <p className="text-xs text-[#2D2D2D]/80 leading-relaxed">WPC • Stainless Steel • GFRC • Aluminium • Wicker. One supplier for your entire outdoor furniture specification.</p>
-                </div>
-                <div className="flex flex-col gap-4 p-6 bg-[#2D2D2D]/5 border border-[#2D2D2D]/10 hover:border-[#C9A84C]/50 rounded-2xl transition-all duration-300 group">
-                    <div className="w-12 h-12 flex items-center justify-center bg-[#2C5F2E]/10 rounded-xl text-[#2C5F2E] group-hover:bg-[#C9A84C]/10 group-hover:text-[#C9A84C] transition-colors">
-                        <FaTruck className="w-6 h-6" />
+                    <div className="flex flex-col gap-2 mt-2">
+                        <h3 className="text-lg font-bold text-[#1A1A1A] group-hover:text-[#2C5F2E] transition-colors">Multi-Material Expertise</h3>
+                        <p className="text-xs text-[#2D2D2D]/80 leading-relaxed">WPC • Stainless Steel • GFRC • Aluminium • Wicker. One supplier for your entire outdoor furniture specification.</p>
                     </div>
-                    <h3 className="text-lg font-bold text-[#1A1A1A]">100% Indian Manufacturing</h3>
-                    <p className="text-xs text-[#2D2D2D]/80 leading-relaxed">Made in India = faster lead times, tighter quality control, and on-time delivery for your project schedule.</p>
+                </div>
+
+                {/* Bento Card 4: 100% Indian Manufacturing (Wide Highlight Card) */}
+                <div className="md:col-span-2 flex flex-col md:flex-row items-start md:items-center gap-6 p-8 bg-[#2D2D2D] text-[#F7F4EF] rounded-[2rem] border border-white/5 hover:shadow-xl hover:shadow-black/10 transition-all duration-500 group relative overflow-hidden">
+                    {/* Decorative abstract background accent */}
+                    <div className="absolute right-0 bottom-0 w-32 h-32 bg-white/[0.02] rounded-full translate-x-10 translate-y-10 group-hover:scale-125 transition-transform duration-700 pointer-events-none" />
+
+                    <div className="w-16 h-16 flex items-center justify-center bg-white/10 rounded-2xl text-[#C9A84C] group-hover:bg-[#C9A84C] group-hover:text-[#2D2D2D] transition-all duration-500 flex-shrink-0 shadow-inner">
+                        <FaTruck className="w-8 h-8" />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <span className="text-[9px] font-black uppercase tracking-widest text-[#C9A84C]/90 bg-white/5 px-3 py-1 rounded-full w-fit border border-white/10 select-none">— LOCAL SPEED & CONTROL</span>
+                        <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white group-hover:text-[#C9A84C] transition-colors">100% Indian Manufacturing</h3>
+                        <p className="text-xs sm:text-sm text-white/80 leading-relaxed max-w-xl">Made in India = faster lead times, tighter quality control, and on-time delivery for your project schedule.</p>
+                    </div>
                 </div>
             </div>
 

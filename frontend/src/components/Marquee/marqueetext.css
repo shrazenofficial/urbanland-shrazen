@@ -3,21 +3,31 @@
 .marquee-text-container {
     display: flex;
     align-items: center;
+    width: 100%;
+    overflow: hidden;
 }
 
 .marquee-text-move {
     display: flex;
-    /* padding: 3vw 0; */
-    background-color: transparent;
+    width: max-content;
+    animation: marquee-scroll 45s linear infinite;
+    will-change: transform;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .marquee-text-marquee {
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    gap: 3vw;
-    /* padding: 2px 1.5vw; */
-    transform: translateX(-100%);
+    padding-right: 4vw; /* Space out the marquee items elegantly */
 }
 
 .marquee-text-marquee h1 {
@@ -26,4 +36,20 @@
     font-weight: 500;
     margin: 0;
     white-space: nowrap;
+}
+
+/* Star/asterisk slow rotation decoration */
+.star-rotate {
+    display: inline-block;
+    animation: star-spin 15s linear infinite;
+    margin-left: 0.1em;
+}
+
+@keyframes star-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
