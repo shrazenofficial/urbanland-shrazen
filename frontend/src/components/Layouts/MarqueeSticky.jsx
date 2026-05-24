@@ -28,12 +28,8 @@ const MarqueeSticky = () => {
     });
 
     return (
-        <section className="w-full overflow-hidden bg-[#F7F4EF] relative">
-            <div className="marquee-con-none absolute top-32 md:top-48 left-0 w-full z-0 text-[#2C5F2E] opacity-15 pointer-events-none">
-                <MarqueeText />
-            </div>
-
-            <div className="pin-con relative z-10 py-16 px-8 md:px-16 lg:px-20 max-w-5xl">
+        <section className="w-full overflow-hidden bg-[#F7F4EF] relative pt-16">
+            <div className="pin-con relative z-10 px-8 md:px-16 lg:px-20 max-w-5xl">
                 <div className="flex flex-col gap-4">
                     <p className="text-[0.7rem] uppercase tracking-[0.2em] font-bold text-[#2C5F2E] choose-subtitle">
                         — Case Studies & Portfolio
@@ -45,7 +41,14 @@ const MarqueeSticky = () => {
                         From India's largest residential townships to luxury resorts and government smart city initiatives — Urbanland Products has delivered outdoor and urban furniture for 50+ major projects. Here are a few highlights.
                     </p>
                 </div>
+            </div>
 
+            {/* Symmetrical Edge-to-Edge 'Contact Urbanland' Marquee placed cleanly AFTER the subheading paragraph */}
+            <div className="marquee-con-none w-full text-[#2C5F2E] opacity-15 pointer-events-none mt-10 mb-8 overflow-hidden select-none">
+                <MarqueeText />
+            </div>
+
+            <div className="pin-con relative z-10 px-8 md:px-16 lg:px-20 max-w-5xl">
                 {/* SPACE RESERVER — extremely important */}
                 <div className="sticky-spacer w-full h-[12vh] md:h-[20vh]" />
             </div>
