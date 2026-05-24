@@ -145,15 +145,19 @@
 }
 
 .gallery-topText h3 {
-    font-size: 1.3rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: #C9A84C; /* Gold Accent */
     margin: 0;
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    padding: 19.2px 19.2px 6.4px;
-    border-radius: 2rem;
-    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    padding: 0.55rem 1.25rem;
+    border-radius: 9999px;
+    background-color: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(5px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 .gallery-seo-keyword {
