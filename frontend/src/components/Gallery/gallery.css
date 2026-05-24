@@ -53,7 +53,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    height: 85vh;
+    height: 90vh;
     padding-left: 6vw;
     padding-right: 20vw; /* Padding so the last card composed beautifully */
     gap: 10px;
@@ -192,7 +192,7 @@
 /* Responsive Overrides for Mobile Viewports (< 800px) */
 @media (max-width: 800px) {
     .gallery-horizontal-track {
-        height: 85vh;
+        height: 90vh;
         padding-left: 4vw;
         padding-right: 15vw;
         gap: 10px;
