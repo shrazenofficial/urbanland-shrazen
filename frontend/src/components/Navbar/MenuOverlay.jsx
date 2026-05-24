@@ -197,6 +197,21 @@ const MenuOverlay = ({ isOpen, setIsOpen }) => {
         ref={innerRef}
         className="relative w-full h-full bg-[#232120] overflow-hidden flex flex-col justify-between p-6 sm:p-10 md:p-14 lg:p-16 shadow-none border-none rounded-none"
       >
+        {/* Decorative Premium Capsule Pills in the Menu Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+          {/* Glowing Green Capsule blur */}
+          <div className="absolute -left-20 -top-20 w-[60vw] h-[30vw] bg-[#2C5F2E]/8 rounded-full blur-[120px] transform -rotate-45" />
+          
+          {/* Glowing Gold Capsule blur */}
+          <div className="absolute -right-20 -bottom-20 w-[50vw] h-[25vw] bg-[#C9A84C]/6 rounded-full blur-[120px] transform -rotate-45" />
+
+          {/* Large Rotated Glassmorphic Outline Pill behind Links */}
+          <div className="absolute top-1/2 left-[15%] -translate-y-1/2 w-[650px] h-[325px] border border-white/[0.03] bg-white/[0.005] backdrop-blur-[1px] rounded-full transform -rotate-12 flex items-center justify-center">
+            <div className="w-[calc(100%-40px)] h-[calc(100%-40px)] border border-white/[0.015] rounded-full flex items-center justify-center">
+              <div className="w-[calc(100%-40px)] h-[calc(100%-40px)] border border-white/[0.008] rounded-full" />
+            </div>
+          </div>
+        </div>
         
         {/* Main Content Area: Split left/right on desktop */}
         <div className="w-full h-full flex flex-col lg:flex-row items-stretch justify-between gap-12 lg:gap-16 z-10 overflow-y-auto scrollbar-none pb-12 lg:pb-0">

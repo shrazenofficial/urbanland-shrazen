@@ -40,29 +40,7 @@ const Header = () => {
           />
         </Link>
 
-        {/* Center: Stylized 'A' Tower Icon */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none">
-          <svg 
-            viewBox="0 0 100 100" 
-            className="h-7 w-7 md:h-8 md:w-8 text-[#C9A84C]" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="6" 
-            strokeLinecap="square"
-          >
-            {/* Inclined legs */}
-            <line x1="38" y1="20" x2="26" y2="80" />
-            <line x1="62" y1="20" x2="74" y2="80" />
-            {/* Top cap */}
-            <line x1="34" y1="20" x2="66" y2="20" />
-            {/* Top crossbar */}
-            <line x1="30" y1="36" x2="70" y2="36" />
-            {/* Middle crossbar */}
-            <line x1="22" y1="54" x2="78" y2="54" />
-            {/* Bottom crossbar */}
-            <line x1="16" y1="72" x2="84" y2="72" />
-          </svg>
-        </div>
+
 
         {/* Right Side: + MENU Button */}
         <div 
