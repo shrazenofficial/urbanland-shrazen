@@ -297,7 +297,11 @@ const ProductsCatalog = ({ showTitle = true }) => {
                 <Link
                   key={product.id}
                   to={product.url || `/product/${product.id}`}
-                  className="catalog-card min-w-[310px] sm:min-w-[380px] md:min-w-[440px] lg:min-w-[500px] xl:min-w-[560px] aspect-[4/5] bg-white rounded-[2rem] p-8 flex flex-col justify-between items-stretch snap-start shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-black/[0.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 group cursor-pointer no-underline block"
+                  className={`catalog-card aspect-[4/5] bg-white rounded-[2rem] p-8 flex flex-col justify-between items-stretch snap-start shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-black/[0.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 group cursor-pointer no-underline block ${
+                    filteredProducts.length === 1 
+                      ? 'w-[310px] sm:w-[350px] shrink-0' 
+                      : 'min-w-[310px] sm:min-w-[380px] md:min-w-[440px] lg:min-w-[500px] xl:min-w-[560px]'
+                  }`}
                 >
                   {/* Header info */}
                   <div className="flex justify-between items-start gap-4">

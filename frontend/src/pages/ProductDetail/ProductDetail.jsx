@@ -283,7 +283,11 @@ const ProductDetail = () => {
                 <img 
                   src={imgUrl} 
                   alt={`${product.title} contextual slide ${index + 1}`} 
-                  className="h-full w-auto object-cover select-none"
+                  className={`h-full w-auto select-none ${
+                    index === 0 && imgUrl.toLowerCase().endsWith('.png') 
+                      ? 'object-contain p-8 bg-white' 
+                      : 'object-cover'
+                  }`}
                 />
               </div>
             ))}
