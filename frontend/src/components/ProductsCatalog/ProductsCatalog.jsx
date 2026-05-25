@@ -447,7 +447,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
                       <img
                         src={product.image}
                         alt={`${product.title} manufacturer India — Urbanland Products`}
-                        className="max-h-[85%] max-w-[85%] object-contain select-none transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="max-h-[92%] max-w-[92%] object-contain select-none transform group-hover:scale-105 transition-transform duration-700 ease-out"
                       />
                     </div>
    
@@ -464,14 +464,14 @@ const ProductsCatalog = ({ showTitle = true }) => {
 
                   {/* MOBILE CARD LAYOUT (Mockup-inspired Premium Aesthetics) */}
                   <div className="flex md:hidden flex-col justify-start items-stretch w-full select-none">
-                    {/* Top Section: Landscape Image Frame Block */}
-                    <div className="relative w-full aspect-[1.35/1] bg-[#F7F5F2] rounded-[1.8rem] overflow-hidden border border-black/[0.02] flex items-center justify-center p-6 shadow-[inset_0_2px_8px_rgba(0,0,0,0.01)]">
+                    {/* Top Section: Landscape Image Frame Block with increased height aspect and padding */}
+                    <div className="relative w-full aspect-[1.15/1] bg-[#F7F5F2] rounded-[1.8rem] overflow-hidden border border-black/[0.02] flex items-center justify-center p-4 shadow-[inset_0_2px_8px_rgba(0,0,0,0.01)]">
                       
                       {/* Product Image */}
                       <img
                         src={product.image}
                         alt={`${product.title} manufacturer India`}
-                        className="max-h-[85%] max-w-[85%] object-contain select-none transform group-hover:scale-105 transition-transform duration-700 ease-out z-1"
+                        className="max-h-[92%] max-w-[92%] object-contain select-none transform group-hover:scale-105 transition-transform duration-700 ease-out z-1"
                       />
 
                       {/* Left Side: Overlapping circular gallery previews */}
