@@ -324,7 +324,7 @@ const CategoryDetail = () => {
               <Link
                 key={product.id}
                 to={`/product/${product.id}`}
-                className="catalog-card bg-white rounded-[2rem] p-8 flex flex-col justify-between items-stretch aspect-[4/5] border border-black/[0.03] shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.07)] hover:-translate-y-1 transition-all duration-500 group cursor-pointer no-underline block w-full max-w-[450px]"
+                className="catalog-card bg-white rounded-[2rem] p-8 flex flex-col justify-between items-stretch aspect-[4/5] border border-black/[0.03] shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.07)] hover:-translate-y-1 transition-all duration-500 group cursor-pointer no-underline block w-full max-w-[350px]"
               >
                 <div className="flex justify-between items-start gap-4">
                   <h3 className="text-xl sm:text-2xl font-light text-[#1A1A1A] tracking-tight group-hover:text-black transition-colors leading-tight">
