@@ -9,7 +9,7 @@ import benchImg from "../../assets/Bench_Planter.png";
 import carImg from "../../assets/Car_Shelter.png";
 import wickerImg from "../../assets/Wicker_Furniture.png";
 
-// Brand logos (reused from Activities)
+// Brand logos
 import logo1 from "../../assets/brands/1.png";
 import logo2 from "../../assets/brands/11-3.webp";
 import logo3 from "../../assets/brands/12-1.png";
@@ -20,10 +20,6 @@ import logo7 from "../../assets/brands/3.png";
 import logo8 from "../../assets/brands/4-1.png";
 import logo9 from "../../assets/brands/5-1.png";
 import logo10 from "../../assets/brands/6-1.png";
-import logo11 from "../../assets/brands/7-1.png";
-import logo12 from "../../assets/brands/8-1.png";
-import logo13 from "../../assets/brands/9-1.png";
-import logo14 from "../../assets/brands/New-Project-7-Photoroom.png";
 
 const brandLogos = [
     { name: "Prestige Group", img: logo1 },
@@ -40,7 +36,25 @@ const brandLogos = [
 
 const BusSheltersPage = () => {
     const [activeTab, setActiveTab] = useState("standard");
-    const [faqOpen, setFaqOpen] = useState(Array(12).fill(false));
+    const [faqOpen, setFaqOpen] = useState(Array(5).fill(false));
+    const [showStickyHeader, setShowStickyHeader] = useState(false);
+    
+    // Exit popup state
+    const [exitPopupVisible, setExitPopupVisible] = useState(false);
+    const [exitPopupSubmitted, setExitPopupSubmitted] = useState(false);
+    const [emailInput, setEmailInput] = useState("");
+
+    // GA4 helper function with console logging fallback
+    const trackEvent = (eventName, value = "") => {
+        if (window.gtag) {
+            window.gtag("event", eventName, {
+                event_category: "product_page",
+                event_label: "bus_shelters",
+                value: value
+            });
+        }
+        console.log(`[GA4 Event] ${eventName} | Category: product_page | Label: bus_shelters | Value: ${value}`);
+    };
 
     useEffect(() => {
         // Dynamic SEO Metadata Configuration
@@ -51,6 +65,32 @@ const BusSheltersPage = () => {
             og_image: busImg
         });
 
+        // Scroll listener for sticky header and depth tracking
+        const trackedDepths = { 25: false, 50: false, 75: false, 100: false };
+        const handleScroll = () => {
+            // Sticky Header check
+            if (window.scrollY > 300) {
+                setShowStickyHeader(true);
+            } else {
+                setShowStickyHeader(false);
+            }
+
+            // Scroll depth check
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (docHeight > 0) {
+                const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+                [25, 50, 75, 100].forEach((depth) => {
+                    if (scrollPercent >= depth && !trackedDepths[depth]) {
+                        trackedDepths[depth] = true;
+                        trackEvent("scroll_depth", `${depth}%`);
+                    }
+                });
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
         // Inject JSON-LD Schema.org FAQ markup dynamically into head
         const schema = {
             "@context": "https://schema.org",
@@ -58,18 +98,10 @@ const BusSheltersPage = () => {
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "What's the difference between Standard, Premium, and Super Premium?",
+                    "name": "Which material should I choose for coastal areas?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Standard is mild steel (durable for 8-10 years, requires paint maintenance) at lowest cost—best for inland municipalities. Premium is stainless steel (15-20 year lifespan, zero maintenance) at mid-range cost—best for coastal areas and high-traffic zones. Super Premium is SS + IoT-ready wiring + solar power—best for smart city projects and premium developments. All include a 2-year guarantee."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Can I customize the dimensions?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. Our standard size is 4500L × 1800W × 2500H mm, but we routinely build custom sizes from 3500mm to 7000mm length to fit your specific site. Customization adds 5-7 days to lead time."
+                        "text": "Stainless steel 304/316 grade. MS will rust in 2-3 years despite coating. SS requires minimal maintenance and is more economical long-term (saves repainting costs)."
                     }
                 },
                 {
@@ -77,7 +109,15 @@ const BusSheltersPage = () => {
                     "name": "How long is the lead time?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Standard bus shelters take 25-30 days from order confirmation. Premium take 30-35 days, and Super Premium take 35-45 days. This includes design approval, manufacturing, and quality checks."
+                        "text": "Standard 25-30 days | Premium 30-35 days | Super Premium 35-45 days from order confirmation. Rush orders (15-20 days) available at +15% surcharge."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can you customize dimensions?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. We build custom sizes from 3500mm to 7000mm length. Customization adds 5-7 days to lead time. Email your site plans for a custom quote."
                     }
                 },
                 {
@@ -85,15 +125,15 @@ const BusSheltersPage = () => {
                     "name": "Do you provide installation?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Yes. Installation is included in the quote for sites within 50km of our Vasai Virar facility (Maharashtra). Beyond that, we charge nominal logistics and dispatch a 3-person assembly team."
+                        "text": "Yes, included for sites within 50km of Vasai Virar. We dispatch a trained team for foundation bolting, assembly, leveling, and commissioning."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Which material is best for coastal areas?",
+                    "name": "What if my shelter is damaged in an accident?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Stainless steel 316 grade (Premium or Super Premium). Mild steel will rust in 2-3 years in coastal zones despite coating. 316 SS provides superior corrosion resistance in saline zones."
+                        "text": "The 2-year warranty covers manufacturing defects, not accidents or vandalism. We recommend installing bollards around high-traffic shelters to prevent vehicle collisions."
                     }
                 }
             ]
@@ -109,8 +149,45 @@ const BusSheltersPage = () => {
         }
         script.innerHTML = JSON.stringify(schema);
 
+        // Exit intent detection
+        const sessionKey = "urbanland_exit_intent_bus_shelters";
+        const isShown = sessionStorage.getItem(sessionKey);
+
+        if (!isShown) {
+            // Trigger 1: Mouse leaves viewport
+            const handleMouseLeave = (e) => {
+                if (e.clientY < 20) {
+                    triggerPopup();
+                }
+            };
+
+            // Trigger 2: 45-second timer
+            const timer = setTimeout(() => {
+                triggerPopup();
+            }, 45000);
+
+            const triggerPopup = () => {
+                setExitPopupVisible(true);
+                sessionStorage.setItem(sessionKey, "true");
+                document.removeEventListener("mouseleave", handleMouseLeave);
+                clearTimeout(timer);
+            };
+
+            document.addEventListener("mouseleave", handleMouseLeave);
+
+            return () => {
+                cleanPageSEO();
+                window.removeEventListener("scroll", handleScroll);
+                const existingScript = document.getElementById(scriptId);
+                if (existingScript) existingScript.remove();
+                document.removeEventListener("mouseleave", handleMouseLeave);
+                clearTimeout(timer);
+            };
+        }
+
         return () => {
             cleanPageSEO();
+            window.removeEventListener("scroll", handleScroll);
             const existingScript = document.getElementById(scriptId);
             if (existingScript) existingScript.remove();
         };
@@ -122,12 +199,237 @@ const BusSheltersPage = () => {
             next[idx] = !next[idx];
             return next;
         });
+        trackEvent("faq_click", `faq_${idx + 1}`);
     };
+
+    // Shared Tab Rendering Helpers to keep layouts completely synchronized
+    const renderStandardTab = () => (
+        <div className="animate-fadeIn">
+            <div className="mb-6">
+                <span className="text-[9px] font-black uppercase tracking-widest text-[#C9A84C] bg-[#C9A84C]/10 px-3 py-1.5 rounded-full select-none">Value Option</span>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase text-[#1A1A1A] mt-3">Standard Bus Shelter — Cost-Effective & Durable</h3>
+                <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#2D2D2D]/60 mt-1">Best for: Inland municipalities, township amenities, secondary transit routes.</h4>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t border-[#2D2D2D]/10 pt-8">
+                <div>
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
+                    <ul className="flex flex-col gap-3 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Frame: Mild Steel with Akzonobel PU powder coating</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Roof: Galvanized sheet or polycarbonate (ACP)</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Seating: MS bench with anti-slip surface</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Capacity: 8-12 standing + 3-4 seated</li>
+                    </ul>
+
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">— Ideal For</h4>
+                    <p className="text-xs sm:text-sm text-[#2D2D2D]/75 font-semibold leading-relaxed">
+                        Smart City Phase-1/2 projects, municipal networks, budget-conscious buyers
+                    </p>
+                </div>
+
+                <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between gap-6">
+                    <div>
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-black/60 mb-4 select-none">— Specifications Matrix</h4>
+                        <div className="w-full border border-black/[0.04] rounded-2xl bg-white p-4 sm:p-6 overflow-hidden shadow-sm">
+                            <div className="grid grid-cols-2 gap-y-4 gap-x-4 text-xs font-semibold text-[#1A1A1A]">
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Dimensions</span>
+                                    <span className="font-bold">4500L × 1800W × 2500H mm</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Weight</span>
+                                    <span className="font-bold">1200-1400 kg</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Lead Time</span>
+                                    <span className="font-bold">25-30 days</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Annual Maintenance</span>
+                                    <span className="font-bold">₹3,000-5,000</span>
+                                </div>
+                                <div className="col-span-2 border-t border-black/[0.04] pt-3 mt-1">
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Lifespan</span>
+                                    <span className="font-bold text-[#2C5F2E]">8-10 years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <Link
+                        to="/get-quote/?variant=standard-bus-shelter"
+                        onClick={() => trackEvent("variant_selection", "standard")}
+                        className="px-6 py-4 bg-[#2C5F2E] hover:bg-black text-white rounded-full font-black uppercase tracking-wider text-[10px] text-center transition-colors duration-300 w-full"
+                    >
+                        Get Standard Quote →
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
+
+    const renderPremiumTab = () => (
+        <div className="animate-fadeIn">
+            <div className="mb-6">
+                <span className="text-[9px] font-black uppercase tracking-widest text-[#C9A84C] bg-[#C9A84C]/10 px-3 py-1.5 rounded-full select-none">Most Specified</span>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase text-[#1A1A1A] mt-3">Premium Bus Shelter — Stainless Steel, Zero Maintenance</h3>
+                <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#2D2D2D]/60 mt-1">Best for: Coastal areas, high-traffic zones, premium real estate (Lodha, Oberoi, Adani).</h4>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t border-[#2D2D2D]/10 pt-8">
+                <div>
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
+                    <ul className="flex flex-col gap-3 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Frame: Stainless Steel (304/316 grade) with brushed or mirror finish</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Roof: Polycarbonate or toughened glass panels</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Seating: SS bench with ergonomic backrest</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Side Panels: Optional tempered glass</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Lighting: Optional solar-powered LED</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Capacity: 10-15 standing + 4-5 seated</li>
+                    </ul>
+
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">— Ideal For</h4>
+                    <p className="text-xs sm:text-sm text-[#2D2D2D]/75 font-semibold leading-relaxed">
+                        Coastal smart cities, premium townships, 5-star resorts, high-traffic CBD zones
+                    </p>
+                </div>
+
+                <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between gap-6">
+                    <div>
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-black/60 mb-4 select-none">— Specifications Matrix</h4>
+                        <div className="w-full border border-black/[0.04] rounded-2xl bg-white p-4 sm:p-6 overflow-hidden shadow-sm">
+                            <div className="grid grid-cols-2 gap-y-4 gap-x-4 text-xs font-semibold text-[#1A1A1A]">
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Dimensions</span>
+                                    <span className="font-bold">4500L × 1800W × 2500H mm (customizable up to 6000mm)</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Weight</span>
+                                    <span className="font-bold">1600-2000 kg</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Lead Time</span>
+                                    <span className="font-bold">30-35 days</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Annual Maintenance</span>
+                                    <span className="font-bold">₹500-1,000 (minimal)</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Lifespan</span>
+                                    <span className="font-bold text-[#2C5F2E]">15-20+ years</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Corrosion Rating</span>
+                                    <span className="font-bold text-[#2C5F2E]">Indefinite coastal performance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <Link
+                        to="/get-quote/?variant=premium-bus-shelter"
+                        onClick={() => trackEvent("variant_selection", "premium")}
+                        className="px-6 py-4 bg-[#2C5F2E] hover:bg-black text-white rounded-full font-black uppercase tracking-wider text-[10px] text-center transition-colors duration-300 w-full"
+                    >
+                        Get Premium Quote →
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
+
+    const renderSuperPremiumTab = () => (
+        <div className="animate-fadeIn">
+            <div className="mb-6">
+                <span className="text-[9px] font-black uppercase tracking-widest text-[#C9A84C] bg-[#C9A84C]/10 px-3 py-1.5 rounded-full select-none">Smart City Ready</span>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase text-[#1A1A1A] mt-3">Super Premium Bus Shelter — Smart City Ready + IoT</h3>
+                <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#2D2D2D]/60 mt-1">Best for: Smart City Mission Phase-II, premium developments, IoT-enabled infrastructure.</h4>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t border-[#2D2D2D]/10 pt-8">
+                <div>
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
+                    <ul className="flex flex-col gap-3 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Frame: Stainless Steel 304/316 (premium grade, mirror-polished)</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Roof: Toughened glass with integrated solar panel mounts</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Lighting: Solar-powered LED system with motion sensor + dimming</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Display: Pre-wired for 49-55" digital information signage</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Charging: Solar-powered USB ports (Type-A & Type-C)</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Smart Systems: Pre-wired for IoT sensors (passenger counter, air quality monitor, temperature)</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Capacity: 12-18 standing + 5-6 seated</li>
+                    </ul>
+
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">— Ideal For</h4>
+                    <p className="text-xs sm:text-sm text-[#2D2D2D]/75 font-semibold leading-relaxed">
+                        Smart City Phase-II projects, mega-townships, airport/metro feeders, tech parks
+                    </p>
+                </div>
+
+                <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between gap-6">
+                    <div>
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-black/60 mb-4 select-none">— Specifications Matrix</h4>
+                        <div className="w-full border border-black/[0.04] rounded-2xl bg-white p-4 sm:p-6 overflow-hidden shadow-sm">
+                            <div className="grid grid-cols-2 gap-y-4 gap-x-4 text-xs font-semibold text-[#1A1A1A]">
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Dimensions</span>
+                                    <span className="font-bold">4500L × 1800W × 2500H mm (extendable to 7000mm)</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Weight</span>
+                                    <span className="font-bold">2200-2800 kg (with solar infrastructure)</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Lead Time</span>
+                                    <span className="font-bold">35-45 days</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Annual Maintenance</span>
+                                    <span className="font-bold">₹1,500-2,500</span>
+                                </div>
+                                <div>
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Solar Array</span>
+                                    <span className="font-bold">400W (optional) for off-grid power</span>
+                                </div>
+                                <div className="border-t border-black/[0.04] col-span-2 pt-3 mt-1">
+                                    <span className="block text-[8px] uppercase tracking-wider text-black/45 mb-0.5">Lifespan</span>
+                                    <span className="font-bold text-[#2C5F2E]">20+ years indefinite</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <Link
+                        to="/get-quote/?variant=super-premium-bus-shelter"
+                        onClick={() => trackEvent("variant_selection", "super_premium")}
+                        className="px-6 py-4 bg-[#C9A84C] hover:bg-black text-[#232120] hover:text-white rounded-full font-black uppercase tracking-wider text-[10px] text-center transition-colors duration-300 w-full"
+                    >
+                        Get Super Premium Proposal →
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
 
     return (
         <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-28">
             
-            {/* SECTION 0 — BREADCRUMB */}
+            {/* STICKY HEADER ON SCROLL (Desktop only) */}
+            <div className={`fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-[#2D2D2D]/10 py-4 px-8 lg:px-16 z-[99] flex justify-between items-center transition-all duration-500 shadow-md ${showStickyHeader ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"}`}>
+                <div className="flex items-center gap-3">
+                    <span className="text-[#2C5F2E] font-black tracking-tighter text-lg">URBANLAND®</span>
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#2D2D2D]/50 hidden sm:inline">Bus Shelters</span>
+                </div>
+                <Link
+                    to="/get-quote/?product=bus-shelters"
+                    onClick={() => trackEvent("product_page_cta_primary", "bus_shelter_quote")}
+                    className="px-6 py-2.5 bg-[#E65F2B] hover:bg-black text-white rounded-full font-black uppercase tracking-wider text-[10px] transition-all shadow-sm"
+                >
+                    Get Project Quote →
+                </Link>
+            </div>
+
+            {/* BREADCRUMB NAVIGATION */}
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-4 select-none">
                 <nav className="flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#2D2D2D]/60 gap-2">
                     <Link to="/" className="hover:text-[#2C5F2E] transition-colors">Home</Link>
@@ -138,933 +440,594 @@ const BusSheltersPage = () => {
                 </nav>
             </div>
 
-            {/* SECTION 1 — HERO SECTION */}
+            {/* SECTION 0 — HERO (Above Fold: 60/40 Split Desktop, Stacked Mobile) */}
             <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-20">
-                <div className="relative w-full rounded-[2.5rem] overflow-hidden bg-black shadow-2xl flex flex-col justify-end min-h-[75vh] md:min-h-[80vh] p-8 md:p-16 border border-white/5">
-                    {/* Visual Showcase Background */}
-                    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-                        <img 
-                            src={busImg} 
-                            alt="Premium custom bus shelter installed in Indian smart city project by Urbanland Products"
-                            className="w-full h-full object-cover scale-103 object-center opacity-65 md:block hidden"
-                        />
-                        <img 
-                            src={busJpeg} 
-                            alt="Premium custom bus shelter installed in Indian smart city project by Urbanland Products"
-                            className="w-full h-full object-cover scale-103 object-center opacity-65 md:hidden block"
-                        />
-                        {/* Gradient readibility overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/35" />
-                    </div>
-
-                    <div className="relative z-10 max-w-4xl text-white">
-                        <div className="flex items-center gap-2 select-none mb-4">
+                <div className="w-full grid grid-cols-1 md:grid-cols-12 bg-[#1E1C1B] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5 relative min-h-[70vh] md:min-h-[75vh]">
+                    {/* Left Side: Text panel (60% split on desktop) */}
+                    <div className="md:col-span-7 p-8 md:p-16 flex flex-col justify-center text-white z-10 relative">
+                        <div className="flex items-center gap-2 select-none mb-6">
                             <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest bg-[#C9A84C] text-[#232120] px-3.5 py-1.5 rounded-full">
                                 Infrastructure Spotlight
                             </span>
                             <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest bg-[#2C5F2E] text-white px-3.5 py-1.5 rounded-full border border-white/10">
-                                2-Year Guarantee
+                                ISO 9001:2015
                             </span>
                         </div>
 
-                        <h1 className="text-[clamp(26px,8.5vw,35px)] sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-[1.05] mb-6">
-                            Premium Bus Shelters Manufactured in India — Custom Design for Smart Cities, Townships & Municipalities
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.05] mb-6">
+                            Premium Bus Shelters Manufactured in India — Custom Design for Smart Cities & Municipalities
                         </h1>
 
-                        <p className="text-[clamp(13.5px,4vw,15px)] sm:text-base md:text-lg text-white/85 leading-relaxed max-w-3xl mb-8">
-                            Robust, weather-resistant bus shelters engineered for India's smart city projects, real estate townships, and municipal transport systems. Available in mild steel, stainless steel, and aluminium with customizable roof materials. Backed by India's only 2-year comprehensive guarantee.
+                        <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed mb-8">
+                            Weather-resistant bus shelters engineered for India's climate. Available in mild steel, stainless steel, and aluminium. Backed by India's only 2-year comprehensive guarantee.
                         </p>
 
-                        <p className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#C9A84C]/90 flex flex-wrap gap-x-6 gap-y-2 mb-8 select-none border-b border-white/15 pb-6">
-                            <span>✓ 2-Year Comprehensive Guarantee</span>
+                        <p className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#C9A84C]/90 flex flex-wrap gap-x-6 gap-y-2 mb-8 select-none border-b border-white/10 pb-6">
+                            <span>✓ 2-Year Guarantee</span>
                             <span>✓ ISO 9001:2015 Certified</span>
                             <span>✓ Made in India</span>
-                            <span>✓ 50+ Completed Projects</span>
+                            <span>✓ 50+ Projects Delivered</span>
                         </p>
 
                         {/* CTAs */}
                         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 select-none">
                             <Link 
                                 to="/get-quote/?product=bus-shelters"
-                                onClick={() => {
-                                    if (window.gtag) {
-                                        window.gtag('event', 'product_page_cta_primary', { 'value': 'bus_shelter_quote' });
-                                    }
-                                }}
-                                className="px-8 py-4 bg-[#C9A84C] text-[#232120] hover:bg-white hover:text-black rounded-full font-black uppercase tracking-wider text-xs text-center transition-all shadow-xl hover:scale-102 transform duration-300 text-center"
+                                onClick={() => trackEvent("product_page_cta_primary", "bus_shelter_quote")}
+                                className="px-8 py-4 bg-[#C9A84C] text-[#232120] hover:bg-white hover:text-black rounded-full font-black uppercase tracking-wider text-xs text-center transition-all shadow-xl hover:scale-[1.02] transform duration-300 w-full sm:w-auto"
                             >
-                                ▸ Request Custom Bus Shelter Quote →
+                                Request Custom Quote →
                             </Link>
 
-                            <Link
-                                to="/resources/downloads"
-                                onClick={() => {
-                                    if (window.gtag) {
-                                        window.gtag('event', 'product_page_cta_secondary', { 'value': 'bus_shelter_spec_download' });
-                                    }
-                                }}
-                                className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full font-bold uppercase tracking-wider text-xs text-center transition-all backdrop-blur-sm"
+                            <a
+                                href="#specifications"
+                                onClick={() => trackEvent("product_page_cta_secondary", "bus_shelter_spec_download")}
+                                className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full font-bold uppercase tracking-wider text-xs text-center transition-all backdrop-blur-sm w-full sm:w-auto"
                             >
-                                ▸ Download Specifications (PDF) ↓
-                            </Link>
+                                Download Specifications ↓
+                            </a>
                         </div>
+                    </div>
+
+                    {/* Right Side: Photo Showcase (40% split on desktop) */}
+                    <div className="md:col-span-5 relative w-full h-[40vh] md:h-auto overflow-hidden">
+                        <img 
+                            src={busImg} 
+                            alt="Premium custom bus shelter installed in Indian smart city project by Urbanland Products"
+                            className="w-full h-full object-cover object-center scale-100 md:scale-103 opacity-90 transition-transform duration-[20s] hover:scale-105"
+                        />
+                        {/* 30% Dark readability overlay */}
+                        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 2 — THE URBANLAND ADVANTAGE */}
+            {/* SECTION 1 — WHY CHOOSE URBANLAND */}
             <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
                 <div className="text-left mb-16 max-w-5xl">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— THE URBANLAND ADVANTAGE</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— CHOOSE DURABILITY</span>
                     <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
-                        Why India's Leading Developers & Municipalities Choose Urbanland Bus Shelters
+                        Why Developers, Municipalities & Architects Choose Urbanland
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg text-[#2D2D2D]/75 leading-relaxed mt-6">
-                        When municipalities specify bus shelters for smart city projects, real estate developers plan large-scale township amenities, or architects design transit infrastructure, they need a manufacturer that delivers on three fronts: durability under extreme weather, timely project completion, and lasting customer support. Urbanland Products is India's only bus shelter manufacturer offering a comprehensive 2-year guarantee covering all components—combined with proven expertise supplying 50+ major infrastructure projects across 15+ Indian cities.
+                        When you specify a bus shelter for infrastructure projects, you need durability, on-time delivery, and warranty protection. Urbanland is the only Indian bus shelter manufacturer offering a comprehensive 2-year guarantee on all components—proven across 50+ major projects in 15+ cities.
                     </p>
                 </div>
 
+                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-8">— 4 Core Reasons</h3>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 select-none">
-                    {/* CARD 1 */}
-                    <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-sm hover:shadow-lg transition-all flex flex-col gap-5">
+                    {/* BENEFIT CARD 1 */}
+                    <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-sm hover:bg-[#F7F4EF]/55 hover:shadow-lg transition-all duration-300 flex flex-col gap-5 group">
                         <div className="w-14 h-14 bg-[#2C5F2E]/10 rounded-full flex justify-center items-center text-[#2C5F2E]">
                             <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-black uppercase text-[#1A1A1A]">Built to Withstand India's Harshest Climates</h3>
+                        <h4 className="text-xl font-black uppercase text-[#1A1A1A]">Durability That Lasts</h4>
                         <p className="text-xs sm:text-sm text-[#2D2D2D]/70 leading-relaxed">
-                            Our bus shelters are engineered with materials that resist corrosion, UV exposure, and extreme heat. Multi-layer powder coating (Akzonobel PU paint) + stainless steel or mild steel frame options ensure your shelter remains structurally sound for 2+ years—even in coastal, high-altitude, or pollution-heavy zones.
+                            Built with corrosion-resistant materials and multi-layer Akzonobel PU powder coating. Performs reliably in coastal, high-altitude, and pollution-heavy zones.
                         </p>
                     </div>
 
-                    {/* CARD 2 */}
-                    <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-sm hover:shadow-lg transition-all flex flex-col gap-5">
+                    {/* BENEFIT CARD 2 */}
+                    <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-sm hover:bg-[#F7F4EF]/55 hover:shadow-lg transition-all duration-300 flex flex-col gap-5 group">
                         <div className="w-14 h-14 bg-[#C9A84C]/10 rounded-full flex justify-center items-center text-[#C9A84C]">
                             <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M10.125 2.25h3.75a9 9 0 019 9v3.75a9 9 0 01-9 9h-3.75a9 9 0 01-9-9v-3.75a9 9 0 019-9z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-black uppercase text-[#1A1A1A]">Industry-Leading 2-Year Warranty</h3>
+                        <h4 className="text-xl font-black uppercase text-[#1A1A1A]">India's Only 2-Year Guarantee</h4>
                         <p className="text-xs sm:text-sm text-[#2D2D2D]/70 leading-relaxed">
-                            Full coverage on frame, roof materials, and structural integrity. No other bus shelter manufacturer in India offers this commitment. If your shelter requires repairs within 2 years due to manufacturing defect, we cover it. This guarantee reflects our confidence in engineering quality.
+                            Full coverage: frame, roof materials, structural integrity. Manufacturing defects are covered completely—no other Indian manufacturer offers this commitment.
                         </p>
                     </div>
 
-                    {/* CARD 3 */}
-                    <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-sm hover:shadow-lg transition-all flex flex-col gap-5">
+                    {/* BENEFIT CARD 3 */}
+                    <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-sm hover:bg-[#F7F4EF]/55 hover:shadow-lg transition-all duration-300 flex flex-col gap-5 group">
                         <div className="w-14 h-14 bg-[#2C5F2E]/10 rounded-full flex justify-center items-center text-[#2C5F2E]">
                             <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122A3 3 0 00.47 16.122m13.06 0a3 3 0 01-.47-5.517m3.06 3.517A3 3 0 0016.122.47m-3.517 3.06a3 3 0 015.517.47m-3.06-3.517a3 3 0 00-3.517 3.06" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.43l-1.003.828c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.297 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.43l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.991l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.28z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-black uppercase text-[#1A1A1A]">Made-to-Order Design Flexibility</h3>
+                        <h4 className="text-xl font-black uppercase text-[#1A1A1A]">Made-to-Order Design Flexibility</h4>
                         <p className="text-xs sm:text-sm text-[#2D2D2D]/70 leading-relaxed">
-                            Not all bus stops are the same. We design custom-sized shelters to fit your specific location, passenger load, and aesthetic requirements. Choose from 3 material configurations (Standard, Premium, Super Premium) with options in mild steel, stainless steel, or aluminium frames. Roof materials include galvanized sheet, ACP, recycled wood, or toughened glass.
+                            Custom dimensions, material combinations, roof options, and finishes. Designed for your specific site conditions, passenger load, and aesthetic requirements.
                         </p>
                     </div>
 
-                    {/* CARD 4 */}
-                    <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-sm hover:shadow-lg transition-all flex flex-col gap-5">
+                    {/* BENEFIT CARD 4 */}
+                    <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-sm hover:bg-[#F7F4EF]/55 hover:shadow-lg transition-all duration-300 flex flex-col gap-5 group">
                         <div className="w-14 h-14 bg-[#C9A84C]/10 rounded-full flex justify-center items-center text-[#C9A84C]">
                             <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124l-.847-13.485a1.125 1.125 0 00-1.122-1.054H16.35m-9 13.5V9" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-black uppercase text-[#1A1A1A]">On-Time Delivery for Your Project Timeline</h3>
+                        <h4 className="text-xl font-black uppercase text-[#1A1A1A]">Fast Delivery + Installation Support</h4>
                         <p className="text-xs sm:text-sm text-[#2D2D2D]/70 leading-relaxed">
-                            We understand that project delays cost money. Our manufacturing process and India-based production mean faster lead times than imported shelters. We also provide installation support and commissioning guidance—ensuring your bus shelters are ready for operation on schedule.
+                            Manufacturing in India = faster lead times than imports. We provide installation support, commissioning, and on-schedule project delivery.
                         </p>
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 3 — THE URBANLAND BUS SHELTER RANGE */}
+            {/* SECTION 2 — THREE CONFIGURATIONS (VARIANTS IN ONE SECTION) */}
             <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
                 <div className="text-left mb-12 max-w-4xl">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— MODULAR SYSTEM OPTIONS</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— SYSTEM SPECS MATRIX</span>
                     <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
-                        Urbanland Bus Shelters — Three Configurations to Match Your Requirements
+                        Three Bus Shelter Configurations — Choose What Fits Your Project
                     </h2>
                     <p className="text-sm sm:text-base text-[#2D2D2D]/75 mt-4">
-                        Whether you're outfitting a single bus stop or a city-wide network, Urbanland offers three modular shelter configurations—each engineered for different load capacities, environmental conditions, and budget requirements. All variants include our 2-year guarantee.
+                        All Urbanland shelters are built on proven base specs but fully customizable. All include 2-year guarantee.
                     </p>
                 </div>
 
-                {/* Tab selector buttons */}
-                <div className="flex flex-col md:flex-row gap-2 border-b border-[#2D2D2D]/15 pb-4 select-none mb-12">
+                {/* DESKTOP TABS TOGGLE (Visible on Desktop only) */}
+                <div className="hidden md:flex flex-row gap-2 border-b border-[#2D2D2D]/15 pb-4 mb-12 select-none">
                     <button
-                        onClick={() => setActiveTab("standard")}
+                        onClick={() => {
+                            setActiveTab("standard");
+                            trackEvent("variant_selection", "standard");
+                        }}
                         className={`flex-1 text-center py-4 px-6 rounded-2xl text-xs font-black uppercase tracking-wider transition-all duration-300 ${
                             activeTab === "standard" 
                                 ? "bg-[#2C5F2E] text-white shadow-md"
                                 : "bg-white text-[#1A1A1A] hover:bg-[#EAE5DB]/40 border border-black/[0.04]"
                         }`}
                     >
-                        Standard Bus Shelter — Durable & Cost-Effective
+                        Standard Bus Shelter
                     </button>
                     <button
-                        onClick={() => setActiveTab("premium")}
+                        onClick={() => {
+                            setActiveTab("premium");
+                            trackEvent("variant_selection", "premium");
+                        }}
                         className={`flex-1 text-center py-4 px-6 rounded-2xl text-xs font-black uppercase tracking-wider transition-all duration-300 ${
                             activeTab === "premium" 
                                 ? "bg-[#2C5F2E] text-white shadow-md"
                                 : "bg-white text-[#1A1A1A] hover:bg-[#EAE5DB]/40 border border-black/[0.04]"
                         }`}
                     >
-                        Premium Bus Shelter — Stainless Steel for High-Traffic Zones
+                        Premium Bus Shelter
                     </button>
                     <button
-                        onClick={() => setActiveTab("super")}
+                        onClick={() => {
+                            setActiveTab("super");
+                            trackEvent("variant_selection", "super_premium");
+                        }}
                         className={`flex-1 text-center py-4 px-6 rounded-2xl text-xs font-black uppercase tracking-wider transition-all duration-300 ${
                             activeTab === "super" 
                                 ? "bg-[#2C5F2E] text-white shadow-md"
                                 : "bg-white text-[#1A1A1A] hover:bg-[#EAE5DB]/40 border border-black/[0.04]"
                         }`}
                     >
-                        Super Premium Bus Shelter — Smart City Ready with IoT Integration
+                        Super Premium Bus Shelter
                     </button>
                 </div>
 
-                {/* Tab content wrappers */}
-                <div className="bg-white rounded-[2.5rem] border border-black/[0.03] p-8 md:p-14 shadow-sm">
-                    {activeTab === "standard" && (
-                        <div>
-                            <div className="flex justify-between items-start gap-4 mb-6">
-                                <div>
-                                    <span className="text-[9px] font-black uppercase tracking-widest text-[#C9A84C] bg-[#C9A84C]/10 px-3 py-1.5 rounded-full select-none">Economy Focus</span>
-                                    <h3 className="text-2xl sm:text-3xl font-black uppercase text-[#1A1A1A] mt-3">Urbanland Standard Bus Shelter</h3>
-                                    <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2C5F2E] mt-1">Engineered for Moderate-Traffic Bus Stops</h4>
-                                </div>
-                            </div>
-                            <p className="text-sm sm:text-base text-[#2D2D2D]/75 leading-relaxed mb-8">
-                                Our Standard Bus Shelter is the most specified configuration for municipal and township projects. It delivers durability, weather protection, and passenger comfort at a competitive cost. Ideal for secondary bus routes, residential areas, and smaller cities where traffic is moderate but reliability is essential.
-                            </p>
-
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t border-[#2D2D2D]/10 pt-8">
-                                <div>
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
-                                    <ul className="flex flex-col gap-3.5 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Frame: Mild Steel (MS) with Akzonobel PU powder coating</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Roof: Galvanized sheet or ACP (polycarbonate composite)</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Seating: MS bench with anti-slip surface</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Opening: Open-front design (weather protection, clear sightlines)</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Customizable dimensions available</li>
-                                    </ul>
-
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">— Ideal Use Cases</h4>
-                                    <ul className="flex flex-col gap-2.5 text-xs font-semibold text-[#2D2D2D]/75">
-                                        <li>• Smart City Municipal Projects (Phase 1-2)</li>
-                                        <li>• Residential township amenities (secondary routes)</li>
-                                        <li>• Educational campus bus stops</li>
-                                        <li>• Healthcare facility transport hubs</li>
-                                        <li>• Industrial & commercial zone access points</li>
-                                    </ul>
-                                </div>
-
-                                <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col gap-4">
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-black/60 mb-2 select-none">— Technical Specifications</h4>
-                                    <div className="grid grid-cols-2 gap-4 text-xs">
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Dimensions</span>
-                                            <span className="font-bold">4500L × 1800W × 2500H mm</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Frame Material</span>
-                                            <span className="font-bold">Mild Steel (40x40mm, 2-3mm thick)</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Roof Material</span>
-                                            <span className="font-bold">Galvanized Steel Sheet (2mm) OR 10mm ACP</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Coating / Protection</span>
-                                            <span className="font-bold">Akzonobel PU Paint (400-500 microns)</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Weight</span>
-                                            <span className="font-bold">1200 - 1400 kg approx.</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Delivery Timeline</span>
-                                            <span className="font-bold">25 - 30 days standard</span>
-                                        </div>
-                                    </div>
-
-                                    <Link
-                                        to="/get-quote/?variant=standard-bus-shelter"
-                                        onClick={() => {
-                                            if (window.gtag) window.gtag('event', 'variant_selection', { 'value': 'standard' });
-                                        }}
-                                        className="px-6 py-3.5 bg-[#2C5F2E] text-white hover:bg-black rounded-full font-black uppercase tracking-wider text-[10px] text-center select-none transition-colors duration-300 mt-6"
-                                    >
-                                        ▸ Request Quote for Standard Bus Shelter →
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    {activeTab === "premium" && (
-                        <div>
-                            <div className="flex justify-between items-start gap-4 mb-6">
-                                <div>
-                                    <span className="text-[9px] font-black uppercase tracking-widest text-[#C9A84C] bg-[#C9A84C]/10 px-3 py-1.5 rounded-full select-none">Stainless Steel Upgrade</span>
-                                    <h3 className="text-2xl sm:text-3xl font-black uppercase text-[#1A1A1A] mt-3">Urbanland Premium Bus Shelter</h3>
-                                    <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2C5F2E] mt-1">Superior Corrosion Resistance for Heavy-Use Areas</h4>
-                                </div>
-                            </div>
-                            <p className="text-sm sm:text-base text-[#2D2D2D]/75 leading-relaxed mb-8">
-                                Our Premium Bus Shelter is specified for high-traffic zones, coastal areas, and hospitality/real estate projects where aesthetics and durability are equally important. Stainless steel construction ensures minimal maintenance and extends the shelter's operational life well beyond 2 years. Premium choice for brand-conscious developers and smart cities targeting excellence.
-                            </p>
-
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t border-[#2D2D2D]/10 pt-8">
-                                <div>
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
-                                    <ul className="flex flex-col gap-3.5 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Frame: Stainless Steel (304/316 grade) with brushed/mirror finish</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Roof: ACP polycarbonate (translucent) OR Toughened glass panels</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Seating: SS bench with ergonomic backrest</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Side Panels: Tempered glass for visibility + weather protection</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> LED Lighting: Optional solar-powered LED panels for 24/7 illumination</li>
-                                    </ul>
-
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">— Ideal Use Cases</h4>
-                                    <ul className="flex flex-col gap-2.5 text-xs font-semibold text-[#2D2D2D]/75">
-                                        <li>• Coastal smart cities (Goa, Gujarat, Tamil Nadu projects)</li>
-                                        <li>• Premium real estate mega-townships (Lodha, Oberoi, Adani properties)</li>
-                                        <li>• 5-star hotel & resort property access points</li>
-                                        <li>• High-traffic CBD / downtown bus stations</li>
-                                        <li>• Airport/railway terminal feeder routes</li>
-                                    </ul>
-                                </div>
-
-                                <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col gap-4">
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-black/60 mb-2 select-none">— Technical Specifications</h4>
-                                    <div className="grid grid-cols-2 gap-4 text-xs">
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Dimensions</span>
-                                            <span className="font-bold">4500L × 1800W × 2500H mm (Custom to 6000)</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Frame Material</span>
-                                            <span className="font-bold">Stainless Steel 304/316 (2.5-3mm thick)</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Roof Material</span>
-                                            <span className="font-bold">ACP multiwall OR 6-8mm Toughened Glass</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Corrosion Rating</span>
-                                            <span className="font-bold">Saline Mist Resistant (Coastal Grade)</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Weight</span>
-                                            <span className="font-bold">1600 - 2000 kg (frame + glass panels)</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Delivery Timeline</span>
-                                            <span className="font-bold">30 - 35 days standard</span>
-                                        </div>
-                                    </div>
-
-                                    <Link
-                                        to="/get-quote/?variant=premium-bus-shelter"
-                                        onClick={() => {
-                                            if (window.gtag) window.gtag('event', 'variant_selection', { 'value': 'premium' });
-                                        }}
-                                        className="px-6 py-3.5 bg-[#2C5F2E] text-white hover:bg-black rounded-full font-black uppercase tracking-wider text-[10px] text-center select-none transition-colors duration-300 mt-6"
-                                    >
-                                        ▸ Request Quote for Premium Bus Shelter →
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    {activeTab === "super" && (
-                        <div>
-                            <div className="flex justify-between items-start gap-4 mb-6">
-                                <div>
-                                    <span className="text-[9px] font-black uppercase tracking-widest text-[#C9A84C] bg-[#C9A84C]/10 px-3 py-1.5 rounded-full select-none">Smart & IoT Ready</span>
-                                    <h3 className="text-2xl sm:text-3xl font-black uppercase text-[#1A1A1A] mt-3">Urbanland Super Premium Bus Shelter</h3>
-                                    <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2C5F2E] mt-1">Future-Ready Infrastructure for India's Smart Cities</h4>
-                                </div>
-                            </div>
-                            <p className="text-sm sm:text-base text-[#2D2D2D]/75 leading-relaxed mb-8">
-                                Our Super Premium Bus Shelter is engineered for tomorrow's cities. Built for seamless integration with IoT sensors, real-time transit displays, and municipal smart city platforms, this shelter combines premium materials with smart infrastructure compatibility. Ideal for Smart City Mission Phase-II projects and premium developer launches.
-                            </p>
-
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t border-[#2D2D2D]/10 pt-8">
-                                <div>
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
-                                    <ul className="flex flex-col gap-3.5 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Frame: Fully welded Stainless Steel 304/316 with customizable finish</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Roof: Toughened glass OR Polycarbonate with integrated solar panels</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Smart Systems: Pre-wired conduits for passenger counters & air sensors</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Electronics: Off-grid solar LED system with motion dimming + USB hubs</li>
-                                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> Display: Rigid VESA brackets for 49-55" real-time digital signage</li>
-                                    </ul>
-
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">— IoT & Smart Compliance</h4>
-                                    <ul className="flex flex-col gap-2.5 text-xs font-semibold text-[#2D2D2D]/75">
-                                        <li>• Meets Ministry of Urban Development Smart City Mission guidelines</li>
-                                        <li>• Accessible Design (Wheelchair-friendly ramp configuration)</li>
-                                        <li>• Energy Efficiency: Off-grid, solar self-sufficiency</li>
-                                        <li>• Compliance with IS 11707:2016 public shelter standards</li>
-                                    </ul>
-                                </div>
-
-                                <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col gap-4">
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-black/60 mb-2 select-none">— Technical Specifications</h4>
-                                    <div className="grid grid-cols-2 gap-4 text-xs">
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Dimensions</span>
-                                            <span className="font-bold">4500L × 1800W × 2500H mm (Custom to 7000)</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Solar Panels</span>
-                                            <span className="font-bold">400W Roof-mounted modular array</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Smart Features</span>
-                                            <span className="font-bold">Pre-wired VESA displays & IoT sensors</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">USB Ports</span>
-                                            <span className="font-bold">Waterproof dual-charger hubs</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Weight</span>
-                                            <span className="font-bold">2200 - 2800 kg (SS frame + glass + solar)</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-[9px] uppercase tracking-wider text-black/45">Delivery Timeline</span>
-                                            <span className="font-bold">35 - 45 days (custom configurations)</span>
-                                        </div>
-                                    </div>
-
-                                    <Link
-                                        to="/get-quote/?variant=super-premium-bus-shelter"
-                                        onClick={() => {
-                                            if (window.gtag) window.gtag('event', 'variant_selection', { 'value': 'super-premium' });
-                                        }}
-                                        className="px-6 py-3.5 bg-[#C9A84C] text-[#232120] hover:bg-black hover:text-white rounded-full font-black uppercase tracking-wider text-[10px] text-center select-none transition-colors duration-300 mt-6"
-                                    >
-                                        ▸ Request Proposal for Super Premium Shelter →
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </section>
-
-            {/* SECTION 4 — TECHNICAL SPECIFICATIONS & CUSTOMIZATION */}
-            <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-                <div className="text-left mb-12">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— ENGINEERING OPTIONS Matrix</span>
-                    <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
-                        Technical Specifications & Customization Options
-                    </h2>
-                    <p className="text-sm text-[#2D2D2D]/75 mt-4">
-                        All Urbanland Bus Shelters start from the base specification below, but we design custom configurations to match your site conditions, climate zone, and aesthetic preferences. Every variant includes our 2-year guarantee regardless of customization level.
-                    </p>
+                {/* DESKTOP CONTENT BLOCK (Visible on Desktop only) */}
+                <div className="hidden md:block bg-white rounded-[2.5rem] border border-black/[0.03] p-8 md:p-14 shadow-sm">
+                    {activeTab === "standard" && renderStandardTab()}
+                    {activeTab === "premium" && renderPremiumTab()}
+                    {activeTab === "super" && renderSuperPremiumTab()}
                 </div>
 
-                {/* Customization Matrix Table */}
-                <div className="w-full overflow-x-auto border border-black/[0.04] rounded-3xl bg-white shadow-sm scrollbar-thin">
-                    <table className="w-full text-left border-collapse min-w-[800px]">
-                        <thead>
-                            <tr className="bg-[#2C5F2E] text-white select-none text-[10px] sm:text-xs font-black uppercase tracking-wider">
-                                <th className="p-6 border-b border-[#2D2D2D]/10">COMPONENT</th>
-                                <th className="p-6 border-b border-[#2D2D2D]/10">STANDARD OPTION</th>
-                                <th className="p-6 border-b border-[#2D2D2D]/10">PREMIUM UPGRADE</th>
-                                <th className="p-6 border-b border-[#2D2D2D]/10">SUPER PREMIUM OPTION</th>
-                            </tr>
-                        </thead>
-                        <tbody className="text-xs font-semibold text-[#1A1A1A]/85">
-                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Frame Material</td>
-                                <td className="p-6">Mild Steel (MS) (2-3mm thick)</td>
-                                <td className="p-6">Stainless Steel (SS) (2.5-3mm thick)</td>
-                                <td className="p-6">SS 304/316 fully welded & mirror-polished</td>
-                            </tr>
-                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Roof Material</td>
-                                <td className="p-6">2mm Galvanized steel sheet OR ACP</td>
-                                <td className="p-6">10-16mm ACP multiwall OR 6mm tempered glass</td>
-                                <td className="p-6">8-10mm Toughened Glass OR Polycarbonate + Solar arrays</td>
-                            </tr>
-                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Coating / Finish</td>
-                                <td className="p-6">Akzonobel PU paint (Grey, blue, green)</td>
-                                <td className="p-6">Acrylic powder-coat (50+ Custom RAL colors)</td>
-                                <td className="p-6">Any custom RAL color OR Brushed/Mirror polish</td>
-                            </tr>
-                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Seating</td>
-                                <td className="p-6">MS Bench with basic backrest</td>
-                                <td className="p-6">SS Bench with ergonomic anti-slip backrest</td>
-                                <td className="p-6">Premium SS + FSC weather-treated WPC composite</td>
-                            </tr>
-                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Lighting</td>
-                                <td className="p-6">None (Daytime use standard)</td>
-                                <td className="p-6">LED fixture brackets (Wired, unpowered)</td>
-                                <td className="p-6">Integrated off-grid solar LED with motion sensors</td>
-                            </tr>
-                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Side Panels</td>
-                                <td className="p-6">Open weather design</td>
-                                <td className="p-6">Optional Tempered glass panels (1-2 sides)</td>
-                                <td className="p-6">Full glass wrap on 2 sides for wind barriers</td>
-                            </tr>
-                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Signage Bracket</td>
-                                <td className="p-6">Timetable board (Manual vinyl swap)</td>
-                                <td className="p-6">Standard 6x4 advertising backboard mount</td>
-                                <td className="p-6">Mounting plate for 49-55" digital smart displays</td>
-                            </tr>
-                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Foundation</td>
-                                <td className="p-6">Sub-surface bolt anchors (Concrete M16)</td>
-                                <td className="p-6">Floor flanged or adjustable leveling anchors</td>
-                                <td className="p-6">Concealed foundation locking sleeve</td>
-                            </tr>
-                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Add-Ons available</td>
-                                <td className="p-6">LED lighting, roof extensions</td>
-                                <td className="p-6">IoT pre-wire, Wi-Fi antenna ready</td>
-                                <td className="p-6">400W Solar arrays, passenger counters, USB hubs</td>
-                            </tr>
-                            <tr className="hover:bg-[#F7F4EF]/45">
-                                <td className="p-6 font-bold bg-[#2C5F2E]/5 select-none uppercase tracking-wider">Lead Manufacturing Time</td>
-                                <td className="p-6 text-[#2C5F2E] font-bold">25 - 30 days</td>
-                                <td className="p-6 text-[#2C5F2E] font-bold">30 - 35 days</td>
-                                <td className="p-6 text-[#2C5F2E] font-bold">35 - 45 days</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                {/* MOBILE ACCORDIONS STACK (Visible on Mobile only) */}
+                <div className="flex md:hidden flex-col gap-4">
+                    {/* ACCORDION 1: STANDARD (Open by default) */}
+                    <div className="bg-white rounded-3xl border border-black/[0.03] overflow-hidden shadow-sm">
+                        <button
+                            onClick={() => {
+                                const next = activeTab === "standard" ? null : "standard";
+                                setActiveTab(next);
+                                if (next) trackEvent("variant_selection", "standard");
+                            }}
+                            className="w-full text-left p-6 flex justify-between items-center font-black uppercase tracking-wider text-sm text-[#1A1A1A] hover:bg-[#F7F4EF]/35"
+                        >
+                            <span>Standard Bus Shelter</span>
+                            <span className="text-[#2C5F2E] text-xl font-bold font-mono">
+                                {activeTab === "standard" ? "−" : "+"}
+                            </span>
+                        </button>
+                        {activeTab === "standard" && (
+                            <div className="p-6 border-t border-[#2D2D2D]/5 bg-white">
+                                {renderStandardTab()}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* ACCORDION 2: PREMIUM */}
+                    <div className="bg-white rounded-3xl border border-black/[0.03] overflow-hidden shadow-sm">
+                        <button
+                            onClick={() => {
+                                const next = activeTab === "premium" ? null : "premium";
+                                setActiveTab(next);
+                                if (next) trackEvent("variant_selection", "premium");
+                            }}
+                            className="w-full text-left p-6 flex justify-between items-center font-black uppercase tracking-wider text-sm text-[#1A1A1A] hover:bg-[#F7F4EF]/35"
+                        >
+                            <span>Premium Bus Shelter</span>
+                            <span className="text-[#2C5F2E] text-xl font-bold font-mono">
+                                {activeTab === "premium" ? "−" : "+"}
+                            </span>
+                        </button>
+                        {activeTab === "premium" && (
+                            <div className="p-6 border-t border-[#2D2D2D]/5 bg-white">
+                                {renderPremiumTab()}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* ACCORDION 3: SUPER PREMIUM */}
+                    <div className="bg-white rounded-3xl border border-black/[0.03] overflow-hidden shadow-sm">
+                        <button
+                            onClick={() => {
+                                const next = activeTab === "super" ? null : "super";
+                                setActiveTab(next);
+                                if (next) trackEvent("variant_selection", "super_premium");
+                            }}
+                            className="w-full text-left p-6 flex justify-between items-center font-black uppercase tracking-wider text-sm text-[#1A1A1A] hover:bg-[#F7F4EF]/35"
+                        >
+                            <span>Super Premium Bus Shelter</span>
+                            <span className="text-[#2C5F2E] text-xl font-bold font-mono">
+                                {activeTab === "super" ? "−" : "+"}
+                            </span>
+                        </button>
+                        {activeTab === "super" && (
+                            <div className="p-6 border-t border-[#2D2D2D]/5 bg-white">
+                                {renderSuperPremiumTab()}
+                            </div>
+                        )}
+                    </div>
                 </div>
 
-                <div className="flex justify-center mt-10 select-none">
-                    <Link
-                        to="/resources/downloads"
-                        onClick={() => {
-                            if (window.gtag) window.gtag('event', 'spec_sheet_download', { 'value': 'bus_shelter' });
-                        }}
-                        className="px-8 py-4 bg-white border border-black/[0.04] text-black hover:bg-[#2C5F2E] hover:text-white rounded-full font-black uppercase tracking-wider text-xs transition-colors duration-300 shadow-sm"
-                    >
-                        ↓ Download Complete Technical Specifications (PDF, 2.5MB)
-                    </Link>
-                </div>
-            </section>
-
-            {/* SECTION 5 — MATERIAL OPTIONS & DURABILITY COMPARISON */}
-            <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— RAW SPECIFICATIONS COMPARE</span>
-                    <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
-                        Material Selection Guide — MS, Stainless Steel, Aluminium Durability Comparison
-                    </h2>
-                    <p className="text-sm text-[#2D2D2D]/75 mt-6 mb-8 leading-relaxed">
-                        Choosing the right frame material depends on your environment, budget, and timeline. Here's how each material performs under harsh weather:
-                    </p>
-
-                    {/* Comparison Table */}
+                {/* QUICK COMPARISON TABLE */}
+                <div className="mt-16">
+                    <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-6">— Quick Comparison</h3>
                     <div className="w-full overflow-x-auto border border-black/[0.04] rounded-3xl bg-white shadow-sm scrollbar-thin">
-                        <table className="w-full text-left border-collapse min-w-[500px]">
+                        <table className="w-full text-left border-collapse min-w-[650px]">
                             <thead>
-                                <tr className="bg-black/5 text-[#1A1A1A] select-none text-[10px] font-black uppercase tracking-wider">
-                                    <th className="p-4 border-b border-black/10">MATERIAL</th>
-                                    <th className="p-4 border-b border-black/10">DURABILITY</th>
-                                    <th className="p-4 border-b border-black/10">MAINTENANCE</th>
-                                    <th className="p-4 border-b border-black/10">COST</th>
+                                <tr className="bg-[#2D2D2D] text-white select-none text-[10px] sm:text-xs font-black uppercase tracking-wider">
+                                    <th className="p-5 border-b border-[#2D2D2D]/10">Aspect</th>
+                                    <th className="p-5 border-b border-[#2D2D2D]/10">Standard</th>
+                                    <th className="p-5 border-b border-[#2D2D2D]/10">Premium</th>
+                                    <th className="p-5 border-b border-[#2D2D2D]/10">Super Premium</th>
                                 </tr>
                             </thead>
-                            <tbody className="text-xs font-semibold text-[#2D2D2D]/85">
-                                <tr className="border-b border-black/10 hover:bg-[#F7F4EF]/45">
-                                    <td className="p-4 font-bold uppercase tracking-wider">Mild Steel (MS)</td>
-                                    <td className="p-4">8-10 years (painted)</td>
-                                    <td className="p-4">Annual paint touch-ups</td>
-                                    <td className="p-4 text-[#2C5F2E]">★ Most affordable</td>
+                            <tbody className="text-xs font-semibold text-[#1A1A1A]/85">
+                                <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
+                                    <td className="p-5 font-bold uppercase tracking-wider bg-[#2C5F2E]/5">Material</td>
+                                    <td className="p-5">Mild Steel</td>
+                                    <td className="p-5">Stainless Steel</td>
+                                    <td className="p-5">SS (Premium Grade)</td>
                                 </tr>
-                                <tr className="border-b border-black/10 hover:bg-[#F7F4EF]/45">
-                                    <td className="p-4 font-bold uppercase tracking-wider">Stainless Steel (304/316)</td>
-                                    <td className="p-4">15-20 years+ (rust-free)</td>
-                                    <td className="p-4">Minimal / rare cleaning</td>
-                                    <td className="p-4 text-[#2C5F2E]">★★★ Premium grade</td>
+                                <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
+                                    <td className="p-5 font-bold uppercase tracking-wider bg-[#2C5F2E]/5">Lifespan</td>
+                                    <td className="p-5">8-10 years</td>
+                                    <td className="p-5">15-20+ years</td>
+                                    <td className="p-5">20+ years indefinite</td>
+                                </tr>
+                                <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
+                                    <td className="p-5 font-bold uppercase tracking-wider bg-[#2C5F2E]/5">Best For</td>
+                                    <td className="p-5">Inland municipalities</td>
+                                    <td className="p-5">Coastal / Premium projects</td>
+                                    <td className="p-5">Smart Cities / IoT</td>
                                 </tr>
                                 <tr className="hover:bg-[#F7F4EF]/45">
-                                    <td className="p-4 font-bold uppercase tracking-wider">Aluminium</td>
-                                    <td className="p-4">12-15 years (anodized)</td>
-                                    <td className="p-4">Periodic anodizing</td>
-                                    <td className="p-4 text-[#2C5F2E]">★★ Mid-range option</td>
+                                    <td className="p-5 font-bold uppercase tracking-wider bg-[#2C5F2E]/5">Annual Maintenance</td>
+                                    <td className="p-5">₹3-5K</td>
+                                    <td className="p-5">₹500-1K</td>
+                                    <td className="p-5">₹1.5-2.5K</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
-
-                <div className="bg-[#EAE5DB]/40 rounded-[2.5rem] border border-black/[0.03] p-8 md:p-12 flex flex-col gap-6">
-                    <h3 className="text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-2">— MATERIAL SELECTION FAQ</h3>
-                    
-                    <div className="pb-4 border-b border-black/[0.08]">
-                        <h4 className="text-sm font-bold text-[#1A1A1A]">Q: Which material should I choose for a coastal bus stop?</h4>
-                        <p className="text-xs text-[#2D2D2D]/75 mt-1 leading-relaxed">
-                            A: Stainless steel (304 or 316 grade). MS will rust in 2-3 years in coastal areas despite painting. SS requires virtually no maintenance and outlasts your 2-year warranty significantly.
-                        </p>
-                    </div>
-                    <div className="pb-4 border-b border-black/[0.08]">
-                        <h4 className="text-sm font-bold text-[#1A1A1A]">Q: Can I upgrade from MS to SS later?</h4>
-                        <p className="text-xs text-[#2D2D2D]/75 mt-1 leading-relaxed">
-                            A: Not directly due to different anchor bolt sizing and frame weight distribution. We strongly recommend selecting SS upfront if you anticipate coastal developments.
-                        </p>
-                    </div>
-                    <div className="pb-4 border-b border-black/[0.08]">
-                        <h4 className="text-sm font-bold text-[#1A1A1A]">Q: Does aluminium rust?</h4>
-                        <p className="text-xs text-[#2D2D2D]/75 mt-1 leading-relaxed">
-                            A: No, but it oxidizes (forming a white/grey patina). Periodic anodizing finishes protect the metal core indefinitely. It's best for remote or weight-critical platforms.
-                        </p>
-                    </div>
-                    <div>
-                        <h4 className="text-sm font-bold text-[#1A1A1A]">Q: Is stainless steel more expensive to install?</h4>
-                        <p className="text-xs text-[#2D2D2D]/75 mt-1 leading-relaxed">
-                            A: Installation costs are very similar. SS adds ~25-30% on initial material expenditures but saves thousands in repainting costs and replacement down the road.
-                        </p>
+                    <div className="block md:hidden text-[10px] text-center text-black/45 mt-2 animate-pulse font-bold">
+                        Swipe horizontally to view full comparison →
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 6 — REAL PROJECT CASE STUDIES */}
-            <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-                <div className="text-left mb-16 max-w-4xl">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— NATIONWIDE CASE STUDY HIGHLIGHTS</span>
+            {/* SECTION 3 — MATERIAL GUIDE + SPECS */}
+            <section id="specifications" className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
+                <div className="text-left mb-12">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— MATERIAL SELECTION GUIDE</span>
                     <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
-                        Real Bus Shelters. Real Results. Across India's Smart Cities.
+                        Materials & Customization Guide
                     </h2>
-                    <p className="text-sm text-[#2D2D2D]/75 mt-4 leading-relaxed">
-                        From India's fastest-growing smart cities to premium real estate townships, Urbanland Bus Shelters have been specified for 50+ major infrastructure projects. Here are four representative case studies showing different configurations, climates, and project scales.
+                    <p className="text-sm text-[#2D2D2D]/75 mt-4 leading-relaxed max-w-4xl">
+                        Choose the right material based on climate, maintenance capacity, and budget. All variants can be customized for dimensions, roof materials, finishes, and add-ons.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 select-none">
-                    {/* CASE 1 */}
-                    <div className="bg-white rounded-[2.5rem] border border-black/[0.03] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between aspect-[16/15]">
-                        <div className="w-full h-[45%] bg-black/5 overflow-hidden relative">
-                            <img src={busImg} alt="Urbanland Standard Bus Shelters installed in smart city municipal project" className="w-full h-full object-cover" />
-                            <div className="absolute top-4 right-4 bg-[#2C5F2E] text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
-                                Nagpur Smart City
+                {/* Material Comparison Table */}
+                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-6">— Material Comparison</h3>
+                <div className="w-full overflow-x-auto border border-black/[0.04] rounded-3xl bg-white shadow-sm mb-4 scrollbar-thin">
+                    <table className="w-full text-left border-collapse min-w-[650px]">
+                        <thead>
+                            <tr className="bg-[#2C5F2E] text-white select-none text-[10px] sm:text-xs font-black uppercase tracking-wider">
+                                <th className="p-5 border-b border-[#2D2D2D]/10">Material</th>
+                                <th className="p-5 border-b border-[#2D2D2D]/10">Lifespan</th>
+                                <th className="p-5 border-b border-[#2D2D2D]/10">Maintenance</th>
+                                <th className="p-5 border-b border-[#2D2D2D]/10">Best For</th>
+                                <th className="p-5 border-b border-[#2D2D2D]/10">Cost vs MS</th>
+                            </tr>
+                        </thead>
+                        <tbody className="text-xs font-semibold text-[#1A1A1A]/85">
+                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
+                                <td className="p-5 font-bold uppercase tracking-wider">Mild Steel (MS)</td>
+                                <td className="p-5">8-10 years</td>
+                                <td className="p-5">Annual paint touch-ups</td>
+                                <td className="p-5">Inland cities</td>
+                                <td className="p-5">Base price (1×)</td>
+                            </tr>
+                            <tr className="border-b border-[#2D2D2D]/10 hover:bg-[#F7F4EF]/45">
+                                <td className="p-5 font-bold uppercase tracking-wider">Stainless Steel 304/316</td>
+                                <td className="p-5">15-20+ years</td>
+                                <td className="p-5">Minimal (cleaning only)</td>
+                                <td className="p-5">Coastal, premium projects</td>
+                                <td className="p-5">2.5-3× MS cost</td>
+                            </tr>
+                            <tr className="hover:bg-[#F7F4EF]/45">
+                                <td className="p-5 font-bold uppercase tracking-wider">Aluminium</td>
+                                <td className="p-5">12-15 years</td>
+                                <td className="p-5">Periodic anodizing</td>
+                                <td className="p-5">Remote installations</td>
+                                <td className="p-5">1.8-2× MS cost</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="block md:hidden text-[10px] text-center text-black/45 mb-12 animate-pulse font-bold">
+                    Swipe horizontally to view full comparison →
+                </div>
+
+                {/* Which Material paragraphs */}
+                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-6">— Which Material Should You Choose?</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-black/[0.03] shadow-sm flex flex-col justify-between">
+                        <div>
+                            <h4 className="font-bold text-xs uppercase tracking-widest text-[#2C5F2E] mb-3">Coastal Environments</h4>
+                            <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed">
+                                Coastal environments: Stainless Steel (304 or 316). MS will rust in 2-3 years despite coating. SS requires virtually no maintenance and is more economical long-term (no repainting costs).
+                            </p>
+                        </div>
+                    </div>
+                    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-black/[0.03] shadow-sm flex flex-col justify-between">
+                        <div>
+                            <h4 className="font-bold text-xs uppercase tracking-widest text-[#2C5F2E] mb-3">Inland Locations</h4>
+                            <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed">
+                                Inland municipalities: Mild Steel is cost-effective. Annual paint touch-ups maintain appearance and extend lifespan to 8-10 years.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-black/[0.03] shadow-sm flex flex-col justify-between">
+                        <div>
+                            <h4 className="font-bold text-xs uppercase tracking-widest text-[#2C5F2E] mb-3">Long-term Lifecycle</h4>
+                            <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed">
+                                Long-term analysis: While SS costs 2.5-3× more upfront, it saves 5-10 years of repainting. For 15-year lifecycle, stainless steel is more economical.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Customization Options */}
+                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-6">— Customization Options Available</h3>
+                <div className="bg-white rounded-[2.5rem] border border-black/[0.03] p-8 md:p-12 mb-12 shadow-sm">
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm font-bold text-[#1A1A1A]/85">
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">✦</span> Dimensions: Custom lengths 3500-7000mm</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">✦</span> Frame materials: MS, SS 304, SS 316, Aluminium</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">✦</span> Roof options: Galvanized sheet, polycarbonate, toughened glass, recycled wood</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">✦</span> Finishes: Standard colors, 50+ RAL colors, mirror polish, brushed</li>
+                        <li className="flex items-center gap-3"><span className="text-[#C9A84C]">✦</span> Add-ons: LED lighting, solar panels, digital displays, IoT sensor pre-wiring, anti-graffiti coating</li>
+                    </ul>
+                </div>
+
+                {/* Download CTA */}
+                <div className="flex justify-center select-none">
+                    <Link
+                        to="/resources/downloads"
+                        onClick={() => trackEvent("spec_sheet_download", "bus_shelters")}
+                        className="px-8 py-4 bg-white border border-black/[0.05] text-black hover:bg-[#2C5F2E] hover:text-white rounded-full font-black uppercase tracking-wider text-xs transition-all shadow-sm"
+                    >
+                        ↓ Download Complete Specifications PDF
+                    </Link>
+                </div>
+            </section>
+
+            {/* SECTION 4 — REAL PROJECTS (Social Proof) */}
+            <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
+                <div className="text-left mb-16 max-w-4xl">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— INFRASTRUCTURE PROJECTS</span>
+                    <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
+                        Real Bus Shelters. Real Results. Across India.
+                    </h2>
+                    <p className="text-sm text-[#2D2D2D]/75 mt-4 leading-relaxed">
+                        Proven across 50+ major infrastructure projects, serving 15+ cities, with 2000+ operational shelters. Here are three project case studies.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 select-none mb-12">
+                    {/* PROJECT CARD 1 */}
+                    <div className="bg-white rounded-[2.5rem] border border-black/[0.03] overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.01] transform transition-all duration-300 flex flex-col justify-between group">
+                        <div className="w-full h-48 bg-black/5 overflow-hidden relative">
+                            <img src={busImg} alt="Urbanland Standard Bus Shelters installed in smart city municipal project" className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500" loading="lazy" />
+                            <div className="absolute top-4 right-4 bg-[#2C5F2E] text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
+                                Standard Case
                             </div>
                         </div>
-                        <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
+                        <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
                             <div>
-                                <span className="text-[9px] font-black uppercase tracking-wider text-[#C9A84C]">Smart City Authority</span>
-                                <h3 className="text-xl font-black uppercase text-[#1A1A1A] leading-tight mt-1">Smart City Municipal Transportation Project</h3>
-                                <div className="text-xs font-bold text-[#2C5F2E] my-2">120 Standard Bus Shelters Installed | 8-Month Duration</div>
-                                <p className="text-xs text-[#2D2D2D]/70 leading-relaxed max-w-[95%]">
-                                    A Tier-1 Indian city selected Urbanland to outfit 120 bus stops across 12 transit zones. The Standard configuration was utilized to meet tight municipal budgets while assuring 2-year guarantee reliability.
+                                <span className="text-[9px] font-black uppercase tracking-wider text-[#C9A84C]">Smart City Authority — Nagpur</span>
+                                <h3 className="text-lg font-black uppercase text-[#1A1A1A] leading-tight mt-1">Smart City Municipal Project — 120 Shelters</h3>
+                                <div className="text-[10px] font-bold text-[#2C5F2E] my-2">Timeline: 8 months</div>
+                                <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
+                                    A metropolitan city selected Urbanland for 120 bus stops across its transit network. Standard configuration (MS frame, galvanized roof) met municipal budget while ensuring durability. Urbanland coordinated bulk manufacturing, logistics, and staggered installation. Result: On-time delivery, zero disruptions.
                                 </p>
                             </div>
                             <Link
-                                to="/projects/smart-city-municipal-bus-stops"
-                                onClick={() => {
-                                    if (window.gtag) window.gtag('event', 'case_study_click', { 'value': 'smart_city_municipal' });
-                                }}
-                                className="text-[10px] font-bold uppercase tracking-wider text-[#2C5F2E] hover:text-black transition-colors block mt-4 border-b border-[#2C5F2E]/20 pb-0.5 w-fit"
+                                to="/projects/smart-city-municipal/"
+                                onClick={() => trackEvent("case_study_click", "smart_city_municipal")}
+                                className="text-[10px] font-black uppercase tracking-wider text-[#2C5F2E] hover:text-black transition-colors block mt-4 border-b border-[#2C5F2E]/20 pb-0.5 w-fit font-bold"
                             >
-                                ▸ View Nagpur Project Details →
+                                View Case Study →
                             </Link>
                         </div>
                     </div>
 
-                    {/* CASE 2 */}
-                    <div className="bg-white rounded-[2.5rem] border border-black/[0.03] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between aspect-[16/15]">
-                        <div className="w-full h-[45%] bg-black/5 overflow-hidden relative">
-                            <img src={benchImg} alt="Premium Urbanland stainless steel bus shelter in Lodha residential township" className="w-full h-full object-cover" />
-                            <div className="absolute top-4 right-4 bg-[#2C5F2E] text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
-                                Maharashtra Townships
+                    {/* PROJECT CARD 2 */}
+                    <div className="bg-white rounded-[2.5rem] border border-black/[0.03] overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.01] transform transition-all duration-300 flex flex-col justify-between group">
+                        <div className="w-full h-48 bg-black/5 overflow-hidden relative">
+                            <img src={benchImg} alt="Premium Urbanland stainless steel bus shelter in Lodha residential township" className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500" loading="lazy" />
+                            <div className="absolute top-4 right-4 bg-[#2C5F2E] text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
+                                Lodha Group
                             </div>
                         </div>
-                        <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
+                        <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
                             <div>
-                                <span className="text-[9px] font-black uppercase tracking-wider text-[#C9A84C]">Lodha Group</span>
-                                <h3 className="text-xl font-black uppercase text-[#1A1A1A] leading-tight mt-1">Premium Residential Township Amenities</h3>
-                                <div className="text-xs font-bold text-[#2C5F2E] my-2">85 Premium SS Bus Shelters Installed | 6-Month Duration</div>
-                                <p className="text-xs text-[#2D2D2D]/70 leading-relaxed max-w-[95%]">
-                                    Lodha Group partnered with Urbanland to elevate township transit. 85 Premium SS bus shelters were custom-designed to match community aesthetics, featuring mirror-polished finishes and integrated seating elements.
+                                <span className="text-[9px] font-black uppercase tracking-wider text-[#C9A84C]">Lodha Group — Maharashtra</span>
+                                <h3 className="text-lg font-black uppercase text-[#1A1A1A] leading-tight mt-1">Premium Township — 85 Stainless Steel Shelters</h3>
+                                <div className="text-[10px] font-bold text-[#2C5F2E] my-2">Timeline: 6 months</div>
+                                <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
+                                    Lodha partnered with Urbanland for 85 Premium SS shelters custom-designed with mirror-polished finish. Design consistency across 3 townships. Zero maintenance needed 18+ months post-installation—critical for resident satisfaction. Custom design integration with township aesthetics.
                                 </p>
                             </div>
                             <Link
-                                to="/projects/lodha-group-bus-shelters"
-                                onClick={() => {
-                                    if (window.gtag) window.gtag('event', 'case_study_click', { 'value': 'lodha_township' });
-                                }}
-                                className="text-[10px] font-bold uppercase tracking-wider text-[#2C5F2E] hover:text-black transition-colors block mt-4 border-b border-[#2C5F2E]/20 pb-0.5 w-fit"
+                                to="/projects/lodha-group-bus-shelters/"
+                                onClick={() => trackEvent("case_study_click", "lodha_township")}
+                                className="text-[10px] font-black uppercase tracking-wider text-[#2C5F2E] hover:text-black transition-colors block mt-4 border-b border-[#2C5F2E]/20 pb-0.5 w-fit font-bold"
                             >
-                                ▸ View Lodha Case Study →
+                                View Case Study →
                             </Link>
                         </div>
                     </div>
 
-                    {/* CASE 3 */}
-                    <div className="bg-white rounded-[2.5rem] border border-black/[0.03] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between aspect-[16/15]">
-                        <div className="w-full h-[45%] bg-black/5 overflow-hidden relative">
-                            <img src={carImg} alt="Coastal-resistant stainless steel bus shelter in smart city waterfront project" className="w-full h-full object-cover" />
-                            <div className="absolute top-4 right-4 bg-[#2C5F2E] text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
+                    {/* PROJECT CARD 3 */}
+                    <div className="bg-white rounded-[2.5rem] border border-black/[0.03] overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.01] transform transition-all duration-300 flex flex-col justify-between group">
+                        <div className="w-full h-48 bg-black/5 overflow-hidden relative">
+                            <img src={carImg} alt="Coastal-resistant stainless steel bus shelter in smart city waterfront project" className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500" loading="lazy" />
+                            <div className="absolute top-4 right-4 bg-[#2C5F2E] text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
                                 Goa Waterfront
                             </div>
                         </div>
-                        <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
+                        <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
                             <div>
-                                <span className="text-[9px] font-black uppercase tracking-wider text-[#C9A84C]">Waterfront Authority</span>
-                                <h3 className="text-xl font-black uppercase text-[#1A1A1A] leading-tight mt-1">Coastal Smart City Waterfront Development</h3>
-                                <div className="text-xs font-bold text-[#2C5F2E] my-2">45 Premium SS (316 Grade) Shelters | 4-Month Duration</div>
-                                <p className="text-xs text-[#2D2D2D]/70 leading-relaxed max-w-[95%]">
-                                    A coastal city's development authority required bus shelters to withstand high humidity and saline atmospheres without maintenance. 45 Premium SS (316 grade) shelters with tempered glass were specified.
+                                <span className="text-[9px] font-black uppercase tracking-wider text-[#C9A84C]">Coastal Development Authority — Goa</span>
+                                <h3 className="text-lg font-black uppercase text-[#1A1A1A] leading-tight mt-1">Coastal Smart City — 45 SS Shelters (Zero Degradation)</h3>
+                                <div className="text-[10px] font-bold text-[#2C5F2E] my-2">Timeline: 4 months</div>
+                                <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
+                                    Coastal city required shelters withstanding salt spray, humidity, and extreme heat. Urbanland specified 316-grade SS (premium vs. standard 304) for superior corrosion resistance. Result: 14 months post-installation, zero rust or degradation observed. Validation of material choice and manufacturing quality.
                                 </p>
                             </div>
                             <Link
-                                to="/projects/coastal-city-smart-bus-shelters"
-                                onClick={() => {
-                                    if (window.gtag) window.gtag('event', 'case_study_click', { 'value': 'coastal_smart_city' });
-                                }}
-                                className="text-[10px] font-bold uppercase tracking-wider text-[#2C5F2E] hover:text-black transition-colors block mt-4 border-b border-[#2C5F2E]/20 pb-0.5 w-fit"
+                                to="/projects/coastal-city-smart-shelters/"
+                                onClick={() => trackEvent("case_study_click", "coastal_smart_city")}
+                                className="text-[10px] font-black uppercase tracking-wider text-[#2C5F2E] hover:text-black transition-colors block mt-4 border-b border-[#2C5F2E]/20 pb-0.5 w-fit font-bold"
                             >
-                                ▸ View Goa Project Details →
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* CASE 4 */}
-                    <div className="bg-white rounded-[2.5rem] border border-black/[0.03] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between aspect-[16/15]">
-                        <div className="w-full h-[45%] bg-black/5 overflow-hidden relative">
-                            <img src={wickerImg} alt="Urbanland Super Premium IoT-ready bus shelter in 5-star resort transit hub" className="w-full h-full object-cover" />
-                            <div className="absolute top-4 right-4 bg-[#2C5F2E] text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
-                                Bangalore Tech Park
-                            </div>
-                        </div>
-                        <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
-                            <div>
-                                <span className="text-[9px] font-black uppercase tracking-wider text-[#C9A84C]">Oberoi Realty / Tech Park</span>
-                                <h3 className="text-xl font-black uppercase text-[#1A1A1A] leading-tight mt-1">5-Star Resort & Tech Park Mobility Hub</h3>
-                                <div className="text-xs font-bold text-[#2C5F2E] my-2">28 Super Premium Smart-Ready Shelters | 3-Month Duration</div>
-                                <p className="text-xs text-[#2D2D2D]/70 leading-relaxed max-w-[95%]">
-                                    A luxury hospitality and corporate tech campus required bus stops that integrated pre-wired IoT sensor paths, off-grid solar-powered lighting, and dynamic real-time arrival signs.
-                                </p>
-                            </div>
-                            <Link
-                                to="/projects/oberoi-tech-park-smart-shelters"
-                                onClick={() => {
-                                    if (window.gtag) window.gtag('event', 'case_study_click', { 'value': 'premium_hospitality' });
-                                }}
-                                className="text-[10px] font-bold uppercase tracking-wider text-[#2C5F2E] hover:text-black transition-colors block mt-4 border-b border-[#2C5F2E]/20 pb-0.5 w-fit"
-                            >
-                                ▸ View Bangalore Project Details →
+                                View Case Study →
                             </Link>
                         </div>
                     </div>
                 </div>
 
-                {/* PROJECT STATS BAR */}
-                <div className="bg-[#2D2D2D] rounded-[2rem] border border-white/5 p-8 md:p-10 text-white flex flex-col md:flex-row justify-between items-center text-center mt-12 gap-8 shadow-md select-none">
+                {/* STATS BAR */}
+                <div className="bg-[#2D2D2D] rounded-[2rem] border border-white/5 p-8 md:p-10 text-white flex flex-col md:flex-row justify-between items-center text-center gap-8 shadow-md select-none">
                     <div className="flex-1">
                         <span className="block text-3xl font-black uppercase tracking-tight text-[#C9A84C]">50+</span>
-                        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-white/55 mt-1 block">Major Projects Delivered</span>
+                        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-white/55 mt-1 block">Major Infrastructure Projects Delivered</span>
                     </div>
                     <div className="w-[1px] h-8 bg-white/10 md:block hidden" />
                     <div className="flex-1">
                         <span className="block text-3xl font-black uppercase tracking-tight text-[#C9A84C]">15+</span>
-                        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-white/55 mt-1 block">Cities & Regions Served</span>
+                        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-white/55 mt-1 block">Cities Served</span>
                     </div>
                     <div className="w-[1px] h-8 bg-white/10 md:block hidden" />
                     <div className="flex-1">
                         <span className="block text-3xl font-black uppercase tracking-tight text-[#C9A84C]">2000+</span>
-                        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-white/55 mt-1 block">Bus Shelters Installed</span>
+                        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-white/55 mt-1 block">Operational Bus Shelters</span>
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 7 — WHY ARCHITECTS & PLANNERS SPECIFY */}
+            {/* SECTION 5 — INSTALLATION, WARRANTY & FAQ */}
             <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-                <div className="text-left mb-16 max-w-4xl">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— COMPLIANCE & CAPABILITY FOR SPECIFIERS</span>
-                    <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
-                        Why India's Leading Architects, Planners & Engineers Specify Urbanland Bus Shelters
-                    </h2>
-                    <p className="text-sm text-[#2D2D2D]/75 mt-4 leading-relaxed">
-                        Architects and municipal planners specify Urbanland for four reasons: (1) design flexibility that matches site conditions and project vision, (2) reliable delivery timelines that keep projects on schedule, (3) material transparency that supports sustainability goals, and (4) warranty backing that protects municipal/developer investment. Unlike imported shelters with long lead times and limited customization, Urbanland offers local manufacturing agility without quality compromise.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 select-none">
-                    {/* CARD 1 */}
-                    <div className="bg-white rounded-3xl border border-black/[0.03] p-6 shadow-sm">
-                        <h3 className="text-lg font-black uppercase text-[#1A1A1A] mb-3 leading-snug border-b border-[#2D2D2D]/10 pb-3">
-                            Site-Specific Design Without Compromises
-                        </h3>
-                        <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
-                            Your site isn't standard. Why should your bus shelter be? We work directly with architects to customize shelter dimensions, material finishes, roof profile, and amenity placement. Whether you need a shelter that integrates with an existing plaza, accommodates specific passenger loads, or reflects project aesthetic—we design it. Our CAD team delivers 3D renderings before production begins.
-                        </p>
-                    </div>
-
-                    {/* CARD 2 */}
-                    <div className="bg-white rounded-3xl border border-black/[0.03] p-6 shadow-sm">
-                        <h3 className="text-lg font-black uppercase text-[#1A1A1A] mb-3 leading-snug border-b border-[#2D2D2D]/10 pb-3">
-                            Sustainable Materials, Documented Sourcing
-                        </h3>
-                        <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
-                            Architects increasingly specify sustainable materials. Urbanland provides material source documentation, recycled content percentages, and end-of-life recyclability specs. Our stainless steel is certified for coastal environments; our composite benches use recycled plastic; our coatings meet VOC (Volatile Organic Compounds) standards. We support LEED/IGBC green building certifications.
-                        </p>
-                    </div>
-
-                    {/* CARD 3 */}
-                    <div className="bg-white rounded-3xl border border-black/[0.03] p-6 shadow-sm">
-                        <h3 className="text-lg font-black uppercase text-[#1A1A1A] mb-3 leading-snug border-b border-[#2D2D2D]/10 pb-3">
-                            ISA/BIS Compliant, Accessibility Ready
-                        </h3>
-                        <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
-                            All shelters meet Indian Standards (IS 11707:2016 for public transport shelters) and Smart City Mission guidelines. Options include wheelchair-accessible design, emergency alert button integration, and lighting for safety. Municipal compliance documentation is provided with every project.
-                        </p>
-                    </div>
-
-                    {/* CARD 4 */}
-                    <div className="bg-white rounded-3xl border border-black/[0.03] p-6 shadow-sm">
-                        <h3 className="text-lg font-black uppercase text-[#1A1A1A] mb-3 leading-snug border-b border-[#2D2D2D]/10 pb-3">
-                            One Point of Contact From Design to Commissioning
-                        </h3>
-                        <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
-                            Your architect gets a dedicated Urbanland project manager who coordinates design approvals, manufacturing schedules, logistics, installation, and warranty handover. No middlemen. No surprises. Just on-time delivery and professional installation support.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* SECTION 8 — INSTALLATION, MAINTENANCE & WARRANTY */}
-            <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 bg-[#EAE5DB]/40 rounded-[2.5rem] border border-black/[0.03] p-8 md:p-14">
                 <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— AFTER-SALES LIFECYCLE GUIDE</span>
                 <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A] mb-12">
-                    Installation, Maintenance & 2-Year Comprehensive Warranty
+                    Installation, Warranty & Top Questions
                 </h2>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    {/* INSTALLATION */}
-                    <div className="flex flex-col gap-4">
-                        <h3 className="text-xl font-black uppercase text-[#1A1A1A] border-b border-black/10 pb-3">▸ Installation Specifications</h3>
-                        <div className="text-xs leading-relaxed text-[#2D2D2D]/75">
-                            <h4 className="font-bold text-black uppercase tracking-wider text-[9px] mb-1 mt-3">Pre-Installation Site Requirements:</h4>
-                            <ul className="flex flex-col gap-1.5 list-disc pl-4 font-semibold text-black/80">
-                                <li>Level concrete base (min. 150mm depth, RCC)</li>
-                                <li>Adequate drainage to prevent water pooling</li>
-                                <li>Clear sightlines (no overhead obstructions)</li>
-                                <li>Municipal/local authority site clearances</li>
-                            </ul>
-
-                            <h4 className="font-bold text-black uppercase tracking-wider text-[9px] mb-1 mt-4">Installation Timeline:</h4>
-                            <p>Site preparation: 2-3 days | Assembly: 1 day (team of 3 technicians) | Commissioning & safety checks: 4-6 hours. Total: 3-4 days per site (multiple sites can run parallel).</p>
-
-                            <h4 className="font-bold text-black uppercase tracking-wider text-[9px] mb-1 mt-4">Labor Coordination:</h4>
-                            <p>Urbanland provides installation support. We dispatch a trained installation team who handles foundation bolting, assembly, leveling, and final checks. Client provides site access and base concrete footing pad.</p>
-                        </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-[2.5rem] border border-black/[0.03] p-8 md:p-14 mb-16 shadow-sm">
+                    {/* Installation and Commissioning */}
+                    <div>
+                        <h3 className="text-xl font-black uppercase text-[#1A1A1A] border-b border-black/10 pb-3">▸ Installation & Commissioning</h3>
+                        <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed mt-4">
+                            We provide complete installation support. Our trained team handles foundation bolting, assembly, leveling, and commissioning. Installation takes 3-4 days per site (multiple sites can run parallel).
+                        </p>
+                        <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed mt-4">
+                            Cost: Included for sites within 50km of our Vasai Virar facility (Maharashtra). Beyond 50km: nominal logistics charge.
+                        </p>
                     </div>
 
-                    {/* MAINTENANCE */}
-                    <div className="flex flex-col gap-4">
-                        <h3 className="text-xl font-black uppercase text-[#1A1A1A] border-b border-black/10 pb-3">▸ Maintenance Guidelines</h3>
-                        <div className="text-xs leading-relaxed text-[#2D2D2D]/75">
-                            <h4 className="font-bold text-black uppercase tracking-wider text-[9px] mb-1 mt-3">Annual Maintenance Checklist:</h4>
-                            <ul className="flex flex-col gap-1.5 list-disc pl-4 font-semibold text-black/80">
-                                <li>Visual inspection for structural rust/corrosion</li>
-                                <li>Tighten all anchoring structural bolts (torque check)</li>
-                                <li>Clean glass/polycarbonate panels (mild soap + cloth)</li>
-                                <li>Touch-up paint if needed (MS shelters only)</li>
-                                <li>Drainage system flush to prevent pooling</li>
-                            </ul>
-
-                            <h4 className="font-bold text-black uppercase tracking-wider text-[9px] mb-1 mt-4">Estimated Annual Maintenance Cost:</h4>
-                            <p>Standard (MS): ₹3,000-5,000 per shelter per year | Premium (SS): ₹500-1,000 per year (minimal) | Super Premium (SS + IoT): ₹1,500-2,500 per year (annual sensor diagnostics).</p>
-
-                            <h4 className="font-bold text-black uppercase tracking-wider text-[9px] mb-1 mt-4">Maintenance Service Contracts:</h4>
-                            <p>We offer annual maintenance contracts at ₹8,000/year per shelter (includes minor repairs, painting, cleaning). Bulk discounts are available for 10+ locations.</p>
-                        </div>
-                    </div>
-
-                    {/* WARRANTY */}
-                    <div className="flex flex-col gap-4">
-                        <h3 className="text-xl font-black uppercase text-[#1A1A1A] border-b border-black/10 pb-3">▸ 2-Year Guarantee Policy</h3>
-                        <div className="text-xs leading-relaxed text-[#2D2D2D]/75">
-                            <h4 className="font-bold text-black uppercase tracking-wider text-[9px] mb-1 mt-3">What's Covered:</h4>
-                            <p className="font-semibold text-black/80">Frame structural integrity (welding, deformation) | Roof material structural integrity (leaks, panels, fittings) | Seating welds and composite boards | Paint/coating defects (peeling or premature fading within UV normal limits) | Manufacturing assembly issues.</p>
-
-                            <h4 className="font-bold text-black uppercase tracking-wider text-[9px] mb-1 mt-4">What's NOT Covered:</h4>
-                            <p>Damage from vehicle collisions, vandalism, accidents | Normal wear/tear (scratches) | Environmental disasters outside standard Indian climates (tsunamis, extreme earthquakes) | Lack of basic cleanup maintenance.</p>
-
-                            <h4 className="font-bold text-black uppercase tracking-wider text-[9px] mb-1 mt-4">Claim Procedure:</h4>
-                            <p>Email support with photos. Assessment by technician within 5 business days. Repair or replacement completed in 10-14 days at zero cost to the client.</p>
-                        </div>
+                    {/* 2-Year Comprehensive Warranty */}
+                    <div>
+                        <h3 className="text-xl font-black uppercase text-[#1A1A1A] border-b border-black/10 pb-3">▸ 2-Year Comprehensive Warranty</h3>
+                        <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed mt-4">
+                            Covers: Frame structural integrity, roof materials, seating, paint/coating defects, and manufacturing defects. Claim process: Contact with photos → Assessment within 5 days → Approval & repair/replacement (no cost to client).
+                        </p>
+                        <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed mt-4 font-bold text-black/75">
+                            NOT covered: Accidents, vandalism, normal wear, maintenance neglect, or misuse.
+                        </p>
+                        <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed mt-4">
+                            Annual maintenance costs: Standard (MS) ₹3-5K | Premium (SS) ₹500-1K | Super Premium ₹1.5-2.5K per shelter per year. Optional extended warranty: 5-year coverage for +5% of shelter cost.
+                        </p>
                     </div>
                 </div>
-            </section>
 
-            {/* SECTION 9 — FREQUENTLY ASKED QUESTIONS */}
-            <section className="max-w-[1200px] mx-auto px-6 md:px-12 mb-24">
-                <div className="text-center mb-16 select-none">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— DIRECT RESOLUTIONS</span>
-                    <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
-                        Bus Shelter FAQs — Common Questions Answered
-                    </h2>
-                </div>
-
-                <div className="flex flex-col gap-4">
+                {/* FAQ section */}
+                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-8">— Frequently Asked Questions</h3>
+                <div className="flex flex-col gap-4 max-w-4xl mx-auto">
                     {[
                         {
-                            q: "What's the difference between Standard, Premium, and Super Premium?",
-                            a: "Standard is mild steel (durable for 8-10 years, requires paint maintenance) at lowest cost—best for inland municipalities. Premium is stainless steel (15-20 year lifespan, zero maintenance) at mid-range cost—best for coastal areas and high-traffic zones. Super Premium is SS + IoT-ready wiring + solar power—best for smart city projects and premium developments. All include 2-year guarantee."
-                        },
-                        {
-                            q: "Can I customize the dimensions?",
-                            a: "Yes. Our standard size is 4500L × 1800W × 2500H mm, but we routinely build custom sizes from 3500mm to 7000mm length to fit your specific site. Customization adds 5-7 days to lead time. Email your site plans and we'll provide a custom quote."
+                            q: "Which material should I choose for coastal areas?",
+                            a: "Stainless steel 304/316 grade. MS will rust in 2-3 years despite coating. SS requires minimal maintenance and is more economical long-term (saves repainting costs)."
                         },
                         {
                             q: "How long is the lead time?",
-                            a: "Standard bus shelters: 25-30 days from order confirmation. Premium: 30-35 days. Super Premium: 35-45 days. This includes design approval, manufacturing, and quality checks. Rush orders (15-20 days) possible at +15% surcharge."
+                            a: "Standard 25-30 days | Premium 30-35 days | Super Premium 35-45 days from order confirmation. Rush orders (15-20 days) available at +15% surcharge."
+                        },
+                        {
+                            q: "Can you customize dimensions?",
+                            a: "Yes. We build custom sizes from 3500mm to 7000mm length. Customization adds 5-7 days to lead time. Email your site plans for a custom quote."
                         },
                         {
                             q: "Do you provide installation?",
-                            a: "Yes. Installation is included in the quote for sites within 50km of our Vasai Virar facility (Maharashtra). Beyond that, we charge nominal logistics. We dispatch a trained 3-person team who handle foundation bolting, assembly, and commissioning."
+                            a: "Yes, included for sites within 50km of Vasai Virar. We dispatch a trained team for foundation bolting, assembly, leveling, and commissioning."
                         },
                         {
-                            q: "What if my bus shelter is damaged in an accident (vehicle collision, vandalism)?",
-                            a: "The 2-year warranty covers manufacturing defects, not accidents or vandalism. We can repair/replace the damaged section at cost. We recommend installing bollards around shelters in high-traffic areas to prevent vehicle collisions. Optional anti-graffiti coating (Super Premium) reduces vandalism impact."
-                        },
-                        {
-                            q: "Which material is best for coastal areas?",
-                            a: "Stainless steel 316 grade (Premium or Super Premium). Mild steel will rust in 2-3 years despite coating. We offer 316 SS specifically for saline environments. It costs more upfront but saves money long-term (no repainting, no rust replacement)."
-                        },
-                        {
-                            q: "Can you add LED lighting or a digital display to my shelter?",
-                            a: "Yes. Standard shelters can add LED fixtures (non-powered) for ₹8,000-12,000 extra. Premium shelters can add solar-powered LED systems (₹25,000-35,000). Super Premium shelters come wired for digital displays and IoT sensors. Request these as add-ons in your quote."
-                        },
-                        {
-                            q: "What's your warranty process if something breaks?",
-                            a: "Contact us with photos. Our team assesses within 5 business days. If it's a manufacturing defect, we repair or replace at no cost. If it's damage outside warranty (accident/vandalism), we provide a repair quote. Most repairs are completed within 10-14 days."
-                        },
-                        {
-                            q: "Do you offer financing for bulk orders (20+ shelters)?",
-                            a: "Yes. For municipal/developer bulk orders (50+ units), we offer 90-day payment terms and project-based phasing options. Contact our corporate sales team for custom financing discussions."
-                        },
-                        {
-                            q: "Is your bus shelter made in India?",
-                            a: "100% made in India. We manufacture in Vasai Virar, Maharashtra using Indian-sourced materials (or certified imports for specialized components like toughened glass). Manufacturing in India = faster lead times, better quality control, and lower environmental footprint than imported shelters."
-                        },
-                        {
-                            q: "Can I see installed examples before ordering?",
-                            a: "Yes. We maintain a live project list with site photos and client references. We can also arrange site visits to nearby completed projects (if you're in/near Mumbai, Pune, Bangalore region). Request references during quote consultation."
-                        },
-                        {
-                            q: "What's the warranty on the 2-year guarantee? Can I extend it?",
-                            a: "The 2-year guarantee is comprehensive (covers all manufacturing defects). You can extend it to 5 years for +5% of shelter cost. We recommend the extended warranty for municipal projects—it protects your investment long-term."
+                            q: "What if my shelter is damaged in an accident?",
+                            a: "The 2-year warranty covers manufacturing defects, not accidents or vandalism. We recommend installing bollards around high-traffic shelters to prevent vehicle collisions."
                         }
                     ].map((faq, idx) => (
                         <div 
@@ -1091,161 +1054,193 @@ const BusSheltersPage = () => {
                 </div>
             </section>
 
-            {/* SECTION 10 — TRUST & SOCIAL PROOF */}
-            <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— PROVEN CAPABILITY</span>
-                        <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
-                            50+ Years of Combined Expertise. Trusted by India's Leading Developers & Municipalities.
-                        </h2>
-                        <div className="text-xs sm:text-sm font-semibold text-[#2D2D2D]/80 leading-relaxed mt-6 flex flex-col gap-3">
-                            <p className="flex items-center gap-3">✓ ISO 9001:2015 Certified (Quality Management System)</p>
-                            <p className="flex items-center gap-3">✓ BIS (Bureau of Indian Standards) IS 11707:2016 Compliant</p>
-                            <p className="flex items-center gap-3">✓ Made in India certification & locally-sourced components</p>
-                            <p className="flex items-center gap-3">✓ Zero defect rate in first 12 months of 100+ recent projects</p>
-                        </div>
-
-                        {/* Testimonials */}
-                        <div className="flex flex-col gap-4 mt-8">
-                            <div className="border-l-2 border-[#2C5F2E] pl-4">
-                                <p className="italic text-xs sm:text-sm text-[#2D2D2D]/75">
-                                    "Urbanland delivered 120 shelters on-time and within budget. Their project management and installation quality were exceptional. The 2-year guarantee gave us peace of mind."
-                                </p>
-                                <span className="block text-[10px] font-bold uppercase tracking-wider text-black/50 mt-2">— Smart City Project Manager, Nagpur</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Logo Strip Grid */}
-                    <div className="bg-[#EAE5DB]/40 rounded-[2.5rem] p-8 md:p-12 border border-black/[0.03]">
-                        <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-8 text-center select-none">
-                            — APPROVED OUTDOOR PARTNERS
-                        </h4>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 select-none">
-                            {brandLogos.map((logo, idx) => (
-                                <div key={idx} className="bg-white flex justify-center items-center h-14 p-3 rounded-xl border border-black/[0.02] shadow-sm">
-                                    <img 
-                                        src={logo.img} 
-                                        alt={`${logo.name} — outdoor infrastructure partner Urbanland Products`}
-                                        className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* SECTION 11 — RELATED PRODUCTS & CROSS-SELL */}
-            <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 select-none">
-                <div className="text-left mb-12">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— COMPLETE SITE SOLUTIONS</span>
-                    <h2 className="text-3xl font-black uppercase tracking-tight text-[#1A1A1A]">
-                        You Might Also Need
-                    </h2>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {/* Benches */}
-                    <Link to="/products/benches" className="bg-white rounded-3xl border border-black/[0.03] overflow-hidden p-5 shadow-sm hover:shadow-md transition-all group no-underline block cursor-pointer">
-                        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-black/5 mb-4">
-                            <img src={benchImg} alt="WPC & Aluminium benches" className="w-full h-full object-cover" />
-                        </div>
-                        <h3 className="text-lg font-black uppercase text-[#1A1A1A] group-hover:text-[#2C5F2E] transition-colors leading-tight">WPC & Aluminium Benches</h3>
-                        <p className="text-xs text-[#2D2D2D]/60 mt-1">Premium park benches & public seats in Jatoba or Robinia wood cladding.</p>
-                        <span className="text-[9px] uppercase font-bold tracking-widest text-[#2C5F2E] block mt-4 group-hover:translate-x-1.5 transition-transform">Explore Product →</span>
-                    </Link>
-
-                    {/* Car Sheds */}
-                    <Link to="/products/car-sheds" className="bg-white rounded-3xl border border-black/[0.03] overflow-hidden p-5 shadow-sm hover:shadow-md transition-all group no-underline block cursor-pointer">
-                        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-black/5 mb-4">
-                            <img src={carImg} alt="Car parking sheds" className="w-full h-full object-cover" />
-                        </div>
-                        <h3 className="text-lg font-black uppercase text-[#1A1A1A] group-hover:text-[#2C5F2E] transition-colors leading-tight">Car Parking Sheds</h3>
-                        <p className="text-xs text-[#2D2D2D]/60 mt-1">High-tensile structural parking shelters engineered for wind loads.</p>
-                        <span className="text-[9px] uppercase font-bold tracking-widest text-[#2C5F2E] block mt-4 group-hover:translate-x-1.5 transition-transform">Explore Product →</span>
-                    </Link>
-
-                    {/* Wicker Furniture */}
-                    <Link to="/products/wicker-furniture" className="bg-white rounded-3xl border border-black/[0.03] overflow-hidden p-5 shadow-sm hover:shadow-md transition-all group no-underline block cursor-pointer">
-                        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-black/5 mb-4">
-                            <img src={wickerImg} alt="Outdoor wicker furniture sets" className="w-full h-full object-cover" />
-                        </div>
-                        <h3 className="text-lg font-black uppercase text-[#1A1A1A] group-hover:text-[#2C5F2E] transition-colors leading-tight">Wicker Outdoor Products</h3>
-                        <p className="text-xs text-[#2D2D2D]/60 mt-1">Luxury high-density synthetic wicker tables, lounges, and chairs.</p>
-                        <span className="text-[9px] uppercase font-bold tracking-widest text-[#2C5F2E] block mt-4 group-hover:translate-x-1.5 transition-transform">Explore Product →</span>
-                    </Link>
-
-                    {/* Planters */}
-                    <Link to="/products/planters" className="bg-white rounded-3xl border border-black/[0.03] overflow-hidden p-5 shadow-sm hover:shadow-md transition-all group no-underline block cursor-pointer">
-                        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-black/5 mb-4">
-                            <img src={benchImg} alt="GFRC planters boxes" className="w-full h-full object-cover" />
-                        </div>
-                        <h3 className="text-lg font-black uppercase text-[#1A1A1A] group-hover:text-[#2C5F2E] transition-colors leading-tight">Architectural Planters</h3>
-                        <p className="text-xs text-[#2D2D2D]/60 mt-1">High-strength GFRC concrete cultivation boxes and linear planter tubs.</p>
-                        <span className="text-[9px] uppercase font-bold tracking-widest text-[#2C5F2E] block mt-4 group-hover:translate-x-1.5 transition-transform">Explore Product →</span>
-                    </Link>
-                </div>
-            </section>
-
-            {/* SECTION 12 — FINAL CTA */}
+            {/* SECTION 6 — FINAL CTA + TRUST */}
             <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-12">
-                <div className="w-full bg-[#2C5F2E] rounded-[2.5rem] p-8 md:p-16 text-white flex flex-col items-center text-center relative overflow-hidden shadow-2xl border border-white/5">
-                    {/* Floating Trademark Icon in Background */}
-                    <div className="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 opacity-5 z-0 pointer-events-none select-none">
-                        <svg viewBox="0 0 100 100" className="h-[40vw] w-[40vw]" fill="none" stroke="currentColor" strokeWidth="4">
-                            <circle cx="50" cy="50" r="40" />
-                            <path d="M42 35v30M42 35h12c5 0 8 3 8 7.5S59 50 54 50H42M52 50l11 15" />
-                        </svg>
-                    </div>
-
+                <div className="w-full bg-white rounded-[2.5rem] p-8 md:p-16 flex flex-col items-center text-center border border-black/[0.03] shadow-lg relative overflow-hidden">
                     <div className="relative z-10 max-w-4xl flex flex-col items-center">
-                        <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest bg-white/10 text-white px-3.5 py-1.5 rounded-full border border-white/10 select-none mb-6">
-                            Nationwide Procurement Support
+                        <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest bg-[#2C5F2E]/10 text-[#2C5F2E] px-3.5 py-1.5 rounded-full select-none mb-6">
+                            Ready to Partner
                         </span>
                         
-                        <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-tight max-w-3xl mb-6">
+                        <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-tight text-[#1A1A1A] max-w-3xl mb-6">
                             Ready to Specify Bus Shelters for Your Project?
                         </h2>
 
-                        <p className="text-sm sm:text-base text-white/80 leading-relaxed max-w-2xl mb-10">
-                            Get a custom quote, detailed proposal, and technical specifications in under 24 hours. Urbanland serves municipalities, developers, and architects nationwide with Made-in-India quality and 2-year guarantees.
+                        <p className="text-sm sm:text-base text-[#2D2D2D]/75 leading-relaxed max-w-2xl mb-10">
+                            Get a custom quote, detailed proposal, and technical specifications within 24 hours. Urbanland serves municipalities, developers, and architects nationwide.
                         </p>
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 select-none mb-8 w-full sm:w-auto">
                             <Link
                                 to="/get-quote/?product=bus-shelters"
-                                onClick={() => {
-                                    if (window.gtag) window.gtag('event', 'final_cta_primary', { 'value': 'bus_shelter_quote' });
-                                }}
-                                className="px-8 py-4 bg-[#C9A84C] text-[#232120] hover:bg-white hover:text-black rounded-full font-black uppercase tracking-wider text-xs transition-all shadow-lg hover:scale-102 transform duration-300 text-center"
+                                onClick={() => trackEvent("final_cta_primary", "bus_shelter_quote")}
+                                className="px-8 py-4 bg-[#C9A84C] text-[#232120] hover:bg-black hover:text-white rounded-full font-black uppercase tracking-wider text-xs transition-all shadow-lg hover:scale-102 transform duration-300 text-center font-bold"
                             >
-                                ▸ Request Custom Bus Shelter Quote →
+                                Request Custom Quote →
                             </Link>
 
                             <Link
                                 to="/resources/downloads"
-                                onClick={() => {
-                                    if (window.gtag) window.gtag('event', 'final_cta_secondary', { 'value': 'spec_guide_download' });
-                                }}
-                                className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full font-bold uppercase tracking-wider text-xs transition-all backdrop-blur-sm text-center"
+                                onClick={() => trackEvent("final_cta_secondary", "spec_guide_download")}
+                                className="px-8 py-4 bg-white hover:bg-black hover:text-white border border-black/10 text-black rounded-full font-bold uppercase tracking-wider text-xs transition-all text-center font-bold"
                             >
-                                ▸ Download Specification Guide (PDF) ↓
+                                Download Specification Guide ↓
                             </Link>
                         </div>
 
-                        <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-white/55 flex flex-wrap justify-center gap-x-6 gap-y-2 select-none border-t border-white/10 pt-6 w-full">
-                            <span>✓ Free Custom Quote</span>
-                            <span>✓ No Commitment Required</span>
-                            <span>✓ Nationwide Delivery</span>
+                        <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#2D2D2D]/55 flex flex-wrap justify-center gap-x-6 gap-y-2 select-none border-t border-black/10 pt-6 w-full mb-8">
+                            <span>✓ Free custom quote</span>
+                            <span>✓ No commitment</span>
+                            <span>✓ Nationwide delivery</span>
                             <span>✓ 2-Year Guarantee</span>
-                            <span>✓ Installation Support</span>
+                            <span>✓ Installation support</span>
+                        </p>
+
+                        <h3 className="text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-6">— Why Urbanland Stands Apart</h3>
+                        
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs font-bold text-[#2D2D2D]/85 text-left max-w-3xl border-b border-black/10 pb-8 mb-8">
+                            <li>✓ ISO 9001:2015 Certified</li>
+                            <li>✓ IS 11707:2016 Compliant (Public Transport Shelters)</li>
+                            <li>✓ Smart City Mission Guidelines Compliant</li>
+                            <li>✓ 50+ completed projects | 2000+ operational shelters</li>
+                            <li>✓ Zero defect rate in first 12 months (100+ recent projects)</li>
+                            <li>✓ Only Indian manufacturer offering 2-year guarantee on all components</li>
+                        </ul>
+
+                        <p className="text-xs font-semibold text-[#2D2D2D]/75">
+                            Questions? Contact our team or chat with us on WhatsApp →
+                            <span className="block sm:inline mt-2 sm:mt-0 sm:ml-4">
+                                <Link to="/contact/" className="text-[#2C5F2E] hover:underline font-bold mr-4">Contact Form</Link>
+                                <a 
+                                    href="https://wa.me/919999999999?text=Hi%20Urbanland,%20I%20need%20a%20quote%20for%20bus%20shelters%20for%20a%20project.%20Can%20you%20share%20details?" 
+                                    onClick={() => trackEvent("whatsapp_click", "final")}
+                                    className="text-[#2C5F2E] hover:underline font-bold" 
+                                    target="_blank" 
+                                    rel="noreferrer"
+                                >
+                                    WhatsApp Chat
+                                </a>
+                            </span>
                         </p>
                     </div>
                 </div>
             </section>
+
+            {/* FLOATING WHATSAPP BUTTON (Bottom Right) */}
+            <a
+                href="https://wa.me/919999999999?text=Hi%20Urbanland,%20I%20need%20a%20quote%20for%20bus%20shelters%20for%20a%20project.%20Can%20you%20share%20details%20and%20pricing?"
+                onClick={() => trackEvent("whatsapp_click", "floating")}
+                className="fixed bottom-6 right-6 z-[98] w-14 h-14 bg-[#25D366] text-white rounded-full flex justify-center items-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Chat on WhatsApp"
+            >
+                <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.993L2 22l5.233-1.371a9.936 9.936 0 004.779 1.218h.004c5.505 0 9.988-4.478 9.989-9.985a9.968 9.968 0 00-2.925-7.064A9.923 9.923 0 0012.012 2zm6.057 14.151c-.249.702-1.441 1.291-1.996 1.346-.5.05-1.15.228-3.411-.707-2.889-1.196-4.757-4.14-4.902-4.333-.143-.192-1.161-1.542-1.161-2.942 0-1.4 1.139-2.087 1.4-2.186.262-.099.525-.149.702-.149.177 0 .35.001.503.008.16.007.375-.062.588.455.22.535.753 1.838.819 1.971.066.133.111.288.022.465-.088.177-.133.288-.265.442-.132.155-.277.346-.395.465-.133.133-.271.277-.117.542.155.265.688 1.139 1.472 1.838.784.7 1.442 1.139 1.706 1.271.265.133.414.111.569-.066.155-.177.663-.774.841-1.039.177-.265.356-.22.589-.133.23.088 1.472.697 1.726.824.254.127.425.188.486.293.061.105.061.602-.188 1.304z" />
+                </svg>
+            </a>
+
+            {/* EXIT-INTENT POPUP (Desktop only) */}
+            {exitPopupVisible && (
+                <div className="fixed inset-0 z-[9999] flex justify-center items-center px-4">
+                    {/* Backdrop overlay */}
+                    <div 
+                        className="absolute inset-0 bg-black/65 backdrop-blur-sm transition-opacity duration-300"
+                        onClick={() => setExitPopupVisible(false)}
+                    />
+                    
+                    {/* Main Panel */}
+                    <div className="relative bg-white text-[#1A1A1A] max-w-lg w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/10 z-10 p-8 sm:p-12 transition-all">
+                        {/* Close Button X */}
+                        <button 
+                            onClick={() => setExitPopupVisible(false)}
+                            className="absolute top-6 right-6 w-8 h-8 flex justify-center items-center text-black/45 hover:text-black hover:bg-[#F7F4EF] rounded-full transition-colors font-mono text-lg font-bold"
+                            aria-label="Close dialog"
+                        >
+                            ✕
+                        </button>
+
+                        {!exitPopupSubmitted ? (
+                            <div className="flex flex-col items-center text-center">
+                                {/* Icon Badge */}
+                                <div className="w-16 h-16 bg-[#2C5F2E]/10 rounded-full flex justify-center items-center text-[#2C5F2E] mb-6">
+                                    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                                    </svg>
+                                </div>
+
+                                <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1A1A1A] mb-3 leading-tight font-bold">
+                                    Download the Bus Shelter Buyer's Guide
+                                </h3>
+
+                                <p className="text-xs sm:text-sm text-[#2D2D2D]/70 leading-relaxed mb-8">
+                                    Get our complete guide to choosing between Standard, Premium & Super Premium shelters. Includes material comparison, cost analysis, and customization options.
+                                </p>
+
+                                {/* Email Gating Form */}
+                                <form 
+                                    onSubmit={(e) => {
+                                        e.preventDefault();
+                                        if (emailInput.trim()) {
+                                            setExitPopupSubmitted(true);
+                                            trackEvent("exit_intent_popup_submit", emailInput);
+                                        }
+                                    }}
+                                    className="w-full flex flex-col gap-3"
+                                >
+                                    <input 
+                                        type="email" 
+                                        required
+                                        placeholder="Enter your professional email address" 
+                                        value={emailInput}
+                                        onChange={(e) => setEmailInput(e.target.value)}
+                                        className="w-full px-6 py-4 rounded-full border border-black/10 text-sm font-semibold focus:outline-none focus:border-[#2C5F2E] bg-[#F7F4EF]/55"
+                                    />
+
+                                    <button 
+                                        type="submit"
+                                        className="w-full py-4 bg-[#C9A84C] hover:bg-black hover:text-white text-[#232120] font-black uppercase tracking-wider text-xs rounded-full transition-colors shadow-lg cursor-pointer font-bold"
+                                    >
+                                        Get the Bus Shelter Buyer's Guide (PDF)
+                                    </button>
+                                </form>
+
+                                <button 
+                                    onClick={() => setExitPopupVisible(false)}
+                                    className="mt-4 text-xs font-bold text-black/45 hover:text-black transition-colors"
+                                >
+                                    Maybe Later
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="flex flex-col items-center text-center py-6">
+                                {/* Success Icon */}
+                                <div className="w-16 h-16 bg-[#2C5F2E] text-white rounded-full flex justify-center items-center mb-6 shadow-md">
+                                    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                    </svg>
+                                </div>
+
+                                <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1A1A1A] mb-3 font-bold">
+                                    Guide Sent Successfully!
+                                </h3>
+
+                                <p className="text-xs sm:text-sm text-[#2D2D2D]/70 leading-relaxed mb-8 max-w-sm">
+                                    Thank you! We've sent the complete <span className="font-bold">Bus Shelter Buyer's Guide & Spec Comparison</span> directly to <span className="font-bold text-[#2C5F2E]">{emailInput}</span>.
+                                </p>
+
+                                <button 
+                                    onClick={() => setExitPopupVisible(false)}
+                                    className="px-8 py-3 bg-[#2C5F2E] hover:bg-black text-white font-black uppercase tracking-wider text-xs rounded-full transition-colors cursor-pointer font-bold"
+                                >
+                                    Close Window
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

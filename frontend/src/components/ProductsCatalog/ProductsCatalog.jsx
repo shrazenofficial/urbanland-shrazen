@@ -60,6 +60,94 @@ const categories = [
   )}
 ];
 
+const getPremiumOverlayText = (id) => {
+  const mapping = {
+    "bus-shelters": "Solar-Ready Roof",
+    "wpc-benches": "FSC® Hardwood",
+    "outdoor-dustbins": "Galvanized Liners",
+    "planters": "Double-Walled GFRC",
+    "canteen-furniture": "Durable HPL Slats",
+    "car-parking-sheds": "EV-Charger Ready",
+    "poolside-furniture": "HDPE Wicker Weave",
+    "wicker-furniture": "Sunbrella® Cushions",
+    "pre-fab-homes": "Double Insulation",
+    "parabola": "High-Tension Tensile",
+    "gazebo": "Concealed Conduits",
+    "cabanas": "Premium Bed Slats"
+  };
+  return mapping[id] || "Architectural Grade";
+};
+
+const getProductStats = (id) => {
+  const stats = {
+    "bus-shelters": [
+      { text: "Galvanized MS/SS", icon: "🏗" },
+      { text: "Solar-Ready", icon: "☀" },
+      { text: "Modular Length", icon: "📏" }
+    ],
+    "wpc-benches": [
+      { text: "FSC® Hardwood", icon: "🪵" },
+      { text: "Ergonomic Angle", icon: "📐" },
+      { text: "Anti-Skate", icon: "🛡" }
+    ],
+    "outdoor-dustbins": [
+      { text: "75L-225L Sorting", icon: "🗑" },
+      { text: "Galvanized Liners", icon: "📦" },
+      { text: "Vandal-Resist Lock", icon: "🔒" }
+    ],
+    "planters": [
+      { text: "GFRC Concrete", icon: "🧱" },
+      { text: "Double-Walled", icon: "🛡" },
+      { text: "Self-Watering", icon: "💧" }
+    ],
+    "canteen-furniture": [
+      { text: "Morse Series", icon: "🪑" },
+      { text: "Solid HPL Slats", icon: "🪵" },
+      { text: "6-8 Seater", icon: "👥" }
+    ],
+    "car-parking-sheds": [
+      { text: "Double vehicle", icon: "🚗" },
+      { text: "EV-Charger Ready", icon: "🔌" },
+      { text: "Concealed Drainage", icon: "🌧" }
+    ],
+    "poolside-furniture": [
+      { text: "HDPE Wicker Weave", icon: "🌴" },
+      { text: "Quick-Dry Foam", icon: "🧼" },
+      { text: "Anti-Rust Frame", icon: "🏗" }
+    ],
+    "wicker-furniture": [
+      { text: "Sunbrella® Fabric", icon: "🧵" },
+      { text: "UV-Stable strands", icon: "☀" },
+      { text: "Modular seating", icon: "🧩" }
+    ],
+    "pre-fab-homes": [
+      { text: "25 sqm base", icon: "🏡" },
+      { text: "48-Hour Setup", icon: "⚡" },
+      { text: "Eco WPC Panel", icon: "🌱" }
+    ],
+    "parabola": [
+      { text: "Tensile Polymer", icon: "🎐" },
+      { text: "Parabolic Curve", icon: "〽" },
+      { text: "Custom Height", icon: "📐" }
+    ],
+    "gazebo": [
+      { text: "FSC certified wood", icon: "🪵" },
+      { text: "Louvered wood", icon: "🪟" },
+      { text: "Concealed conduits", icon: "⚡" }
+    ],
+    "cabanas": [
+      { text: "Sunscape Bed", icon: "🛌" },
+      { text: "Pergola shading", icon: "⛺" },
+      { text: "Device shelves", icon: "📱" }
+    ]
+  };
+  return stats[id] || [
+    { text: "Architectural", icon: "✦" },
+    { text: "Sustainable", icon: "🌱" },
+    { text: "Premium Finish", icon: "★" }
+  ];
+};
+
 const ProductsCatalog = ({ showTitle = true }) => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [productsList, setProductsList] = useState([]);
@@ -104,7 +192,21 @@ const ProductsCatalog = ({ showTitle = true }) => {
     ? productsList.filter(p => ["bus-shelters", "canteen-tables", "parabola", "gazebo"].includes(p.id))
     : activeCategory === "Glassed-in"
     ? productsList.filter(p => ["bus-shelters", "cabanas", "gazebo"].includes(p.id))
-    : productsList.filter(p => p.category === activeCategory);
+    : productsList.filter(p => {
+        const mapping = {
+          "Benches": "wpc-benches",
+          "Wicker": "wicker-furniture",
+          "Shelters": "bus-shelters",
+          "Planter": "planters",
+          "Dustbin": "outdoor-dustbins",
+          "Cabanas": "cabanas",
+          "Sheds": "Sheds",
+          "Car sheds": "car-parking-sheds",
+          "Pool": "poolside-furniture"
+        };
+        const target = mapping[activeCategory] || activeCategory;
+        return p.category === target;
+      });
 
   // Scroll functions
   const scroll = (direction) => {
@@ -245,7 +347,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
           </div>
           
           {/* Slider Navigation Arrows on the right */}
-          <div className="flex items-center gap-2.5 shrink-0 ml-auto md:ml-0">
+          <div className="hidden md:flex items-center gap-2.5 shrink-0 ml-auto md:ml-0">
             <button
               onClick={() => scroll("left")}
               className="w-10 h-10 rounded-full bg-[#EAE5DB] text-[#2D2D2D] hover:bg-[#EAE5DB]/80 flex justify-center items-center transition-all cursor-pointer shrink-0"
@@ -268,7 +370,19 @@ const ProductsCatalog = ({ showTitle = true }) => {
         </div>
 
         {/* Bottom row: Slider container */}
-        <div className="w-full">
+        <div className="w-full relative">
+          
+          {/* Left Arrow (Visible on Mobile) */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-2 top-[38%] -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#EAE5DB]/90 backdrop-blur-md text-[#2D2D2D] hover:bg-[#EAE5DB] flex justify-center items-center transition-all cursor-pointer shadow-md active:scale-95 md:hidden"
+            aria-label="Scroll left"
+          >
+            <svg className="w-4 h-4 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
           <div 
             ref={sliderRef}
             className="w-full overflow-x-auto scrollbar-none flex gap-6 pb-6 snap-x snap-mandatory scroll-smooth"
@@ -297,52 +411,99 @@ const ProductsCatalog = ({ showTitle = true }) => {
                 <Link
                   key={product.id}
                   to={product.url || `/product/${product.id}`}
-                  className={`catalog-card aspect-[4/5] bg-white rounded-[2rem] p-8 flex flex-col justify-between items-stretch snap-start shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-black/[0.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 group cursor-pointer no-underline block ${
+                  className={`catalog-card bg-white rounded-[2.2rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col justify-between items-stretch snap-start shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-black/[0.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 group cursor-pointer no-underline block aspect-auto md:aspect-[4/5] ${
                     filteredProducts.length === 1 
                       ? 'w-[310px] sm:w-[350px] shrink-0' 
                       : 'min-w-[310px] sm:min-w-[380px] md:min-w-[440px] lg:min-w-[500px] xl:min-w-[560px]'
                   }`}
                 >
-                  {/* Header info */}
-                  <div className="flex justify-between items-start gap-4">
-                    <h3 className="text-xl md:text-2xl font-light text-[#1a1a1a] tracking-tight leading-tight group-hover:text-black transition-colors duration-300">
-                      {product.title}
-                    </h3>
-                    
-                    {/* Badges */}
-                    <div className="flex gap-1.5 shrink-0 pt-1">
-                      {product.badges.map((badge, idx) => (
-                        <span
-                          key={idx}
-                          className={`text-[0.65rem] font-bold uppercase tracking-wider rounded-full px-2.5 py-1 ${
-                            badge === "new"
-                              ? "bg-[#2C5F2E] text-white"
-                              : "bg-[#C9A84C]/10 text-[#C9A84C]"
-                          }`}
-                        >
-                          {badge}
-                        </span>
-                      ))}
+                  {/* DESKTOP CARD LAYOUT */}
+                  <div className="hidden md:flex flex-col justify-between h-full w-full">
+                    {/* Header info */}
+                    <div className="flex justify-between items-start gap-4">
+                      <h3 className="text-xl md:text-2xl font-light text-[#1a1a1a] tracking-tight leading-tight group-hover:text-black transition-colors duration-300">
+                        {product.title}
+                      </h3>
+                      
+                      {/* Badges */}
+                      <div className="flex gap-1.5 shrink-0 pt-1">
+                        {product.badges.map((badge, idx) => (
+                          <span
+                            key={idx}
+                            className={`text-[0.65rem] font-bold uppercase tracking-wider rounded-full px-2.5 py-1 ${
+                              badge === "new"
+                                ? "bg-[#2C5F2E] text-white"
+                                : "bg-[#C9A84C]/10 text-[#C9A84C]"
+                            }`}
+                          >
+                            {badge}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+   
+                    {/* Middle: Product rendering */}
+                    <div className="flex-1 my-6 flex justify-center items-center overflow-hidden relative">
+                      <img
+                        src={product.image}
+                        alt={`${product.title} manufacturer India — Urbanland Products`}
+                        className="max-h-[85%] max-w-[85%] object-contain select-none transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                      />
+                    </div>
+   
+                    {/* Bottom info */}
+                    <div className="flex justify-between items-end">
+                      <span className="hidden md:block text-sm font-medium text-[#1a1a1a] leading-relaxed max-w-[70%]">
+                        {product.line}
+                      </span>
+                      <span className="text-[0.7rem] uppercase tracking-wider text-[#2C5F2E] font-semibold bg-[#2C5F2E]/5 px-3 py-1.5 rounded-full opacity-100 group-hover:bg-[#2C5F2E] group-hover:text-[#F7F4EF] transition-all duration-300 ml-auto md:ml-0">
+                        View & Get Quote
+                      </span>
                     </div>
                   </div>
- 
-                  {/* Middle: Product rendering */}
-                  <div className="flex-1 my-6 flex justify-center items-center overflow-hidden relative">
-                    <img
-                      src={product.image}
-                      alt={`${product.title} manufacturer India — Urbanland Products`}
-                      className="max-h-[85%] max-w-[85%] object-contain select-none transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
- 
-                  {/* Bottom info */}
-                  <div className="flex justify-between items-end">
-                    <span className="text-sm font-medium text-[#1a1a1a] leading-relaxed max-w-[70%]">
-                      {product.line}
-                    </span>
-                    <span className="text-[0.7rem] uppercase tracking-wider text-[#2C5F2E] font-semibold bg-[#2C5F2E]/5 px-3 py-1.5 rounded-full opacity-100 group-hover:bg-[#2C5F2E] group-hover:text-[#F7F4EF] transition-all duration-300">
-                      View & Get Quote
-                    </span>
+
+                  {/* MOBILE CARD LAYOUT (Mockup-inspired Premium Aesthetics) */}
+                  <div className="flex md:hidden flex-col justify-start items-stretch w-full select-none">
+                    {/* Top Section: Landscape Image Frame Block */}
+                    <div className="relative w-full aspect-[1.35/1] bg-[#F7F5F2] rounded-[1.8rem] overflow-hidden border border-black/[0.02] flex items-center justify-center p-6 shadow-[inset_0_2px_8px_rgba(0,0,0,0.01)]">
+                      
+                      {/* Product Image */}
+                      <img
+                        src={product.image}
+                        alt={`${product.title} manufacturer India`}
+                        className="max-h-[85%] max-w-[85%] object-contain select-none transform group-hover:scale-105 transition-transform duration-700 ease-out z-1"
+                      />
+
+                      {/* Left Side: Overlapping circular gallery previews */}
+                      <div className="absolute bottom-3 left-3 flex -space-x-2.5 items-center z-10">
+                        {product.gallery?.slice(0, 3).map((imgUrl, idx) => (
+                          <div key={idx} className="relative w-7 h-7 rounded-full border border-white overflow-hidden bg-white shadow-md">
+                            <img src={imgUrl} className="w-full h-full object-cover" alt="gallery preview" />
+                            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-[#C9A84C] rounded-full flex items-center justify-center text-[0.4rem] text-white shadow-sm border border-white/50">
+                              ★
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Pagination Dots indicator */}
+                    <div className="w-full flex justify-center items-center gap-1.5 mt-3 mb-1">
+                      <div className="w-3.5 h-1 rounded-full bg-[#2C5F2E]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#EAE5DB]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#EAE5DB]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#EAE5DB]" />
+                    </div>
+
+                    {/* Text Details Block */}
+                    <div className="w-full flex flex-col items-center text-center mt-1">
+                      <h3 className="text-base font-semibold text-[#1a1a1a] tracking-tight leading-tight group-hover:text-black transition-colors duration-300">
+                        {product.title}
+                      </h3>
+                      <p className="text-[0.65rem] font-bold text-[#C9A84C] uppercase tracking-widest mt-1">
+                        {product.category.replace("-", " ")}
+                      </p>
+                    </div>
                   </div>
                 </Link>
               ))
@@ -357,6 +518,17 @@ const ProductsCatalog = ({ showTitle = true }) => {
               </div>
             )}
           </div>
+
+          {/* Right Arrow (Visible on Mobile) */}
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-2 top-[38%] -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#2C5F2E]/90 backdrop-blur-md text-[#F7F4EF] hover:bg-[#2C5F2E] flex justify-center items-center shadow-lg transition-all cursor-pointer active:scale-95 md:hidden"
+            aria-label="Scroll right"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
     </Wrapper>

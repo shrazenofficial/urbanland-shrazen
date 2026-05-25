@@ -12,6 +12,15 @@ import colimg2 from "../../assets/Car_Shelter.png";
 import colimg3 from "../../assets/Wicker_Furniture.png";
 import colimg4 from "../../assets/Bus_Shelters.png";
 
+// Premium Dustbins Generated Studio Images
+import nanukNextImg from "../../assets/products/Product Images/Dustbins/nanuk_next.png";
+import skylineImg from "../../assets/products/Product Images/Dustbins/skyline.png";
+import tleskImg from "../../assets/products/Product Images/Dustbins/tlesk.png";
+import sortCorrugatedImg from "../../assets/products/Product Images/Dustbins/sort_corrugated.png";
+import ribbedConcreteImg from "../../assets/products/Product Images/Dustbins/ribbed_concrete.png";
+import greenSleekColumnImg from "../../assets/products/Product Images/Dustbins/green_sleek_column.png";
+import charcoalTripleSortingImg from "../../assets/products/Product Images/Dustbins/charcoal_triple_sorting.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 // Metadata specifications for dynamic catalog templates
@@ -126,8 +135,88 @@ const categoriesMeta = {
   }
 };
 
+// Spiky New Badge component
+const SpikyNewBadge = ({ text = "NEW" }) => (
+  <div className="absolute top-6 right-6 w-11 h-11 select-none animate-pulse z-10">
+    <svg viewBox="0 0 100 100" className="w-full h-full fill-[#FF5722] drop-shadow-md">
+      <path d="M50 0 L58 35 L93 15 L70 45 L100 50 L70 55 L93 85 L58 65 L50 100 L42 65 L7 85 L30 55 L0 50 L30 45 L7 15 L42 35 Z" />
+      <text x="50" y="56" textAnchor="middle" fill="white" fontSize="16" fontWeight="900" fontFamily="Outfit">
+        {text}
+      </text>
+    </svg>
+  </div>
+);
+
+// 7 Premium Dustbin Models
+const premiumDustbins = [
+  {
+    id: "nanuk-next",
+    title: "NANUK NEXT",
+    description: "Sleek wooden waste bin cladded in warm vertical WPC wood slats with a lockable black steel lid. Includes a vibrant red companion, combining structural warmth with contemporary minimalist styling.",
+    image: nanukNextImg,
+    badge: "NEW",
+    size: "md:col-span-1",
+    url: "/get-quote/?product=nanuk-next"
+  },
+  {
+    id: "skyline",
+    title: "SKYLINE",
+    description: "Architectural sorting station cladded in premium Robinia timber with a warm yellow powder-coated frame. Paired with a double perforated sorting bin with distinct lids.",
+    image: skylineImg,
+    badge: "NEW",
+    size: "md:col-span-2",
+    url: "/get-quote/?product=skyline"
+  },
+  {
+    id: "tlesk",
+    title: "TLESK",
+    description: "Vibrant yellow and electric blue wireframe cage litter bins with integrated cylindrical liners, bringing playful artistic curves and structural transparency to urban plazas.",
+    image: tleskImg,
+    badge: "NEW",
+    size: "md:col-span-1",
+    url: "/get-quote/?product=tlesk"
+  },
+  {
+    id: "korton-triple",
+    title: "KORTON TRIPLE",
+    description: "Heavy-gauge three-compartment sorting station featuring corrugated steel sheets and distinct color-coded collection ports for optimized municipal recycling.",
+    image: sortCorrugatedImg,
+    badge: "POPULAR",
+    size: "md:col-span-2",
+    url: "/get-quote/?product=korton-triple"
+  },
+  {
+    id: "ribbed-circular",
+    title: "RIBBED CIRCULAR",
+    description: "Round public litter bin featuring a ribbed steel and concrete casing, accented with warm vertical timber slats and a polished stainless steel crown.",
+    image: ribbedConcreteImg,
+    badge: "POPULAR",
+    size: "md:col-span-2",
+    url: "/get-quote/?product=ribbed-circular"
+  },
+  {
+    id: "ecologo-column",
+    title: "ECOLOGO COLUMN",
+    description: "Sleek, slimline steel sorting column with a vibrant green accent panel and circular anti-rain disposal aperture.",
+    image: greenSleekColumnImg,
+    badge: null,
+    size: "md:col-span-1",
+    url: "/get-quote/?product=ecologo-column"
+  },
+  {
+    id: "sigma-triple",
+    title: "SIGMA TRIPLE",
+    description: "Minimalist dark charcoal stainless steel sorting bin with color-coded labels (plastic, paper, other) for corporate parks.",
+    image: charcoalTripleSortingImg,
+    badge: "NEW",
+    size: "md:col-span-2",
+    url: "/get-quote/?product=sigma-triple"
+  }
+];
+
 const CategoryDetail = () => {
-  const { category, subcategory } = useParams();
+  const { category: rawCategory, subcategory } = useParams();
+  const category = rawCategory === "dustbins" ? "outdoor-dustbins" : rawCategory;
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const containerRef = useRef(null);
@@ -166,7 +255,6 @@ const CategoryDetail = () => {
 
         // If category is "benches" but WooCommerce returned empty list, fall back manually
         if (filtered.length === 0) {
-          // If WooCommerce returned products but not specifically mapped categories, we search keywords
           filtered = allProds.filter((p) => {
             const catLower = category.replace("-", " ");
             const pCat = (p.category || "").toLowerCase();
@@ -203,6 +291,23 @@ const CategoryDetail = () => {
     };
   }, [category, subcategory, meta]);
 
+  // Google Font Outfit dynamic loading
+  useEffect(() => {
+    let fontLink = document.getElementById("google-font-outfit");
+    if (!fontLink) {
+        fontLink = document.createElement("link");
+        fontLink.id = "google-font-outfit";
+        fontLink.rel = "preconnect";
+        fontLink.href = "https://fonts.googleapis.com";
+        document.head.appendChild(fontLink);
+
+        const fontLink2 = document.createElement("link");
+        fontLink2.rel = "stylesheet";
+        fontLink2.href = "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap";
+        document.head.appendChild(fontLink2);
+    }
+  }, []);
+
   // GSAP animation reveal trigger
   useGSAP(() => {
     if (products.length > 0) {
@@ -226,12 +331,21 @@ const CategoryDetail = () => {
   }, { scope: containerRef, dependencies: [products] });
 
   return (
-    <div ref={containerRef} className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-32">
-      {/* breadcrumb path */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-4 flex items-center select-none text-[10px] font-bold uppercase tracking-widest text-[#2D2D2D]/55">
-        <Link to="/" className="hover:text-[#2C5F2E]">Home</Link>
+    <div ref={containerRef} className="w-full bg-[#F7F4EF] text-[#1A1A1A] pb-24 overflow-x-hidden pt-32 font-outfit">
+      
+      {/* Dynamic Font Styling Overrides */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+        .font-outfit {
+          font-family: 'Outfit', sans-serif !important;
+        }
+      `}} />
+
+      {/* Breadcrumb path */}
+      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-4 flex items-center select-none text-[10px] font-bold uppercase tracking-widest text-[#2D2D2D]/55 font-outfit">
+        <Link to="/" className="hover:text-[#2C5F2E] transition-colors">Home</Link>
         <span className="mx-1.5">/</span>
-        <Link to="/products" className="hover:text-[#2C5F2E]">Products</Link>
+        <Link to="/products" className="hover:text-[#2C5F2E] transition-colors">Products</Link>
         <span className="mx-1.5">/</span>
         <span className="text-[#2D2D2D]/85">{meta.title}</span>
         {subcategory && (
@@ -244,20 +358,20 @@ const CategoryDetail = () => {
 
       {/* Hero Banner Section */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-16">
-        <div className="w-full aspect-[21/9] md:aspect-[24/9] rounded-[2.5rem] overflow-hidden bg-black/5 relative shadow-lg">
+        <div className="w-full aspect-[21/9] md:aspect-[24/9] rounded-[2.5rem] overflow-hidden bg-black/5 relative shadow-xl border border-[#C9A84C]/15">
           <img
             src={meta.image}
             alt={meta.title}
-            className="w-full h-full object-cover select-none"
+            className="w-full h-full object-cover select-none brightness-95 transform hover:scale-[1.01] transition-transform duration-[10s]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/40 flex flex-col justify-end p-8 md:p-12 text-white">
-            <span className="text-[10px] font-black uppercase tracking-wider bg-[#C9A84C] text-[#232120] px-3 py-1 rounded-full w-fit mb-3">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/45 flex flex-col justify-end p-8 md:p-12 text-white">
+            <span className="text-[9px] font-black uppercase tracking-wider bg-[#C9A84C] text-[#232120] px-3.5 py-1.5 rounded-full w-fit mb-3">
               {subcategory ? subcategory.replace("-", " ").toUpperCase() : "Active Division"}
             </span>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-none tracking-tight max-w-4xl">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-none tracking-tight max-w-4xl font-outfit">
               {meta.title}
             </h1>
-            <p className="text-xs sm:text-sm font-medium tracking-wide text-white/80 mt-3 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm font-medium tracking-wide text-white/80 mt-3 max-w-2xl leading-relaxed font-outfit">
               {meta.tagline}
             </p>
           </div>
@@ -265,37 +379,108 @@ const CategoryDetail = () => {
       </section>
 
       {/* Division Description and Engineering Specs Split */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 font-outfit">
         <div>
-          <h2 className="text-xl font-bold uppercase tracking-wider text-[#2C5F2E] mb-4">— DIVISION OVERVIEW</h2>
-          <p className="text-sm sm:text-base leading-relaxed text-[#2D2D2D]/85">
+          <h2 className="text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-4 font-outfit">— DIVISION OVERVIEW</h2>
+          <p className="text-sm sm:text-base leading-relaxed text-[#2D2D2D]/85 font-medium">
             {meta.description}
           </p>
         </div>
         
         {/* Specs Box Card */}
-        <div className="bg-[#EAE5DB]/45 rounded-[2rem] border border-black/[0.03] p-8 flex flex-col gap-5">
-          <h3 className="text-sm font-black uppercase tracking-wider text-black mb-2">— ENGINEERING SPECIFICATIONS</h3>
+        <div className="bg-white rounded-[2rem] border border-[#C9A84C]/25 p-8 flex flex-col gap-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <h3 className="text-xs font-black uppercase tracking-widest text-[#2C5F2E] mb-2 font-outfit">— ENGINEERING SPECIFICATIONS</h3>
           
-          <div className="flex flex-col gap-1 pb-3 border-b border-black/[0.08]">
-            <span className="text-[9px] font-bold uppercase tracking-wider text-black/50">Core Materials</span>
-            <span className="text-xs font-semibold text-black/85">{meta.materials}</span>
+          <div className="flex flex-col gap-1 pb-3 border-b border-black/[0.05]">
+            <span className="text-[9px] font-bold uppercase tracking-wider text-black/45">Core Materials</span>
+            <span className="text-xs sm:text-sm font-bold text-black/85">{meta.materials}</span>
           </div>
-          <div className="flex flex-col gap-1 pb-3 border-b border-black/[0.08]">
-            <span className="text-[9px] font-bold uppercase tracking-wider text-black/50">Lifespan & Protection</span>
-            <span className="text-xs font-semibold text-black/85">{meta.durability}</span>
+          <div className="flex flex-col gap-1 pb-3 border-b border-black/[0.05]">
+            <span className="text-[9px] font-bold uppercase tracking-wider text-black/45">Lifespan & Protection</span>
+            <span className="text-xs sm:text-sm font-bold text-black/85">{meta.durability}</span>
           </div>
           <div className="flex flex-col gap-1">
-            <span className="text-[9px] font-bold uppercase tracking-wider text-black/50">Installation Framework</span>
-            <span className="text-xs font-semibold text-black/85">{meta.installation}</span>
+            <span className="text-[9px] font-bold uppercase tracking-wider text-black/45">Installation Framework</span>
+            <span className="text-xs sm:text-sm font-bold text-black/85">{meta.installation}</span>
           </div>
         </div>
       </section>
 
-      {/* Dynamic Products Grid Section */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 products-grid-container">
-        <h2 className="text-2xl font-black uppercase tracking-tight text-[#1A1A1A] mb-8 border-b border-[#2D2D2D]/10 pb-4 select-none">
-          Available Models in this Division:
+      {/* FEATURED SIGNATURE DUSTBINS BENTO GRID (Visible only when category is 'outdoor-dustbins') */}
+      {category === "outdoor-dustbins" && (
+        <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 font-outfit">
+          <div className="text-left mb-12 border-b border-[#2D2D2D]/10 pb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-2 block">— SIGNATURE DESIGN</span>
+              <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#1A1A1A] leading-none">
+                Featured Masterpieces
+              </h2>
+              <p className="text-sm text-[#2D2D2D]/75 mt-3 max-w-2xl leading-relaxed">
+                Redefining smart waste sorting with architectural beauty. Explore our most-specified litter bin models featuring sustainably sourced FSC® tropical timber, premium Akzonobel coatings, and modular compartments.
+              </p>
+            </div>
+            <Link 
+              to="/get-quote/?product=litter-bins"
+              className="px-6 py-3.5 bg-[#2C5F2E] hover:bg-black text-white rounded-full font-black uppercase tracking-wider text-[10px] shadow-lg transition-all shrink-0 w-full sm:w-auto text-center"
+            >
+              Request Bulk Proposal →
+            </Link>
+          </div>
+
+          {/* 4-Column Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {premiumDustbins.map((bin) => (
+              <div
+                key={bin.id}
+                className={`${bin.size} bg-white rounded-[2.5rem] p-8 border border-black/[0.03] shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1.5 transition-all duration-500 relative flex flex-col justify-between overflow-hidden group min-h-[480px]`}
+              >
+                {/* Spiky starburst badge */}
+                {bin.badge && <SpikyNewBadge text={bin.badge} />}
+
+                {/* Product Image Panel */}
+                <div className="flex-1 w-full flex justify-center items-center overflow-hidden relative select-none min-h-[220px]">
+                  <img
+                    src={bin.image}
+                    alt={bin.title}
+                    className="max-h-[85%] max-w-[85%] object-contain select-none transform group-hover:scale-104 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Text Panel */}
+                <div className="mt-6 border-t border-black/[0.04] pt-6 flex flex-col justify-between z-10 bg-white">
+                  <div>
+                    <h3 className="text-2xl font-black uppercase tracking-tight text-[#1A1A1A] leading-tight mb-2 font-outfit">
+                      {bin.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#2D2D2D]/70 leading-relaxed mb-6 font-medium">
+                      {bin.description}
+                    </p>
+                  </div>
+                  
+                  <div className="flex justify-between items-center select-none pt-2">
+                    <Link
+                      to={bin.url}
+                      className="text-[10px] font-black uppercase tracking-wider text-[#2C5F2E] hover:text-black transition-colors block border-b border-[#2C5F2E]/20 pb-0.5"
+                    >
+                      Request Custom Quote →
+                    </Link>
+                    
+                    <span className="text-[9px] uppercase tracking-wider text-black/40 font-bold bg-[#F7F4EF] px-3 py-1.5 rounded-full select-none">
+                      Outfit Specs Included
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Dynamic Products Grid Section (Other Available Models) */}
+      <section className="max-w-[1400px] mx-auto px-6 md:px-12 products-grid-container font-outfit">
+        <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1A1A1A] mb-8 border-b border-[#2D2D2D]/10 pb-4 select-none font-outfit">
+          {category === "outdoor-dustbins" ? "Other Standard Models in this Division:" : "Available Models in this Division:"}
         </h2>
 
         {loading ? (

@@ -72,7 +72,9 @@ const Gallery = () => {
                 
                 {/* Slide 1: Real Estate */}
                 <div className="gallery-card">
-                    <img src={gbg1} alt="outdoor furniture for real estate projects" />
+                    <div className="gallery-img-wrapper">
+                        <img src={gbg1} alt="outdoor furniture for real estate projects" />
+                    </div>
                     <div className="gallery-topText">
                         <h4>Real Estate & Townships</h4>
                         <h3>Explore</h3>
@@ -104,7 +106,9 @@ const Gallery = () => {
 
                 {/* Slide 2: Hotels & Resorts */}
                 <div className="gallery-card">
-                    <img src={gbg2} alt="hotel outdoor furniture manufacturer India" />
+                    <div className="gallery-img-wrapper">
+                        <img src={gbg2} alt="hotel outdoor furniture manufacturer India" />
+                    </div>
                     <div className="gallery-topText">
                         <h4>Hotels & Resorts</h4>
                         <h3>Explore</h3>
@@ -136,7 +140,9 @@ const Gallery = () => {
 
                 {/* Slide 3: Hospitals */}
                 <div className="gallery-card">
-                    <img src={gbg3} alt="hospital outdoor furniture India" />
+                    <div className="gallery-img-wrapper">
+                        <img src={gbg3} alt="hospital outdoor furniture India" />
+                    </div>
                     <div className="gallery-topText">
                         <h4>Hospitals & Healthcare</h4>
                         <h3>Explore</h3>
@@ -168,7 +174,9 @@ const Gallery = () => {
 
                 {/* Slide 4: Education */}
                 <div className="gallery-card">
-                    <img src={gbg4} alt="campus outdoor furniture manufacturer" />
+                    <div className="gallery-img-wrapper">
+                        <img src={gbg4} alt="campus outdoor furniture manufacturer" />
+                    </div>
                     <div className="gallery-topText">
                         <h4>Schools & Universities</h4>
                         <h3>Explore</h3>
@@ -200,7 +208,9 @@ const Gallery = () => {
 
                 {/* Slide 5: Municipal & Smart Cities */}
                 <div className="gallery-card">
-                    <img src={gbg5} alt="smart city furniture manufacturer India" />
+                    <div className="gallery-img-wrapper">
+                        <img src={gbg5} alt="smart city furniture manufacturer India" />
+                    </div>
                     <div className="gallery-topText">
                         <h4>Municipal & Smart Cities</h4>
                         <h3>Explore</h3>

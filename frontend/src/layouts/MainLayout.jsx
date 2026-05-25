@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../components/Header/Header";
 import { useEffect } from "react";
 import { initLenis } from "../lib/lenis";
-import PreloaderII from "../components/Preloader/PreloaderII";
+// import PreloaderII from "../components/Preloader/PreloaderII";
 import Footer from "../components/Footer/Footer";
 import FooterTitle from "../components/Footer/FooterTitle";
 import ScrollToTop from "../components/ScrollToTop";
@@ -50,7 +50,7 @@ const MainLayout = () => {
     return (
         <>
             <ScrollToTop />
-            <PreloaderII />
+            {/* <PreloaderII /> */}
             <Header />
             <main>
                 <Outlet /> {/* Hero, About, Contact, etc. */}
