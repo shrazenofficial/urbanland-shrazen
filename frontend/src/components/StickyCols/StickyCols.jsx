@@ -291,202 +291,166 @@ const StickyCols = () => {
 
                 <div className="mobile-projects-wrapper flex flex-col gap-8 w-full">
                     {/* Card 1: Lodha */}
-                    <div className="mobile-project-card bg-[#2D2D2D] rounded-[2.25rem] p-6 sm:p-8 border border-white/[0.06] shadow-2xl flex flex-col gap-5">
-                        {/* 1. Top Heading block */}
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight">
-                                Lodha Group —<br />
-                                <span className="text-[#C9A84C]">Multiple Townships</span>
-                            </h3>
-                        </div>
-
-                        {/* 2. Middle Row: Circles + Description */}
-                        <div className="flex items-start gap-4">
-                            {/* Circle Indices */}
-                            <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5">
-                                <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-full w-9 h-9 flex items-center justify-center font-mono text-xs font-bold">
-                                    01
-                                </div>
-                                <div className="border border-[#F7F4EF]/15 text-[#F7F4EF]/35 rounded-full w-9 h-9 flex items-center justify-center font-mono text-xs font-semibold">
-                                    04
-                                </div>
+                    <div className="mobile-project-card bg-[#2D2D2D] rounded-[2.25rem] border border-white/[0.06] shadow-2xl flex flex-col overflow-hidden">
+                        {/* Text Content Wrapper */}
+                        <div className="p-[34px] flex flex-col gap-5">
+                            {/* 1. Top Heading block */}
+                            <div className="flex flex-col gap-1">
+                                <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight pt-[10px] pb-[90px]">
+                                    Lodha Group —<br />
+                                    <span className="text-[#C9A84C]">Multiple Townships</span>
+                                </h3>
                             </div>
-                            {/* Description Paragraph */}
-                            <p className="text-xs text-[#F7F4EF]/85 leading-relaxed font-medium">
-                                420+ WPC & SS benches + GFRC planters supplied across Lodha's premium residential township developments.
-                            </p>
+
+                            {/* 2. Middle Row: Circles + Description */}
+                            <div className="flex items-start gap-4">
+                                {/* Circle Indices */}
+                                <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5 text-[16px]">
+                                    <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-bold">
+                                        01
+                                    </div>
+                                    <div className="border border-[#F7F4EF]/15 text-[#F7F4EF]/35 rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-semibold">
+                                        04
+                                    </div>
+                                </div>
+                                {/* Description Paragraph */}
+                                <p className="text-[11px] text-[#F7F4EF]/85 leading-relaxed font-medium">
+                                    420+ WPC & SS benches + GFRC planters supplied across Lodha's premium residential township developments.
+                                </p>
+                            </div>
                         </div>
 
-                        {/* 3. Bottom Image Container */}
-                        <div className="w-full aspect-[16/10] rounded-[1.75rem] overflow-hidden bg-black/20 shadow-lg relative group">
+                        {/* 3. Bottom Image Container - Full width & seamless */}
+                        <div className="w-full aspect-[16/10] bg-black/20 rounded-[37.4px] overflow-hidden relative group mt-auto">
                             <img 
                                 src={colimg1} 
                                 alt="Urbanland Products WPC benches and planters installed in Lodha township" 
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                                style={{ borderRadius: "38px", boxShadow: "rgba(255, 255, 255, 0.3) 5px 5px 10px 10px inset" }}
                             />
-                            <div className="absolute top-4 right-4 bg-black/35 backdrop-blur-md border border-white/20 text-[#C9A84C] text-[9px] font-black uppercase tracking-wider px-3 py-1 rounded-full">
-                                420+ Supplied
-                            </div>
-                        </div>
-
-                        {/* 4. Action Link */}
-                        <div className="flex items-center justify-between w-full mt-1">
-                            <Link 
-                                to="/solutions/real-estate" 
-                                className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#C9A84C] border-b border-[#C9A84C]/25 pb-0.5 hover:text-[#F7F4EF] hover:border-[#F7F4EF]/40 transition-colors"
-                            >
-                                Explore Lodha Project Details →
-                            </Link>
                         </div>
                     </div>
 
                     {/* Card 2: Adani */}
-                    <div className="mobile-project-card bg-[#2C5F2E] rounded-[2.25rem] p-6 sm:p-8 border border-white/[0.06] shadow-2xl flex flex-col gap-5">
-                        {/* 1. Top Heading block */}
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight">
-                                Adani Realty —<br />
-                                <span className="text-[#C9A84C]">Premium Residential</span>
-                            </h3>
-                        </div>
-
-                        {/* 2. Middle Row: Circles + Description */}
-                        <div className="flex items-start gap-4">
-                            {/* Circle Indices */}
-                            <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5">
-                                <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-full w-9 h-9 flex items-center justify-center font-mono text-xs font-bold">
-                                    02
-                                </div>
-                                <div className="border border-[#F7F4EF]/15 text-[#F7F4EF]/35 rounded-full w-9 h-9 flex items-center justify-center font-mono text-xs font-semibold">
-                                    04
-                                </div>
+                    <div className="mobile-project-card bg-[#2C5F2E] rounded-[2.25rem] border border-white/[0.06] shadow-2xl flex flex-col overflow-hidden">
+                        {/* Text Content Wrapper */}
+                        <div className="p-[34px] flex flex-col gap-5">
+                            {/* 1. Top Heading block */}
+                            <div className="flex flex-col gap-1">
+                                <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight pt-[10px] pb-[90px]">
+                                    Adani Realty —<br />
+                                    <span className="text-[#C9A84C]">Premium Residential</span>
+                                </h3>
                             </div>
-                            {/* Description Paragraph */}
-                            <p className="text-xs text-[#F7F4EF]/85 leading-relaxed font-medium">
-                                Complete outdoor furniture solution including benches, dustbins, planters, and car parking sheds delivered on schedule.
-                            </p>
+
+                            {/* 2. Middle Row: Circles + Description */}
+                            <div className="flex items-start gap-4">
+                                {/* Circle Indices */}
+                                <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5 text-[16px]">
+                                    <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-bold">
+                                        02
+                                    </div>
+                                    <div className="border border-[#F7F4EF]/15 text-[#F7F4EF]/35 rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-semibold">
+                                        04
+                                    </div>
+                                </div>
+                                {/* Description Paragraph */}
+                                <p className="text-[11px] text-[#F7F4EF]/85 leading-relaxed font-medium">
+                                    Complete outdoor furniture solution including benches, dustbins, planters, and car parking sheds delivered on schedule.
+                                </p>
+                            </div>
                         </div>
 
-                        {/* 3. Bottom Image Container */}
-                        <div className="w-full aspect-[16/10] rounded-[1.75rem] overflow-hidden bg-black/20 shadow-lg relative group">
+                        {/* 3. Bottom Image Container - Full width & seamless */}
+                        <div className="w-full aspect-[16/10] bg-black/20 rounded-[37.4px] overflow-hidden relative group mt-auto">
                             <img 
                                 src={colimg2} 
                                 alt="Outdoor urban furniture installed at Adani Realty residential project by Urbanland Products" 
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                                style={{ borderRadius: "38px", boxShadow: "rgba(255, 255, 255, 0.3) 5px 5px 10px 10px inset" }}
                             />
-                            <div className="absolute top-4 right-4 bg-black/35 backdrop-blur-md border border-white/20 text-[#C9A84C] text-[9px] font-black uppercase tracking-wider px-3 py-1 rounded-full">
-                                Site Supply
-                            </div>
-                        </div>
-
-                        {/* 4. Action Link */}
-                        <div className="flex items-center justify-between w-full mt-1">
-                            <Link 
-                                to="/solutions/real-estate" 
-                                className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#C9A84C] border-b border-[#C9A84C]/25 pb-0.5 hover:text-[#F7F4EF] hover:border-[#F7F4EF]/40 transition-colors"
-                            >
-                                Explore Adani Project Details →
-                            </Link>
                         </div>
                     </div>
 
                     {/* Card 3: Oberoi */}
-                    <div className="mobile-project-card bg-[#2D2D2D] rounded-[2.25rem] p-6 sm:p-8 border border-white/[0.06] shadow-2xl flex flex-col gap-5">
-                        {/* 1. Top Heading block */}
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight">
-                                Oberoi Realty —<br />
-                                <span className="text-[#C9A84C]">Luxury Project</span>
-                            </h3>
-                        </div>
-
-                        {/* 2. Middle Row: Circles + Description */}
-                        <div className="flex items-start gap-4">
-                            {/* Circle Indices */}
-                            <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5">
-                                <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-full w-9 h-9 flex items-center justify-center font-mono text-xs font-bold">
-                                    03
-                                </div>
-                                <div className="border border-[#F7F4EF]/15 text-[#F7F4EF]/35 rounded-full w-9 h-9 flex items-center justify-center font-mono text-xs font-semibold">
-                                    04
-                                </div>
+                    <div className="mobile-project-card bg-[#2D2D2D] rounded-[2.25rem] border border-white/[0.06] shadow-2xl flex flex-col overflow-hidden">
+                        {/* Text Content Wrapper */}
+                        <div className="p-[34px] flex flex-col gap-5">
+                            {/* 1. Top Heading block */}
+                            <div className="flex flex-col gap-1">
+                                <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight pt-[10px] pb-[90px]">
+                                    Oberoi Realty —<br />
+                                    <span className="text-[#C9A84C]">Luxury Project</span>
+                                </h3>
                             </div>
-                            {/* Description Paragraph */}
-                            <p className="text-xs text-[#F7F4EF]/85 leading-relaxed font-medium">
-                                Premium wicker furniture, poolside loungers, and cabanas crafted for Oberoi's high-end residential and hospitality developments.
-                            </p>
+
+                            {/* 2. Middle Row: Circles + Description */}
+                            <div className="flex items-start gap-4">
+                                {/* Circle Indices */}
+                                <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5 text-[16px]">
+                                    <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-bold">
+                                        03
+                                    </div>
+                                    <div className="border border-[#F7F4EF]/15 text-[#F7F4EF]/35 rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-semibold">
+                                        04
+                                    </div>
+                                </div>
+                                {/* Description Paragraph */}
+                                <p className="text-[11px] text-[#F7F4EF]/85 leading-relaxed font-medium">
+                                    Premium wicker furniture, poolside loungers, and cabanas crafted for Oberoi's high-end residential and hospitality developments.
+                                </p>
+                            </div>
                         </div>
 
-                        {/* 3. Bottom Image Container */}
-                        <div className="w-full aspect-[16/10] rounded-[1.75rem] overflow-hidden bg-black/20 shadow-lg relative group">
+                        {/* 3. Bottom Image Container - Full width & seamless */}
+                        <div className="w-full aspect-[16/10] bg-black/20 rounded-[37.4px] overflow-hidden relative group mt-auto">
                             <img 
                                 src={colimg3} 
                                 alt="Premium wicker furniture, poolside loungers, and cabanas crafted for Oberoi's luxury project" 
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                                style={{ borderRadius: "38px", boxShadow: "rgba(255, 255, 255, 0.3) 5px 5px 10px 10px inset" }}
                             />
-                            <div className="absolute top-4 right-4 bg-black/35 backdrop-blur-md border border-white/20 text-[#C9A84C] text-[9px] font-black uppercase tracking-wider px-3 py-1 rounded-full">
-                                Premium Wicker
-                            </div>
-                        </div>
-
-                        {/* 4. Action Link */}
-                        <div className="flex items-center justify-between w-full mt-1">
-                            <Link 
-                                to="/solutions/hotels-resorts" 
-                                className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#C9A84C] border-b border-[#C9A84C]/25 pb-0.5 hover:text-[#F7F4EF] hover:border-[#F7F4EF]/40 transition-colors"
-                            >
-                                Explore Oberoi Project Details →
-                            </Link>
                         </div>
                     </div>
 
                     {/* Card 4: Smart City */}
-                    <div className="mobile-project-card bg-[#2C5F2E] rounded-[2.25rem] p-6 sm:p-8 border border-white/[0.06] shadow-2xl flex flex-col gap-5">
-                        {/* 1. Top Heading block */}
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight">
-                                Smart City —<br />
-                                <span className="text-[#C9A84C]">Transit Shelters</span>
-                            </h3>
-                        </div>
-
-                        {/* 2. Middle Row: Circles + Description */}
-                        <div className="flex items-start gap-4">
-                            {/* Circle Indices */}
-                            <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5">
-                                <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-full w-9 h-9 flex items-center justify-center font-mono text-xs font-bold">
-                                    04
-                                </div>
-                                <div className="border border-[#F7F4EF]/15 text-[#F7F4EF]/35 rounded-full w-9 h-9 flex items-center justify-center font-mono text-xs font-semibold">
-                                    04
-                                </div>
+                    <div className="mobile-project-card bg-[#2C5F2E] rounded-[2.25rem] border border-white/[0.06] shadow-2xl flex flex-col overflow-hidden">
+                        {/* Text Content Wrapper */}
+                        <div className="p-[34px] flex flex-col gap-5">
+                            {/* 1. Top Heading block */}
+                            <div className="flex flex-col gap-1">
+                                <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight pt-[10px] pb-[90px]">
+                                    Smart City —<br />
+                                    <span className="text-[#C9A84C]">Transit Shelters</span>
+                                </h3>
                             </div>
-                            {/* Description Paragraph */}
-                            <p className="text-xs text-[#F7F4EF]/85 leading-relaxed font-medium">
-                                MS/SS bus shelters, park benches, bollards, and outdoor dustbins delivered for urban infrastructure development.
-                            </p>
+
+                            {/* 2. Middle Row: Circles + Description */}
+                            <div className="flex items-start gap-4">
+                                {/* Circle Indices */}
+                                <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5 text-[16px]">
+                                    <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-bold">
+                                        04
+                                    </div>
+                                    <div className="border border-[#F7F4EF]/15 text-[#F7F4EF]/35 rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-semibold">
+                                        04
+                                    </div>
+                                </div>
+                                {/* Description Paragraph */}
+                                <p className="text-[11px] text-[#F7F4EF]/85 leading-relaxed font-medium">
+                                    MS/SS bus shelters, park benches, bollards, and outdoor dustbins delivered for urban infrastructure development.
+                                </p>
+                            </div>
                         </div>
 
-                        {/* 3. Bottom Image Container */}
-                        <div className="w-full aspect-[16/10] rounded-[1.75rem] overflow-hidden bg-black/20 shadow-lg relative group">
+                        {/* 3. Bottom Image Container - Full width & seamless */}
+                        <div className="w-full aspect-[16/10] bg-black/20 rounded-[37.4px] overflow-hidden relative group mt-auto">
                             <img 
                                 src={colimg4} 
                                 alt="MS/SS bus shelters, park benches, bollards, and outdoor dustbins delivered for urban infrastructure" 
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                                style={{ borderRadius: "38px", boxShadow: "rgba(255, 255, 255, 0.3) 5px 5px 10px 10px inset" }}
                             />
-                            <div className="absolute top-4 right-4 bg-black/35 backdrop-blur-md border border-white/20 text-[#C9A84C] text-[9px] font-black uppercase tracking-wider px-3 py-1 rounded-full">
-                                Smart Transit
-                            </div>
-                        </div>
-
-                        {/* 4. Action Link */}
-                        <div className="flex items-center justify-between w-full mt-1">
-                            <Link 
-                                to="/solutions/smart-cities" 
-                                className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#C9A84C] border-b border-[#C9A84C]/25 pb-0.5 hover:text-[#F7F4EF] hover:border-[#F7F4EF]/40 transition-colors"
-                            >
-                                Explore Smart City Details →
-                            </Link>
                         </div>
                     </div>
                 </div>

@@ -166,7 +166,7 @@
     padding: 0.5rem 1.15rem;
     border-radius: 9999px;
     background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(4px);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -224,7 +224,7 @@
     padding: 0.35rem 0.85rem;
     border-radius: 9999px;
     background-color: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(2px);
     letter-spacing: 0.05em;
     user-select: none;
 }
@@ -286,9 +286,9 @@
         height: 100% !important;
         background: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.45) 0%,
+            rgba(0, 0, 0, 0.15) 0%,
             rgba(0, 0, 0, 0) 40%,
-            rgba(0, 0, 0, 0.55) 100%
+            rgba(0, 0, 0, 0.25) 100%
         ) !important;
         z-index: 2 !important;
         pointer-events: none !important;
@@ -298,8 +298,9 @@
     .gallery-img-wrapper {
         position: relative !important;
         width: 100% !important;
-        height: 42vh !important; /* Fixed landscape height matching standard phone viewports */
-        border-radius: 28px !important; /* High-end rounded image corners matching mockup */
+        aspect-ratio: 4 / 5 !important;
+        height: auto !important; /* Changed from 42vh to use 4:5 ratio */
+        border-radius: 37.5px !important; /* High-end rounded image corners matching mockup */
         overflow: hidden !important;
         z-index: 1 !important;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55) !important; /* Drop shadow under image block */

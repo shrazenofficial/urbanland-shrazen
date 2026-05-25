@@ -465,7 +465,10 @@ const ProductsCatalog = ({ showTitle = true }) => {
                   {/* MOBILE CARD LAYOUT (Mockup-inspired Premium Aesthetics) */}
                   <div className="flex md:hidden flex-col justify-start items-stretch w-full select-none">
                     {/* Top Section: Portrait 4:5 Image Frame Block with increased height and 37.5px border radius */}
-                    <div className="relative w-full aspect-[4/5] bg-[#F7F5F2] rounded-[37.5px] overflow-hidden border border-black/[0.02] flex items-center justify-center p-4 shadow-[inset_0_2px_8px_rgba(0,0,0,0.01)]">
+                    <div 
+                      className="relative w-full aspect-[4/5] bg-[#F7F5F2] rounded-[37.5px] overflow-hidden border border-black/[0.02] flex items-center justify-center p-4"
+                      style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 2px 1px inset, rgba(0, 0, 0, 0.01) 0px 2px 8px 0px inset" }}
+                    >
                       
                       {/* Product Image */}
                       <img
@@ -477,8 +480,8 @@ const ProductsCatalog = ({ showTitle = true }) => {
                       {/* Left Side: Overlapping circular gallery previews - styled larger with overlapping margin */}
                       <div className="absolute bottom-4 left-4 flex -space-x-3.5 items-center z-10">
                         {product.gallery?.slice(0, 3).map((imgUrl, idx) => (
-                          <div key={idx} className="relative w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-white shadow-md">
-                            <img src={imgUrl} className="w-full h-full object-cover" alt="gallery preview" />
+                          <div key={idx} className="relative w-10 h-10 rounded-[37px] border-2 border-white overflow-hidden bg-white shadow-md">
+                            <img src={imgUrl} className="w-full h-full object-cover" alt="gallery preview" style={{ borderRadius: '37px' }} />
                             <span className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-[#C9A84C] rounded-full flex items-center justify-center text-[0.5rem] text-white shadow-sm border border-white/50">
                               ★
                             </span>

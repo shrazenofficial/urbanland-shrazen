@@ -115,7 +115,7 @@ const Showcase = () => {
                             >
                                 {slide.title}
                             </h2>
-                            <p className="border-[1px] border-white/20 rounded-full px-4 py-1.5 text-center text-[10px] md:text-xs bg-black/40 backdrop-blur-md uppercase tracking-widest font-bold">
+                            <p className="border-[1px] border-white/20 rounded-full px-4 py-1.5 text-center text-[10px] md:text-xs bg-black/40 backdrop-blur-sm uppercase tracking-widest font-bold">
                                 {slide.tag}
                             </p>
                         </div>
@@ -155,7 +155,7 @@ const Showcase = () => {
                             
                             {/* Counter */}
                             <div className="flex justify-center items-center gap-1.5 flex-shrink-0 self-end md:self-auto">
-                                <p className="text-[#f4efe7] border-[1px] border-white/30 bg-black/40 backdrop-blur-md rounded-full px-4 py-1.5 text-center text-[10px] md:text-xs font-black tracking-widest">
+                                <p className="text-[#f4efe7] border-[1px] border-white/30 bg-black/40 backdrop-blur-sm rounded-full px-4 py-1.5 text-center text-[10px] md:text-xs font-black tracking-widest">
                                     {slide.num}
                                 </p>
                                 <p className="text-white/40 border-[1px] border-white/10 bg-black/20 rounded-full px-4 py-1.5 text-center text-[10px] md:text-xs font-black tracking-widest">
