@@ -391,7 +391,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
               Array.from({ length: 4 }).map((_, idx) => (
                 <div
                   key={idx}
-                  className="min-w-[310px] sm:min-w-[380px] md:min-w-[440px] lg:min-w-[500px] xl:min-w-[560px] aspect-[4/5] bg-white rounded-[37.5px] p-8 flex flex-col justify-between items-stretch snap-start shadow-[0_10px_30px_rgba(0,0,0,0.02)] border border-black/[0.02] animate-pulse select-none"
+                  className="min-w-[310px] sm:min-w-[380px] md:min-w-[450px] aspect-[4/5] bg-white rounded-[37.5px] p-8 flex flex-col justify-between items-stretch snap-start shadow-[0_10px_30px_rgba(0,0,0,0.02)] border border-black/[0.02] animate-pulse select-none"
                 >
                   <div className="flex justify-between items-start gap-4">
                     <div className="h-6 w-32 bg-black/10 rounded-md" />
@@ -411,10 +411,10 @@ const ProductsCatalog = ({ showTitle = true }) => {
                 <Link
                   key={product.id}
                   to={product.url || `/product/${product.id}`}
-                  className={`catalog-card bg-white rounded-[37.5px] p-4 md:p-8 flex flex-col justify-between items-stretch snap-start shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-black/[0.03] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 group cursor-pointer no-underline block aspect-auto md:aspect-[4/5] ${
+                  className={`catalog-card bg-white rounded-[37.5px] p-4 md:p-8 flex flex-col justify-between items-stretch snap-start shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-black/[0.03] transition-all duration-500 group cursor-pointer no-underline block aspect-auto md:aspect-[4/5] ${
                     filteredProducts.length === 1 
-                      ? 'w-[310px] sm:w-[350px] shrink-0' 
-                      : 'min-w-[310px] sm:min-w-[380px] md:min-w-[440px] lg:min-w-[500px] xl:min-w-[560px]'
+                      ? 'w-[310px] sm:w-[350px] md:w-[450px] shrink-0' 
+                      : 'min-w-[310px] sm:min-w-[380px] md:min-w-[450px]'
                   }`}
                 >
                   {/* DESKTOP CARD LAYOUT */}
@@ -452,11 +452,11 @@ const ProductsCatalog = ({ showTitle = true }) => {
                     </div>
    
                     {/* Bottom info */}
-                    <div className="flex justify-between items-end">
-                      <span className="hidden md:block text-sm font-medium text-[#1a1a1a] leading-relaxed max-w-[70%]">
+                    <div className="flex justify-between items-end gap-4">
+                      <span className="hidden md:block text-sm font-medium text-[#1a1a1a] leading-relaxed max-w-[62%]">
                         {product.line}
                       </span>
-                      <span className="text-[0.7rem] uppercase tracking-wider text-[#2C5F2E] font-semibold bg-[#2C5F2E]/5 px-3 py-1.5 rounded-full opacity-100 group-hover:bg-[#2C5F2E] group-hover:text-[#F7F4EF] transition-all duration-300 ml-auto md:ml-0">
+                      <span className="text-[0.7rem] uppercase tracking-wider text-[#2C5F2E] font-semibold bg-[#2C5F2E]/5 px-4 py-2.5 rounded-full opacity-100 group-hover:bg-[#2C5F2E] group-hover:text-[#F7F4EF] transition-all duration-300 ml-auto md:ml-0 shrink-0 whitespace-nowrap">
                         View & Get Quote
                       </span>
                     </div>

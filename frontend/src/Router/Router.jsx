@@ -9,6 +9,8 @@ import BlogDetail from "../pages/Blog/BlogDetail";
 // New Sitemap Pages Imports
 import ProductsHub from "../pages/Products/ProductsHub";
 import BusSheltersPage from "../pages/Products/BusSheltersPage";
+import WickerFurniturePage from "../pages/Products/WickerFurniturePage";
+import DustbinsPage from "../pages/Products/DustbinsPage";
 import CategoryDetail from "../pages/Products/CategoryDetail";
 import SolutionsHub from "../pages/Solutions/SolutionsHub";
 import SolutionsDetail from "../pages/Solutions/SolutionsDetail";
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
             // Products Sitemap Paths
             { path: "products", element: <ProductsHub /> },
             { path: "products/bus-shelters", element: <BusSheltersPage /> },
+            { path: "products/wicker-furniture", element: <WickerFurniturePage /> },
+            { path: "products/wicker-furniture/wicker-outdoor-products", element: <WickerFurniturePage /> },
+            { path: "products/dustbins", element: <DustbinsPage /> },
+            { path: "products/outdoor-dustbins", element: <DustbinsPage /> },
             { path: "products/:category", element: <CategoryDetail /> },
             { path: "products/:category/:subcategory", element: <CategoryDetail /> },
             

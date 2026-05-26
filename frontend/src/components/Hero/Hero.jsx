@@ -167,7 +167,7 @@ const Hero = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`hero-slide-bg slide-bg-${index} absolute inset-0 bg-no-repeat bg-cover bg-center pointer-events-none`}
+            className={`hero-slide-bg slide-bg-${index} absolute -top-[10%] -bottom-[10%] inset-x-0 bg-no-repeat bg-cover bg-center pointer-events-none`}
             style={{
               backgroundImage: `url(${slide.image})`,
               opacity: index === 0 ? 1 : 0,
@@ -202,7 +202,7 @@ const Hero = () => {
               <div className="max-w-2xl flex flex-col gap-2 md:gap-4 overflow-hidden">
                 <div className="h-auto overflow-hidden py-1">
                   <h1 
-                    className="slide-title text-[#f4efe7] text-[clamp(32px,8.5vw,48px)] sm:text-5xl md:text-8xl font-bold tracking-wider leading-none"
+                    className="slide-title text-[#f4efe7] text-[clamp(32px,8.5vw,48px)] sm:text-5xl md:text-[4rem] font-bold tracking-wider leading-none"
                     style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.35)' }}
                   >
                     {slides[activeIndex].title}

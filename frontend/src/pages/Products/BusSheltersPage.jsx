@@ -211,7 +211,7 @@ const BusSheltersPage = () => {
                 <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#2D2D2D]/60 mt-1">Best for: Inland municipalities, township amenities, secondary transit routes.</h4>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t border-[#2D2D2D]/10 pt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 border-t border-[#2D2D2D]/10 pt-8">
                 <div>
                     <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
                     <ul className="flex flex-col gap-3 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
@@ -225,6 +225,15 @@ const BusSheltersPage = () => {
                     <p className="text-xs sm:text-sm text-[#2D2D2D]/75 font-semibold leading-relaxed">
                         Smart City Phase-1/2 projects, municipal networks, budget-conscious buyers
                     </p>
+                </div>
+
+                {/* Visual Image Section Column */}
+                <div className="lg:col-span-1 h-[280px] lg:h-auto rounded-[2rem] bg-black/5 overflow-hidden flex items-center justify-center p-4 border border-black/[0.04] shrink-0">
+                    <img 
+                        src={busImg} 
+                        alt="Standard mild steel bus shelter variant by Urbanland" 
+                        className="w-full h-full object-cover rounded-2xl" 
+                    />
                 </div>
 
                 <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between gap-6">
@@ -276,7 +285,7 @@ const BusSheltersPage = () => {
                 <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#2D2D2D]/60 mt-1">Best for: Coastal areas, high-traffic zones, premium real estate (Lodha, Oberoi, Adani).</h4>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t border-[#2D2D2D]/10 pt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 border-t border-[#2D2D2D]/10 pt-8">
                 <div>
                     <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
                     <ul className="flex flex-col gap-3 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
@@ -292,6 +301,15 @@ const BusSheltersPage = () => {
                     <p className="text-xs sm:text-sm text-[#2D2D2D]/75 font-semibold leading-relaxed">
                         Coastal smart cities, premium townships, 5-star resorts, high-traffic CBD zones
                     </p>
+                </div>
+
+                {/* Visual Image Section Column */}
+                <div className="lg:col-span-1 h-[280px] lg:h-auto rounded-[2rem] bg-black/5 overflow-hidden flex items-center justify-center p-4 border border-black/[0.04] shrink-0">
+                    <img 
+                        src={busJpeg} 
+                        alt="Premium stainless steel bus shelter variant by Urbanland" 
+                        className="w-full h-full object-cover rounded-2xl" 
+                    />
                 </div>
 
                 <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between gap-6">
@@ -347,7 +365,7 @@ const BusSheltersPage = () => {
                 <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#2D2D2D]/60 mt-1">Best for: Smart City Mission Phase-II, premium developments, IoT-enabled infrastructure.</h4>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t border-[#2D2D2D]/10 pt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 border-t border-[#2D2D2D]/10 pt-8">
                 <div>
                     <h4 className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
                     <ul className="flex flex-col gap-3 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
@@ -364,6 +382,15 @@ const BusSheltersPage = () => {
                     <p className="text-xs sm:text-sm text-[#2D2D2D]/75 font-semibold leading-relaxed">
                         Smart City Phase-II projects, mega-townships, airport/metro feeders, tech parks
                     </p>
+                </div>
+
+                {/* Visual Image Section Column */}
+                <div className="lg:col-span-1 h-[280px] lg:h-auto rounded-[2rem] bg-black/5 overflow-hidden flex items-center justify-center p-4 border border-black/[0.04] shrink-0">
+                    <img 
+                        src={carImg} 
+                        alt="Super premium Smart City ready IoT bus shelter variant by Urbanland" 
+                        className="w-full h-full object-cover rounded-2xl" 
+                    />
                 </div>
 
                 <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between gap-6">

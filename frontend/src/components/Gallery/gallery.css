@@ -303,7 +303,7 @@
         border-radius: 37.5px !important; /* High-end rounded image corners matching mockup */
         overflow: hidden !important;
         z-index: 1 !important;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55) !important; /* Drop shadow under image block */
+        box-shadow: none !important; /* Removed shadow behind image */
     }
 
     .gallery-img-wrapper img {

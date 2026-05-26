@@ -726,7 +726,7 @@ const ProductDetail = () => {
             <Link 
               key={rel.id} 
               to={`/product/${rel.id}`}
-              className="bg-white rounded-3xl p-6 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.01)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 group no-underline flex flex-col justify-between items-stretch aspect-[4/5] w-full max-w-[320px]"
+              className="bg-white rounded-3xl p-6 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.01)] hover:-translate-y-1 transition-all duration-500 group no-underline flex flex-col justify-between items-stretch aspect-[4/5] w-full max-w-[320px]"
             >
               <div className="flex justify-between items-start">
                 <h4 className="text-base font-light text-[#2D2D2D] leading-tight tracking-tight group-hover:text-black">
