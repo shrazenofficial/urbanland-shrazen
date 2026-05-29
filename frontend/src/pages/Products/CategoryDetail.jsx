@@ -450,12 +450,13 @@ const CategoryDetail = () => {
                 {bin.badge && <SpikyNewBadge text={bin.badge} />}
 
                 {/* Product Image Panel */}
-                <div className="flex-1 w-full flex justify-center items-center overflow-hidden relative select-none min-h-[220px]">
+                <div className="flex-1 w-full flex justify-center items-center overflow-hidden relative select-none min-h-[220px] bg-white rounded-[20px]">
                   <img
                     src={bin.image}
                     alt={bin.title}
                     className="max-h-[85%] max-w-[85%] object-contain select-none transform group-hover:scale-104 transition-transform duration-700 ease-out"
                     loading="lazy"
+                    style={{ mixBlendMode: "multiply", filter: "brightness(1.12) contrast(1.05)" }}
                   />
                 </div>
 
@@ -544,12 +545,13 @@ const CategoryDetail = () => {
                 </div>
 
                 {/* Rendering image container */}
-                <div className="flex-1 my-4 flex justify-center items-center overflow-hidden relative select-none w-full h-[180px]">
+                <div className="flex-1 my-4 flex justify-center items-center overflow-hidden relative select-none w-full h-[180px] bg-white rounded-[20px]">
                   {/* First image: White background */}
                   <img
                     src={product.image}
                     alt={product.title}
                     className="absolute inset-0 max-h-[80%] max-w-[80%] m-auto object-contain select-none transition-all duration-500 ease-in-out group-hover:opacity-0 group-hover:scale-95"
+                    style={{ mixBlendMode: "multiply", filter: "brightness(1.12) contrast(1.05)" }}
                   />
                   {/* Second image: UGC background */}
                   <img

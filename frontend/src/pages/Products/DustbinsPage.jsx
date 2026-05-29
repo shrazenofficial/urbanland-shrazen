@@ -177,8 +177,8 @@ const DustbinsPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Item 1: Nanuk Next */}
                     <div className="bg-white rounded-[2.5rem] p-8 border border-black/[0.03] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
-                        <div className="flex-1 w-full flex justify-center items-center overflow-hidden min-h-[200px] relative select-none">
-                            <img src={nanukNextImg} alt="Nanuk Next Wood Slatted Dustbin" className="max-h-[85%] max-w-[85%] object-contain select-none group-hover:scale-105 transition-transform duration-500" />
+                        <div className="flex-1 w-full flex justify-center items-center overflow-hidden min-h-[200px] relative select-none bg-white rounded-[20px]">
+                            <img src={nanukNextImg} alt="Nanuk Next Wood Slatted Dustbin" className="max-h-[85%] max-w-[85%] object-contain select-none group-hover:scale-105 transition-transform duration-500" style={{ mixBlendMode: "multiply", filter: "brightness(1.12) contrast(1.05)" }} />
                         </div>
                         <div className="mt-6 border-t border-black/[0.04] pt-6">
                             <h3 className="text-xl font-black uppercase text-[#1A1A1A] leading-tight">NANUK NEXT</h3>
@@ -190,8 +190,8 @@ const DustbinsPage = () => {
 
                     {/* Item 2: Skyline */}
                     <div className="bg-white rounded-[2.5rem] p-8 border border-black/[0.03] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
-                        <div className="flex-1 w-full flex justify-center items-center overflow-hidden min-h-[200px] relative select-none">
-                            <img src={skylineImg} alt="Skyline Robinia wood double sorting bin" className="max-h-[85%] max-w-[85%] object-contain select-none group-hover:scale-105 transition-transform duration-500" />
+                        <div className="flex-1 w-full flex justify-center items-center overflow-hidden min-h-[200px] relative select-none bg-white rounded-[20px]">
+                            <img src={skylineImg} alt="Skyline Robinia wood double sorting bin" className="max-h-[85%] max-w-[85%] object-contain select-none group-hover:scale-105 transition-transform duration-500" style={{ mixBlendMode: "multiply", filter: "brightness(1.12) contrast(1.05)" }} />
                         </div>
                         <div className="mt-6 border-t border-black/[0.04] pt-6">
                             <h3 className="text-xl font-black uppercase text-[#1A1A1A] leading-tight">SKYLINE</h3>
@@ -203,8 +203,8 @@ const DustbinsPage = () => {
 
                     {/* Item 3: Tlesk */}
                     <div className="bg-white rounded-[2.5rem] p-8 border border-black/[0.03] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
-                        <div className="flex-1 w-full flex justify-center items-center overflow-hidden min-h-[200px] relative select-none">
-                            <img src={tleskImg} alt="Tlesk Playful wireframe cage litter bins" className="max-h-[85%] max-w-[85%] object-contain select-none group-hover:scale-105 transition-transform duration-500" />
+                        <div className="flex-1 w-full flex justify-center items-center overflow-hidden min-h-[200px] relative select-none bg-white rounded-[20px]">
+                            <img src={tleskImg} alt="Tlesk Playful wireframe cage litter bins" className="max-h-[85%] max-w-[85%] object-contain select-none group-hover:scale-105 transition-transform duration-500" style={{ mixBlendMode: "multiply", filter: "brightness(1.12) contrast(1.05)" }} />
                         </div>
                         <div className="mt-6 border-t border-black/[0.04] pt-6">
                             <h3 className="text-xl font-black uppercase text-[#1A1A1A] leading-tight">TLESK</h3>
@@ -216,8 +216,8 @@ const DustbinsPage = () => {
 
                     {/* Item 4: Korton Triple */}
                     <div className="bg-white rounded-[2.5rem] p-8 border border-black/[0.03] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full group">
-                        <div className="flex-1 w-full flex justify-center items-center overflow-hidden min-h-[200px] relative select-none">
-                            <img src={sortCorrugatedImg} alt="Korton Triple Corrugated Sheet Sorting Station" className="max-h-[85%] max-w-[85%] object-contain select-none group-hover:scale-105 transition-transform duration-500" />
+                        <div className="flex-1 w-full flex justify-center items-center overflow-hidden min-h-[200px] relative select-none bg-white rounded-[20px]">
+                            <img src={sortCorrugatedImg} alt="Korton Triple Corrugated Sheet Sorting Station" className="max-h-[85%] max-w-[85%] object-contain select-none group-hover:scale-105 transition-transform duration-500" style={{ mixBlendMode: "multiply", filter: "brightness(1.12) contrast(1.05)" }} />
                         </div>
                         <div className="mt-6 border-t border-black/[0.04] pt-6">
                             <h3 className="text-xl font-black uppercase text-[#1A1A1A] leading-tight">KORTON TRIPLE</h3>
