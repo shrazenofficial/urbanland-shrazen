@@ -6,11 +6,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Import images for banners
-import colimg1 from "../../assets/Bench_Planter.png";
-import colimg2 from "../../assets/Car_Shelter.png";
-import colimg3 from "../../assets/Wicker_Furniture.png";
-import colimg4 from "../../assets/Bus_Shelters.png";
+// Import static products list to dynamically fetch category images
+import { products as staticProducts } from "../../constants/productsData";
 
 // Premium Dustbins Generated Studio Images
 import nanukNextImg from "../../assets/products/Product Images/Dustbins/nanuk_next.png";
@@ -25,113 +22,117 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Metadata specifications for dynamic catalog templates
 const categoriesMeta = {
+  "bench-planters": {
+    title: "Bench Planters",
+    tagline: "Integrated WPC seating & concrete planter boxes.",
+    description: "Designed to combine architectural seating with built-in planter islands. Perfect for shopping mall corridors, municipal streetscapes, and university plazas where public space is premium.",
+    materials: "FSC certified WPC wood slats, GFRC concrete mix, stainless steel frame.",
+    durability: "Class C4 corrosion protection coating, waterproof sealant layers.",
+    installation: "Surface flanged concrete anchoring, or free-standing placement."
+  },
+  "benches": {
+    title: "Outdoor Benches",
+    tagline: "Ergonomic and highly durable outdoor seating systems.",
+    description: "Sleek outdoor benches featuring cast iron or structural steel frames cladded in organic timber or WPC slats. Engineered for extreme outdoor conditions, comfort, and longevity.",
+    materials: "Galvanized steel frames, FSC Robinia, Jatoba, or WPC slats.",
+    durability: "Anti-corrosion powder coatings, UV-resistant wood/WPC protection.",
+    installation: "Sub-surface anchoring or surface concrete bolt-down."
+  },
   "bus-shelters": {
     title: "Bus Shelters",
-    tagline: "Smart transit solutions for modern urban municipalities.",
-    description: "Our MS and SS bus shelters are engineered with hot-dip galvanized steel framing, tempered glass or polycarbonate wind barriers, and self-contained solar-powered lighting systems. Ideal for smart cities.",
-    image: colimg4,
-    materials: "Hot-dip galvanized steel, Grade 304/316 Stainless Steel, 8mm Toughened Glass panels.",
-    durability: "Class C5 corrosion protection coating with 20+ years service life.",
-    installation: "Cast-in-place anchor bolts with drainage integration."
+    tagline: "Smart transit stop canopies with premium structural finishes.",
+    description: "Hot-dip galvanized steel structures with safety glass panels, solar capabilities, and comfortable integrated seating. Engineered for high wind loads and public durability.",
+    materials: "Structural steel column chassis, Toughened Safety Glass wind guards.",
+    durability: "Class C5 marine-grade protection, 20+ years service life.",
+    installation: "Sub-surface concrete embedding with heavy anchor cage hooks."
   },
-  "car-parking-sheds": {
-    title: "Car Parking Sheds",
-    tagline: "High-tensile architectural sheds and tensile canopies.",
-    description: "Modular, high-tensile cantilever parking shelters designed to withstand heavy wind loads and block UV radiation. Clean architectural spans provide maximum clearance.",
-    image: colimg2,
-    materials: "Structural steel tubes, PVDF-coated tensile membranes (950 gsm), powder-coated hardware.",
-    durability: "100% rust-free frame; PVDF fabric with self-cleaning lacquer and 15-year warranty.",
-    installation: "Reinforced concrete footing pads with high-strength chemical anchors."
+  "cabanas": {
+    title: "Luxury Cabanas",
+    tagline: "Shaded luxury outdoor daybeds for premium resorts.",
+    description: "Features durable steel structure wrapped with outdoor cushions and curtains. Provides intimate, private relaxation spaces for luxury hospitality decks and rooftops.",
+    materials: "Powder coated steel framing, FSC timber slats, Sunbrella® outdoor fabrics.",
+    durability: "Saltwater mist and chlorine resistant, quick-dry padding.",
+    installation: "Free-standing or deck-bolted layout configurations."
   },
-  "canteen-furniture": {
-    title: "Canteen Tables & Benches",
-    tagline: "Extreme-durability campus dining setups.",
-    description: "Integrated outdoor tables and benches crafted for educational, corporate, and public campuses. Low-maintenance structures cladded in HPL or weather-resistant slats.",
-    image: colimg1,
-    materials: "Laser-cut powder-coated steel chassis, high-pressure laminate (HPL) or Robinia slats.",
-    durability: "Anti-vandalism fastening; rust-proof powder coat finish.",
-    installation: "Bolt-down base flange anchoring or free-standing layouts."
+  "canteen-tables": {
+    title: "Canteen Tables & Sets",
+    tagline: "Integrated table and bench configurations for high-traffic zones.",
+    description: "The Morse series provides extreme structural durability using galvanized powder-coated frames and low-maintenance HPL slats. Perfect for corporate cafes and school courtyards.",
+    materials: "Laser-cut galvanized steel chassis, 12mm exterior grade HPL slats.",
+    durability: "Vandal-resistant assembly, double powder coating protection.",
+    installation: "Surface concrete expansion bolts, or free-standing layouts."
+  },
+  "car-shelters": {
+    title: "Car Shelters",
+    tagline: "Cantilever structural steel shelters for premium vehicle coverage.",
+    description: "Engineered to shield vehicles from heavy sun, rain, and hail. Standard double-car bays feature PVDF-coated fabrics or metal decking, ready for solar and EV charger integration.",
+    materials: "Heavy structural H-beams, high-tensile PVDF membranes or metal decks.",
+    durability: "High wind-load engineering, UV-resistant self-cleaning membranes.",
+    installation: "Reinforced concrete footing cages with chemical anchors."
+  },
+  "dustbins": {
+    title: "Litter & Recycling Bins",
+    tagline: "Robust waste segregation containers for public spaces.",
+    description: "Galvanized steel and WPC timber dustbins with distinct locks, labels, and rain hoods. Ideal for smart cities, corporate lawns, and parks.",
+    materials: "Textured powder coated steel, Grade 304/316 Stainless Steel lids.",
+    durability: "Anti-vandalism cylinder locks, fire-safe internal liners.",
+    installation: "Internal flange anchoring to concrete pathways."
+  },
+  "gazebos": {
+    title: "Premium Gazebos",
+    tagline: "Pre-engineered wooden pavilions for luxury gardens.",
+    description: "FSC certified hardwood framing combined with premium metal joints. Perfect for residential farmhouses, resort lawns, and outdoor dining patios.",
+    materials: "FSC Robinia or Teak framing, high-strength structural steel joints.",
+    durability: "Anti-fungal and moisture-resistant wood treatments.",
+    installation: "Surface mounted bracket flanges onto patio decks or slabs."
+  },
+  "pergolas": {
+    title: "Architectural Pergolas",
+    tagline: "High-tension structural shade pergolas.",
+    description: "Sculptural tensioned sail and louvered structures designed to create visually striking shaded pathways and plazas. UV-stable polymer sail material.",
+    materials: "HDPE polymer shade cloth, hot-dip galvanized steel columns.",
+    durability: "UV test certified to 3000+ hours, extreme tension resistance.",
+    installation: "Deep foundation chemical concrete anchor bolting."
   },
   "planters": {
-    title: "GFRC & Concrete Planters",
-    tagline: "Bio-diverse cultivation islands for plazas and parklets.",
-    description: "Architectural glass-fiber reinforced concrete (GFRC) and solid wood planters designed to integrate lush plant life directly into municipal walkways and public sitting spaces.",
-    image: colimg1,
-    materials: "High-strength GFRC concrete mix, FSC-certified tropical Jatoba cladding.",
+    title: "GFRC Planters",
+    tagline: "Architectural concrete planting pots for public spaces.",
+    description: "Double-walled insulated concrete container systems designed to nurture large trees and shrubs in urban environments. Easy relocation slots.",
+    materials: "GFRC concrete mix, waterproof interior sealants, foam insulation core.",
     durability: "Frost resistant, internally sealed waterproof layers.",
-    installation: "Free-standing layout on integrated structural leveling pads."
+    installation: "Free-standing layout on integrated leveling pads."
   },
-  "outdoor-dustbins": {
-    title: "Outdoor Dustbins",
-    tagline: "Durable municipal receptacles for smart waste management.",
-    description: "Dual-compartment litter and recycling bins designed for heavy urban foot traffic. Stainless steel hardware prevents corrosion under monsoons and high humidity.",
-    image: colimg1,
-    materials: "Galvanized powder-coated sheet steel, Grade 304 Stainless Steel liners.",
-    durability: "Anti-graffiti finish, fire-safe internal ash receptacles.",
-    installation: "Chemical expansion anchoring onto concrete surfaces."
+  "poolside-loungers": {
+    title: "Poolside Loungers",
+    tagline: "Resort-grade synthetic wicker sun loungers.",
+    description: "Rust-free aluminum frames wrapped in hand-woven HDPE weather-proof wicker. Quick-dry foam cushions ensure premium comfort by the pool.",
+    materials: "Aluminum tube framing, HDPE synthetic wicker weave, quick-dry foam.",
+    durability: "UV and chlorine proof, saltwater mist resistant.",
+    installation: "Free-standing layout with non-marking glides."
   },
-  "wpc-benches": {
-    title: "WPC & Aluminium Benches",
-    tagline: "High-comfort seating cladded in premium timbers.",
-    description: "Linear and modular public benches designed for parks, commercial courtyards, and premium residential spaces. Engineered ergonomics meet timeless material warmth.",
-    image: colimg1,
-    materials: "Galvanized steel frames, FSC Jatoba, Robinia, or high-performance WPC slats.",
-    durability: "Extreme humidity and UV resistance, natural untreated timber silver patina aging.",
-    installation: "Sub-surface ground cast, or concrete surface flanged anchoring."
+  "pre-fab-homes": {
+    title: "Pre Fab Homes",
+    tagline: "Eco-friendly premium pre-fabricated modular rooms.",
+    description: "Thermally insulated structural steel chassis cladded in WPC composites. Installs in under 48 hours for resort cottages, home offices, and eco-sensitive zones.",
+    materials: "Galvanized structural steel, premium Eco WPC paneling.",
+    durability: "Severe weather insulated framing, fire-resistant materials.",
+    installation: "Helical pile anchors or simple concrete slab foundations."
   },
-  "poolside-furniture": {
-    title: "Poolside Loungers & Cabanas",
-    tagline: "Resort-grade architectural shade modules and sunbeds.",
-    description: "Premium sunshade modules, gazebos, and sun loungers designed for poolside decks and wellness spas, combining aluminium frames with high-density synthetic wicker or PE weave.",
-    image: colimg3,
-    materials: "Structural aluminium alloys, powder-coated fasteners, HDPE synthetic wicker, UV-stable fabrics.",
-    durability: "Saltwater mist and chlorine resistant, quick-dry padding.",
-    installation: "Free-standing movable or deck-bolted layouts."
+  "wicker-dining-sets": {
+    title: "Wicker Dining Sets",
+    tagline: "Luxury dining sets engineered for outdoor durability.",
+    description: "Premium outdoor dining configurations made of hand-woven synthetic wicker strands. Resistant to chlorine, water, and sun, with Sunbrella® fabrics.",
+    materials: "Extruded aluminum frames, HDPE wicker strands, tempered safety glass.",
+    durability: "100% rust-free, colorfast weather-proof fibers.",
+    installation: "Free-standing layout with adjustable leg levelers."
   },
-  "swings": {
-    title: "Wicker & Cane Swings",
-    tagline: "Bespoke handcrafted swing systems.",
-    description: "Luxury swings combining premium powder-coated hanging frames with high-density synthetic wicker or cane weaves. Adds elegance to poolside decks and private balconies.",
-    image: colimg3,
-    materials: "Heavy-duty steel support arches, PE synthetic wicker or natural cane weaves.",
-    durability: "Weatherproof wicker core; structural frame with 10-year load guarantee.",
-    installation: "Free-standing heavy steel arches or concrete ceiling anchor hooks."
-  },
-  "wicker-furniture": {
-    title: "Wicker Furniture",
-    tagline: "Premium synthetic wicker dining and lounging ensembles.",
-    description: "Hand-woven synthetic wicker dining chairs, tables, and lounge sectionals crafted with weather-resistant internal cushions. Made to withstand heavy monsoons and UV exposures.",
-    image: colimg3,
-    materials: "Lightweight rust-free aluminium internal frames, high-density PE wicker fibers.",
-    durability: "UV test certified to 3000 hours, water-repellent cushions.",
-    installation: "Free-standing premium furniture elements with adjustable feet."
-  },
-  "metal-wooden-furniture": {
-    title: "Metal Wooden Furniture",
-    tagline: "Industrial meets organic warmth.",
-    description: "Custom municipal furniture combining heavy structural steel elements with warm Robinia or Jatoba timber slats, bringing custom styling to commercial streets.",
-    image: colimg1,
-    materials: "Powder-coated MS sheet framing, sustainable solid hardwood cladding.",
-    durability: "Double-layer zinc priming for superior corrosion isolation.",
-    installation: "Chemical anchors or surface flange mounts."
-  },
-  "ss-bollards": {
-    title: "Stainless Steel Bollards",
-    tagline: "Crash-rated safety barriers for traffic management.",
-    description: "Heavy-duty safety and decorative bollards in Grade 304 and 316 Stainless Steel. Designed to secure pedestrian avenues, building perimeters, and plazas.",
-    image: colimg4,
-    materials: "Grade 304/316 Stainless Steel, optional internal concrete cores.",
-    durability: "Brushed architectural finish; high impact energy resistance.",
-    installation: "Fixed concrete-embedded cores, or removable locking base sleeves."
-  },
-  "indoor-furniture": {
-    title: "Indoor Lobby Seating",
-    tagline: "Premium indoor corporate reception seating.",
-    description: "Low-priority indoor seating systems combining custom upholstery with steel frames for premium commercial lobbys and luxury residential clubhouses.",
-    image: colimg1,
-    materials: "Cold-rolled steel frames, commercial performance upholstery fabrics.",
-    durability: "Flame-retardant foam, heavy-duty double-stitched piping seams.",
-    installation: "Free-standing luxury seating layouts."
+  "wicker-living-sets": {
+    title: "Wicker Living Sets",
+    tagline: "Cinematic outdoor wicker seating & lounge configurations.",
+    description: "Beautifully crafted wicker modular sofas and armchairs. High-density foam cushions covered with weather-proof, water-repellent performance upholstery.",
+    materials: "HDPE synthetic wicker weave, aluminum frames, Sunbrella® canvas.",
+    durability: "Water-repellent cushions, 10+ years UV protection weave.",
+    installation: "Free-standing layout with modular connector clips."
   }
 };
 
@@ -216,7 +217,18 @@ const premiumDustbins = [
 
 const CategoryDetail = () => {
   const { category: rawCategory, subcategory } = useParams();
-  const category = rawCategory === "dustbins" ? "outdoor-dustbins" : rawCategory;
+  
+  // Normalize category ID to one of the 14 new identifiers
+  const category = rawCategory === "outdoor-dustbins" || rawCategory === "dustbins" ? "dustbins"
+                 : rawCategory === "wpc-benches" ? "benches"
+                 : rawCategory === "canteen-furniture" ? "canteen-tables"
+                 : rawCategory === "car-parking-sheds" || rawCategory === "car-sheds" ? "car-shelters"
+                 : rawCategory === "poolside-furniture" ? "poolside-loungers"
+                 : rawCategory === "gazebo" ? "gazebos"
+                 : rawCategory === "parabola" ? "pergolas"
+                 : rawCategory === "wicker-furniture" ? "wicker-living-sets"
+                 : rawCategory;
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const containerRef = useRef(null);
@@ -406,8 +418,8 @@ const CategoryDetail = () => {
         </div>
       </section>
 
-      {/* FEATURED SIGNATURE DUSTBINS BENTO GRID (Visible only when category is 'outdoor-dustbins') */}
-      {category === "outdoor-dustbins" && (
+      {/* FEATURED SIGNATURE DUSTBINS BENTO GRID (Visible only when category is 'dustbins') */}
+      {category === "dustbins" && (
         <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 font-outfit">
           <div className="text-left mb-12 border-b border-[#2D2D2D]/10 pb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
@@ -480,7 +492,7 @@ const CategoryDetail = () => {
       {/* Dynamic Products Grid Section (Other Available Models) */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 products-grid-container font-outfit">
         <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#1A1A1A] mb-8 border-b border-[#2D2D2D]/10 pb-4 select-none font-outfit">
-          {category === "outdoor-dustbins" ? "Other Standard Models in this Division:" : "Available Models in this Division:"}
+          {category === "dustbins" ? "Other Standard Models in this Division:" : "Available Models in this Division:"}
         </h2>
 
         {loading ? (
@@ -532,11 +544,18 @@ const CategoryDetail = () => {
                 </div>
 
                 {/* Rendering image container */}
-                <div className="flex-1 my-4 flex justify-center items-center overflow-hidden relative select-none">
+                <div className="flex-1 my-4 flex justify-center items-center overflow-hidden relative select-none w-full h-[180px]">
+                  {/* First image: White background */}
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="max-h-[80%] max-w-[80%] object-contain select-none transform group-hover:scale-104 transition-transform duration-700 ease-out"
+                    className="absolute inset-0 max-h-[80%] max-w-[80%] m-auto object-contain select-none transition-all duration-500 ease-in-out group-hover:opacity-0 group-hover:scale-95"
+                  />
+                  {/* Second image: UGC background */}
+                  <img
+                    src={product.gallery && product.gallery[1] ? product.gallery[1] : product.image}
+                    alt={`${product.title} installation`}
+                    className="absolute inset-0 w-full h-full object-cover rounded-[20px] select-none opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100 scale-105 group-hover:scale-100"
                   />
                 </div>
 

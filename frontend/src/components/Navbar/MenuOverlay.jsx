@@ -31,17 +31,20 @@ const MenuOverlay = ({ isOpen, setIsOpen }) => {
       path: "/products",
       subLinks: [
         { name: "View All Products", path: "/products" },
-        { name: "Bus Shelters", path: "/products/bus-shelters" },
-        { name: "Car Sheds", path: "/products/car-sheds" },
-        { name: "Canteen Tables", path: "/products/canteen-tables" },
+        { name: "Benches", path: "/products/benches" },
+        { name: "Bench Planters", path: "/products/bench-planters" },
         { name: "Planters", path: "/products/planters" },
         { name: "Dustbins", path: "/products/dustbins" },
-        { name: "Benches", path: "/products/benches" },
+        { name: "Bus Shelters", path: "/products/bus-shelters" },
+        { name: "Car Shelters", path: "/products/car-shelters" },
+        { name: "Canteen Tables", path: "/products/canteen-tables" },
+        { name: "Pergolas", path: "/products/pergolas" },
+        { name: "Gazebos", path: "/products/gazebos" },
         { name: "Cabanas", path: "/products/cabanas" },
-        { name: "Swings", path: "/products/swings" },
-        { name: "Wicker Furniture", path: "/products/wicker-furniture" },
+        { name: "Pre Fab Homes", path: "/products/pre-fab-homes" },
         { name: "Poolside Loungers", path: "/products/poolside-loungers" },
-        { name: "SS Bollards", path: "/products/ss-bollards" }
+        { name: "Wicker Living Sets", path: "/products/wicker-living-sets" },
+        { name: "Wicker Dining Sets", path: "/products/wicker-dining-sets" }
       ]
     },
     { 

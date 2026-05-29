@@ -383,29 +383,36 @@ font-size: 30px;
 font-size: 12px;
 }
 .px-8.py-4.bg-white/10.hover:bg-white/20.border.border-white/20.text-white.rounded-full.font-bold.uppercase.tracking-wider.text-xs.text-center.transition-all.backdrop-blur-sm.w-full.sm:w-auto.animate-pulse,
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(4) > div.grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-4.gap-8:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.transition-all.duration-300.flex.flex-col.group.h-full:nth-child(1) > div.p-6.flex.flex-col.justify-between.flex-1:nth-child(2) > div > p.text-xs.text-[#2D2D2D]/70.leading-relaxed.mt-3:nth-child(2),
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(7) > div.grid.grid-cols-1.lg:grid-cols-3.gap-8.select-none.mb-12:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.hover:scale-[1.01].transform.transition-all.duration-300.flex.flex-col.justify-between.group:nth-child(3) > div.p-6.sm:p-8.flex.flex-col.justify-between.flex-1:nth-child(2) > div > p.text-xs.text-[#2D2D2D]/70.leading-relaxed:nth-child(4),
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(7) > div.grid.grid-cols-1.lg:grid-cols-3.gap-8.select-none.mb-12:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.hover:scale-[1.01].transform.transition-all.duration-300.flex.flex-col.justify-between.group:nth-child(2) > div.p-6.sm:p-8.flex.flex-col.justify-between.flex-1:nth-child(2) > div > p.text-xs.text-[#2D2D2D]/70.leading-relaxed:nth-child(4),
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(7) > div.grid.grid-cols-1.lg:grid-cols-3.gap-8.select-none.mb-12:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.hover:scale-[1.01].transform.transition-all.duration-300.flex.flex-col.justify-between.group:nth-child(1) > div.p-6.sm:p-8.flex.flex-col.justify-between.flex-1:nth-child(2) > div > p.text-xs.text-[#2D2D2D]/70.leading-relaxed:nth-child(4) {
-font-size: 10px;
+.custom-premium-card p {
+  font-size: 10px !important;
 }
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(4) > div.grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-4.gap-8:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.transition-all.duration-300.flex.flex-col.group.h-full:nth-child(1) > div.relative.aspect-[4/3].bg-black/5.overflow-hidden:nth-child(1) > img.w-full.h-full.object-cover.group-hover:scale-105.transition-transform.duration-500:nth-child(1) {
-border-radius: 37.5px;
-background-color: #ffffff;
+
+.custom-premium-card img {
+  border-radius: 37.5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 10px 0px inset;
+  margin: 0px;
+  padding: 0px 0px 3px;
 }
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(4) > div.grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-4.gap-8:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.transition-all.duration-300.flex.flex-col.group.h-full:nth-child(1) {
-border-radius: 37.5px;
+
+.custom-premium-card > div:first-child {
+  position: relative;
 }
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(4) > div.grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-4.gap-8:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.transition-all.duration-300.flex.flex-col.group.h-full:nth-child(1) > div.p-6.flex.flex-col.justify-between.flex-1:nth-child(2),
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(7) > div.grid.grid-cols-1.lg:grid-cols-3.gap-8.select-none.mb-12:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.hover:scale-[1.01].transform.transition-all.duration-300.flex.flex-col.justify-between.group:nth-child(2) > div.p-6.sm:p-8.flex.flex-col.justify-between.flex-1:nth-child(2) {
-background-color: #f2f2f2;
+
+.custom-premium-card > div:first-child::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 37.5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 10px 0px inset;
+  pointer-events: none;
+  z-index: 10;
 }
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(4) > div.grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-4.gap-8:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.transition-all.duration-300.flex.flex-col.group.h-full:nth-child(1) > div.p-6.flex.flex-col.justify-between.flex-1:nth-child(2) > div > h3.text-lg.font-black.uppercase.text-[#1A1A1A].leading-tight:nth-child(1),
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(7) > div.grid.grid-cols-1.lg:grid-cols-3.gap-8.select-none.mb-12:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.hover:scale-[1.01].transform.transition-all.duration-300.flex.flex-col.justify-between.group:nth-child(3) > div.p-6.sm:p-8.flex.flex-col.justify-between.flex-1:nth-child(2) > div > h3.text-lg.font-black.uppercase.text-[#1A1A1A].leading-tight.mt-1:nth-child(2),
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(7) > div.grid.grid-cols-1.lg:grid-cols-3.gap-8.select-none.mb-12:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.hover:scale-[1.01].transform.transition-all.duration-300.flex.flex-col.justify-between.group:nth-child(2) > div.p-6.sm:p-8.flex.flex-col.justify-between.flex-1:nth-child(2) > div > h3.text-lg.font-black.uppercase.text-[#1A1A1A].leading-tight.mt-1:nth-child(2),
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(7) > div.grid.grid-cols-1.lg:grid-cols-3.gap-8.select-none.mb-12:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.hover:scale-[1.01].transform.transition-all.duration-300.flex.flex-col.justify-between.group:nth-child(1) > div.p-6.sm:p-8.flex.flex-col.justify-between.flex-1:nth-child(2) > div > h3.text-lg.font-black.uppercase.text-[#1A1A1A].leading-tight.mt-1:nth-child(2) {
-font-size: 15px;
+
+.custom-premium-card > div:nth-child(2) {
+  background-color: #f2f2f2 !important;
+  padding: 40px 24px 24px !important;
 }
-#root > main:nth-child(4) > div.w-full.bg-[#F7F4EF].text-[#1A1A1A].font-sans.pb-24.overflow-x-hidden.pt-28:nth-child(1) > section.max-w-[1400px].mx-auto.px-6.md:px-12.mb-24:nth-child(7) > div.grid.grid-cols-1.lg:grid-cols-3.gap-8.select-none.mb-12:nth-child(2) > div.bg-white.rounded-[2.5rem].border.border-black/[0.03].overflow-hidden.shadow-sm.hover:shadow-lg.hover:scale-[1.01].transform.transition-all.duration-300.flex.flex-col.justify-between.group:nth-child(2) > div.w-full.h-48.bg-black/5.overflow-hidden.relative:nth-child(1) > img.w-full.h-full.object-cover.group-hover:scale-103.transition-transform.duration-500:nth-child(1) {
-border-radius: 37.52px;
+
+.custom-premium-card h3 {
+  font-size: 15px !important;
 }

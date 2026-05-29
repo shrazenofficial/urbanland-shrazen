@@ -34,14 +34,14 @@ const Footer = () => {
                 <div className="flex flex-col gap-4">
                     <h3 className="text-[#C9A84C] text-sm font-bold uppercase tracking-wider">Products</h3>
                     <ul className="flex flex-col gap-2.5 text-xs text-[#F7F4EF]/75 list-none p-0 m-0 font-light">
-                        <li><Link to="/products/wpc-benches" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">WPC Benches</Link></li>
+                        <li><Link to="/products/benches" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Benches</Link></li>
+                        <li><Link to="/products/bench-planters" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Bench Planters</Link></li>
+                        <li><Link to="/products/planters" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Planters</Link></li>
+                        <li><Link to="/products/dustbins" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Dustbins</Link></li>
                         <li><Link to="/products/bus-shelters" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Bus Shelters</Link></li>
-                        <li><Link to="/products/planters" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">GFRC Planters</Link></li>
-                        <li><Link to="/products/outdoor-dustbins" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Outdoor Dustbins</Link></li>
-                        <li><Link to="/products/car-parking-sheds" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Car Parking Sheds</Link></li>
-                        <li><Link to="/products/canteen-furniture" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Canteen Furniture</Link></li>
-                        <li><Link to="/products/poolside-furniture" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Poolside Loungers</Link></li>
-                        <li><Link to="/products/wicker-furniture" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Wicker Furniture</Link></li>
+                        <li><Link to="/products/car-shelters" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Car Shelters</Link></li>
+                        <li><Link to="/products/canteen-tables" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Canteen Tables</Link></li>
+                        <li><Link to="/products/wicker-living-sets" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Wicker Living</Link></li>
                     </ul>
                 </div>
 
