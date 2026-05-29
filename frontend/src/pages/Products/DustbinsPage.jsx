@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { updatePageSEO, cleanPageSEO } from "../../lib/seo";
 
@@ -40,6 +40,19 @@ const brandLogos = [
 const DustbinsPage = () => {
     const [faqOpen, setFaqOpen] = useState(Array(5).fill(false));
     const [showStickyHeader, setShowStickyHeader] = useState(false);
+    const heroScrollRef = useRef(null);
+
+    const scrollHeroLeft = () => {
+        if (heroScrollRef.current) {
+            heroScrollRef.current.scrollBy({ left: -350, behavior: "smooth" });
+        }
+    };
+
+    const scrollHeroRight = () => {
+        if (heroScrollRef.current) {
+            heroScrollRef.current.scrollBy({ left: 350, behavior: "smooth" });
+        }
+    };
 
     useEffect(() => {
         // Dynamic SEO Metadata Configuration
@@ -102,61 +115,144 @@ const DustbinsPage = () => {
                 </nav>
             </div>
 
-            {/* SECTION 0 — HERO (Above Fold: 60/40 Split Desktop, Stacked Mobile) */}
-            <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-20">
-                <div className="w-full grid grid-cols-1 md:grid-cols-12 bg-[#1E1C1B] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5 relative min-h-[70vh] md:min-h-[75vh]">
-                    {/* Left Side: Text panel (60% split on desktop) */}
-                    <div className="md:col-span-7 p-8 md:p-16 flex flex-col justify-center text-white z-10 relative">
-                        <div className="flex items-center gap-2 select-none mb-6">
-                            <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest bg-[#C9A84C] text-[#232120] px-3.5 py-1.5 rounded-full">
+            {/* PREMIUM HORIZONTAL CAROUSEL HERO SECTION */}
+            <section className="w-full mb-8 relative select-none">
+                <div 
+                    ref={heroScrollRef}
+                    className="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-4 px-6 md:px-12"
+                >
+                    {/* Card 1: Premium Outdoor Litter Bins */}
+                    <div className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl hover:-translate-y-1 border border-black/5">
+                        {/* Background Image */}
+                        <img 
+                            src={dustbinsJpeg} 
+                            alt="Premium custom outdoor dustbins manufactured in India" 
+                            className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        />
+                        {/* Overlays */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55 pointer-events-none" />
+
+                        <div className="z-10">
+                            <span className="text-[9px] font-black uppercase tracking-wider bg-[#C9A84C] text-[#232120] px-3.5 py-1.5 rounded-full w-fit mb-3 block">
                                 Waste Management Spot
                             </span>
-                            <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest bg-[#2C5F2E] text-white px-3.5 py-1.5 rounded-full border border-white/10">
-                                ISO 9001:2015
-                            </span>
+                            <h3 className="text-3xl md:text-[2.6rem] font-light uppercase tracking-tight text-white leading-[1.05] font-sans">
+                                Premium Outdoor<br />Litter Bins &<br />Sorting Stations
+                            </h3>
                         </div>
 
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.05] mb-6 font-outfit">
-                            Premium Outdoor Dustbins Manufacturer in India — Smart Sorting, Vandal-Resistant & Galvanized Durability
-                        </h1>
-
-                        <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed mb-8">
-                            At Urbanland Products, we manufacture premium B2B sorting stations and public litter bins engineered to withstand heavy daily use. Combining zinc-plated internal liners, rainproof steel tops, and FSC®-certified vertical timber slats, our designs blend ecology with architectural excellence.
-                        </p>
-
-                        <p className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#C9A84C]/90 flex flex-wrap gap-x-6 gap-y-2 mb-8 select-none border-b border-white/10 pb-6">
-                            <span>✓ 2-Year Guarantee</span>
-                            <span>✓ ISO 9001:2015 Certified</span>
-                            <span>✓ Made in India</span>
-                            <span>✓ 50+ Projects Delivered</span>
-                        </p>
-
-                        {/* CTAs */}
-                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 select-none">
-                            <Link 
-                                to="/get-quote/?product=outdoor-dustbins"
-                                className="px-8 py-4 bg-[#C9A84C] text-[#232120] hover:bg-white hover:text-black rounded-full font-black uppercase tracking-wider text-xs text-center transition-all shadow-xl hover:scale-[1.02] transform duration-300 w-full sm:w-auto"
-                            >
-                                Request Custom Quote →
-                            </Link>
-
-                            <a
-                                href="#specifications"
-                                className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-full font-bold uppercase tracking-wider text-xs text-center transition-all backdrop-blur-sm w-full sm:w-auto"
-                            >
-                                Download Specifications ↓
-                            </a>
+                        <div className="z-10 flex justify-between items-end w-full">
+                            <span className="text-[11px] font-bold tracking-wide text-white/90 uppercase">
+                                <span className="font-black mr-2 text-[#C9A84C]">01</span>Vandal-resistant galvanized designs
+                            </span>
                         </div>
                     </div>
 
-                    {/* Right Side: Photo Showcase (40% split on desktop) */}
-                    <div className="md:col-span-5 relative w-full h-[40vh] md:h-auto overflow-hidden bg-black/5 flex items-center justify-center">
+                    {/* Card 2: Smart Sorting Bento */}
+                    <div className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl hover:-translate-y-1 border border-black/5">
+                        {/* Background Image */}
                         <img 
-                            src={dustbinsJpeg} 
-                            alt="Premium custom outdoor dustbins manufactured in India by Urbanland Products"
-                            className="w-full h-full object-cover object-center scale-100 md:scale-103 opacity-90 transition-transform duration-[20s] hover:scale-105"
+                            src={skylineImg} 
+                            alt="Skyline wood slatted premium recycling sorting station" 
+                            className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+                        {/* Overlays */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55 pointer-events-none" />
+
+                        <div className="z-10">
+                            <h3 className="text-3xl md:text-[2.6rem] font-light uppercase tracking-tight text-white leading-[1.05] font-sans">
+                                Smart Waste<br />sorting bento<br />stations
+                            </h3>
+                        </div>
+
+                        <div className="z-10 flex justify-between items-end w-full">
+                            <span className="text-[11px] font-bold tracking-wide text-white/90 uppercase">
+                                <span className="font-black mr-2 text-[#C9A84C]">02</span>Eco WPC & Robinia wood finishes
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Card 3: Vandal Resistant Locks */}
+                    <div className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl hover:-translate-y-1 border border-black/5">
+                        {/* Background Image */}
+                        <img 
+                            src={nanukNextImg} 
+                            alt="Nanuk Next wood cladding dustbin with anti vandal cylinder lock" 
+                            className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        />
+                        {/* Overlays */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55 pointer-events-none" />
+
+                        <div className="z-10">
+                            <h3 className="text-3xl md:text-[2.6rem] font-light uppercase tracking-tight text-white leading-[1.05] font-sans">
+                                Vandal-resistant<br />heavy duty steel<br />cylinder locks
+                            </h3>
+                        </div>
+
+                        <div className="z-10 flex justify-between items-end w-full">
+                            <span className="text-[11px] font-bold tracking-wide text-white/90 uppercase">
+                                <span className="font-black mr-2 text-[#C9A84C]">03</span>Heavy piano hinges & lock channels
+                            </span>
+                            
+                            {/* Floating White Circular Arrow Button */}
+                            <button 
+                                onClick={scrollHeroRight}
+                                className="w-12 h-12 bg-white text-[#1A1A1A] rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer pointer-events-auto shrink-0 border border-black/5"
+                                aria-label="Next slide"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Card 4: 2-Year B2B Warranty */}
+                    <div className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl hover:-translate-y-1 border border-black/5">
+                        {/* Background Image */}
+                        <img 
+                            src={tleskImg} 
+                            alt="Tlesk cage style litter bins with B2B warranty coverage" 
+                            className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        />
+                        {/* Overlays */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55 pointer-events-none" />
+
+                        <div className="z-10">
+                            <h3 className="text-3xl md:text-[2.6rem] font-light uppercase tracking-tight text-white leading-[1.05] font-sans">
+                                2-Year B2B Warranty<br />& ISO Certified<br />Standards
+                            </h3>
+                        </div>
+
+                        <div className="z-10 flex justify-between items-end w-full">
+                            <span className="text-[11px] font-bold tracking-wide text-white/90 uppercase">
+                                <span className="font-black mr-2 text-[#C9A84C]">04</span>Trusted across 50+ smart townships
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Card 5: Tailor-Made Branding */}
+                    <div className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl hover:-translate-y-1 border border-black/5">
+                        {/* Background Image */}
+                        <img 
+                            src={sortCorrugatedImg} 
+                            alt="Korton Triple corrugated sheet segregation bin with custom branding finishes" 
+                            className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        />
+                        {/* Overlays */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55 pointer-events-none" />
+
+                        <div className="z-10">
+                            <h3 className="text-3xl md:text-[2.6rem] font-light uppercase tracking-tight text-white leading-[1.05] font-sans">
+                                Tailor-made laser<br />branding & PU<br />powder finishes
+                            </h3>
+                        </div>
+
+                        <div className="z-10 flex justify-between items-end w-full">
+                            <span className="text-[11px] font-bold tracking-wide text-white/90 uppercase">
+                                <span className="font-black mr-2 text-[#C9A84C]">05</span>50+ RAL colors & custom laser logos
+                            </span>
+                        </div>
                     </div>
                 </div>
             </section>
