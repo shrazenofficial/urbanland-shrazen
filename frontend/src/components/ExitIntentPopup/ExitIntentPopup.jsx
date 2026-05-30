@@ -38,7 +38,7 @@ const ExitIntentPopup = () => {
     ];
 
     const hasLocalPopup = localPopupPaths.includes(normalizedPath);
-    const isExcluded = hasLocalPopup || normalizedPath === "/contact" || normalizedPath === "/get-quote";
+    const isExcluded = hasLocalPopup;
 
     const trackEvent = (eventName, value = "") => {
         if (window.gtag) {
