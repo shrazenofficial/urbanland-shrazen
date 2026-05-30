@@ -550,7 +550,7 @@ const CategoryDetail = () => {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className={`absolute inset-0 max-h-[80%] max-w-[80%] m-auto object-contain select-none transition-opacity duration-300 ease-in-out ${
+                    className={`absolute inset-0 max-h-[80%] max-w-[80%] m-auto object-contain select-none transition-opacity duration-700 ease-in-out ${
                       product.gallery && product.gallery[1] ? 'group-hover:opacity-0' : ''
                     }`}
                     style={{ mixBlendMode: "multiply", filter: "brightness(1.12) contrast(1.05)" }}
@@ -560,7 +560,7 @@ const CategoryDetail = () => {
                     <img
                       src={product.gallery[1]}
                       alt={`${product.title} installation`}
-                      className="absolute inset-0 max-h-[80%] max-w-[80%] m-auto object-contain select-none opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
+                      className="absolute inset-0 w-full h-full object-cover rounded-[20px] select-none opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100"
                     />
                   )}
                 </div>

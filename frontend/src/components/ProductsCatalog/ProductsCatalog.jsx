@@ -519,7 +519,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
                       <img
                         src={product.image}
                         alt={`${product.title} manufacturer India — Urbanland Products`}
-                        className={`absolute inset-0 max-h-[92%] max-w-[92%] m-auto object-contain select-none transition-opacity duration-300 ease-in-out ${
+                        className={`absolute inset-0 max-h-[92%] max-w-[92%] m-auto object-contain select-none transition-opacity duration-700 ease-in-out ${
                           product.gallery && product.gallery[1] ? 'group-hover:opacity-0' : ''
                         }`}
                         style={{ mixBlendMode: 'multiply', filter: 'brightness(1.12) contrast(1.05)' }}
@@ -529,7 +529,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
                         <img
                           src={product.gallery[1]}
                           alt={`${product.title} installation`}
-                          className="absolute inset-0 max-h-[92%] max-w-[92%] m-auto object-contain select-none opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
+                          className="absolute inset-0 w-full h-full object-cover rounded-2xl select-none opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100"
                         />
                       )}
                     </div>
@@ -556,7 +556,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
                       <img
                         src={product.image}
                         alt={`${product.title} manufacturer India`}
-                        className={`max-h-[92%] max-w-[92%] object-contain select-none transition-opacity duration-300 ease-in-out z-1 ${
+                        className={`max-h-[92%] max-w-[92%] object-contain select-none transition-opacity duration-700 ease-in-out z-1 ${
                           product.gallery && product.gallery[1] ? 'group-hover:opacity-0' : ''
                         }`}
                         style={{ mixBlendMode: 'multiply', filter: 'brightness(1.12) contrast(1.05)' }}
@@ -567,7 +567,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
                         <img
                           src={product.gallery[1]}
                           alt={`${product.title} installation`}
-                          className="absolute inset-0 max-h-[92%] max-w-[92%] m-auto object-contain select-none opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 z-1"
+                          className="absolute inset-0 w-full h-full object-cover select-none opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100 z-1"
                         />
                       )}
 
