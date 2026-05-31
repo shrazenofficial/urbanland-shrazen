@@ -436,3 +436,37 @@ font-size: 0.75rem; /* Converted to rem for TV & 4K monitor scaling */
 .custom-premium-card h3 {
   font-size: 0.9375rem !important; /* Converted to rem for TV & 4K monitor scaling */
 }
+
+/* Prevent vertical text/CTA overflow on laptop/short height screens for Case Studies section */
+@media (max-height: 860px) and (min-width: 1024px) {
+  .sticky-cols .col-content-wrapper,
+  .sticky-cols .col-content-wrapper-2 {
+    padding: 2.25rem 2.5rem !important; /* Reduce vertical and horizontal padding */
+  }
+  
+  .sticky-cols .col-content-wrapper h2,
+  .sticky-cols .col-content-wrapper h1,
+  .sticky-cols .col-content-wrapper-2 h1 {
+    font-size: 2.25rem !important; /* Slightly scale down large headings */
+    line-height: 1.15 !important;
+  }
+  
+  .sticky-cols .col-content-wrapper p,
+  .sticky-cols .col-content-wrapper-2 p {
+    font-size: 0.8125rem !important; /* Reduce body text slightly */
+    line-height: 1.45 !important;
+  }
+
+  .sticky-cols .col-content-wrapper .my-auto,
+  .sticky-cols .col-content-wrapper-2 .my-auto {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    gap: 0.5rem !important; /* Compact the spacing */
+  }
+
+  .sticky-cols .col-content-wrapper .my-auto > div,
+  .sticky-cols .col-content-wrapper-2 .my-auto > div {
+    font-size: 1.05rem !important; /* Scale down stat subhead slightly */
+    padding-left: 0.5rem !important;
+  }
+}
