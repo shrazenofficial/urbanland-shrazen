@@ -82,15 +82,15 @@ const ProductsHub = () => {
                 </div>
                 
                 {/* Card visual showcase */}
-                <div className="w-full h-[50%] rounded-2xl overflow-hidden bg-black/5 relative mt-4 select-none">
+                <div className="w-full h-[54%] rounded-[1.75rem] overflow-hidden bg-white/70 border border-black/[0.03] relative mt-4 select-none flex items-center justify-center p-3">
                   {image && (
                     <img 
                       src={image} 
                       alt={div.name}
-                      className="w-full h-full object-cover transform group-hover:scale-103 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/[0.015] to-transparent pointer-events-none" />
                 </div>
               </Link>
             );
