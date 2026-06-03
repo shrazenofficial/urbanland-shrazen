@@ -323,7 +323,7 @@ const SolutionsDetail = () => {
   return (
     <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-0">
       {/* Hero Banner - Full Screen */}
-      <section className="w-full h-[100vh] md:h-dvh mb-16 relative bg-black/5 overflow-hidden">
+      <section className="w-full h-[100vh] md:h-dvh relative bg-black/5 overflow-hidden">
         {/* Background Image spanning full width */}
         <img
           src={meta.image}
@@ -334,18 +334,7 @@ const SolutionsDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/45 z-10" />
 
         {/* Content container aligned with site margins */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-between text-white pt-36 pb-12 md:pb-16">
-          {/* breadcrumb inside Hero */}
-          <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12">
-            <nav className="flex items-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-[#1A1A1A]/60 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-full w-fit">
-              <Link to="/" className="text-white/60 hover:text-white transition-colors no-underline">Home</Link>
-              <span className="text-white/30">/</span>
-              <Link to="/solutions" className="text-white/60 hover:text-white transition-colors no-underline">Solutions</Link>
-              <span className="text-white/30">/</span>
-              <span className="text-white">{meta.name}</span>
-            </nav>
-          </div>
-
+        <div className="absolute inset-0 z-20 flex flex-col justify-end text-white pb-16 md:pb-24">
           {/* Title & Description inside Hero */}
           <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12">
             <span className="text-[10px] font-black uppercase tracking-wider bg-[#C9A84C] text-[#232120] px-3.5 py-1.5 rounded-full w-fit mb-3 block">
@@ -360,6 +349,19 @@ const SolutionsDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Breadcrumb section */}
+      <div className="w-full bg-white border-b border-black/[0.06] py-4 select-none mb-16">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <nav className="flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#2D2D2D]/60 gap-2">
+            <Link to="/" className="hover:text-[#2C5F2E] transition-colors no-underline">Home</Link>
+            <span>/</span>
+            <Link to="/solutions" className="hover:text-[#2C5F2E] transition-colors no-underline">Solutions</Link>
+            <span>/</span>
+            <span className="text-[#2C5F2E]">{meta.name}</span>
+          </nav>
+        </div>
+      </div>
 
       {/* Sector Overview & Compliance visual split */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

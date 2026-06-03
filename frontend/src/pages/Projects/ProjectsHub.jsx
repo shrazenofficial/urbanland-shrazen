@@ -70,9 +70,9 @@ const ProjectsHub = () => {
   }, []);
 
   return (
-    <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-24">
+    <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-0">
       {/* Hero Section */}
-      <section className="relative bg-[#1A2E1C] text-white overflow-hidden py-24 md:py-32 select-none border-b border-black/10">
+      <section className="relative w-full h-[100vh] md:h-dvh bg-[#1A2E1C] text-white overflow-hidden select-none border-b border-black/10 flex items-center">
         {/* Subtle grid layout overlays */}
         <div className="absolute inset-0 z-0 opacity-15 pointer-events-none" 
              style={{ 
