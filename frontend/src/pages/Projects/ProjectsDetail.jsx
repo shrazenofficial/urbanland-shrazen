@@ -390,18 +390,9 @@ const ProjectsDetail = () => {
   }, [meta]);
 
   return (
-    <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-24">
-      {/* breadcrumb */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-6 flex items-center select-none text-[10px] font-bold uppercase tracking-widest text-[#2D2D2D]/55">
-        <Link to="/" className="hover:text-[#2C5F2E] no-underline">Home</Link>
-        <span className="mx-1.5">/</span>
-        <Link to="/projects" className="hover:text-[#2C5F2E] no-underline">Projects</Link>
-        <span className="mx-1.5">/</span>
-        <span className="text-[#2D2D2D]/85">{meta.title}</span>
-      </section>
-
-      {/* Hero Banner - Full Width */}
-      <section className="w-full mb-16 relative aspect-[21/9] md:aspect-[24/9] bg-black/5 overflow-hidden shadow-md">
+    <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-0">
+      {/* Hero Banner - Full Screen */}
+      <section className="w-full h-[100vh] md:h-dvh mb-16 relative bg-black/5 overflow-hidden">
         {/* Background Image spanning full width */}
         <img
           src={meta.image}
@@ -409,18 +400,30 @@ const ProjectsDetail = () => {
           className="absolute inset-0 w-full h-full object-cover select-none z-0"
         />
         {/* Overlay gradient spanning full width */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/45 z-10" />
 
         {/* Content container aligned with site margins */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-end text-white">
-          <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 pb-8 md:pb-12">
-            <span className="text-[10px] font-black uppercase tracking-wider bg-[#C9A84C] text-[#232120] px-3 py-1 rounded-full w-fit mb-3 block">
+        <div className="absolute inset-0 z-20 flex flex-col justify-between text-white pt-36 pb-12 md:pb-16">
+          {/* breadcrumb inside Hero */}
+          <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12">
+            <nav className="flex items-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-[#1A1A1A]/60 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-full w-fit">
+              <Link to="/" className="text-white/60 hover:text-white transition-colors no-underline">Home</Link>
+              <span className="text-white/30">/</span>
+              <Link to="/projects" className="text-white/60 hover:text-white transition-colors no-underline">Projects</Link>
+              <span className="text-white/30">/</span>
+              <span className="text-white">{meta.title}</span>
+            </nav>
+          </div>
+
+          {/* Title & Description inside Hero */}
+          <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12">
+            <span className="text-[10px] font-black uppercase tracking-wider bg-[#C9A84C] text-[#232120] px-3.5 py-1.5 rounded-full w-fit mb-3 block">
               Case Study
             </span>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-none tracking-tight max-w-4xl">
+            <h1 className="text-3.5xl sm:text-5.5xl md:text-6.5xl lg:text-[4rem] font-bold uppercase leading-none tracking-tight max-w-4xl" style={{ textShadow: '2px 2px 10px rgba(0,0,0,0.4)' }}>
               {meta.title}
             </h1>
-            <p className="text-xs sm:text-sm font-medium tracking-wide text-white/80 mt-3 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm font-medium tracking-wide text-white/95 mt-4 max-w-2xl leading-relaxed" style={{ textShadow: '1px 1px 5px rgba(0,0,0,0.55)' }}>
               {meta.subTitle}
             </p>
           </div>
