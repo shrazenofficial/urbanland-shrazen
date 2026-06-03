@@ -402,7 +402,7 @@ const ProjectsDetail = () => {
   return (
     <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-0">
       {/* Hero Banner - Full Screen */}
-      <section className="w-full h-[100vh] md:h-dvh relative bg-black/5 overflow-hidden">
+      <section className="w-full h-[100vh] md:h-dvh mb-16 relative bg-black/5 overflow-hidden">
         {/* Background Image spanning full width */}
         <img
           src={meta.image}
@@ -422,25 +422,21 @@ const ProjectsDetail = () => {
             <h1 className="text-3.5xl sm:text-5.5xl md:text-6.5xl lg:text-[4rem] font-bold uppercase leading-none tracking-tight max-w-4xl" style={{ textShadow: '2px 2px 10px rgba(0,0,0,0.4)' }}>
               {meta.title}
             </h1>
-            <p className="text-xs sm:text-sm font-medium tracking-wide text-white/95 mt-4 max-w-2xl leading-relaxed" style={{ textShadow: '1px 1px 5px rgba(0,0,0,0.55)' }}>
+            <p className="text-xs sm:text-sm font-medium tracking-wide text-white/95 mt-4 max-w-2xl leading-relaxed animate-fadeIn" style={{ textShadow: '1px 1px 5px rgba(0,0,0,0.55)' }}>
               {meta.subTitle}
             </p>
+
+            {/* Breadcrumb inside Hero, below tagline */}
+            <nav className="flex items-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-white text-[#1A1A1A] border border-black/10 px-4 py-2.5 rounded-full w-fit mt-6 shadow-md">
+              <Link to="/" className="text-[#1A1A1A]/60 hover:text-[#2C5F2E] transition-colors no-underline">Home</Link>
+              <span className="text-[#1A1A1A]/30">/</span>
+              <Link to="/projects" className="text-[#1A1A1A]/60 hover:text-[#2C5F2E] transition-colors no-underline">Projects</Link>
+              <span className="text-[#1A1A1A]/30">/</span>
+              <span className="text-[#2C5F2E] font-bold">{meta.title}</span>
+            </nav>
           </div>
         </div>
       </section>
-
-      {/* Breadcrumb section */}
-      <div className="w-full bg-white border-b border-black/[0.06] py-4 select-none mb-16">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <nav className="flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#2D2D2D]/60 gap-2">
-            <Link to="/" className="hover:text-[#2C5F2E] transition-colors no-underline">Home</Link>
-            <span>/</span>
-            <Link to="/projects" className="hover:text-[#2C5F2E] transition-colors no-underline">Projects</Link>
-            <span>/</span>
-            <span className="text-[#2C5F2E]">{meta.title}</span>
-          </nav>
-        </div>
-      </div>
 
       {/* Narrative Scope & Specs visual split */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
