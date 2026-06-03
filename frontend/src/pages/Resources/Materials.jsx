@@ -3,6 +3,15 @@ import { updatePageSEO, cleanPageSEO } from "../../lib/seo";
 
 // Import premium images
 import materialsShowcase from "../../assets/materials_showcase.png";
+import wpcTexture from "../../assets/wpc_texture.png";
+import nfcTexture from "../../assets/nfc_texture.png";
+import aluminiumTexture from "../../assets/aluminium_texture.png";
+import mildSteelTexture from "../../assets/mild_steel_texture.png";
+import stainlessSteelTexture from "../../assets/stainless_steel_texture.png";
+
+import galvanizationSpec from "../../assets/galvanization_spec.png";
+import concreteSpec from "../../assets/concrete_spec.png";
+import wickerSpec from "../../assets/wicker_spec.png";
 
 const materialsList = [
   {
@@ -15,7 +24,7 @@ const materialsList = [
     bestFor: "Gardens, balconies, premium residential walkways",
     costFactor: "1.6–2.0×",
     description: "Formulated from 60% reclaimed wood fibers and 40% recycled high-density polymers. WPC delivers the warm organic texture and visual profile of timber but with complete immunity to moisture decay, splitting, insect invasion, and rotting. Highly circular and zero-maintenance.",
-    icon: "🪵"
+    image: wpcTexture
   },
   {
     id: "nfc",
@@ -27,7 +36,7 @@ const materialsList = [
     bestFor: "High-end commercial landscapes, heavy public decks",
     costFactor: "2.0–2.8×",
     description: "An advanced, second-generation biopolymer composite utilizing agricultural rice husks (60%) and circular polymers. Offers superior flexural strength (18-22 MPa) and a unique premium matte finish. It expands and contracts significantly less than standard wood or WPC, ensuring absolute structural flatness.",
-    icon: "🌾"
+    image: nfcTexture
   },
   {
     id: "aluminium",
@@ -39,7 +48,7 @@ const materialsList = [
     bestFor: "Coastal properties, marine walkways, rooftop terraces",
     costFactor: "2.2–2.8×",
     description: "Premium-grade structural aluminium alloy extrusions. Because it is naturally rust-proof and exceptionally lightweight, it is perfect for structural components, poolside loungers, and high-salinity marine environments. Finished with architectural-grade thermoset powder coatings.",
-    icon: "🛩️"
+    image: aluminiumTexture
   },
   {
     id: "mild-steel",
@@ -51,7 +60,7 @@ const materialsList = [
     bestFor: "Municipal transit shelters, public parks, high-traffic bins",
     costFactor: "Base (1.0×)",
     description: "Heavy structural carbon steel components. All mild steel assemblies undergo an absolute multi-stage preparation process: complete hot-dip galvanization conforming to ISO 1461, zinc-rich epoxy priming, and an architectural-grade polyester powder-coating finish.",
-    icon: "🏗️"
+    image: mildSteelTexture
   },
   {
     id: "stainless-steel",
@@ -63,7 +72,7 @@ const materialsList = [
     bestFor: "Luxury gated communities, high-traffic commercial entries",
     costFactor: "2.5–3.0×",
     description: "High-chromium marine-grade stainless steel. Delivers peerless structural strength and ultimate corrosion resistance in the most punishing weather exposures. Polished to a premium satin finish, making it the preferred choice for elite corporate landscapes.",
-    icon: "🛡️"
+    image: stainlessSteelTexture
   }
 ];
 
@@ -197,8 +206,8 @@ const Materials = () => {
                         : "hover:bg-[#F7F4EF]/50"
                     }`}
                   >
-                    <td className="py-6 px-4 font-black uppercase tracking-tight flex items-center gap-2">
-                      <span className="text-base">{m.icon}</span>
+                    <td className="py-6 px-4 font-black uppercase tracking-tight flex items-center gap-3.5">
+                      <img src={m.image} alt={m.name} className="w-8 h-8 rounded-lg object-cover border border-black/10 shrink-0" />
                       <span>{m.name}</span>
                     </td>
                     <td className="py-6 px-4">{m.lifespan}</td>
@@ -229,8 +238,8 @@ const Materials = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-8">
               <span className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] mb-3 block">— Material Deep-Dive</span>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-black flex items-center gap-3">
-                <span className="text-3xl">{activeMaterialData.icon}</span>
+              <h3 className="text-2xl font-black uppercase tracking-tight text-black flex items-center gap-3.5">
+                <img src={activeMaterialData.image} alt={activeMaterialData.name} className="w-10 h-10 rounded-xl object-cover border border-black/10 shrink-0" />
                 <span>{activeMaterialData.name}</span>
               </h3>
               <p className="text-xs sm:text-sm text-black/65 leading-relaxed mt-4">
@@ -285,28 +294,34 @@ const Materials = () => {
           Rigorous Engineering Parameters
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-[0_5px_20px_rgba(0,0,0,0.005)]">
-            <span className="text-2xl mb-4 block">🛡️</span>
-            <h3 className="text-sm font-black uppercase tracking-wider text-[#C9A84C] mb-3">Galvanization Thickness</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              All structural mild steel components undergo complete immersion hot-dip galvanization conforming strictly to <strong>ISO 1461</strong> standards. This establishes a minimum metallurgical zinc layer thickness of <strong>85 micrometers (μm)</strong>, providing an absolute double-layer shield against oxidation in coastal environments.
-            </p>
+          <div className="bg-white rounded-[2rem] border border-black/[0.03] overflow-hidden shadow-[0_5px_20px_rgba(0,0,0,0.005)] flex flex-col">
+            <img src={galvanizationSpec} alt="Galvanization Thickness Spec" className="w-full aspect-[16/10] object-cover" />
+            <div className="p-8 md:p-10 flex flex-col flex-1">
+              <h3 className="text-sm font-black uppercase tracking-wider text-[#C9A84C] mb-3">Galvanization Thickness</h3>
+              <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
+                All structural mild steel components undergo complete immersion hot-dip galvanization conforming strictly to <strong>ISO 1461</strong> standards. This establishes a minimum metallurgical zinc layer thickness of <strong>85 micrometers (μm)</strong>, providing an absolute double-layer shield against oxidation in coastal environments.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-[0_5px_20px_rgba(0,0,0,0.005)]">
-            <span className="text-2xl mb-4 block">🧱</span>
-            <h3 className="text-sm font-black uppercase tracking-wider text-[#C9A84C] mb-3">Concrete Mix Design Formula</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Our Architectural Concrete structures incorporate premium white Portland cement, selected silica sands, and high-performance structural aggregates. This custom mix achieves exceptionally high flexural strength and surface hardness, preventing surface micro-cracks and weathering splits in extreme tropical conditions.
-            </p>
+          <div className="bg-white rounded-[2rem] border border-black/[0.03] overflow-hidden shadow-[0_5px_20px_rgba(0,0,0,0.005)] flex flex-col">
+            <img src={concreteSpec} alt="Concrete Mix Design Formula" className="w-full aspect-[16/10] object-cover" />
+            <div className="p-8 md:p-10 flex flex-col flex-1">
+              <h3 className="text-sm font-black uppercase tracking-wider text-[#C9A84C] mb-3">Concrete Mix Design Formula</h3>
+              <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
+                Our Architectural Concrete structures incorporate premium white Portland cement, selected silica sands, and high-performance structural aggregates. This custom mix achieves exceptionally high flexural strength and surface hardness, preventing surface micro-cracks and weathering splits in extreme tropical conditions.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-white rounded-[2rem] border border-black/[0.03] p-8 md:p-10 shadow-[0_5px_20px_rgba(0,0,0,0.005)]">
-            <span className="text-2xl mb-4 block">☀️</span>
-            <h3 className="text-sm font-black uppercase tracking-wider text-[#C9A84C] mb-3">PE Wicker UV weathering</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Synthetic wicker weaves are crafted with premium **Polyethylene (PE)** compound additives. Tested under accelerated UV weathering to <strong>3,000 hours (ISO 4892-2)</strong>, they show zero color fading, rotting, or embrittlement.
-            </p>
+          <div className="bg-white rounded-[2rem] border border-black/[0.03] overflow-hidden shadow-[0_5px_20px_rgba(0,0,0,0.005)] flex flex-col">
+            <img src={wickerSpec} alt="PE Wicker UV weathering" className="w-full aspect-[16/10] object-cover" />
+            <div className="p-8 md:p-10 flex flex-col flex-1">
+              <h3 className="text-sm font-black uppercase tracking-wider text-[#C9A84C] mb-3">PE Wicker UV weathering</h3>
+              <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
+                Synthetic wicker weaves are crafted with premium **Polyethylene (PE)** compound additives. Tested under accelerated UV weathering to <strong>3,000 hours (ISO 4892-2)</strong>, they show zero color fading, rotting, or embrittlement.
+              </p>
+            </div>
           </div>
         </div>
       </section>
