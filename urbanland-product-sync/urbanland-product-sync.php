@@ -5150,14 +5150,13 @@ JSON;
         $tagline = sanitize_text_field( $prod['tagline'] );
         $description = wp_kses_post( $prod['description'] );
 
-        // Check if post exists by slug name (failsafe for non-hierarchical CPTs)
-        $existing_posts = get_posts( array(
-            'name'           => $slug,
-            'post_type'      => 'urbanland_product',
-            'post_status'    => 'any',
-            'posts_per_page' => 1,
+        // Failsafe lookup using direct SQL query to prevent duplicate records and bypass WP query filters
+        global $wpdb;
+        $db_post_id = $wpdb->get_var( $wpdb->prepare(
+            "SELECT ID FROM $wpdb->posts WHERE post_name = %s AND post_type = %s AND post_status != 'trash' LIMIT 1",
+            $slug,
+            'urbanland_product'
         ) );
-        $existing_post = ! empty( $existing_posts ) ? $existing_posts[0] : null;
 
         $post_data = array(
             'post_title'   => $title,
@@ -5168,16 +5167,23 @@ JSON;
             'post_name'    => $slug,
         );
 
-        if ( $existing_post ) {
-            $post_data['ID'] = $existing_post->ID;
-            $post_id = wp_update_post( $post_data );
+        if ( $db_post_id ) {
+            $post_data['ID'] = $db_post_id;
+            $result_id = wp_update_post( $post_data, true ); // Return WP_Error on failure
         } else {
-            $post_id = wp_insert_post( $post_data );
+            $result_id = wp_insert_post( $post_data, true ); // Return WP_Error on failure
         }
 
-        if ( is_wp_error( $post_id ) ) {
+        if ( ! $result_id || is_wp_error( $result_id ) ) {
+            if ( is_wp_error( $result_id ) ) {
+                error_log( 'Urbanland Sync Error: ' . $result_id->get_error_message() );
+            } else {
+                error_log( 'Urbanland Sync Error: Unknown error inserting product ' . $title );
+            }
             continue;
         }
+
+        $post_id = $result_id;
 
         // Set taxonomy term
         $term = term_exists( $category, 'urbanland_product_cat' );
