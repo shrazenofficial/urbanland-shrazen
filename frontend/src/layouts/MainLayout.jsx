@@ -15,6 +15,7 @@ const MainLayout = () => {
     useEffect(() => {
         // Initialize Lenis smooth scroll
         const lenis = initLenis();
+        window.lenis = lenis;
 
         // Synchronize Lenis scrolling frame updates directly inside GSAP ticker
         const updateScroll = () => {
@@ -45,6 +46,7 @@ const MainLayout = () => {
             clearTimeout(initialRefresh);
             window.removeEventListener("load", handleLoad);
             lenis.destroy();
+            window.lenis = null;
         };
     }, []);
 

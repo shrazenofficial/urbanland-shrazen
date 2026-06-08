@@ -30,8 +30,14 @@ const ProductInquiryModal = ({ product, onClose }) => {
   // Prevent background scrolling when modal is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    if (window.lenis) {
+      window.lenis.stop();
+    }
     return () => {
       document.body.style.overflow = "unset";
+      if (window.lenis) {
+        window.lenis.start();
+      }
     };
   }, []);
 
