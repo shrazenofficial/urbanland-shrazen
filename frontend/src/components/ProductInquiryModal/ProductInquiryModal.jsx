@@ -30,14 +30,8 @@ const ProductInquiryModal = ({ product, onClose }) => {
   // Prevent background scrolling when modal is open
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    if (window.lenis) {
-      window.lenis.stop();
-    }
     return () => {
       document.body.style.overflow = "unset";
-      if (window.lenis) {
-        window.lenis.start();
-      }
     };
   }, []);
 
@@ -62,7 +56,7 @@ const ProductInquiryModal = ({ product, onClose }) => {
     : [product.image || "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80"];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn">
+    <div data-lenis-prevent className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn">
       {/* Modal Container */}
       <div className="relative bg-[#F7F4EF] w-full max-w-[1050px] max-h-[96vh] md:h-[82vh] rounded-[2rem] md:rounded-[2.5rem] shadow-2xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row border border-black/5 animate-slideUp">
         
