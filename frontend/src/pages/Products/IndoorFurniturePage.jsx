@@ -374,7 +374,7 @@ const IndoorFurniturePage = () => {
             </div>
 
             {/* BREADCRUMB NAVIGATION */}
-            <div className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 py-4 select-none">
+            <div className="w-full px-8 md:px-16 py-4 select-none">
                 <nav className="flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#2D2D2D]/60 gap-2">
                     <Link to="/" className="hover:text-[#2C5F2E] transition-colors">Home</Link>
                     <span>/</span>
@@ -410,7 +410,7 @@ const IndoorFurniturePage = () => {
 
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-8 md:px-16"
+                    className="flex gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-8 md:px-16 scroll-pl-8 md:scroll-pl-16"
                 >
                     {[{"tag":"Product Spotlight","h":"Premium Indoor<br />Furniture in India","label":"01","desc":"Luxury handcrafted metal, wooden & wicker furniture"},{"tag":"Interior Design","h":"Elegant seating &<br />dining configurations<br />for hotels & offices","label":"02","desc":"Custom timber tops and powder coated metal frames"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by leading architects & corporate interior designers"},{"tag":"Handcrafted Luxury","h":"Hand-woven synthetic<br />PE wicker dining sets<br />and living ensembles","label":"04","desc":"Lightweight aluminium frames with non-marking glides"},{"tag":"Bespoke Solutions","h":"Fully customizable<br />indoor furniture in<br />size, finish & style","label":"05","desc":"Designed to match your interior architectural plans"}].map((card, idx) => (
                         <div key={idx} className="flex-shrink-0 snap-start w-[84vw] sm:w-[64vw] md:w-[46vw] lg:w-[32vw] aspect-[3/3.8] rounded-[1.75rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">

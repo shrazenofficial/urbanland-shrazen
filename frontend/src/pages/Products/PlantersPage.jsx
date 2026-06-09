@@ -374,7 +374,7 @@ const PlantersPage = () => {
             </div>
 
             {/* BREADCRUMB NAVIGATION */}
-            <div className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 py-4 select-none">
+            <div className="w-full px-8 md:px-16 py-4 select-none">
                 <nav className="flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#2D2D2D]/60 gap-2">
                     <Link to="/" className="hover:text-[#2C5F2E] transition-colors">Home</Link>
                     <span>/</span>
@@ -410,7 +410,7 @@ const PlantersPage = () => {
 
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-8 md:px-16"
+                    className="flex gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-8 md:px-16 scroll-pl-8 md:scroll-pl-16"
                 >
                     {[{"tag":"Product Spotlight","h":"Architectural Concrete &<br />Fiberglass Planters Box","label":"01","desc":"Premium lightweight architectural street planters"},{"tag":"Smart Streetscapes","h":"Weatherproof large<br />street planters with<br />drainage systems","label":"02","desc":"Internal waterproofing treatment ready"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by hotels, corporate hubs & township parks"},{"tag":"Extreme Durability","h":"Architectural Concrete<br />which resists cracks<br />and weather splits","label":"04","desc":"High-tensile concrete composite planter blocks"},{"tag":"Bespoke Sizing","h":"Custom round, square<br />or bento planter boxes<br />up to 1.5m depth","label":"05","desc":"Ready to accommodate large public trees"}].map((card, idx) => (
                         <div key={idx} className="flex-shrink-0 snap-start w-[84vw] sm:w-[64vw] md:w-[46vw] lg:w-[32vw] aspect-[3/3.8] rounded-[1.75rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">

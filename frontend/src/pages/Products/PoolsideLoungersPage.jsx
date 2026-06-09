@@ -374,7 +374,7 @@ const PoolsideLoungersPage = () => {
             </div>
 
             {/* BREADCRUMB NAVIGATION */}
-            <div className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 py-4 select-none">
+            <div className="w-full px-8 md:px-16 py-4 select-none">
                 <nav className="flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#2D2D2D]/60 gap-2">
                     <Link to="/" className="hover:text-[#2C5F2E] transition-colors">Home</Link>
                     <span>/</span>
@@ -410,7 +410,7 @@ const PoolsideLoungersPage = () => {
 
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-8 md:px-16"
+                    className="flex gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-8 md:px-16 scroll-pl-8 md:scroll-pl-16"
                 >
                     {[{"tag":"Hospitality Spotlight","h":"Luxury Poolside Loungers<br />& Premium Sunbeds","label":"01","desc":"Resort-grade weather-resistant lounge seating"},{"tag":"Poolside Comfort","h":"Ergonomic sunbeds<br />with multi-position<br />adjustable backrests","label":"02","desc":"Hand-woven UV-stabilized HDPE synthetic rattan"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by 5-star hotels, luxury villas & beach clubs"},{"tag":"Quick Dry","h":"Reticulated open-cell<br />foam cushions that drain<br />monsoon rains instantly","label":"04","desc":"Sunbrella performance fabric cushion covers"},{"tag":"Bespoke Ensembles","h":"Custom double loungers<br />with integrated side<br />tables and wheels","label":"05","desc":"Tailored to high-end resort pool decks"}].map((card, idx) => (
                         <div key={idx} className="flex-shrink-0 snap-start w-[84vw] sm:w-[64vw] md:w-[46vw] lg:w-[32vw] aspect-[3/3.8] rounded-[1.75rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">

@@ -374,7 +374,7 @@ const CarShelterPage = () => {
             </div>
 
             {/* BREADCRUMB NAVIGATION */}
-            <div className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 py-4 select-none">
+            <div className="w-full px-8 md:px-16 py-4 select-none">
                 <nav className="flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#2D2D2D]/60 gap-2">
                     <Link to="/" className="hover:text-[#2C5F2E] transition-colors">Home</Link>
                     <span>/</span>
@@ -410,7 +410,7 @@ const CarShelterPage = () => {
 
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-8 md:px-16"
+                    className="flex gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-8 md:px-16 scroll-pl-8 md:scroll-pl-16"
                 >
                     {[{"tag":"Infrastructure Spotlight","h":"Premium Car Sheds<br />& Tensile Car Shelters","label":"01","desc":"Heavy-duty structural steel parking canopies"},{"tag":"Tensile Shades","h":"High-tensile PVDF<br />membrane roofing<br />structures","label":"02","desc":"Provides 100% UV block & heat reduction"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by hotels, developers, and corporate parks"},{"tag":"Weather Protection","h":"Wind-load certified<br />cantilever steel sheds<br />for multiple cars","label":"04","desc":"Galvanized frames with Akzonobel coatings"},{"tag":"Custom Parking","h":"Custom modular bays<br />in single-sided or<br />double-sided setups","label":"05","desc":"Tailored to commercial and residential parking"}].map((card, idx) => (
                         <div key={idx} className="flex-shrink-0 snap-start w-[84vw] sm:w-[64vw] md:w-[46vw] lg:w-[32vw] aspect-[3/3.8] rounded-[1.75rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
