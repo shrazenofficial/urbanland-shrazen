@@ -386,10 +386,10 @@ const AluminiumBenchesPage = () => {
             <section className="w-full mb-8 relative select-none">
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-4 px-6 md:px-12"
+                    className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-6 md:px-12"
                 >
                     {[{"tag":"Material Spotlight","h":"Premium Aluminium<br />Benches in India","label":"01","desc":"Rust-proof, lightweight structural profiles"},{"tag":"Modern Design","h":"Sleek Minimalist<br />Seating for parks<br />and gardens","label":"02","desc":"Available in 50+ RAL powder coat finishes"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by top real estate developers"},{"tag":"Sustainable Design","h":"Eco-Friendly &<br />100% Recyclable<br />Aluminium","label":"04","desc":"Green building certified street furniture"},{"tag":"Smart Customization","h":"Custom Lengths<br />& Surface Mount<br />Anchoring","label":"05","desc":"Tailored to high-traffic urban corridors"}].map((card, idx) => (
-                        <div key={idx} className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
+                        <div key={idx} className="flex-shrink-0 snap-start w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
                             <img 
                                 src={idx % 2 === 0 ? carouselImg1 : carouselImg2} 
                                 alt={card.tag} 

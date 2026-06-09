@@ -386,10 +386,10 @@ const IndoorFurniturePage = () => {
             <section className="w-full mb-8 relative select-none">
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-4 px-6 md:px-12"
+                    className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-6 md:px-12"
                 >
                     {[{"tag":"Product Spotlight","h":"Premium Indoor<br />Furniture in India","label":"01","desc":"Luxury handcrafted metal, wooden & wicker furniture"},{"tag":"Interior Design","h":"Elegant seating &<br />dining configurations<br />for hotels & offices","label":"02","desc":"Custom timber tops and powder coated metal frames"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by leading architects & corporate interior designers"},{"tag":"Handcrafted Luxury","h":"Hand-woven synthetic<br />PE wicker dining sets<br />and living ensembles","label":"04","desc":"Lightweight aluminium frames with non-marking glides"},{"tag":"Bespoke Solutions","h":"Fully customizable<br />indoor furniture in<br />size, finish & style","label":"05","desc":"Designed to match your interior architectural plans"}].map((card, idx) => (
-                        <div key={idx} className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
+                        <div key={idx} className="flex-shrink-0 snap-start w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
                             <img 
                                 src={idx % 2 === 0 ? carouselImg1 : carouselImg2} 
                                 alt={card.tag} 

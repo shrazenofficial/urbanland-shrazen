@@ -386,10 +386,10 @@ const PlantersPage = () => {
             <section className="w-full mb-8 relative select-none">
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-4 px-6 md:px-12"
+                    className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-6 md:px-12"
                 >
                     {[{"tag":"Product Spotlight","h":"Architectural Concrete &<br />Fiberglass Planters Box","label":"01","desc":"Premium lightweight architectural street planters"},{"tag":"Smart Streetscapes","h":"Weatherproof large<br />street planters with<br />drainage systems","label":"02","desc":"Internal waterproofing treatment ready"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by hotels, corporate hubs & township parks"},{"tag":"Extreme Durability","h":"Architectural Concrete<br />which resists cracks<br />and weather splits","label":"04","desc":"High-tensile concrete composite planter blocks"},{"tag":"Bespoke Sizing","h":"Custom round, square<br />or bento planter boxes<br />up to 1.5m depth","label":"05","desc":"Ready to accommodate large public trees"}].map((card, idx) => (
-                        <div key={idx} className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
+                        <div key={idx} className="flex-shrink-0 snap-start w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
                             <img 
                                 src={idx % 2 === 0 ? carouselImg1 : carouselImg2} 
                                 alt={card.tag} 

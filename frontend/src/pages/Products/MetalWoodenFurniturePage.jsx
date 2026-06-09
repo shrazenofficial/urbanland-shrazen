@@ -386,10 +386,10 @@ const MetalWoodenFurniturePage = () => {
             <section className="w-full mb-8 relative select-none">
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-4 px-6 md:px-12"
+                    className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-6 md:px-12"
                 >
                     {[{"tag":"Product Spotlight","h":"Bespoke Metal Wooden<br />Site Furniture in India","label":"01","desc":"Engineered steel-and-wood benches and seating"},{"tag":"Architectural Blend","h":"Perfect fusion of<br />structural metals &<br />natural timbers","label":"02","desc":"FSC certified Robinia, Teak or WPC wood"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Specified by top developers, hotels and public sectors"},{"tag":"Corrosion Proof","h":"Galvanized frames<br />coated with premium<br />Akzonobel powder","label":"04","desc":"Corrosion-resistant metal structures for public spaces"},{"tag":"Bespoke Shapes","h":"Custom linear, curved<br />or geometric modular<br />seating layouts","label":"05","desc":"Tailored to public parks and township plazas"}].map((card, idx) => (
-                        <div key={idx} className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
+                        <div key={idx} className="flex-shrink-0 snap-start w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
                             <img 
                                 src={idx % 2 === 0 ? carouselImg1 : carouselImg2} 
                                 alt={card.tag} 

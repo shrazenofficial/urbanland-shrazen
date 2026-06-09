@@ -386,10 +386,10 @@ const PoolsideLoungersPage = () => {
             <section className="w-full mb-8 relative select-none">
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-4 px-6 md:px-12"
+                    className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-6 md:px-12"
                 >
                     {[{"tag":"Hospitality Spotlight","h":"Luxury Poolside Loungers<br />& Premium Sunbeds","label":"01","desc":"Resort-grade weather-resistant lounge seating"},{"tag":"Poolside Comfort","h":"Ergonomic sunbeds<br />with multi-position<br />adjustable backrests","label":"02","desc":"Hand-woven UV-stabilized HDPE synthetic rattan"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by 5-star hotels, luxury villas & beach clubs"},{"tag":"Quick Dry","h":"Reticulated open-cell<br />foam cushions that drain<br />monsoon rains instantly","label":"04","desc":"Sunbrella performance fabric cushion covers"},{"tag":"Bespoke Ensembles","h":"Custom double loungers<br />with integrated side<br />tables and wheels","label":"05","desc":"Tailored to high-end resort pool decks"}].map((card, idx) => (
-                        <div key={idx} className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
+                        <div key={idx} className="flex-shrink-0 snap-start w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
                             <img 
                                 src={idx % 2 === 0 ? carouselImg1 : carouselImg2} 
                                 alt={card.tag} 
