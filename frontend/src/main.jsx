@@ -26,8 +26,8 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
     const scrollContainer = e.target.closest(".overflow-x-auto");
     if (!scrollContainer) return;
 
-    // Prevent drag-to-scroll on interactive controls (buttons, a, inputs, textareas)
-    if (e.target.closest("button, a, input, select, textarea, [role='button']")) return;
+    // Prevent drag-to-scroll on text inputs, selects, and textareas where text selection/focus is needed
+    if (e.target.closest("input, select, textarea")) return;
 
     let isDown = true;
     let startX = e.pageX - scrollContainer.offsetLeft;
