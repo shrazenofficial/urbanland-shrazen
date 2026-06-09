@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import smoke from "../../assets/smoke_final.mp4";
 import { useGSAP } from "@gsap/react";
 
 // Hero Images
@@ -161,7 +160,7 @@ const Hero = () => {
 
   return (
     <section ref={heroSectionRef} id="hero" className="hero-section w-full md:h-dvh h-[100vh] relative">
-      <div className="relative w-full h-full overflow-hidden bg-[#1A1A1A]">
+      <div className="relative w-full h-full overflow-hidden bg-[#F7F4EF]">
         
         {/* Background Images */}
         {slides.map((slide, index) => (
@@ -179,16 +178,6 @@ const Hero = () => {
         ))}
 
         {/* Ambient Overlay Gradient Removed */}
-
-        {/* Fog/Smoke Video Layer */}
-        <video
-          src={smoke}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-15 pointer-events-none opacity-30 mix-blend-hard-light"
-        />
 
         {/* Dynamic Text and UI Controls Overlay */}
         <div className="relative z-20 w-full h-full flex flex-col justify-between p-6 sm:p-10 md:p-14 font-sans select-none">
