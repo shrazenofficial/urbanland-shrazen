@@ -156,7 +156,7 @@ const Catalogue = () => {
   return (
     <div ref={containerRef} className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-32">
       {/* Header section */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-12">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12 mb-12">
         <p className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3">— Comprehensive Archive</p>
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
           <div>
@@ -196,7 +196,7 @@ const Catalogue = () => {
       </section>
 
       {/* Category Selection Filter Bar */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-12">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12 mb-12">
         <div className="w-full flex items-center justify-between pb-4 border-b border-[#2D2D2D]/10 relative overflow-hidden">
           
           {/* Left arrow pill button */}
@@ -223,7 +223,7 @@ const Catalogue = () => {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 border ${
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-normal uppercase tracking-wider transition-all duration-300 cursor-pointer shrink-0 border ${
                     isActive
                       ? "bg-[#2C5F2E] text-[#F7F4EF] border-[#2C5F2E] shadow-sm"
                       : "bg-[#2D2D2D]/5 text-[#2D2D2D] border-[#2D2D2D]/10 hover:bg-[#2D2D2D]/10"
@@ -255,9 +255,9 @@ const Catalogue = () => {
       </section>
 
       {/* Grid of Catalogue Cards */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12">
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
             {Array.from({ length: 8 }).map((_, idx) => (
               <div
                 key={idx}
@@ -278,7 +278,7 @@ const Catalogue = () => {
             ))}
           </div>
         ) : filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
             {filteredProducts.map((p) => {
               const secondImage = p.gallery && p.gallery[1] ? p.gallery[1] : "";
               const isImageLoaded = loadedImages[p.id];
@@ -298,7 +298,7 @@ const Catalogue = () => {
                       {p.badges?.slice(0, 2).map((badge, idx) => (
                         <span
                           key={idx}
-                          className={`text-[0.55rem] font-extrabold uppercase tracking-wider rounded-full px-2 py-0.5 whitespace-nowrap ${
+                          className={`text-[0.55rem] font-light uppercase tracking-wider rounded-full px-2 py-0.5 whitespace-nowrap ${
                             badge.toLowerCase() === "new"
                               ? "bg-[#2C5F2E] text-white"
                               : "bg-[#C9A84C]/10 text-[#C9A84C]"

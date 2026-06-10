@@ -9,10 +9,17 @@ const WP_BASE_URL = import.meta.env.VITE_WP_API_URL || "https://backend.urbanlan
  */
 export const getOptimizedImageUrl = (url) => {
   if (!url) return url;
-  if (url.startsWith("data:") || url.includes("images.unsplash.com") || url.includes("images.weserv.nl")) {
+  if (url.startsWith("data:") || url.includes("images.unsplash.com") || url.includes("images.weserv.nl") || url.includes("/cdn-cgi/image/")) {
     return url;
   }
   if (url.startsWith("http://") || url.startsWith("https://")) {
+    // If the image is served from our WordPress domain (or WP API domain),
+    // route it through Cloudflare Image Resizing on the WordPress backend zone (which is behind Cloudflare).
+    if (url.includes("urbanlandproducts.com") || url.includes(WP_BASE_URL.replace(/^https?:\/\//, ""))) {
+      return `${WP_BASE_URL}/cdn-cgi/image/width=800,quality=85,format=auto/${url}`;
+    }
+    
+    // Otherwise, use images.weserv.nl (which is powered by Cloudflare as a free image proxy)
     const cleanUrl = url.replace(/^https?:\/\//, "");
     return `https://images.weserv.nl/?url=${encodeURIComponent(cleanUrl)}&w=800&output=webp&q=80`;
   }
