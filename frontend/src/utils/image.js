@@ -15,15 +15,22 @@ export const getOptimizedImageUrl = (url) => {
     return url;
   }
 
+  // Dynamically check if the domain is proxied by Cloudflare (non-localhost and non-vercel.app)
+  const isCloudflareActive = typeof window !== 'undefined' && 
+    !window.location.hostname.includes('localhost') && 
+    !window.location.hostname.includes('127.0.0.1') && 
+    !window.location.hostname.includes('192.168.') && 
+    !window.location.hostname.includes('vercel.app');
+
   // 1. WordPress dynamic images (external absolute URLs)
   if (url.startsWith("http://") || url.startsWith("https://")) {
     const isWordPressImage = url.includes("urbanlandproducts.com") || url.includes(WP_BASE_URL.replace(/^https?:\/\//, ""));
     if (isWordPressImage) {
-      if (import.meta.env.DEV) {
-        // Local dev: Load directly from WP backend to avoid 404s on localhost cdn-cgi
+      if (!isCloudflareActive) {
+        // If not on the live custom domain (e.g. localhost or vercel.app), load directly from WP backend to avoid 404s
         return url;
       }
-      // Production: Route through relative Cloudflare Image Resizing zone on the main domain
+      // Production live domain: Route through relative Cloudflare Image Resizing zone
       return `/cdn-cgi/image/width=800,quality=85,format=auto/${url}`;
     }
     // Fallback for other external domains to use weserv (which runs on Cloudflare)
@@ -32,8 +39,7 @@ export const getOptimizedImageUrl = (url) => {
   }
 
   // 2. Relative URLs / local site assets (e.g. /assets/..., /products/..., /src/assets/...)
-  // In development, do not wrap local assets to avoid 404s on localhost.
-  if (import.meta.env.DEV) {
+  if (!isCloudflareActive) {
     return url;
   }
 
