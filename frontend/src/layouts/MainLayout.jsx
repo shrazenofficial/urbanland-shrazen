@@ -9,6 +9,7 @@ import Footer from "../components/Footer/Footer";
 import FooterTitle from "../components/Footer/FooterTitle";
 import ScrollToTop from "../components/ScrollToTop";
 import ExitIntentPopup from "../components/ExitIntentPopup/ExitIntentPopup";
+import AriaChatbot from "../components/Chatbot/Chatbot";
 
 const MainLayout = () => {
 
@@ -61,6 +62,7 @@ const MainLayout = () => {
                 <Footer />
                 <FooterTitle />
             </main>
+            <AriaChatbot />
         </>
     );
 };
