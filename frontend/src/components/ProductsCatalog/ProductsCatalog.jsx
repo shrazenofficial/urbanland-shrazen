@@ -351,7 +351,7 @@ const ProductsCatalog = ({ showTitle = true }) => {
         <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-[#2D2D2D]/10 pb-8 catalog-title">
           <div>
             <p className="text-[0.7rem] uppercase tracking-[0.2em] font-semibold text-[#2C5F2E] mb-2">Our Collection</p>
-            <h2 className="text-4xl lg:text-6xl font-medium tracking-tight text-[#1A1A1A]">
+            <h2 className="text-4xl lg:text-6xl font-bold tracking-tight text-[#1A1A1A]">
               Urban furniture that connects.
             </h2>
           </div>

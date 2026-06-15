@@ -34,7 +34,7 @@ const MarqueeSticky = () => {
                     <p className="text-[0.7rem] uppercase tracking-[0.2em] font-bold text-[#C9A84C] choose-subtitle">
                         — Case Studies & Portfolio
                     </p>
-                    <h2 className="text-4xl lg:text-7xl font-black text-[#1A1A1A] leading-[1.05] tracking-tight uppercase">
+                    <h2 className="text-4xl lg:text-7xl font-bold text-[#1A1A1A] leading-[1.05] tracking-tight uppercase">
                         Real Projects. Real Results. Across India.
                     </h2>
                     <p className="text-sm md:text-lg text-[#2D2D2D]/80 leading-relaxed max-w-3xl font-light mt-3">

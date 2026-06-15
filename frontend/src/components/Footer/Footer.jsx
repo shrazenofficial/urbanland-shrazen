@@ -42,6 +42,7 @@ const Footer = () => {
                         <li><Link to="/products/canteen-tables" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Canteen Tables</Link></li>
                         <li><Link to="/products/cabanas" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Luxury Cabanas</Link></li>
                         <li><Link to="/products/poolside-loungers" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Poolside Loungers</Link></li>
+                        <li><Link to="/products/wicker-furniture" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Wicker Furniture</Link></li>
                         <li><Link to="/products/wicker-living-sets" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Wicker Living Sets</Link></li>
                         <li><Link to="/products/wicker-dining-sets" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Wicker Dining Sets</Link></li>
                         <li><Link to="/products/metal-wooden-furniture" className="hover:text-[#C9A84C] transition-colors no-underline text-[#F7F4EF]/75">Metal & Wooden Furniture</Link></li>

@@ -53,7 +53,7 @@ const FooterBanner = () => {
                 {/* Content Block */}
                 <div className="relative z-10 max-w-4xl flex flex-col gap-5 items-center my-auto text-center">
                     <p className="text-[#C9A84C] text-[0.7rem] font-bold uppercase tracking-widest">— Let's Build Together</p>
-                    <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#F7F4EF] leading-[1.1] uppercase tracking-tight text-center">
+                    <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#F7F4EF] leading-[1.1] uppercase tracking-tight text-center">
                         Ready to Specify Outdoor Furniture for Your Next Project?
                     </h2>
                     

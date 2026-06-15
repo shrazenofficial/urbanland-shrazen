@@ -1,4 +1,4 @@
-import fs from 'fs';
+﻿import fs from 'fs';
 import path from 'path';
 
 const pageConfigs = {
@@ -21,25 +21,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard Aluminium Bench — Compact & Practical",
+        title: "Standard Aluminium Bench ΓÇö Compact & Practical",
         ideal: "Inland parks, municipal gardens, residential building lobbies.",
         features: ["Frame: Structural grade aluminium alloy", "Finish: Industrial powder coating", "Seating: Standard 3-slat configuration", "Capacity: 3-4 persons"],
         imgIdx: 1,
-        matrix: { dims: "1500L × 600W × 750H mm", wt: "18-22 kg", lt: "20-25 days", maint: "Zero (wash only)", life: "10-12 years", custom: "None" }
+        matrix: { dims: "1500L ├ù 600W ├ù 750H mm", wt: "18-22 kg", lt: "20-25 days", maint: "Zero (wash only)", life: "10-12 years", custom: "None" }
       },
       premium: {
-        title: "Premium Aluminium Bench — Ergonomic & Elegant",
+        title: "Premium Aluminium Bench ΓÇö Ergonomic & Elegant",
         ideal: "High-end corporate gardens, luxury apartments, oceanfront promenades.",
         features: ["Frame: Heavy-wall structural aluminium", "Finish: Akzonobel architectural powder coating", "Seating: Ergonomic contour seat with backrest and armrests", "Capacity: 4-5 persons"],
         imgIdx: 2,
-        matrix: { dims: "1800L × 620W × 800H mm", wt: "25-30 kg", lt: "25-30 days", maint: "Zero", life: "15+ years", custom: "Indefinite coastal performance" }
+        matrix: { dims: "1800L ├ù 620W ├ù 800H mm", wt: "25-30 kg", lt: "25-30 days", maint: "Zero", life: "15+ years", custom: "Indefinite coastal performance" }
       },
       super: {
-        title: "Super Premium Aluminium Bench — Smart Ready & Modular",
+        title: "Super Premium Aluminium Bench ΓÇö Smart Ready & Modular",
         ideal: "Smart City public spaces, high-traffic commercial plazas, eco-resorts.",
         features: ["Frame: Marine-grade structural anodized aluminium", "Finish: Anti-graffiti textured paint finish", "Seating: Integrated wood-composite (WPC) accents with armrests", "Capacity: 5-6 persons (modular linkable)"],
         imgIdx: 3,
-        matrix: { dims: "2100L × 650W × 820H mm", wt: "35-40 kg", lt: "30-35 days", maint: "Zero", life: "20+ years indefinite", custom: "Modular linking & smart sensors ready" }
+        matrix: { dims: "2100L ├ù 650W ├ù 820H mm", wt: "35-40 kg", lt: "30-35 days", maint: "Zero", life: "20+ years indefinite", custom: "Modular linking & smart sensors ready" }
       }
     },
     materials: [
@@ -55,9 +55,9 @@ const pageConfigs = {
       "Add-ons: Anti-graffiti coatings, integrated USB solar charging outlets, safety armrest dividers"
     ],
     projects: [
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Public Promenade Seating — 150 Aluminium Benches", time: "3 months", desc: "Nagpur Smart City authority selected our rust-proof premium aluminium benches for public walkway beautification. The lightweight, modular units enabled rapid manual installation without heavy machinery, minimizing municipal project delay." },
-      { tag: "Taj Lands End", subtitle: "Taj Group — Mumbai", title: "Luxury Poolside Promenades — 30 Anodized Benches", time: "2 months", desc: "Specified custom warm bronze anodized aluminium benches to withstand relentless sea breezes and chlorine vapor by the poolside. Benches retain premium satin luster with zero degradation after 12+ months." },
-      { tag: "Tata Green Hills", subtitle: "Tata Realty — Pune", title: "Eco-Friendly Township Walkways — 80 Benches", time: "4 months", desc: "Installed modular aluminium park benches with 100% recyclable components to achieve LEED Platinum green building ratings. Coordinated logistics, delivery, and anchoring systems for an on-schedule launch." }
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Public Promenade Seating ΓÇö 150 Aluminium Benches", time: "3 months", desc: "Nagpur Smart City authority selected our rust-proof premium aluminium benches for public walkway beautification. The lightweight, modular units enabled rapid manual installation without heavy machinery, minimizing municipal project delay." },
+      { tag: "Taj Lands End", subtitle: "Taj Group ΓÇö Mumbai", title: "Luxury Poolside Promenades ΓÇö 30 Anodized Benches", time: "2 months", desc: "Specified custom warm bronze anodized aluminium benches to withstand relentless sea breezes and chlorine vapor by the poolside. Benches retain premium satin luster with zero degradation after 12+ months." },
+      { tag: "Tata Green Hills", subtitle: "Tata Realty ΓÇö Pune", title: "Eco-Friendly Township Walkways ΓÇö 80 Benches", time: "4 months", desc: "Installed modular aluminium park benches with 100% recyclable components to achieve LEED Platinum green building ratings. Coordinated logistics, delivery, and anchoring systems for an on-schedule launch." }
     ],
     stats: { p: "50+", c: "15+", o: "2000+", pLbl: "Infrastructure Projects Delivered", cLbl: "Cities Served", oLbl: "Benches Installed" },
     faqList: [
@@ -87,25 +87,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard WPC Flat Bench — Low Maintenance",
+        title: "Standard WPC Flat Bench ΓÇö Low Maintenance",
         ideal: "Inland public walkways, residential societies, corporate lobbies.",
         features: ["Frame: Mild Steel with anti-rust primer & powder coating", "Seating: Weatherproof WPC slats (Teak shade)", "Design: Flat profile without backrest", "Capacity: 3-4 persons"],
         imgIdx: 1,
-        matrix: { dims: "1500L × 500W × 450H mm", wt: "30-35 kg", lt: "20-25 days", maint: "Low (periodic wash)", life: "6-8 years", custom: "None" }
+        matrix: { dims: "1500L ├ù 500W ├ù 450H mm", wt: "30-35 kg", lt: "20-25 days", maint: "Low (periodic wash)", life: "6-8 years", custom: "None" }
       },
       premium: {
-        title: "Premium Timber Park Bench — Contour Support",
+        title: "Premium Timber Park Bench ΓÇö Contour Support",
         ideal: "Luxury hotels, private country clubs, central township gardens.",
         features: ["Frame: Heavy cast iron legs with architectural paint", "Seating: FSC Robinia hardwood slats with UV oil coating", "Design: Ergonomic backrest & cast iron armrests", "Capacity: 4-5 persons"],
         imgIdx: 2,
-        matrix: { dims: "1800L × 650W × 800H mm", wt: "65-75 kg", lt: "25-30 days", maint: "Annual timber oiling", life: "12-15 years", custom: "Anti-vandal hidden anchor bolts" }
+        matrix: { dims: "1800L ├ù 650W ├ù 800H mm", wt: "65-75 kg", lt: "25-30 days", maint: "Annual timber oiling", life: "12-15 years", custom: "Anti-vandal hidden anchor bolts" }
       },
       super: {
-        title: "Super Premium Smart Bench — Off-Grid Power & IoT",
+        title: "Super Premium Smart Bench ΓÇö Off-Grid Power & IoT",
         ideal: "Smart City corridors, university campus plazas, tech parks.",
         features: ["Frame: Stainless Steel 316 chassis", "Seating: Toughened safety glass top with integrated monocrystalline solar panel", "Tech: 2x USB charging ports, 1x wireless charging pad, LED night illumination", "Capacity: 3-4 persons"],
         imgIdx: 3,
-        matrix: { dims: "2000L × 600W × 470H mm", wt: "110-130 kg", lt: "35-45 days", maint: "Semi-annual solar cleaning", life: "15+ years", custom: "Pre-wired IoT sensor integration ready" }
+        matrix: { dims: "2000L ├ù 600W ├ù 470H mm", wt: "110-130 kg", lt: "35-45 days", maint: "Semi-annual solar cleaning", life: "15+ years", custom: "Pre-wired IoT sensor integration ready" }
       }
     },
     materials: [
@@ -121,9 +121,9 @@ const pageConfigs = {
       "Mounting: Expansion anchor bolts, extended legs for inground casting, or free-standing"
     ],
     projects: [
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Public Promenade Seating — 200 WPC Benches", time: "4 months", desc: "Nagpur Smart City authority selected our heavy-duty WPC park benches for central public walkway beautification. The robust steel frames and weather-resistant composite slats met municipal budgets while ensuring anti-vandal reliability." },
-      { tag: "Lodha World Towers", subtitle: "Lodha Group — Mumbai", title: "Premium Residential Podium — 80 Timber Benches", time: "3 months", desc: "Lodha partnered with Urbanland for 80 Premium Robinia timber benches custom-designed with black powder-coated cast iron legs. Coordinated staggered delivery and anchoring to match podium landscape layouts." },
-      { tag: "L&T Tech Park", subtitle: "L&T Realty — Bangalore", title: "Corporate Tech Campus — 40 Modular Benches", time: "2 months", desc: "Installed custom double-sided flat benches in the main campus plaza. Designed with linear concrete bases and grey WPC slats to match the modern corporate architecture." }
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Public Promenade Seating ΓÇö 200 WPC Benches", time: "4 months", desc: "Nagpur Smart City authority selected our heavy-duty WPC park benches for central public walkway beautification. The robust steel frames and weather-resistant composite slats met municipal budgets while ensuring anti-vandal reliability." },
+      { tag: "Lodha World Towers", subtitle: "Lodha Group ΓÇö Mumbai", title: "Premium Residential Podium ΓÇö 80 Timber Benches", time: "3 months", desc: "Lodha partnered with Urbanland for 80 Premium Robinia timber benches custom-designed with black powder-coated cast iron legs. Coordinated staggered delivery and anchoring to match podium landscape layouts." },
+      { tag: "L&T Tech Park", subtitle: "L&T Realty ΓÇö Bangalore", title: "Corporate Tech Campus ΓÇö 40 Modular Benches", time: "2 months", desc: "Installed custom double-sided flat benches in the main campus plaza. Designed with linear concrete bases and grey WPC slats to match the modern corporate architecture." }
     ],
     stats: { p: "80+", c: "25+", o: "5000+", pLbl: "Major B2B Projects Delivered", cLbl: "Cities Served", oLbl: "Outdoor Benches Installed" },
     faqList: [
@@ -153,25 +153,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard Bus Shelter — Cost-Effective & Durable",
+        title: "Standard Bus Shelter ΓÇö Cost-Effective & Durable",
         ideal: "Inland municipalities, township amenities, secondary transit routes.",
         features: ["Frame: Mild Steel with Akzonobel PU powder coating", "Roof: Galvanized sheet or polycarbonate (ACP)", "Seating: MS bench with anti-slip surface", "Capacity: 8-12 standing + 3-4 seated"],
         imgIdx: 1,
-        matrix: { dims: "4500L × 1800W × 2500H mm", wt: "1200-1400 kg", lt: "25-30 days", maint: "₹3,000-5,000", life: "8-10 years", custom: "None" }
+        matrix: { dims: "4500L ├ù 1800W ├ù 2500H mm", wt: "1200-1400 kg", lt: "25-30 days", maint: "Γé╣3,000-5,000", life: "8-10 years", custom: "None" }
       },
       premium: {
-        title: "Premium Bus Shelter — Stainless Steel, Zero Maintenance",
+        title: "Premium Bus Shelter ΓÇö Stainless Steel, Zero Maintenance",
         ideal: "Coastal areas, high-traffic zones, premium real estate.",
         features: ["Frame: Stainless Steel (304/316 grade) with brushed or mirror finish", "Roof: Polycarbonate or toughened glass panels", "Seating: SS bench with ergonomic backrest", "Capacity: 10-15 standing + 4-5 seated"],
         imgIdx: 2,
-        matrix: { dims: "4500L × 1800W × 2500H mm", wt: "1600-2000 kg", lt: "30-35 days", maint: "₹500-1,000 (minimal)", life: "15-20+ years", custom: "Indefinite coastal performance" }
+        matrix: { dims: "4500L ├ù 1800W ├ù 2500H mm", wt: "1600-2000 kg", lt: "30-35 days", maint: "Γé╣500-1,000 (minimal)", life: "15-20+ years", custom: "Indefinite coastal performance" }
       },
       super: {
-        title: "Super Premium Bus Shelter — Smart City Ready + IoT",
+        title: "Super Premium Bus Shelter ΓÇö Smart City Ready + IoT",
         ideal: "Smart City Mission Phase-II, premium developments, IoT-enabled infrastructure.",
         features: ["Frame: Stainless Steel 304/316 (premium grade, mirror-polished)", "Roof: Toughened glass with integrated solar panel mounts", "Tech: Solar-powered LED, Type-A & C USB ports, pre-wired for IoT sensors", "Capacity: 12-18 standing + 5-6 seated"],
         imgIdx: 3,
-        matrix: { dims: "4500L × 1800W × 2500H mm", wt: "2200-2800 kg", lt: "35-45 days", maint: "₹1,500-2,500", life: "20+ years", custom: "Off-grid solar array & EV charger prep" }
+        matrix: { dims: "4500L ├ù 1800W ├ù 2500H mm", wt: "2200-2800 kg", lt: "35-45 days", maint: "Γé╣1,500-2,500", life: "20+ years", custom: "Off-grid solar array & EV charger prep" }
       }
     },
     materials: [
@@ -187,9 +187,9 @@ const pageConfigs = {
       "Add-ons: LED lighting, solar panels, digital displays, IoT sensor pre-wiring"
     ],
     projects: [
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Smart City Municipal Project — 120 Shelters", time: "8 months", desc: "A metropolitan city selected Urbanland for 120 bus stops across its transit network. Standard configuration (MS frame, galvanized roof) met municipal budget while ensuring durability. Urbanland coordinated bulk manufacturing, logistics, and staggered installation." },
-      { tag: "Lodha World Towers", subtitle: "Lodha Group — Maharashtra", title: "Premium Township — 85 Stainless Steel Shelters", time: "6 months", desc: "Lodha partnered with Urbanland for 85 Premium SS shelters custom-designed with mirror-polished finish. Design consistency across 3 townships. Zero maintenance needed 18+ months post-installation—critical for resident satisfaction." },
-      { tag: "Goa Development", subtitle: "Coastal Authority — Goa", title: "Coastal Smart City — 45 SS Shelters (Zero Degradation)", time: "4 months", desc: "Coastal city required shelters withstanding salt spray, humidity, and extreme heat. Urbanland specified 316-grade SS (premium vs. standard 304) for superior corrosion resistance. Result: 14 months post-installation, zero rust or degradation observed." }
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Smart City Municipal Project ΓÇö 120 Shelters", time: "8 months", desc: "A metropolitan city selected Urbanland for 120 bus stops across its transit network. Standard configuration (MS frame, galvanized roof) met municipal budget while ensuring durability. Urbanland coordinated bulk manufacturing, logistics, and staggered installation." },
+      { tag: "Lodha World Towers", subtitle: "Lodha Group ΓÇö Maharashtra", title: "Premium Township ΓÇö 85 Stainless Steel Shelters", time: "6 months", desc: "Lodha partnered with Urbanland for 85 Premium SS shelters custom-designed with mirror-polished finish. Design consistency across 3 townships. Zero maintenance needed 18+ months post-installationΓÇöcritical for resident satisfaction." },
+      { tag: "Goa Development", subtitle: "Coastal Authority ΓÇö Goa", title: "Coastal Smart City ΓÇö 45 SS Shelters (Zero Degradation)", time: "4 months", desc: "Coastal city required shelters withstanding salt spray, humidity, and extreme heat. Urbanland specified 316-grade SS (premium vs. standard 304) for superior corrosion resistance. Result: 14 months post-installation, zero rust or degradation observed." }
     ],
     stats: { p: "50+", c: "15+", o: "2000+", pLbl: "Major Infrastructure Projects", cLbl: "Cities Served", oLbl: "Operational Shelters" },
     faqList: [
@@ -219,25 +219,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard Single Cabana — Sleek & Intimate",
+        title: "Standard Single Cabana ΓÇö Sleek & Intimate",
         ideal: "Boutique hotel pool decks, private villa gardens, luxury apartment terraces.",
         features: ["Frame: Mild Steel with heavy powder coating", "Upholstery: Water-resistant polyester curtains", "Bed cushion: 100mm high-density foam", "Capacity: 1-2 persons"],
         imgIdx: 1,
-        matrix: { dims: "1800L × 1800W × 2100H mm", wt: "95-110 kg", lt: "30-35 days", maint: "Low (periodic fabric wash)", life: "5-7 years", custom: "None" }
+        matrix: { dims: "1800L ├ù 1800W ├ù 2100H mm", wt: "95-110 kg", lt: "30-35 days", maint: "Low (periodic fabric wash)", life: "5-7 years", custom: "None" }
       },
       premium: {
-        title: "Premium Double Cabana — Resort Style",
+        title: "Premium Double Cabana ΓÇö Resort Style",
         ideal: "5-star resort pool decks, oceanfront hotels, premium country clubs.",
         features: ["Frame: Anodized Aluminium with powder coating", "Upholstery: Sunbrella outdoor canvas privacy drapes", "Bed cushion: 150mm quick-dry foam cushion with mesh bottom", "Capacity: 2-3 persons"],
         imgIdx: 2,
-        matrix: { dims: "2000L × 2000W × 2200H mm", wt: "120-140 kg", lt: "35-40 days", maint: "Wash fabrics seasonal", life: "10-12 years", custom: "Concealed deck mounting brackets" }
+        matrix: { dims: "2000L ├ù 2000W ├ù 2200H mm", wt: "120-140 kg", lt: "35-40 days", maint: "Wash fabrics seasonal", life: "10-12 years", custom: "Concealed deck mounting brackets" }
       },
       super: {
-        title: "Super Premium Daybed Pavilion — Smart Integrated",
+        title: "Super Premium Daybed Pavilion ΓÇö Smart Integrated",
         ideal: "Mega resorts, high-end beach clubs, private luxury estate lawns.",
         features: ["Frame: Marine-grade Stainless Steel 316 wrapped in synthetic PE wicker", "Upholstery: Sunbrella performance fabrics with automated tracks", "Bed cushion: 150mm memory quick-dry foam bed with backrests", "Tech: Integrated solar panels, LED interior lighting, dual USB ports, side beverage fridge"],
         imgIdx: 3,
-        matrix: { dims: "2400L × 2400W × 2400H mm", wt: "220-250 kg", lt: "40-50 days", maint: "Minimal", life: "15+ years", custom: "Smart automation & solar integration" }
+        matrix: { dims: "2400L ├ù 2400W ├ù 2400H mm", wt: "220-250 kg", lt: "40-50 days", maint: "Minimal", life: "15+ years", custom: "Smart automation & solar integration" }
       }
     },
     materials: [
@@ -253,9 +253,9 @@ const pageConfigs = {
       "Mounting: Leveling glide feet, concrete lag bolts, or timber deck screws"
     ],
     projects: [
-      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels — Goa", title: "Luxury Beachfront Resort — 15 Cabanas", time: "3 months", desc: "Taj Hotels partnered with Urbanland to deploy 15 premium double cabanas along its Goan beach front. Engineered with 316 Stainless Steel and Sunbrella canvas to resist harsh saltwater mist, providing guest privacy and luxury appeal." },
-      { tag: "Prestige Golfshire", subtitle: "Prestige Group — Bangalore", title: "Country Club Resort — 20 Premium Daybed Pavilions", time: "4 months", desc: "Installed custom wicker-wrapped double cabanas across the resort pool decks. The fast draining quick-dry foam cores ensured loungers were dry and operational within minutes of heavy tropical rain showers." },
-      { tag: "Oberoi Beach Resort", subtitle: "Oberoi Group — Mumbai", title: "Rooftop Poolside Cabanas — 10 Custom Sets", time: "2 months", desc: "Manufactured premium aluminium cabanas for a luxury rooftop deck. Installed custom wind-anchoring brackets to withstand high-altitude wind gusts of up to 90 km/h." }
+      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels ΓÇö Goa", title: "Luxury Beachfront Resort ΓÇö 15 Cabanas", time: "3 months", desc: "Taj Hotels partnered with Urbanland to deploy 15 premium double cabanas along its Goan beach front. Engineered with 316 Stainless Steel and Sunbrella canvas to resist harsh saltwater mist, providing guest privacy and luxury appeal." },
+      { tag: "Prestige Golfshire", subtitle: "Prestige Group ΓÇö Bangalore", title: "Country Club Resort ΓÇö 20 Premium Daybed Pavilions", time: "4 months", desc: "Installed custom wicker-wrapped double cabanas across the resort pool decks. The fast draining quick-dry foam cores ensured loungers were dry and operational within minutes of heavy tropical rain showers." },
+      { tag: "Oberoi Beach Resort", subtitle: "Oberoi Group ΓÇö Mumbai", title: "Rooftop Poolside Cabanas ΓÇö 10 Custom Sets", time: "2 months", desc: "Manufactured premium aluminium cabanas for a luxury rooftop deck. Installed custom wind-anchoring brackets to withstand high-altitude wind gusts of up to 90 km/h." }
     ],
     stats: { p: "30+", c: "12+", o: "500+", pLbl: "Luxury Hospitality Projects", cLbl: "Cities Served", oLbl: "Luxury Cabanas Delivered" },
     faqList: [
@@ -285,25 +285,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard 4-Seater Canteen Set — Compact & Sturdy",
+        title: "Standard 4-Seater Canteen Set ΓÇö Compact & Sturdy",
         ideal: "Factory breakrooms, school lunchrooms, budget outdoor cafeterias.",
         features: ["Frame: Mild Steel with industrial powder coating", "Table/Seat top: Durable pre-laminated MDF board (indoor only)", "Design: Connected 4-seat bench configuration", "Capacity: 4 persons"],
         imgIdx: 1,
-        matrix: { dims: "1200L × 1600W × 750H mm", wt: "50-60 kg", lt: "20-25 days", maint: "Moderate", life: "5-6 years", custom: "None" }
+        matrix: { dims: "1200L ├ù 1600W ├ù 750H mm", wt: "50-60 kg", lt: "20-25 days", maint: "Moderate", life: "5-6 years", custom: "None" }
       },
       premium: {
-        title: "Premium Morse Canteen Set — All-Weather HPL",
+        title: "Premium Morse Canteen Set ΓÇö All-Weather HPL",
         ideal: "Corporate IT park courtyards, university outdoor plazas, premium office cafes.",
         features: ["Frame: Galvanized steel with architectural powder coating", "Table/Seat top: 12mm High-Pressure Laminate (HPL) panels with drainage slots", "Design: Connected 6-seat table and bench set", "Capacity: 6 persons"],
         imgIdx: 2,
-        matrix: { dims: "1800L × 1600W × 750H mm", wt: "80-95 kg", lt: "25-30 days", maint: "Zero (periodic wipe)", life: "10-12 years", custom: "Surface mount anchor bolt flanging" }
+        matrix: { dims: "1800L ├ù 1600W ├ù 750H mm", wt: "80-95 kg", lt: "25-30 days", maint: "Zero (periodic wipe)", life: "10-12 years", custom: "Surface mount anchor bolt flanging" }
       },
       super: {
-        title: "Super Premium SS 316 Cafeteria Set — Marine Grade",
+        title: "Super Premium SS 316 Cafeteria Set ΓÇö Marine Grade",
         ideal: "Oceanfront cafes, chemical laboratory canteens, heavy-duty outdoor plazas.",
         features: ["Frame: Stainless Steel 316 (brushed or mirror finish)", "Table/Seat top: Solid Stainless Steel slatted or perforated sheets", "Design: Connected 8-seat double table configuration", "Capacity: 8 persons"],
         imgIdx: 3,
-        matrix: { dims: "2200L × 1600W × 750H mm", wt: "130-155 kg", lt: "30-40 days", maint: "Zero", life: "20+ years indefinite", custom: "Custom corporate logo engraving ready" }
+        matrix: { dims: "2200L ├ù 1600W ├ù 750H mm", wt: "130-155 kg", lt: "30-40 days", maint: "Zero", life: "20+ years indefinite", custom: "Custom corporate logo engraving ready" }
       }
     },
     materials: [
@@ -319,9 +319,9 @@ const pageConfigs = {
       "Mounting: Expansion bolt down, core drilling grouted legs, or adjustable heavy rubber feet"
     ],
     projects: [
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Public Food Court Seating — 50 Canteen Sets", time: "3 months", desc: "Deployed 50 premium connected 6-seater Morse canteen sets across the central public food plaza. The heavy-duty galvanized steel frames and vandal-resistant HPL tops ensure they withstand extreme public usage." },
-      { tag: "Tata Consultancy Services", subtitle: "TCS Campus — Chennai", title: "Corporate Cafeteria Deck — 60 HPL Canteen Sets", time: "2 months", desc: "Installed custom canteen table sets on the outdoor cafeteria terrace. Design provided clean alignment and maximized outdoor seating capacity." },
-      { tag: "L&T Manufacturing Hub", subtitle: "L&T — Vadodara", title: "Industrial Worker Canteen — 120 Stainless Steel Sets", time: "4 months", desc: "Manufactured and installed 120 heavy-duty connected SS 304 canteen sets for a factory cafeteria. Smooth, non-porous surfaces allow rapid cleaning and sanitation between worker shifts." }
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Public Food Court Seating ΓÇö 50 Canteen Sets", time: "3 months", desc: "Deployed 50 premium connected 6-seater Morse canteen sets across the central public food plaza. The heavy-duty galvanized steel frames and vandal-resistant HPL tops ensure they withstand extreme public usage." },
+      { tag: "Tata Consultancy Services", subtitle: "TCS Campus ΓÇö Chennai", title: "Corporate Cafeteria Deck ΓÇö 60 HPL Canteen Sets", time: "2 months", desc: "Installed custom canteen table sets on the outdoor cafeteria terrace. Design provided clean alignment and maximized outdoor seating capacity." },
+      { tag: "L&T Manufacturing Hub", subtitle: "L&T ΓÇö Vadodara", title: "Industrial Worker Canteen ΓÇö 120 Stainless Steel Sets", time: "4 months", desc: "Manufactured and installed 120 heavy-duty connected SS 304 canteen sets for a factory cafeteria. Smooth, non-porous surfaces allow rapid cleaning and sanitation between worker shifts." }
     ],
     stats: { p: "60+", c: "20+", o: "3000+", pLbl: "Major B2B Cafeterias Delivered", cLbl: "Cities Served", oLbl: "Dining Sets Installed" },
     faqList: [
@@ -345,31 +345,31 @@ const pageConfigs = {
     ],
     reasons: [
       { title: "Cantilever Design", desc: "Provides unobstructed space beneath the canopy, allowing drivers to park easily without hitting structural posts." },
-      { title: "PVDF Membrane", desc: "Uses premium high-tensile PVDF membrane roofing which blocks 100% of UV rays and reduces temperature under the canopy by up to 10°C." },
+      { title: "PVDF Membrane", desc: "Uses premium high-tensile PVDF membrane roofing which blocks 100% of UV rays and reduces temperature under the canopy by up to 10┬░C." },
       { title: "Wind Resistance", desc: "Structural steel framework is wind-load calculated and certified to withstand wind velocities of up to 120 km/h." },
       { title: "Staggered Delivery", desc: "Modular fabrication enables staggered delivery and rapid erection, minimizing site disruptions in operational car parks." }
     ],
     tabs: {
       standard: {
-        title: "Standard 2-Car Canopy — Compact & Robust",
+        title: "Standard 2-Car Canopy ΓÇö Compact & Robust",
         ideal: "Residential bungalows, private villa parking, small office driveways.",
         features: ["Frame: Mild Steel truss with standard zinc primer & powder coating", "Roofing: Polycarbonate sheet or profile GI sheet", "Design: Dual post arched canopy structure", "Capacity: 2 cars"],
         imgIdx: 1,
-        matrix: { dims: "5000L × 5000W × 2500H mm", wt: "750-900 kg", lt: "25-30 days", maint: "Moderate", life: "8-10 years", custom: "None" }
+        matrix: { dims: "5000L ├ù 5000W ├ù 2500H mm", wt: "750-900 kg", lt: "25-30 days", maint: "Moderate", life: "8-10 years", custom: "None" }
       },
       premium: {
-        title: "Premium Tensile Car Shelter — Cantilever Style",
+        title: "Premium Tensile Car Shelter ΓÇö Cantilever Style",
         ideal: "Corporate offices, luxury residential apartments, premium hospitals.",
         features: ["Frame: Heavy structural steel hollow sections with epoxy zinc primer and polyurethane top coat", "Roofing: 900 GSM PVDF high-tensile German tensile membrane", "Design: Cantilever design with posts on one side only", "Capacity: Multi-car modular bays (expandable)"],
         imgIdx: 2,
-        matrix: { dims: "5000L × 5000W × 2500H mm (per bay)", wt: "1100-1300 kg", lt: "30-35 days", maint: "Annual tension check & wash", life: "12-15 years", custom: "Wind-load certificate up to 120km/h" }
+        matrix: { dims: "5000L ├ù 5000W ├ù 2500H mm (per bay)", wt: "1100-1300 kg", lt: "30-35 days", maint: "Annual tension check & wash", life: "12-15 years", custom: "Wind-load certificate up to 120km/h" }
       },
       super: {
-        title: "Super Premium Solar Parking Shed — Eco Power",
+        title: "Super Premium Solar Parking Shed ΓÇö Eco Power",
         ideal: "Smart City public parking, airport transit parking, green corporate offices.",
         features: ["Frame: Hot-dip galvanized structural steel (Akzonobel marine powder coating)", "Roofing: Integrated monocrystalline solar panels with grid-tied inverter wiring", "Design: Double-sided cantilever canopy with central structural columns", "Tech: Integrated LED strip lights, pre-wired EV charging station ports"],
         imgIdx: 3,
-        matrix: { dims: "5500L × 600W × 2700H mm (per bay)", wt: "1800-2200 kg (with panels)", lt: "40-50 days", maint: "Quarterly solar panel cleaning", life: "20+ years", custom: "Pre-wired EV charger integration ready" }
+        matrix: { dims: "5500L ├ù 600W ├ù 2700H mm (per bay)", wt: "1800-2200 kg (with panels)", lt: "40-50 days", maint: "Quarterly solar panel cleaning", life: "20+ years", custom: "Pre-wired EV charger integration ready" }
       }
     },
     materials: [
@@ -385,9 +385,9 @@ const pageConfigs = {
       "Add-ons: EV charger post integrations, rain gutters & downspouts, solar LED lighting kits, safety bollard shields"
     ],
     projects: [
-      { tag: "Adani Corporate House", subtitle: "Adani Realty — Ahmedabad", title: "Corporate Headquarters — 120 Car Tensile Canopy", time: "5 months", desc: "Designed, fabricated, and erected 120 car parking cantilever tensile shelters at the Adani corporate office. The cantilever design eliminated central poles, maximizing driving lanes and preventing car scrapes." },
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Smart City Parking Hub — 45 Solar Parking Bays", time: "4 months", desc: "Installed modular structural steel solar car sheds at the central smart city parking hub. Integrated off-grid monocrystalline solar roofing systems, contributing power back to the grid and sheltering municipal fleets." },
-      { tag: "Taj Lands End", subtitle: "Taj Hotels — Mumbai", title: "Luxury Hotel Guest Parking — 30 Cantilever Bays", time: "3 months", desc: "Constructed premium cantilever car shelters with marine-grade hot-dip galvanized steel and PVDF fabrics. Structures successfully resist severe beachfront winds and corrosive salt sprays." }
+      { tag: "Adani Corporate House", subtitle: "Adani Realty ΓÇö Ahmedabad", title: "Corporate Headquarters ΓÇö 120 Car Tensile Canopy", time: "5 months", desc: "Designed, fabricated, and erected 120 car parking cantilever tensile shelters at the Adani corporate office. The cantilever design eliminated central poles, maximizing driving lanes and preventing car scrapes." },
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Smart City Parking Hub ΓÇö 45 Solar Parking Bays", time: "4 months", desc: "Installed modular structural steel solar car sheds at the central smart city parking hub. Integrated off-grid monocrystalline solar roofing systems, contributing power back to the grid and sheltering municipal fleets." },
+      { tag: "Taj Lands End", subtitle: "Taj Hotels ΓÇö Mumbai", title: "Luxury Hotel Guest Parking ΓÇö 30 Cantilever Bays", time: "3 months", desc: "Constructed premium cantilever car shelters with marine-grade hot-dip galvanized steel and PVDF fabrics. Structures successfully resist severe beachfront winds and corrosive salt sprays." }
     ],
     stats: { p: "40+", c: "18+", o: "1500+", pLbl: "Major B2B Car Sheds Erected", cLbl: "Cities Served", oLbl: "Parking Bays Sheltered" },
     faqList: [
@@ -417,25 +417,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard Double Segregation Bin — Compact",
+        title: "Standard Double Segregation Bin ΓÇö Compact",
         ideal: "Residential society paths, retail storefronts, indoor office lobbies.",
         features: ["Frame: Mild Steel with powder coating", "Inner: Galvanized sheet metal liners", "Capacity: 2x 60 Litre compartments", "Design: Dual sorting dry & wet waste"],
         imgIdx: 1,
-        matrix: { dims: "800L × 450W × 900H mm", wt: "35-40 kg", lt: "15-20 days", maint: "Wipe clean", life: "5-6 years", custom: "None" }
+        matrix: { dims: "800L ├ù 450W ├ù 900H mm", wt: "35-40 kg", lt: "15-20 days", maint: "Wipe clean", life: "5-6 years", custom: "None" }
       },
       premium: {
-        title: "Premium Triple Segregation Bin — All-Weather",
+        title: "Premium Triple Segregation Bin ΓÇö All-Weather",
         ideal: "Smart City footpaths, commercial IT park walkways, premium resorts.",
         features: ["Frame: Galvanized steel with architectural powder coating", "Inner: Heavy-duty plastic waste liners", "Capacity: 3x 80 Litre compartments", "Design: Triple sorting (dry, wet, sanitary/ewaste)"],
         imgIdx: 2,
-        matrix: { dims: "1200L × 500W × 950H mm", wt: "65-75 kg", lt: "20-25 days", maint: "Zero (periodic wipe)", life: "10-12 years", custom: "Anti-vandal anchor bolt flanging" }
+        matrix: { dims: "1200L ├ù 500W ├ù 950H mm", wt: "65-75 kg", lt: "20-25 days", maint: "Zero (periodic wipe)", life: "10-12 years", custom: "Anti-vandal anchor bolt flanging" }
       },
       super: {
-        title: "Super Premium Smart Bin — Solar & IoT",
+        title: "Super Premium Smart Bin ΓÇö Solar & IoT",
         ideal: "High-traffic transit stations, central municipal plazas, airport terminals.",
         features: ["Frame: Stainless Steel 304 or mirror-polished SS", "Inner: Fire-suppressive stainless steel compartments", "Capacity: 4x 100 Litre compartments (quad sorting)", "Tech: Solar-powered LED status indicators, fill-level IoT sensors, EV charging side ports"],
         imgIdx: 3,
-        matrix: { dims: "1600L × 600W × 1000H mm", wt: "110-130 kg", lt: "30-40 days", maint: "Annual sensor battery swap", life: "15+ years", custom: "IoT smart routing integration ready" }
+        matrix: { dims: "1600L ├ù 600W ├ù 1000H mm", wt: "110-130 kg", lt: "30-40 days", maint: "Annual sensor battery swap", life: "15+ years", custom: "IoT smart routing integration ready" }
       }
     },
     materials: [
@@ -451,9 +451,9 @@ const pageConfigs = {
       "Tech: IoT fill-level ultrasonic sensors, solar LED indicator rings"
     ],
     projects: [
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Pedestrian Walkway Beautification — 250 Segregation Bests", time: "5 months", desc: " Nagpur Smart City authority deployed 250 double sorting premium public bins across central walking paths. The anti-vandal anchor systems prevent theft while clean labeling aids public compliance." },
-      { tag: "TCS IT Park", subtitle: "Tata Consultancy Services — Chennai", title: "IT Campus Walkway — 80 Triple Sorting Bins", time: "2 months", desc: "Installed custom segregation bins across outdoor food courts and walking lanes. Provided space-efficient design matching clean campus architecture." },
-      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels — Goa", title: "Luxury Beachfront Promenade — 30 Stainless Steel Bins", time: "3 months", desc: " Taj Hotels partnered with Urbanland to supply 30 mirror-finished SS 316 double sorting bins. Marine-grade steel holds up against corrosive salt sprays and sea mist." }
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Pedestrian Walkway Beautification ΓÇö 250 Segregation Bests", time: "5 months", desc: " Nagpur Smart City authority deployed 250 double sorting premium public bins across central walking paths. The anti-vandal anchor systems prevent theft while clean labeling aids public compliance." },
+      { tag: "TCS IT Park", subtitle: "Tata Consultancy Services ΓÇö Chennai", title: "IT Campus Walkway ΓÇö 80 Triple Sorting Bins", time: "2 months", desc: "Installed custom segregation bins across outdoor food courts and walking lanes. Provided space-efficient design matching clean campus architecture." },
+      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels ΓÇö Goa", title: "Luxury Beachfront Promenade ΓÇö 30 Stainless Steel Bins", time: "3 months", desc: " Taj Hotels partnered with Urbanland to supply 30 mirror-finished SS 316 double sorting bins. Marine-grade steel holds up against corrosive salt sprays and sea mist." }
     ],
     stats: { p: "80+", c: "25+", o: "5000+", pLbl: "B2B Waste Management Projects", cLbl: "Cities Served", oLbl: "Outdoor Bins Manufactured" },
     faqList: [
@@ -483,25 +483,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard Lobby Bench — Metal & Wood",
+        title: "Standard Lobby Bench ΓÇö Metal & Wood",
         ideal: "Office waiting lobbies, school corridors, residential common areas.",
         features: ["Frame: Mild Steel tube structure with fine powder coating", "Seating: Treated rubberwood or engineered wood panel with smooth varnish", "Design: Minimalist rectangular bench without backrest", "Capacity: 3-4 persons"],
         imgIdx: 1,
-        matrix: { dims: "1500L × 450W × 450H mm", wt: "18-22 kg", lt: "20-25 days", maint: "Low (wipe with cloth)", life: "8-10 years", custom: "None" }
+        matrix: { dims: "1500L ├ù 450W ├ù 450H mm", wt: "18-22 kg", lt: "20-25 days", maint: "Low (wipe with cloth)", life: "8-10 years", custom: "None" }
       },
       premium: {
-        title: "Premium Wicker Living Lounge Set — Hand Woven",
+        title: "Premium Wicker Living Lounge Set ΓÇö Hand Woven",
         ideal: "Hotel executive lounges, premium resort reception areas, terrace rooms.",
         features: ["Frame: Powder coated lightweight aluminium structure", "Woven Wrap: High-grade synthetic PE wicker weave", "Cushions: Ergonomic memory foam wrapped in stain-resistant fabrics", "Capacity: 1x Sofa (3-seater), 2x Armchairs, 1x Coffee table"],
         imgIdx: 2,
         matrix: { dims: "Varies per piece", wt: "45-55 kg (total set)", lt: "25-35 days", maint: "Occasional fabric wipe", life: "10-12 years", custom: "Non-marking nylon floor glides" }
       },
       super: {
-        title: "Super Premium Corporate Dining Set — Solid Timber",
+        title: "Super Premium Corporate Dining Set ΓÇö Solid Timber",
         ideal: "Executive boardrooms, high-end university dining halls, institutional cafes.",
         features: ["Frame: Polished Stainless Steel 304 or mirror-chrome finish steel", "Table Top: Single slab solid teak wood with premium oil finish", "Design: Rectangular solid table with matching backrest dining benches", "Capacity: 8-10 persons"],
         imgIdx: 3,
-        matrix: { dims: "2400L × 900W × 750H mm", wt: "110-130 kg (total set)", lt: "35-45 days", maint: "Annual wood oiling", life: "15+ years", custom: "Custom wood species selection ready" }
+        matrix: { dims: "2400L ├ù 900W ├ù 750H mm", wt: "110-130 kg (total set)", lt: "35-45 days", maint: "Annual wood oiling", life: "15+ years", custom: "Custom wood species selection ready" }
       }
     },
     materials: [
@@ -517,9 +517,9 @@ const pageConfigs = {
       "Style: Minimalist modern, industrial steel-wood, or hand-woven resort wicker"
     ],
     projects: [
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Smart City Head Office — Lobby Seating Benches", time: "2 months", desc: "Supplied and installed 40 custom steel-wood indoor benches for the waiting lobbies of Nagpur Smart City head office. The non-marking glides protect the premium granite floors from scratches." },
-      { tag: "Taj Lands End", subtitle: "Taj Hotels — Mumbai", title: "Executive Lounge Renovations — 15 Lounge Sets", time: "3 months", desc: "Partnered with Taj Hotels to manufacture and install 15 custom hand-woven indoor wicker lounge sets. The neutral sand-colored HDPE weave and premium fabrics match the hotel's interior aesthetic." },
-      { tag: "Tata Realty Office", subtitle: "Tata Realty — Pune", title: "Corporate Dining Area — 30 Canteen Tables", time: "3 months", desc: "Installed 30 premium steel-wood canteen dining tables and benches inside Tata Realty's corporate headquarters. The oil-resistant varnished tops allow quick sanitization between staff lunch shifts." }
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Smart City Head Office ΓÇö Lobby Seating Benches", time: "2 months", desc: "Supplied and installed 40 custom steel-wood indoor benches for the waiting lobbies of Nagpur Smart City head office. The non-marking glides protect the premium granite floors from scratches." },
+      { tag: "Taj Lands End", subtitle: "Taj Hotels ΓÇö Mumbai", title: "Executive Lounge Renovations ΓÇö 15 Lounge Sets", time: "3 months", desc: "Partnered with Taj Hotels to manufacture and install 15 custom hand-woven indoor wicker lounge sets. The neutral sand-colored HDPE weave and premium fabrics match the hotel's interior aesthetic." },
+      { tag: "Tata Realty Office", subtitle: "Tata Realty ΓÇö Pune", title: "Corporate Dining Area ΓÇö 30 Canteen Tables", time: "3 months", desc: "Installed 30 premium steel-wood canteen dining tables and benches inside Tata Realty's corporate headquarters. The oil-resistant varnished tops allow quick sanitization between staff lunch shifts." }
     ],
     stats: { p: "50+", c: "15+", o: "2000+", pLbl: "Corporate B2B Deliveries", cLbl: "Cities Served", oLbl: "Indoor Furniture Pieces Installed" },
     faqList: [
@@ -549,21 +549,21 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard Steel-WPC Bench — Low Maintenance",
+        title: "Standard Steel-WPC Bench ΓÇö Low Maintenance",
         ideal: "Public walkways, school courtyards, residential society pathways.",
         features: ["Frame: Mild Steel profile with anti-rust primer and powder coating", "Seating: Weather-resistant Wood-Plastic Composite (WPC) slats", "Design: Rectangular bench with backrest and metal armrests", "Capacity: 3-4 persons"],
         imgIdx: 1,
-        matrix: { dims: "1500L × 600W × 780H mm", wt: "38-45 kg", lt: "20-25 days", maint: "Low (periodic cleaning)", life: "8-10 years", custom: "None" }
+        matrix: { dims: "1500L ├ù 600W ├ù 780H mm", wt: "38-45 kg", lt: "20-25 days", maint: "Low (periodic cleaning)", life: "8-10 years", custom: "None" }
       },
       premium: {
-        title: "Premium Robinia Bench — Cast Iron Legs",
+        title: "Premium Robinia Bench ΓÇö Cast Iron Legs",
         ideal: "Hotel gardens, luxury golf courses, premium township walkways.",
         features: ["Frame: Heavy-duty cast iron base legs (black powder-coated finish)", "Seating: FSC Robinia hardwood slats with protective oil coat", "Design: Arched contour backrest with integrated armrests", "Capacity: 4-5 persons"],
         imgIdx: 2,
-        matrix: { dims: "1800L × 620W × 810H mm", wt: "65-75 kg", lt: "25-30 days", maint: "Annual timber oil staining", life: "12-15 years", custom: "Concrete chemical anchor kit" }
+        matrix: { dims: "1800L ├ù 620W ├ù 810H mm", wt: "65-75 kg", lt: "25-30 days", maint: "Annual timber oil staining", life: "12-15 years", custom: "Concrete chemical anchor kit" }
       },
       super: {
-        title: "Super Premium SS-Teak Modular Bench — Geometric",
+        title: "Super Premium SS-Teak Modular Bench ΓÇö Geometric",
         ideal: "High-end corporate park plazas, commercial office terraces, smart city lawns.",
         features: ["Frame: Stainless Steel 316 structural tube chassis", "Seating: Premium grade FSC Teak wood slats (brushed finish)", "Design: Modular curved or geometric linkable configurations", "Capacity: Customizable (modular linkable seats)"],
         imgIdx: 3,
@@ -583,9 +583,9 @@ const pageConfigs = {
       "Anchor systems: Surface flange expansion anchors, sub-surface cast-in grouting, or heavy free-standing"
     ],
     projects: [
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Public Promenade Seating — 180 Steel-WPC Benches", time: "4 months", desc: "Selected our heavy-duty steel-WPC benches for the Smart City promenade network. Coordinated site preparation, bulk logistics, and concrete anchor installation for a zero-disruption project launch." },
-      { tag: "Lodha World Towers", subtitle: "Lodha Group — Mumbai", title: "Premium Apartment Gardens — 60 Timber Benches", time: "3 months", desc: "Installed custom cast iron and Robinia timber park benches along podium gardens. Coordinated deliveries and anchoring systems to align with Lodha's premium landscape design standards." },
-      { tag: "Tata Green Hills", subtitle: "Tata Realty — Pune", title: "Eco-Friendly Township Walkways — 50 Custom Benches", time: "3 months", desc: "Manufactured modular curved steel-wood benches for a public township plaza. Used FSC certified timbers and recyclable metals, helping the township achieve LEED Platinum green status." }
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Public Promenade Seating ΓÇö 180 Steel-WPC Benches", time: "4 months", desc: "Selected our heavy-duty steel-WPC benches for the Smart City promenade network. Coordinated site preparation, bulk logistics, and concrete anchor installation for a zero-disruption project launch." },
+      { tag: "Lodha World Towers", subtitle: "Lodha Group ΓÇö Mumbai", title: "Premium Apartment Gardens ΓÇö 60 Timber Benches", time: "3 months", desc: "Installed custom cast iron and Robinia timber park benches along podium gardens. Coordinated deliveries and anchoring systems to align with Lodha's premium landscape design standards." },
+      { tag: "Tata Green Hills", subtitle: "Tata Realty ΓÇö Pune", title: "Eco-Friendly Township Walkways ΓÇö 50 Custom Benches", time: "3 months", desc: "Manufactured modular curved steel-wood benches for a public township plaza. Used FSC certified timbers and recyclable metals, helping the township achieve LEED Platinum green status." }
     ],
     stats: { p: "60+", c: "20+", o: "3000+", pLbl: "B2B Projects Delivered", cLbl: "Cities Served", oLbl: "Benches Manufactured" },
     faqList: [
@@ -615,25 +615,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard Fiberglass Planter — Lightweight & Sleek",
+        title: "Standard Fiberglass Planter ΓÇö Lightweight & Sleek",
         ideal: "Indoor offices, lobby partitions, residential balconies, terraces.",
         features: ["Material: High-quality marine-grade fiberglass (FRP)", "Finish: Glossy or matte automotive paint finish", "Design: Rectangular room partition planter", "Capacity: 150-200 kg soil load"],
         imgIdx: 1,
-        matrix: { dims: "1000L × 350W × 450H mm", wt: "8-10 kg (empty)", lt: "15-20 days", maint: "Zero (wipe clean)", life: "5-6 years", custom: "None" }
+        matrix: { dims: "1000L ├ù 350W ├ù 450H mm", wt: "8-10 kg (empty)", lt: "15-20 days", maint: "Zero (wipe clean)", life: "5-6 years", custom: "None" }
       },
       premium: {
-        title: "Premium Concrete Street Planter — Heavy Duty",
+        title: "Premium Concrete Street Planter ΓÇö Heavy Duty",
         ideal: "Smart City footpaths, hotel driveway perimeters, commercial outdoor plazas.",
         features: ["Material: High-Performance Architectural Concrete", "Finish: Natural textured raw concrete aggregate", "Design: Square architectural street block planter", "Capacity: 400-500 kg soil load"],
         imgIdx: 2,
-        matrix: { dims: "900L × 900W × 750H mm", wt: "110-135 kg (empty)", lt: "25-30 days", maint: "Low (periodic sealant touch-up)", life: "15+ years", custom: "Internal waterproofing membrane" }
+        matrix: { dims: "900L ├ù 900W ├ù 750H mm", wt: "110-135 kg (empty)", lt: "25-30 days", maint: "Low (periodic sealant touch-up)", life: "15+ years", custom: "Internal waterproofing membrane" }
       },
       super: {
-        title: "Super Premium Tree Planter — Custom Structural",
+        title: "Super Premium Tree Planter ΓÇö Custom Structural",
         ideal: "Central smart city squares, mega township plazas, hotel entrances.",
         features: ["Material: Heavy structural concrete reinforced with internal steel frames", "Finish: Smooth sandstone or charcoal granite finish", "Design: Large circular tree planter with built-in wooden perimeter bench", "Tech: Built-in crane lifting hooks, integrated sub-irrigation water reservoir"],
         imgIdx: 3,
-        matrix: { dims: "1500L × 1500W × 900H mm", wt: "280-320 kg (empty)", lt: "35-45 days", maint: "Annual irrigation check", life: "20+ years indefinite", custom: "Crane hook lifting points & sub-irrigation kit" }
+        matrix: { dims: "1500L ├ù 1500W ├ù 900H mm", wt: "280-320 kg (empty)", lt: "35-45 days", maint: "Annual irrigation check", life: "20+ years indefinite", custom: "Crane hook lifting points & sub-irrigation kit" }
       }
     },
     materials: [
@@ -649,9 +649,9 @@ const pageConfigs = {
       "Add-ons: Integrated sub-irrigation water wells, root barrier lining, crane lifting lugs, bottom forklift pockets"
     ],
     projects: [
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Smart City Footpath Beautification — 80 Concrete Planters", time: "3 months", desc: "Pedestrian walkways smart city beautification project. Bins and concrete planters act as safe vehicle buffers." },
-      { tag: "Taj Lands End", subtitle: "Taj Hotels — Mumbai", title: "Luxury Hotel Entrance Walkways — 30 Concrete Planters", time: "2 months", desc: "Installed custom circular sand-textured concrete planters containing seasonal flowers along the main driveway. Internally waterproofed to prevent salt-stain seepage and maintain premium hotel aesthetics." },
-      { tag: "Tata Green Hills", subtitle: "Tata Realty — Pune", title: "Corporate Rooftop Terrace — 60 Lightweight Planters", time: "2 months", desc: "Supplied 60 lightweight fiberglass partition planters for Tata's staff lunch deck. The low-weight structures met structural deck load limits." }
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Smart City Footpath Beautification ΓÇö 80 Concrete Planters", time: "3 months", desc: "Pedestrian walkways smart city beautification project. Bins and concrete planters act as safe vehicle buffers." },
+      { tag: "Taj Lands End", subtitle: "Taj Hotels ΓÇö Mumbai", title: "Luxury Hotel Entrance Walkways ΓÇö 30 Concrete Planters", time: "2 months", desc: "Installed custom circular sand-textured concrete planters containing seasonal flowers along the main driveway. Internally waterproofed to prevent salt-stain seepage and maintain premium hotel aesthetics." },
+      { tag: "Tata Green Hills", subtitle: "Tata Realty ΓÇö Pune", title: "Corporate Rooftop Terrace ΓÇö 60 Lightweight Planters", time: "2 months", desc: "Supplied 60 lightweight fiberglass partition planters for Tata's staff lunch deck. The low-weight structures met structural deck load limits." }
     ],
     stats: { p: "50+", c: "18+", o: "2000+", pLbl: "B2B Projects Delivered", cLbl: "Cities Served", oLbl: "Street Planters Installed" },
     faqList: [
@@ -681,25 +681,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard Woven Lounger — Flat Profile",
+        title: "Standard Woven Lounger ΓÇö Flat Profile",
         ideal: "Residential rooftop pools, private apartment terraces, budget hotels.",
         features: ["Frame: Powder coated aluminium structure", "Body Wrap: Standard HDPE rattan weave", "Design: Fixed flat lounge bed without cushions", "Capacity: 120 kg weight capacity"],
         imgIdx: 1,
-        matrix: { dims: "1900L × 650W × 350H mm", wt: "12-14 kg", lt: "20-25 days", maint: "Zero (hose wash)", life: "5-6 years", custom: "None" }
+        matrix: { dims: "1900L ├ù 650W ├ù 350H mm", wt: "12-14 kg", lt: "20-25 days", maint: "Zero (hose wash)", life: "5-6 years", custom: "None" }
       },
       premium: {
-        title: "Premium Sun Lounger — Adjustable Backrest",
+        title: "Premium Sun Lounger ΓÇö Adjustable Backrest",
         ideal: "5-star hotel pool decks, premium resort clubs, luxury villa lawns.",
         features: ["Frame: Heavy anodized aluminium alloy", "Body Wrap: High-grade UV-rated PE wicker weave", "Design: Reclining backrest with 75mm Sunbrella outdoor cushion", "Capacity: 150 kg weight capacity"],
         imgIdx: 2,
-        matrix: { dims: "2000L × 700W × 400H mm", wt: "16-18 kg", lt: "25-30 days", maint: "Seasonal fabric wash", life: "8-10 years", custom: "Rear roller wheels for easy transport" }
+        matrix: { dims: "2000L ├ù 700W ├ù 400H mm", wt: "16-18 kg", lt: "25-30 days", maint: "Seasonal fabric wash", life: "8-10 years", custom: "Rear roller wheels for easy transport" }
       },
       super: {
-        title: "Super Premium Double Daybed Lounger — Canopy Style",
+        title: "Super Premium Double Daybed Lounger ΓÇö Canopy Style",
         ideal: "Mega resort pool clubs, beachfront VIP decks, private estate patios.",
         features: ["Frame: Premium marine-grade SS 316 and thick aluminium frames", "Body Wrap: Hand-woven synthetic PE thick rope weave", "Design: Connected double-wide lounger bed with 120mm quick-dry foam bed & overhead retractable fabric shade canopy", "Capacity: 300 kg weight capacity"],
         imgIdx: 3,
-        matrix: { dims: "2000L × 1500W × 450H mm", wt: "45-55 kg", lt: "35-45 days", maint: "Minimal", life: "12+ years", custom: "Retractable overhead Sunbrella fabric canopy" }
+        matrix: { dims: "2000L ├ù 1500W ├ù 450H mm", wt: "45-55 kg", lt: "35-45 days", maint: "Minimal", life: "12+ years", custom: "Retractable overhead Sunbrella fabric canopy" }
       }
     },
     materials: [
@@ -709,15 +709,15 @@ const pageConfigs = {
     ],
     customization: [
       "Weave styles: Flat PE rattan, round synthetic cane, or heavy-duty outdoor polyester rope weaves",
-      "Fabric colors: Available in 30+ solid and textured Sunbrella® or outdoor performance shades",
+      "Fabric colors: Available in 30+ solid and textured Sunbrella┬« or outdoor performance shades",
       "Cushion thickness: Standard (75mm), Deluxe (100mm), or Ultra-plush (150mm quick-dry foam)",
       "Add-ons: Integrated headrest pillows, slide-out side drink trays, rear roller wheels, side canvas storage bags",
       "Frames: Lightweight aluminium, marine-grade SS 316, or raw teak wood bases"
     ],
     projects: [
-      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels — Goa", title: "Luxury Beachfront Resort — 40 Poolside Loungers", time: "3 months", desc: " Taj Hotels partnered with Urbanland to manufacture and supply 40 premium reclining sun loungers. Engineered with rust-proof aluminium and UV-stabilized synthetic wicker, they successsfully withstand beach humidity." },
-      { tag: "Prestige Golfshire", subtitle: "Prestige Group — Bangalore", title: "Resort Golf Clubhouse — 30 Sunbeds & Daybeds", time: "2 months", desc: "Installed custom hand-woven rope loungers around the central clubhouse lagoon. The open-cell reticulated foam cushions dry rapidly after rain." },
-      { tag: "Oberoi Beach Resort", subtitle: "Oberoi Group — Mumbai", title: "Rooftop Pool Deck — 20 Premium Custom Sunbeds", time: "2 months", desc: "Installed custom double sunbeds on the luxury rooftop pool deck. Fronted with rear roller wheels to enable staff to easily adjust configurations." }
+      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels ΓÇö Goa", title: "Luxury Beachfront Resort ΓÇö 40 Poolside Loungers", time: "3 months", desc: " Taj Hotels partnered with Urbanland to manufacture and supply 40 premium reclining sun loungers. Engineered with rust-proof aluminium and UV-stabilized synthetic wicker, they successsfully withstand beach humidity." },
+      { tag: "Prestige Golfshire", subtitle: "Prestige Group ΓÇö Bangalore", title: "Resort Golf Clubhouse ΓÇö 30 Sunbeds & Daybeds", time: "2 months", desc: "Installed custom hand-woven rope loungers around the central clubhouse lagoon. The open-cell reticulated foam cushions dry rapidly after rain." },
+      { tag: "Oberoi Beach Resort", subtitle: "Oberoi Group ΓÇö Mumbai", title: "Rooftop Pool Deck ΓÇö 20 Premium Custom Sunbeds", time: "2 months", desc: "Installed custom double sunbeds on the luxury rooftop pool deck. Fronted with rear roller wheels to enable staff to easily adjust configurations." }
     ],
     stats: { p: "40+", c: "12+", o: "800+", pLbl: "Hotel & Resort Pool Decks", cLbl: "Cities Served", oLbl: "Poolside Loungers Delivered" },
     faqList: [
@@ -747,25 +747,25 @@ const pageConfigs = {
     ],
     tabs: {
       standard: {
-        title: "Standard Fixed Bollard — Surface Anchored",
+        title: "Standard Fixed Bollard ΓÇö Surface Anchored",
         ideal: "Pedestrian walkway boundaries, retail shopfronts, residential park paths.",
         features: ["Material: Stainless Steel 304 tube", "Finish: Satin brushed steel finish", "Design: Flat top fixed surface mounted bollard", "Capacity: Standard pedestrian boundary barrier"],
         imgIdx: 1,
-        matrix: { dims: "800H × 114D mm (3mm wall)", wt: "12-15 kg", lt: "15-20 days", maint: "Zero (periodic wipe)", life: "10-12 years", custom: "Surface mount anchor flange" }
+        matrix: { dims: "800H ├ù 114D mm (3mm wall)", wt: "12-15 kg", lt: "15-20 days", maint: "Zero (periodic wipe)", life: "10-12 years", custom: "Surface mount anchor flange" }
       },
       premium: {
-        title: "Premium Fixed Bollard — Inground Cast Core",
+        title: "Premium Fixed Bollard ΓÇö Inground Cast Core",
         ideal: "Airport terminals, corporate park entrance gates, shopping mall driveways.",
         features: ["Material: Stainless Steel 316 (coastal marine grade)", "Finish: Mirror polished steel with reflective hazard band", "Design: Domed top inground bollard for concrete casting", "Capacity: Medium-impact security core barrier"],
         imgIdx: 2,
-        matrix: { dims: "1000H × 168D mm (4mm wall)", wt: "25-30 kg (empty)", lt: "20-25 days", maint: "Zero", life: "15+ years", custom: "Extended sub-surface casting root" }
+        matrix: { dims: "1000H ├ù 168D mm (4mm wall)", wt: "25-30 kg (empty)", lt: "20-25 days", maint: "Zero", life: "15+ years", custom: "Extended sub-surface casting root" }
       },
       super: {
-        title: "Super Premium Bollard — Removable Key-Lockable",
+        title: "Super Premium Bollard ΓÇö Removable Key-Lockable",
         ideal: "Emergency vehicle lanes, VIP parking zones, municipal plazas.",
         features: ["Material: Heavy-wall SS 316 tube with cast steel ground sleeve", "Finish: Satin brushed steel with integrated LED light head", "Design: Removable lockable bollard with internal locking brass lock", "Tech: Low-voltage LED illuminated head ring"],
         imgIdx: 3,
-        matrix: { dims: "900H × 140D mm (5mm wall)", wt: "35 kg (bollard) + 12 kg (sleeve)", lt: "25-35 days", maint: "Annual lock cylinder lube", life: "20+ years", custom: "Sleeve flush ground cover lid" }
+        matrix: { dims: "900H ├ù 140D mm (5mm wall)", wt: "35 kg (bollard) + 12 kg (sleeve)", lt: "25-35 days", maint: "Annual lock cylinder lube", life: "20+ years", custom: "Sleeve flush ground cover lid" }
       }
     },
     materials: [
@@ -781,9 +781,9 @@ const pageConfigs = {
       "Bollard Types: Permanent fixed, removable key-locked, manual collapsible, or sub-surface cast-in roots"
     ],
     projects: [
-      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Metro Station Entrances — 300 Fixed SS Bollards", time: "4 months", desc: " Nagpur Smart City authority deployed 300 inground fixed SS 304 bollards across 10 metro station plazas. The concrete-filled bollards provide high-security pedestrian boundary protection." },
-      { tag: "Taj Lands End", subtitle: "Taj Hotels — Mumbai", title: "Luxury Hotel Driveway Security — 45 SS Bollards", time: "2 months", desc: "Installed custom mirror-polished SS 316 fixed bollards along the hotel entrance driveway. The marine-grade steel resists beachfront salt spray." },
-      { tag: "Tata Green Hills", subtitle: "Tata Realty — Pune", title: "Emergency Fire Lane Gates — 20 Removable Bollards", time: "2 months", desc: "Supplied and installed 20 removable key-locked bollards at emergency fire exits. The sleeve design allows security staff to clear the road rapidly." }
+      { tag: "Nagpur Smart City", subtitle: "Nagpur Municipal Corp", title: "Metro Station Entrances ΓÇö 300 Fixed SS Bollards", time: "4 months", desc: " Nagpur Smart City authority deployed 300 inground fixed SS 304 bollards across 10 metro station plazas. The concrete-filled bollards provide high-security pedestrian boundary protection." },
+      { tag: "Taj Lands End", subtitle: "Taj Hotels ΓÇö Mumbai", title: "Luxury Hotel Driveway Security ΓÇö 45 SS Bollards", time: "2 months", desc: "Installed custom mirror-polished SS 316 fixed bollards along the hotel entrance driveway. The marine-grade steel resists beachfront salt spray." },
+      { tag: "Tata Green Hills", subtitle: "Tata Realty ΓÇö Pune", title: "Emergency Fire Lane Gates ΓÇö 20 Removable Bollards", time: "2 months", desc: "Supplied and installed 20 removable key-locked bollards at emergency fire exits. The sleeve design allows security staff to clear the road rapidly." }
     ],
     stats: { p: "70+", c: "22+", o: "4000+", pLbl: "Security Projects Completed", cLbl: "Cities Served", oLbl: "SS Bollards Delivered" },
     faqList: [
@@ -808,26 +808,26 @@ const pageConfigs = {
     reasons: [
       { title: "HDPE Synthetic Cane", desc: "Weaved using 100% recyclable High-Density Polyethylene (HDPE) cane, formulated to resist split, fade, mold, and rot." },
       { title: "Aluminium Under-Chassis", desc: "Weaved over thick-walled structural aluminium underframes, ensuring a lightweight, completely rust-proof core." },
-      { title: "Performance Fabrics", desc: "Cushion covers use Sunbrella® or outdoor acrylic fabrics, offering premium water repellency and UV colorfastness." },
+      { title: "Performance Fabrics", desc: "Cushion covers use Sunbrella┬« or outdoor acrylic fabrics, offering premium water repellency and UV colorfastness." },
       { title: "Reticulated Quick-Dry", desc: "Cushion cores are filled with reticulated open-cell foam, allowing monsoon rain to drain out within minutes of downpours." }
     ],
     tabs: {
       standard: {
-        title: "Standard Wicker Chair & Table Set — Bistro Style",
+        title: "Standard Wicker Chair & Table Set ΓÇö Bistro Style",
         ideal: "Residential balconies, small cafe patios, society clubhouse decks.",
         features: ["Frame: Powder coated steel with PE cane weave", "Fabric: Standard water-resistant polyester", "Design: 2x Armchairs, 1x Circular glass top side table", "Capacity: Standard residential seating load"],
         imgIdx: 1,
-        matrix: { dims: "Chair: 600W × 600D × 850H mm", wt: "18 kg (total set)", lt: "25-30 days", maint: "Low (hose down clean)", life: "5-6 years", custom: "None" }
+        matrix: { dims: "Chair: 600W ├ù 600D ├ù 850H mm", wt: "18 kg (total set)", lt: "25-30 days", maint: "Low (hose down clean)", life: "5-6 years", custom: "None" }
       },
       premium: {
-        title: "Premium Wicker Dining Set — Resort Collection",
+        title: "Premium Wicker Dining Set ΓÇö Resort Collection",
         ideal: "Hotel rooftop dining, open-air resort restaurants, large villa terraces.",
         features: ["Frame: Structural anodized aluminium under-chassis", "Body Wrap: High-grade HDPE wicker flat weave", "Cushions: 50mm quick-dry foam seat pads with Sunbrella covers", "Design: 6x Dining armchairs, 1x Rectangular dining table (tempered glass top)"],
         imgIdx: 2,
-        matrix: { dims: "Table: 1800L × 900W × 750H mm", wt: "65 kg (total set)", lt: "30-45 days", maint: "Seasonal fabric wash", life: "8-10 years", custom: "Tempered glass table top protector" }
+        matrix: { dims: "Table: 1800L ├ù 900W ├ù 750H mm", wt: "65 kg (total set)", lt: "30-45 days", maint: "Seasonal fabric wash", life: "8-10 years", custom: "Tempered glass table top protector" }
       },
       super: {
-        title: "Super Premium Modular Sofa Lounge — Island Style",
+        title: "Super Premium Modular Sofa Lounge ΓÇö Island Style",
         ideal: "Luxury beach clubs, resort lobbies, premium executive rooftop decks.",
         features: ["Frame: Heavy structural aluminium wrapped in synthetic PE rope weave", "Body Wrap: Thick round PE wicker or synthetic rope weave", "Cushions: 120mm plush quick-dry foam cushions with modular back pillows", "Design: L-shape modular sofa set (6-seater) with central coffee table"],
         imgIdx: 3,
@@ -842,14 +842,14 @@ const pageConfigs = {
     customization: [
       "Weave types: Flat rattan, round synthetic cane, open basket weave, or vertical outdoor rope weaves",
       "Colors: Wicker available in natural teak, espresso brown, charcoal black, or sand beige shades",
-      "Fabrics: Available in 30+ textured solid outdoor acrylic or Sunbrella® canvas colors",
+      "Fabrics: Available in 30+ textured solid outdoor acrylic or Sunbrella┬« canvas colors",
       "Table Tops: Toughened clear glass, frosted glass, solid teak wood slats, or WPC board tops",
       "Configurations: Custom modular seating rows, L-shaped sectional sofas, or large banquette dining setups"
     ],
     projects: [
-      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels — Goa", title: "Rooftop Cafeteria Deck — 25 Wicker Dining Sets", time: "3 months", desc: " taj Hotels partnered with Urbanland to manufacture and deploy 25 premium wicker dining sets for their open-air oceanfront cafe. The aluminium frames and HDPE weaves successfully withstand Goan humidity." },
-      { tag: "Prestige Golfshire", subtitle: "Prestige Group — Bangalore", title: "Clubhouse Terrace — 15 Wicker Lounge Ensembles", time: "2 months", desc: "Installed custom modular wicker sectional sofas around the central golf clubhouse deck. The reticulated quick-dry foam cushions ensure seating is dry and usable within minutes of rain." },
-      { tag: "Oberoi Beach Resort", subtitle: "Oberoi Group — Mumbai", title: "VIP Poolside Deck — 10 Custom Daybed Cabanas", time: "2 months", desc: "Manufactured and installed 10 bespoke circular wicker loungers for a VIP poolside lounge area. Rear roller wheels enable staff to easily adjust configurations." }
+      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels ΓÇö Goa", title: "Rooftop Cafeteria Deck ΓÇö 25 Wicker Dining Sets", time: "3 months", desc: " taj Hotels partnered with Urbanland to manufacture and deploy 25 premium wicker dining sets for their open-air oceanfront cafe. The aluminium frames and HDPE weaves successfully withstand Goan humidity." },
+      { tag: "Prestige Golfshire", subtitle: "Prestige Group ΓÇö Bangalore", title: "Clubhouse Terrace ΓÇö 15 Wicker Lounge Ensembles", time: "2 months", desc: "Installed custom modular wicker sectional sofas around the central golf clubhouse deck. The reticulated quick-dry foam cushions ensure seating is dry and usable within minutes of rain." },
+      { tag: "Oberoi Beach Resort", subtitle: "Oberoi Group ΓÇö Mumbai", title: "VIP Poolside Deck ΓÇö 10 Custom Daybed Cabanas", time: "2 months", desc: "Manufactured and installed 10 bespoke circular wicker loungers for a VIP poolside lounge area. Rear roller wheels enable staff to easily adjust configurations." }
     ],
     stats: { p: "45+", c: "12+", o: "600+", pLbl: "Hotel & Resort Terraces", cLbl: "Cities Served", oLbl: "Wicker Dining Sets Delivered" },
     faqList: [
@@ -874,26 +874,26 @@ const pageConfigs = {
     reasons: [
       { title: "HDPE Synthetic Cane", desc: "Weaved using 100% recyclable High-Density Polyethylene (HDPE) cane, formulated to resist split, fade, mold, and rot." },
       { title: "Aluminium Under-Chassis", desc: "Weaved over thick-walled structural aluminium underframes, ensuring a lightweight, completely rust-proof core." },
-      { title: "Performance Fabrics", desc: "Cushion covers use Sunbrella® or outdoor acrylic fabrics, offering premium water repellency and UV colorfastness." },
+      { title: "Performance Fabrics", desc: "Cushion covers use Sunbrella┬« or outdoor acrylic fabrics, offering premium water repellency and UV colorfastness." },
       { title: "Reticulated Quick-Dry", desc: "Cushion cores are filled with reticulated open-cell foam, allowing monsoon rain to drain out within minutes of downpours." }
     ],
     tabs: {
       standard: {
-        title: "Standard Wicker Chair & Table Set — Bistro Style",
+        title: "Standard Wicker Chair & Table Set ΓÇö Bistro Style",
         ideal: "Residential balconies, small cafe patios, society clubhouse decks.",
         features: ["Frame: Powder coated steel with PE cane weave", "Fabric: Standard water-resistant polyester", "Design: 2x Armchairs, 1x Circular glass top side table", "Capacity: Standard residential seating load"],
         imgIdx: 1,
-        matrix: { dims: "Chair: 600W × 600D × 850H mm", wt: "18 kg (total set)", lt: "25-30 days", maint: "Low (hose down clean)", life: "5-6 years", custom: "None" }
+        matrix: { dims: "Chair: 600W ├ù 600D ├ù 850H mm", wt: "18 kg (total set)", lt: "25-30 days", maint: "Low (hose down clean)", life: "5-6 years", custom: "None" }
       },
       premium: {
-        title: "Premium Wicker Dining Set — Resort Collection",
+        title: "Premium Wicker Dining Set ΓÇö Resort Collection",
         ideal: "Hotel rooftop dining, open-air resort restaurants, large villa terraces.",
         features: ["Frame: Structural anodized aluminium under-chassis", "Body Wrap: High-grade HDPE wicker flat weave", "Cushions: 50mm quick-dry foam seat pads with Sunbrella covers", "Design: 6x Dining armchairs, 1x Rectangular dining table (tempered glass top)"],
         imgIdx: 2,
-        matrix: { dims: "Table: 1800L × 900W × 750H mm", wt: "65 kg (total set)", lt: "30-45 days", maint: "Seasonal fabric wash", life: "8-10 years", custom: "Tempered glass table top protector" }
+        matrix: { dims: "Table: 1800L ├ù 900W ├ù 750H mm", wt: "65 kg (total set)", lt: "30-45 days", maint: "Seasonal fabric wash", life: "8-10 years", custom: "Tempered glass table top protector" }
       },
       super: {
-        title: "Super Premium Modular Sofa Lounge — Island Style",
+        title: "Super Premium Modular Sofa Lounge ΓÇö Island Style",
         ideal: "Luxury beach clubs, resort lobbies, premium executive rooftop decks.",
         features: ["Frame: Heavy structural aluminium wrapped in synthetic PE rope weave", "Body Wrap: Thick round PE wicker or synthetic rope weave", "Cushions: 120mm plush quick-dry foam cushions with modular back pillows", "Design: L-shape modular sofa set (6-seater) with central coffee table"],
         imgIdx: 3,
@@ -908,14 +908,14 @@ const pageConfigs = {
     customization: [
       "Weave types: Flat rattan, round synthetic cane, open basket weave, or vertical outdoor rope weaves",
       "Colors: Wicker available in natural teak, espresso brown, charcoal black, or sand beige shades",
-      "Fabrics: Available in 30+ textured solid outdoor acrylic or Sunbrella® canvas colors",
+      "Fabrics: Available in 30+ textured solid outdoor acrylic or Sunbrella┬« canvas colors",
       "Table Tops: Toughened clear glass, frosted glass, solid teak wood slats, or WPC board tops",
       "Configurations: Custom modular seating rows, L-shaped sectional sofas, or large banquette dining setups"
     ],
     projects: [
-      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels — Goa", title: "Rooftop Cafeteria Deck — 25 Wicker Dining Sets", time: "3 months", desc: " taj Hotels partnered with Urbanland to manufacture and deploy 25 premium wicker dining sets for their open-air oceanfront cafe. The aluminium frames and HDPE weaves successfully withstand Goan humidity." },
-      { tag: "Prestige Golfshire", subtitle: "Prestige Group — Bangalore", title: "Clubhouse Terrace — 15 Wicker Lounge Ensembles", time: "2 months", desc: "Installed custom modular wicker sectional sofas around the central golf clubhouse deck. The reticulated quick-dry foam cushions ensure seating is dry and usable within minutes of rain." },
-      { tag: "Oberoi Beach Resort", subtitle: "Oberoi Group — Mumbai", title: "VIP Poolside Deck — 10 Custom Daybed Cabanas", time: "2 months", desc: "Manufactured and installed 10 bespoke circular wicker loungers for a VIP poolside lounge area. Rear roller wheels enable staff to easily adjust configurations." }
+      { tag: "Taj Exotica Goa", subtitle: "Taj Hotels ΓÇö Goa", title: "Rooftop Cafeteria Deck ΓÇö 25 Wicker Dining Sets", time: "3 months", desc: " taj Hotels partnered with Urbanland to manufacture and deploy 25 premium wicker dining sets for their open-air oceanfront cafe. The aluminium frames and HDPE weaves successfully withstand Goan humidity." },
+      { tag: "Prestige Golfshire", subtitle: "Prestige Group ΓÇö Bangalore", title: "Clubhouse Terrace ΓÇö 15 Wicker Lounge Ensembles", time: "2 months", desc: "Installed custom modular wicker sectional sofas around the central golf clubhouse deck. The reticulated quick-dry foam cushions ensure seating is dry and usable within minutes of rain." },
+      { tag: "Oberoi Beach Resort", subtitle: "Oberoi Group ΓÇö Mumbai", title: "VIP Poolside Deck ΓÇö 10 Custom Daybed Cabanas", time: "2 months", desc: "Manufactured and installed 10 bespoke circular wicker loungers for a VIP poolside lounge area. Rear roller wheels enable staff to easily adjust configurations." }
     ],
     stats: { p: "45+", c: "12+", o: "600+", pLbl: "Hotel & Resort Terraces", cLbl: "Cities Served", oLbl: "Wicker Dining Sets Delivered" },
     faqList: [
@@ -932,13 +932,13 @@ const pageConfigs = {
 function parseDocxContent(txt) {
   const sections = {};
   const lines = txt.split('\n').map(l => l.trim()).filter(Boolean);
-
+  
   sections.metaTitle = lines.find(l => l.startsWith("Meta Title:"))?.replace("Meta Title:", "").trim() || "";
   sections.metaDesc = lines.find(l => l.startsWith("Meta Description:"))?.replace("Meta Description:", "").trim() || "";
-
+  
   const h1Index = lines.findIndex(l => l.toLowerCase().includes("h1 heading") || l.toLowerCase().includes("main heading"));
   sections.h1 = h1Index !== -1 ? lines[h1Index + 1] : "Premium Outdoor Products";
-
+  
   const subIndex = lines.findIndex(l => l.toLowerCase().includes("sub-headline"));
   sections.subHeadline = subIndex !== -1 ? lines[subIndex + 1] : "Premium urban architectural designs.";
 
@@ -984,8 +984,8 @@ function parseDocxContent(txt) {
       const line = lines[cursor];
       if (line.toLowerCase().includes("customization options")) {
         mode = 'options';
-      } else if (line.startsWith("-") || line.startsWith("•") || line.startsWith("✓") || /^[0-9]/.test(line)) {
-        const cleanLine = line.replace(/^[-•✓\d.]\s*/, "");
+      } else if (line.startsWith("-") || line.startsWith("ΓÇó") || line.startsWith("Γ£ô") || /^[0-9]/.test(line)) {
+        const cleanLine = line.replace(/^[-ΓÇóΓ£ô\d.]\s*/, "");
         if (mode === 'features') {
           featuresList.push(cleanLine);
         } else {
@@ -1059,7 +1059,6 @@ import { Link } from "react-router-dom";
 import { updatePageSEO, cleanPageSEO } from "../../lib/seo";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import CTASection from "../../components/CTASection/CTASection";
 
 ${imagesImports}
 
@@ -1087,8 +1086,6 @@ const brandLogos = [
     { name: "Lodha Group", img: logo9 },
     { name: "Godrej Properties", img: logo10 }
 ];
-
-const carouselImages = [${config.images.map((_, idx) => `carouselImg${idx + 1}`).join(", ")}];
 
 const ${componentName} = () => {
     const [activeTab, setActiveTab] = useState("standard");
@@ -1141,6 +1138,10 @@ const ${componentName} = () => {
         }
     };
 
+    const [exitPopupVisible, setExitPopupVisible] = useState(false);
+    const [exitPopupSubmitted, setExitPopupSubmitted] = useState(false);
+    const [emailInput, setEmailInput] = useState("");
+
     const trackEvent = (eventName, value = "") => {
         if (window.gtag) {
             window.gtag("event", eventName, {
@@ -1170,6 +1171,36 @@ const ${componentName} = () => {
 
         window.addEventListener("scroll", handleScroll);
 
+        const sessionKey = "urbanland_exit_intent_${labelSuffix}";
+        const isShown = sessionStorage.getItem(sessionKey);
+
+        if (!isShown) {
+            const handleMouseLeave = (e) => {
+                if (e.clientY < 20) {
+                    triggerPopup();
+                }
+            };
+            const timer = setTimeout(() => {
+                triggerPopup();
+            }, 45000);
+
+            const triggerPopup = () => {
+                setExitPopupVisible(true);
+                sessionStorage.setItem(sessionKey, "true");
+                document.removeEventListener("mouseleave", handleMouseLeave);
+                clearTimeout(timer);
+            };
+
+            document.addEventListener("mouseleave", handleMouseLeave);
+
+            return () => {
+                cleanPageSEO();
+                window.removeEventListener("scroll", handleScroll);
+                document.removeEventListener("mouseleave", handleMouseLeave);
+                clearTimeout(timer);
+            };
+        }
+
         return () => {
             cleanPageSEO();
             window.removeEventListener("scroll", handleScroll);
@@ -1195,14 +1226,14 @@ const ${componentName} = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 border-t border-[#2D2D2D]/10 pt-8">
                 <div>
-                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
+                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">ΓÇö Key Features</h4>
                     <ul className="flex flex-col gap-3 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
                         {${JSON.stringify(config.tabs.standard.features)}.map((f, idx) => (
-                            <li key={idx} className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> {f}</li>
+                            <li key={idx} className="flex items-center gap-3"><span className="text-[#C9A84C]">Γû╕</span> {f}</li>
                         ))}
                     </ul>
 
-                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">— Ideal For</h4>
+                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">ΓÇö Ideal For</h4>
                     <p className="text-xs sm:text-sm text-[#2D2D2D]/75 font-semibold leading-relaxed">
                         ${config.tabs.standard.ideal}
                     </p>
@@ -1218,7 +1249,7 @@ const ${componentName} = () => {
 
                 <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between gap-6">
                     <div>
-                        <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-black/60 mb-4 select-none">— Specifications Matrix</h4>
+                        <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-black/60 mb-4 select-none">ΓÇö Specifications Matrix</h4>
                         <div className="w-full border border-black/[0.04] rounded-2xl bg-white p-4 sm:p-6 overflow-hidden shadow-sm">
                             <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-y-4 gap-x-4 text-xs font-semibold text-[#1A1A1A]">
                                 <div>
@@ -1250,7 +1281,7 @@ const ${componentName} = () => {
                         onClick={() => trackEvent("variant_selection", "standard")}
                         className="px-6 py-4 bg-[#2C5F2E] hover:bg-black text-white rounded-full font-black uppercase tracking-wider text-[10px] text-center transition-colors duration-300 w-full"
                     >
-                        Get Standard Quote →
+                        Get Standard Quote ΓåÆ
                     </Link>
                 </div>
             </div>
@@ -1267,14 +1298,14 @@ const ${componentName} = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 border-t border-[#2D2D2D]/10 pt-8">
                 <div>
-                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
+                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">ΓÇö Key Features</h4>
                     <ul className="flex flex-col gap-3 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
                         {${JSON.stringify(config.tabs.premium.features)}.map((f, idx) => (
-                            <li key={idx} className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> {f}</li>
+                            <li key={idx} className="flex items-center gap-3"><span className="text-[#C9A84C]">Γû╕</span> {f}</li>
                         ))}
                     </ul>
 
-                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">— Ideal For</h4>
+                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">ΓÇö Ideal For</h4>
                     <p className="text-xs sm:text-sm text-[#2D2D2D]/75 font-semibold leading-relaxed">
                         ${config.tabs.premium.ideal}
                     </p>
@@ -1290,7 +1321,7 @@ const ${componentName} = () => {
 
                 <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between gap-6">
                     <div>
-                        <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-black/60 mb-4 select-none">— Specifications Matrix</h4>
+                        <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-black/60 mb-4 select-none">ΓÇö Specifications Matrix</h4>
                         <div className="w-full border border-black/[0.04] rounded-2xl bg-white p-4 sm:p-6 overflow-hidden shadow-sm">
                             <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-y-4 gap-x-4 text-xs font-semibold text-[#1A1A1A]">
                                 <div>
@@ -1326,7 +1357,7 @@ const ${componentName} = () => {
                         onClick={() => trackEvent("variant_selection", "premium")}
                         className="px-6 py-4 bg-[#2C5F2E] hover:bg-black text-white rounded-full font-black uppercase tracking-wider text-[10px] text-center transition-colors duration-300 w-full"
                     >
-                        Get Premium Quote →
+                        Get Premium Quote ΓåÆ
                     </Link>
                 </div>
             </div>
@@ -1343,14 +1374,14 @@ const ${componentName} = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 border-t border-[#2D2D2D]/10 pt-8">
                 <div>
-                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">— Key Features</h4>
+                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-4 select-none">ΓÇö Key Features</h4>
                     <ul className="flex flex-col gap-3 text-xs sm:text-sm font-semibold text-[#1A1A1A]/85">
                         {${JSON.stringify(config.tabs.super.features)}.map((f, idx) => (
-                            <li key={idx} className="flex items-center gap-3"><span className="text-[#C9A84C]">▸</span> {f}</li>
+                            <li key={idx} className="flex items-center gap-3"><span className="text-[#C9A84C]">Γû╕</span> {f}</li>
                         ))}
                     </ul>
 
-                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">— Ideal For</h4>
+                    <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mt-10 mb-4 select-none">ΓÇö Ideal For</h4>
                     <p className="text-xs sm:text-sm text-[#2D2D2D]/75 font-semibold leading-relaxed">
                         ${config.tabs.super.ideal}
                     </p>
@@ -1366,7 +1397,7 @@ const ${componentName} = () => {
 
                 <div className="bg-[#F7F4EF] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between gap-6">
                     <div>
-                        <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-black/60 mb-4 select-none">— Specifications Matrix</h4>
+                        <h4 className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-black/60 mb-4 select-none">ΓÇö Specifications Matrix</h4>
                         <div className="w-full border border-black/[0.04] rounded-2xl bg-white p-4 sm:p-6 overflow-hidden shadow-sm">
                             <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-y-4 gap-x-4 text-xs font-semibold text-[#1A1A1A]">
                                 <div>
@@ -1402,7 +1433,7 @@ const ${componentName} = () => {
                         onClick={() => trackEvent("variant_selection", "super_premium")}
                         className="px-6 py-4 bg-[#C9A84C] hover:bg-black text-[#232120] hover:text-white rounded-full font-black uppercase tracking-wider text-[10px] text-center transition-colors duration-300 w-full"
                     >
-                        Get Super Premium Proposal →
+                        Get Super Premium Proposal ΓåÆ
                     </Link>
                 </div>
             </div>
@@ -1415,7 +1446,7 @@ const ${componentName} = () => {
             {/* STICKY HEADER ON SCROLL (Desktop only) */}
             <div className={\`fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-[#2D2D2D]/10 py-4 px-8 lg:px-16 z-[99] flex justify-between items-center transition-all duration-500 shadow-md \${showStickyHeader ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"}\`}>
                 <div className="flex items-center gap-3">
-                    <span className="text-[#2C5F2E] font-black tracking-tighter text-lg">URBANLAND®</span>
+                    <span className="text-[#2C5F2E] font-black tracking-tighter text-lg">URBANLAND┬«</span>
                     <span className="text-[10px] uppercase font-bold tracking-widest text-[#2D2D2D]/50 hidden sm:inline">${pageName}</span>
                 </div>
                 <Link
@@ -1423,12 +1454,12 @@ const ${componentName} = () => {
                     onClick={() => trackEvent("product_page_cta_primary", "quote_request")}
                     className="px-6 py-2.5 bg-[#E65F2B] hover:bg-black text-white rounded-full font-black uppercase tracking-wider text-[10px] transition-all shadow-sm"
                 >
-                    Get Project Quote →
+                    Get Project Quote ΓåÆ
                 </Link>
             </div>
 
             {/* BREADCRUMB NAVIGATION */}
-            <div className="w-full px-8 md:px-16 py-4 select-none">
+            <div className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 py-4 select-none">
                 <nav className="flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#2D2D2D]/60 gap-2">
                     <Link to="/" className="hover:text-[#2C5F2E] transition-colors">Home</Link>
                     <span>/</span>
@@ -1439,60 +1470,63 @@ const ${componentName} = () => {
             </div>
 
             {/* PREMIUM HORIZONTAL CAROUSEL HERO SECTION */}
-            <section className="w-full mb-8 relative select-none group/carousel">
-                {/* Floating Left Navigation Button */}
-                <button
-                    onClick={scrollHeroLeft}
-                    className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm hover:bg-white text-[#1A1A1A] rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border border-black/5 opacity-100 lg:opacity-0 lg:group-hover/carousel:opacity-100"
-                    aria-label="Scroll left"
-                >
-                    <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-
-                {/* Floating Right Navigation Button */}
-                <button
-                    onClick={scrollHeroRight}
-                    className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm hover:bg-white text-[#1A1A1A] rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer border border-black/5 opacity-100 lg:opacity-0 lg:group-hover/carousel:opacity-100"
-                    aria-label="Scroll right"
-                >
-                    <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-
+            <section className="w-full mb-8 relative select-none">
                 <div 
                     ref={heroScrollRef}
-                    className="flex gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth pb-4 px-8 md:px-16 scroll-pl-8 md:scroll-pl-16"
+                    className="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-4 px-6 md:px-12"
                 >
                     {${JSON.stringify(config.carouselCards)}.map((card, idx) => (
-                        <div key={idx} className="flex-shrink-0 snap-start w-[84vw] sm:w-[64vw] md:w-[46vw] lg:w-[32vw] aspect-[3/3.8] rounded-[1.75rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
+                        <div key={idx} className="flex-shrink-0 w-[90vw] sm:w-[65vw] md:w-[48vw] lg:w-[32.5vw] aspect-[3/4.2] min-h-[420px] sm:min-h-[520px] md:min-h-[620px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col justify-between p-8 md:p-10 relative group transition-all duration-500 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] border border-black/5">
                             <img 
-                                src={carouselImages[idx % carouselImages.length]} 
-                                alt={card.tag || "carousel-image"} 
+                                src={idx % 2 === 0 ? carouselImg1 : carouselImg2} 
+                                alt={card.tag} 
                                 className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55 pointer-events-none" />
 
                             <div className="z-10">
-                                <h3 className="carousel-card-title tracking-tight text-white leading-[1.1] font-sans" dangerouslySetInnerHTML={{ __html: card.h }} />
+                                <span className="text-[9px] font-black uppercase tracking-wider bg-[#C9A84C] text-[#232120] px-3.5 py-1.5 rounded-full w-fit mb-3 block">
+                                    {card.tag}
+                                </span>
+                                <h3 className="text-3xl md:text-[2.6rem] font-light uppercase tracking-tight text-white leading-[1.05] font-sans" dangerouslySetInnerHTML={{ __html: card.h }} />
                             </div>
 
                             <div className="z-10 flex justify-between items-end w-full">
-                                <span className="text-xs md:text-[13px] font-normal tracking-wide text-white/90">
-                                    <span className="font-bold mr-3 text-white">{card.label}</span>{card.desc}
+                                <span className="text-[11px] font-bold tracking-wide text-white/90 uppercase">
+                                    <span className="font-black mr-2 text-[#C9A84C]">{card.label}</span>{card.desc}
                                 </span>
+                                {idx === 2 && (
+                                    <button 
+                                        onClick={scrollHeroRight}
+                                        className="w-12 h-12 bg-white text-[#1A1A1A] rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer pointer-events-auto shrink-0 border border-black/5"
+                                        aria-label="Next slide"
+                                    >
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                )}
+                                {idx === ${config.carouselCards.length - 1} && (
+                                    <button 
+                                        onClick={scrollHeroStart}
+                                        className="w-12 h-12 bg-white text-[#1A1A1A] rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer pointer-events-auto shrink-0 border border-black/5"
+                                        aria-label="Start over"
+                                    >
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18" />
+                                        </svg>
+                                    </button>
+                                )}
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* SECTION 1 — WHY CHOOSE URBANLAND */}
+            {/* SECTION 1 ΓÇö WHY CHOOSE URBANLAND */}
             <section className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 mb-24">
                 <div className="text-left mb-16 max-w-5xl">
-                    <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— CHOOSE DURABILITY</span>
+                    <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">ΓÇö CHOOSE DURABILITY</span>
                     <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
                         Why Developers, Municipalities & Architects Choose Urbanland
                     </h2>
@@ -1501,7 +1535,7 @@ const ${componentName} = () => {
                     </p>
                 </div>
 
-                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-8">— 4 Core Reasons</h3>
+                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-8">ΓÇö 4 Core Reasons</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 select-none">
                     {${JSON.stringify(config.reasons)}.map((r, idx) => (
@@ -1518,12 +1552,12 @@ const ${componentName} = () => {
                 </div>
             </section>
 
-            {/* SECTION 2 — THREE CONFIGURATIONS */}
+            {/* SECTION 2 ΓÇö THREE CONFIGURATIONS */}
             <section className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 mb-24">
                 <div className="text-left mb-12 max-w-4xl">
-                    <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— SYSTEM SPECS MATRIX</span>
+                    <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">ΓÇö SYSTEM SPECS MATRIX</span>
                     <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
-                        Three ${pageName} Configurations — Choose What Fits Your Project
+                        Three ${pageName} Configurations ΓÇö Choose What Fits Your Project
                     </h2>
                     <p className="text-sm sm:text-base text-[#2D2D2D]/75 mt-4">
                         All Urbanland architectural products are built on proven specifications but fully customizable.
@@ -1566,7 +1600,7 @@ const ${componentName} = () => {
                             className="w-full text-left p-6 flex justify-between items-center font-black uppercase tracking-wider text-sm text-[#1A1A1A]"
                         >
                             <span>Standard Configuration</span>
-                            <span className="text-[#2C5F2E] text-xl font-bold font-mono">{activeTab === "standard" ? "−" : "+"}</span>
+                            <span className="text-[#2C5F2E] text-xl font-bold font-mono">{activeTab === "standard" ? "ΓêÆ" : "+"}</span>
                         </button>
                         {activeTab === "standard" && <div className="p-6 border-t border-[#2D2D2D]/5 bg-white">{renderStandardTab()}</div>}
                     </div>
@@ -1577,7 +1611,7 @@ const ${componentName} = () => {
                             className="w-full text-left p-6 flex justify-between items-center font-black uppercase tracking-wider text-sm text-[#1A1A1A]"
                         >
                             <span>Premium Configuration</span>
-                            <span className="text-[#2C5F2E] text-xl font-bold font-mono">{activeTab === "premium" ? "−" : "+"}</span>
+                            <span className="text-[#2C5F2E] text-xl font-bold font-mono">{activeTab === "premium" ? "ΓêÆ" : "+"}</span>
                         </button>
                         {activeTab === "premium" && <div className="p-6 border-t border-[#2D2D2D]/5 bg-white">{renderPremiumTab()}</div>}
                     </div>
@@ -1588,7 +1622,7 @@ const ${componentName} = () => {
                             className="w-full text-left p-6 flex justify-between items-center font-black uppercase tracking-wider text-sm text-[#1A1A1A]"
                         >
                             <span>Super Premium Configuration</span>
-                            <span className="text-[#2C5F2E] text-xl font-bold font-mono">{activeTab === "super" ? "−" : "+"}</span>
+                            <span className="text-[#2C5F2E] text-xl font-bold font-mono">{activeTab === "super" ? "ΓêÆ" : "+"}</span>
                         </button>
                         {activeTab === "super" && <div className="p-6 border-t border-[#2D2D2D]/5 bg-white">{renderSuperPremiumTab()}</div>}
                     </div>
@@ -1596,7 +1630,7 @@ const ${componentName} = () => {
 
                 {/* QUICK COMPARISON TABLE */}
                 <div className="mt-16">
-                    <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-6">— Quick Comparison</h3>
+                    <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-6">ΓÇö Quick Comparison</h3>
                     <div className="w-full overflow-x-auto border border-black/[0.04] rounded-3xl bg-white shadow-sm scrollbar-thin">
                         <table className="w-full text-left border-collapse min-w-[650px]">
                             <thead>
@@ -1632,10 +1666,10 @@ const ${componentName} = () => {
                 </div>
             </section>
 
-            {/* SECTION 3 — MATERIAL COMPARISON */}
+            {/* SECTION 3 ΓÇö MATERIAL COMPARISON */}
             <section id="specifications" className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 mb-24">
                 <div className="text-left mb-12">
-                    <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— MATERIAL SELECTION GUIDE</span>
+                    <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">ΓÇö MATERIAL SELECTION GUIDE</span>
                     <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
                         Materials & Customization Guide
                     </h2>
@@ -1666,20 +1700,20 @@ const ${componentName} = () => {
                     </table>
                 </div>
 
-                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-6">— Customization Options</h3>
+                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-6">ΓÇö Customization Options</h3>
                 <div className="bg-white rounded-[2.5rem] border border-black/[0.03] p-8 md:p-12 mb-12 shadow-sm">
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm font-bold text-[#1A1A1A]/85">
                         {${JSON.stringify(config.customization)}.map((c, idx) => (
-                            <li key={idx} className="flex items-center gap-3"><span className="text-[#C9A84C]">✦</span> {c}</li>
+                            <li key={idx} className="flex items-center gap-3"><span className="text-[#C9A84C]">Γ£ª</span> {c}</li>
                         ))}
                     </ul>
                 </div>
             </section>
 
-            {/* SECTION 4 — CASE STUDIES */}
+            {/* SECTION 4 ΓÇö CASE STUDIES */}
             <section className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 mb-24">
                 <div className="text-left mb-16 max-w-4xl">
-                    <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— INFRASTRUCTURE PROJECTS</span>
+                    <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">ΓÇö INFRASTRUCTURE PROJECTS</span>
                     <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A]">
                         Real Projects. Real Results. Across India.
                     </h2>
@@ -1723,61 +1757,44 @@ const ${componentName} = () => {
                 </div>
             </section>
 
-            {/* SECTION 5 — FAQ */}
+            {/* SECTION 5 ΓÇö FAQ */}
             <section className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 mb-24">
-                <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— AFTER-SALES LIFECYCLE GUIDE</span>
+                <span className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">ΓÇö AFTER-SALES LIFECYCLE GUIDE</span>
                 <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#1A1A1A] mb-12">
                     Installation, Warranty & Top Questions
                 </h2>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-[2.5rem] border border-black/[0.03] p-8 md:p-14 mb-16 shadow-sm">
                     <div>
-                        <h3 className="text-xl font-black uppercase text-[#1A1A1A] border-b border-black/10 pb-3">▸ Installation & Assembly</h3>
+                        <h3 className="text-xl font-black uppercase text-[#1A1A1A] border-b border-black/10 pb-3">Γû╕ Installation & Assembly</h3>
                         <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed mt-4">
                             We provide comprehensive delivery and professional assembly support across India. For major commercial developments and municipal layouts, our trained engineering crews manage anchors, leveling, and site handovers.
                         </p>
                     </div>
                     <div>
-                        <h3 className="text-xl font-black uppercase text-[#1A1A1A] border-b border-black/10 pb-3">▸ 2-Year Comprehensive Warranty</h3>
+                        <h3 className="text-xl font-black uppercase text-[#1A1A1A] border-b border-black/10 pb-3">Γû╕ 2-Year Comprehensive Warranty</h3>
                         <p className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed mt-4">
                             Urbanland stands behind its products. We offer a comprehensive 2-year guarantee covering frame structure, powder coating peeling, structural cracking, and hardware defects.
                         </p>
                     </div>
                 </div>
 
-                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-8">— Frequently Asked Questions</h3>
+                <h3 className="text-sm font-black uppercase tracking-widest text-[#C9A84C] mb-8">ΓÇö Frequently Asked Questions</h3>
                 <div className="flex flex-col gap-4 max-w-4xl mx-auto">
                     {${JSON.stringify(config.faqList)}.map((faq, idx) => (
-                        <div 
-                            key={idx} 
-                            className={\`bg-white rounded-[2rem] border transition-all duration-500 overflow-hidden shadow-[0_5px_20px_rgba(0,0,0,0.005)] \${
-                                faqOpen[idx] 
-                                    ? "border-[#2C5F2E]/40 ring-1 ring-[#2C5F2E]/10" 
-                                    : "border-black/[0.03] hover:border-black/10"
-                            }\`}
-                        >
+                        <div key={idx} className="bg-white rounded-2xl border border-black/[0.03] overflow-hidden shadow-sm transition-all">
                             <button
                                 onClick={() => toggleFaq(idx)}
-                                className="w-full px-6 py-6 md:px-8 flex justify-between items-center text-left cursor-pointer focus:outline-none border-none select-none group bg-white"
+                                className="w-full text-left p-6 sm:p-7 flex justify-between items-center font-bold text-sm sm:text-base cursor-pointer hover:bg-[#F7F4EF]/35"
                             >
-                                <h3 className="text-sm sm:text-base font-black uppercase tracking-tight text-[#1A1A1A] group-hover:text-[#2C5F2E] pr-6 transition-colors leading-snug">
-                                    {faq.q}
-                                </h3>
-                                <span className={\`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 shrink-0 select-none \${
-                                    faqOpen[idx] ? "bg-[#2C5F2E] text-white rotate-45" : "bg-[#F7F4EF] text-[#2D2D2D] group-hover:bg-[#2C5F2E]/10"
-                                }\`}>
-                                    ＋
-                                </span>
+                                <span className="max-w-[90%]">{faq.q}</span>
+                                <span className="text-[#2C5F2E] text-xl font-bold font-mono">{faqOpen[idx] ? "ΓêÆ" : "+"}</span>
                             </button>
-                            <div 
-                                className={\`transition-all duration-500 ease-in-out overflow-hidden \${
-                                    faqOpen[idx] ? "max-h-[300px] border-t border-black/[0.05]" : "max-h-0"
-                                }\`}
-                            >
-                                <p className="px-6 py-6 md:px-8 text-xs sm:text-sm leading-relaxed text-[#2D2D2D]/75 bg-[#F7F4EF]/20">
+                            {faqOpen[idx] && (
+                                <div className="px-6 pb-6 sm:px-7 sm:pb-7 text-xs sm:text-sm leading-relaxed text-[#2D2D2D]/75 border-t border-[#2D2D2D]/5 pt-4">
                                     {faq.a}
-                                </p>
-                            </div>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
@@ -1786,7 +1803,7 @@ const ${componentName} = () => {
             {/* TRUST GRID */}
             <section className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 mb-16">
                 <div className="text-center mb-10 select-none">
-                    <h3 className="text-xs font-black uppercase tracking-widest text-[#2C5F2E] mb-3">— Why Urbanland Stands Apart</h3>
+                    <h3 className="text-xs font-black uppercase tracking-widest text-[#2C5F2E] mb-3">ΓÇö Why Urbanland Stands Apart</h3>
                     <h2 className="text-2xl sm:text-3.5xl font-black uppercase tracking-tight text-[#1A1A1A]">Engineered for Smart Cities</h2>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-full max-w-5xl mx-auto">
@@ -1821,10 +1838,67 @@ const ${componentName} = () => {
             </section>
 
             {/* FINAL CTA SECTION */}
-            <CTASection 
-                title="Ready to Specify ${pageName} for Your Project?"
-                primaryLink="/get-quote/?product=${config.routePath.split('/').pop()}"
-            />
+            <section className="max-w-[1400px] 3xl:max-w-[1700px] 4xl:max-w-[2200px] 5xl:max-w-[3000px] mx-auto px-6 md:px-12 mb-12">
+                <div className="w-full bg-[#2C5F2E] rounded-[2.5rem] p-8 md:p-16 flex flex-col items-center text-center text-white relative overflow-hidden shadow-xl border border-black/5">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#2C5F2E] to-[#1d4720] opacity-95 pointer-events-none" />
+                    
+                    <div className="relative z-10 max-w-4xl flex flex-col items-center">
+                        <span className="text-[9px] sm:text-[0.8125rem] md:text-sm font-black uppercase tracking-widest bg-white/10 text-[#C9A84C] px-3.5 py-1.5 rounded-full select-none mb-6">
+                            Ready to Partner
+                        </span>
+                        
+                        <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-tight text-white max-w-3xl mb-6">
+                            Ready to Specify ${pageName} for Your Project?
+                        </h2>
+
+                        <p className="text-sm sm:text-base text-white/80 leading-relaxed max-w-2xl mb-10 font-medium">
+                            Get a custom quote, detailed proposal, and technical specifications within 24 hours. Urbanland serves municipalities, developers, and architects nationwide.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 select-none mb-8 w-full sm:w-auto">
+                            <Link
+                                to="/get-quote/?product=${config.routePath.split('/').pop()}"
+                                className="px-8 py-4 bg-[#C9A84C] text-[#232120] hover:bg-white hover:text-[#2C5F2E] rounded-full font-black uppercase tracking-wider text-xs transition-all shadow-lg transform duration-300 text-center font-bold"
+                            >
+                                Request Custom Quote ΓåÆ
+                            </Link>
+
+                            <Link
+                                to="/resources/downloads"
+                                className="px-8 py-4 bg-transparent hover:bg-white hover:text-[#2C5F2E] border border-white/20 text-white rounded-full font-bold uppercase tracking-wider text-xs transition-all text-center font-bold"
+                            >
+                                Download Specification Guide Γåô
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* EXIT-INTENT POPUP */}
+            {exitPopupVisible && (
+                <div className="fixed inset-0 z-[9999] flex justify-center items-center px-4">
+                    <div className="absolute inset-0 bg-black/65 backdrop-blur-sm" onClick={() => setExitPopupVisible(false)} />
+                    <div className="relative bg-white text-[#1A1A1A] max-w-lg w-full rounded-[2.5rem] z-10 p-8 sm:p-12 shadow-2xl">
+                        <button onClick={() => setExitPopupVisible(false)} className="absolute top-6 right-6 w-8 h-8 flex justify-center items-center text-black/45 hover:text-black font-mono text-lg font-bold">Γ£ò</button>
+                        {!exitPopupSubmitted ? (
+                            <div className="flex flex-col items-center text-center">
+                                <h3 className="text-xl sm:text-2xl font-black uppercase text-[#1A1A1A] mb-3">Download the ${pageName} Buyer's Guide</h3>
+                                <p className="text-xs sm:text-sm text-[#2D2D2D]/70 mb-8">Get our complete guide to material specifications, custom sizing, and bulk pricing matrices.</p>
+                                <form onSubmit={(e) => { e.preventDefault(); if (emailInput.trim()) { setExitPopupSubmitted(true); trackEvent("exit_intent_submit", emailInput); } }} className="w-full flex flex-col gap-3">
+                                    <input type="email" required placeholder="Enter professional email" value={emailInput} onChange={(e) => setEmailInput(e.target.value)} className="w-full px-6 py-4 rounded-full border border-black/10 text-sm focus:outline-none focus:border-[#2C5F2E] bg-[#F7F4EF]" />
+                                    <button type="submit" className="w-full py-4 bg-[#C9A84C] hover:bg-black hover:text-white text-[#232120] font-black uppercase text-xs rounded-full transition-colors">Get the Guide (PDF)</button>
+                                </form>
+                            </div>
+                        ) : (
+                            <div className="flex flex-col items-center text-center py-6">
+                                <h3 className="text-xl sm:text-2xl font-black uppercase text-[#1A1A1A] mb-3">Guide Sent!</h3>
+                                <p className="text-xs sm:text-sm text-[#2D2D2D]/70 mb-8">We've sent the guide to <span className="font-bold text-[#2C5F2E]">{emailInput}</span>.</p>
+                                <button onClick={() => setExitPopupVisible(false)} className="px-8 py-3 bg-[#2C5F2E] text-white font-black uppercase text-xs rounded-full">Close Window</button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
@@ -1851,11 +1925,11 @@ docxBlocks.forEach(block => {
     console.log(`Skipping: ${pageName} (not mapped)`);
     return;
   }
-
+  
   const blockText = lines.slice(1).join('\n');
   const parsed = parseDocxContent(blockText);
   const code = generateTemplate(pageName, config, parsed);
-
+  
   const targetPath = path.join(productsBaseDir, config.filename);
   fs.writeFileSync(targetPath, code, 'utf8');
   console.log(`Successfully generated: ${config.filename}`);

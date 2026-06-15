@@ -400,7 +400,7 @@ const CategoryDetail = () => {
             <span className="text-[9px] font-black uppercase tracking-wider bg-[#C9A84C] text-[#232120] px-3.5 py-1.5 rounded-full w-fit mb-3">
               {subcategory ? subcategory.replace("-", " ").toUpperCase() : "Active Division"}
             </span>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-none tracking-tight max-w-4xl font-outfit">
+            <h1 className="text-[38px] font-[700] sm:text-5xl md:text-6xl md:font-black uppercase leading-none tracking-tight max-w-4xl font-outfit">
               {meta.title}
             </h1>
             <p className="text-xs sm:text-sm font-medium tracking-wide text-white/80 mt-3 max-w-2xl leading-relaxed font-outfit">

@@ -13,6 +13,8 @@ const divisions = [
   { id: "canteen-tables", name: "Canteen Tables & Sets", tagline: "Heavy-duty outdoor corporate dining furniture.", path: "/products/canteen-tables", specs: ["HPL Panel Slats", "Morse Frame Series", "Corporate Grade"] },
   { id: "cabanas", name: "Luxury Cabanas", tagline: "Premium daybed shade structures for hotels & pools.", path: "/products/cabanas", specs: ["Sunbrella® Fabric", "Powder Coated Steel", "Beverage Racks"] },
   { id: "poolside-loungers", name: "Poolside Loungers", tagline: "Ergonomic weather-proof poolside lounge beds.", path: "/products/poolside-loungers", specs: ["HDPE Synthetic Wicker", "Rustless Aluminium", "Quick-Dry Core"] },
+  { id: "wicker-furniture", name: "Wicker Furniture", tagline: "Premium weatherproof outdoor wicker furniture ensembles.", path: "/products/wicker-furniture", specs: ["UV-Resistant HDPE", "Aluminium Frame", "2-Year Guarantee"] },
+  { id: "wicker-outdoor-products", name: "Wicker Outdoor Products", tagline: "Premium cabanas, poolside loungers, and wicker living/dining sets.", path: "/products/wicker-furniture/wicker-outdoor-products", specs: ["UV-Resistant HDPE", "Aluminium Frame", "2-Year Guarantee"] },
   { id: "wicker-living-sets", name: "Wicker Living Sets", tagline: "High-density premium polyethylene wicker sofas.", path: "/products/wicker-living-sets", specs: ["UV-Blocked Weave", "Modular Sofa Sections", "Performance Canvas"] },
   { id: "wicker-dining-sets", name: "Wicker Dining Sets", tagline: "Luxury synthetic wicker dining tables and chairs.", path: "/products/wicker-dining-sets", specs: ["Tempered Glass Top", "High-Density Weave", "Leveler Glides"] },
   { id: "indoor-furniture", name: "Indoor Furniture", tagline: "Modern luxury indoor dining and accent furniture.", path: "/products/indoor-furniture", specs: ["Modern Luxury Dining", "Timeless Silhouettes", "Architectural Accents"] },
@@ -53,6 +55,7 @@ const ProductsHub = () => {
           {divisions.map((div) => {
             let lookupId = div.id;
             if (div.id === "aluminium-benches") lookupId = "benches";
+            if (div.id === "wicker-furniture") lookupId = "wicker-living-sets";
             let matchedProd = products.find(p => {
               if (div.id === "aluminium-benches") {
                 return p.category === "benches" && 
@@ -75,6 +78,9 @@ const ProductsHub = () => {
                    (p.specifications?.materials || "").toLowerCase().includes("aluminium") || 
                    (p.title || "").toLowerCase().includes("aluminium"))
                 ).length;
+              }
+              if (div.id === "wicker-furniture" || div.id === "wicker-outdoor-products") {
+                return products.filter(p => p.category === "wicker-living-sets" || p.category === "wicker-dining-sets").length;
               }
               return products.filter(p => p.category === div.id).length;
             })();

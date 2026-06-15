@@ -150,7 +150,7 @@ const Choose = () => {
             {/* Section 5 Heading */}
             <div className="w-full border-t border-[#2D2D2D]/10 pt-16 mt-12">
                 <p className='text-[.7rem] text-[#2C5F2E] uppercase tracking-wider font-bold'>— Most Requested Products</p>
-                <h2 className="text-3xl lg:text-5xl font-black text-[#1A1A1A] tracking-tight leading-tight mt-3">
+                <h2 className="text-3xl lg:text-5xl font-bold text-[#1A1A1A] tracking-tight leading-tight mt-3">
                     Outdoor & Urban Furniture Products for Large-Scale Projects
                 </h2>
             </div>

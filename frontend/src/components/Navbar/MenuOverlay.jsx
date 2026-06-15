@@ -38,6 +38,8 @@ const MenuOverlay = ({ isOpen, setIsOpen }) => {
         { name: "Canteen Tables", path: "/products/canteen-tables" },
         { name: "Cabanas", path: "/products/cabanas" },
         { name: "Poolside Loungers", path: "/products/poolside-loungers" },
+        { name: "Wicker Furniture", path: "/products/wicker-furniture" },
+        { name: "Wicker Outdoor Products", path: "/products/wicker-furniture/wicker-outdoor-products" },
         { name: "Wicker Living", path: "/products/wicker-living-sets" },
         { name: "Wicker Dining", path: "/products/wicker-dining-sets" },
         { name: "Indoor Furniture", path: "/products/indoor-furniture" },

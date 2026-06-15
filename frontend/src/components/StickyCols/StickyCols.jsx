@@ -125,7 +125,7 @@ const StickyCols = () => {
                             <div className="col-content-wrapper flex flex-col justify-between p-10 md:p-16 lg:p-20 bg-[#2D2D2D] overflow-hidden">
                                 <div>
                                     <span className="text-[#C9A84C] text-[10px] md:text-xs font-semibold uppercase tracking-widest block mb-2">Lodha Group</span>
-                                    <h2 className="text-3xl md:text-5xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight">Multiple Townships</h2>
+                                    <h2 className="text-3xl md:text-5xl font-bold text-[#F7F4EF] leading-tight uppercase tracking-tight">Multiple Townships</h2>
                                 </div>
                                 <div className="my-auto flex flex-col gap-3">
                                     <div className="text-base md:text-xl font-extrabold text-[#C9A84C] border-l-2 border-[#C9A84C] pl-3">
@@ -239,7 +239,7 @@ const StickyCols = () => {
                             <div className="col-content-wrapper flex flex-col justify-between p-10 md:p-16 lg:p-20 bg-[#2C5F2E] overflow-hidden">
                                 <div>
                                     <span className="text-[#C9A84C] text-[10px] md:text-xs font-semibold uppercase tracking-widest block mb-2">Smart City / Municipal</span>
-                                    <h2 className="text-3xl md:text-5xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight">Project</h2>
+                                    <h2 className="text-3xl md:text-5xl font-bold text-[#F7F4EF] leading-tight uppercase tracking-tight">Project</h2>
                                 </div>
                                 <div className="my-auto flex flex-col gap-3">
                                     <div className="text-base md:text-xl font-extrabold text-[#C9A84C] border-l-2 border-[#C9A84C] pl-3">
@@ -286,7 +286,7 @@ const StickyCols = () => {
             <section className="sticky-cols-mobile w-full bg-[#F7F4EF] px-6 pt-2 pb-16 flex flex-col gap-8 lg:hidden block">
                 <div className="flex flex-col gap-2 mb-4">
                     <p className="text-[.7rem] font-bold text-[#2C5F2E] uppercase tracking-widest">— Case Studies</p>
-                    <h2 className="text-3xl font-extrabold text-[#1A1A1A] tracking-tight leading-tight">Specified by Industry Leaders</h2>
+                    <h2 className="text-3xl font-bold text-[#1A1A1A] tracking-tight leading-tight">Specified by Industry Leaders</h2>
                 </div>
 
                 <div className="mobile-projects-wrapper flex flex-col gap-8 w-full">
