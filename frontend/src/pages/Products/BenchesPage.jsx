@@ -610,8 +610,8 @@ const BenchesPage = () => {
                                                 key={key}
                                                 onClick={() => setConfigMaterial(key)}
                                                 className={`group border p-4 text-left transition-all duration-300 rounded-none ${isSelected
-                                                        ? "border-craftsman-gold bg-surface-container-low"
-                                                        : "border-outline-variant hover:bg-surface-container-low/50"
+                                                    ? "border-craftsman-gold bg-surface-container-low"
+                                                    : "border-outline-variant hover:bg-surface-container-low/50"
                                                     }`}
                                             >
                                                 <div className="flex items-center justify-between mb-3">
@@ -636,14 +636,14 @@ const BenchesPage = () => {
                                                     </span>
                                                     <div
                                                         className={`w-8 h-8 rounded-full border border-outline-variant ${key === "wpc"
-                                                                ? "bg-[#8B5E3C]"
-                                                                : key === "nfc"
-                                                                    ? "bg-[#A0522D]"
-                                                                    : key === "aluminium"
-                                                                        ? "bg-[#C0C0C0]"
-                                                                        : key === "mild_steel"
-                                                                            ? "bg-[#4A4A4A]"
-                                                                            : "bg-[#E5E4E2]"
+                                                            ? "bg-[#8B5E3C]"
+                                                            : key === "nfc"
+                                                                ? "bg-[#A0522D]"
+                                                                : key === "aluminium"
+                                                                    ? "bg-[#C0C0C0]"
+                                                                    : key === "mild_steel"
+                                                                        ? "bg-[#4A4A4A]"
+                                                                        : "bg-[#E5E4E2]"
                                                             }`}
                                                     />
                                                 </div>
@@ -679,8 +679,8 @@ const BenchesPage = () => {
                                                         key={len}
                                                         onClick={() => setConfigLength(len)}
                                                         className={`px-6 py-2 border text-sm font-medium transition-colors rounded-none ${isSelected
-                                                                ? "border-primary bg-primary text-on-primary"
-                                                                : "border-outline-variant text-on-surface hover:bg-surface-container-low"
+                                                            ? "border-primary bg-primary text-on-primary"
+                                                            : "border-outline-variant text-on-surface hover:bg-surface-container-low"
                                                             }`}
                                                     >
                                                         {len === "Custom" ? "Custom" : `${len}m`}
@@ -701,8 +701,8 @@ const BenchesPage = () => {
                                                         key={design}
                                                         onClick={() => setConfigDesign(design)}
                                                         className={`px-6 py-2 border text-sm font-medium transition-colors rounded-none ${isSelected
-                                                                ? "border-primary bg-primary text-on-primary"
-                                                                : "border-outline-variant text-on-surface hover:bg-surface-container-low"
+                                                            ? "border-primary bg-primary text-on-primary"
+                                                            : "border-outline-variant text-on-surface hover:bg-surface-container-low"
                                                             }`}
                                                     >
                                                         {design}
@@ -743,7 +743,7 @@ const BenchesPage = () => {
 
                         {/* Right Column: Sticky Preview */}
                         <div className="lg:col-span-5 lg:sticky lg:top-28 text-left">
-                            <div className="bg-surface-container-low border border-outline-variant p-8 rounded-none space-y-8">
+                            <div className="bg-surface-container-low border border-outline-variant p-6 sm:p-8 rounded-none space-y-8">
                                 {/* Image Preview */}
                                 <div className="aspect-video overflow-hidden rounded-none bg-surface-dim relative border border-outline-variant">
                                     <img
@@ -823,7 +823,7 @@ const BenchesPage = () => {
                                 {/* CTA */}
                                 <Link
                                     to="/contact"
-                                    className="w-full bg-forest-green text-on-primary py-4 rounded-none font-bold font-label-caps hover:bg-primary transition-all flex items-center justify-center gap-3 text-center uppercase tracking-widest text-sm"
+                                    className="w-full bg-forest-green text-on-primary py-3.5 sm:py-4 px-4 rounded-none font-bold font-label-caps hover:bg-primary transition-all flex items-center justify-center gap-3 text-center uppercase tracking-[0.1em] sm:tracking-widest text-xs sm:text-sm"
                                 >
                                     Request Technical Spec Sheet
                                     <span className="material-symbols-outlined">download</span>
