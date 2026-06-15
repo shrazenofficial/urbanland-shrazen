@@ -133,11 +133,11 @@ const BenchesPage = () => {
     };
 
     const nextSlide = () => {
-        setActiveSlide((prev) => (prev === 0 ? 1 : 0));
+        setActiveSlide((prev) => (prev === projectSlides.length - 1 ? 0 : prev + 1));
     };
 
     const prevSlide = () => {
-        setActiveSlide((prev) => (prev === 1 ? 0 : 1));
+        setActiveSlide((prev) => (prev === 0 ? projectSlides.length - 1 : prev - 1));
     };
 
     const handleCollectionScroll = (direction) => {
@@ -263,7 +263,9 @@ const BenchesPage = () => {
             tag: "Residential Excellence",
             qty: "78 Benches",
             timeline: "3 Weeks",
-            desc: "Premium benches supplied and installed across multiple residential towers, enhancing urban living spaces.",
+            material: "Premium WPC (Wood-Plastic)",
+            benefits: ["High Durability", "Zero Splintering", "UV Protected"],
+            desc: "Premium WPC benches supplied and installed across multiple residential towers, creating elegant, eco-friendly seating for family gardens and modern courtyards.",
             src: "/products/all_white/outdoor_benches_ulb_12.jpeg"
         },
         {
@@ -272,8 +274,32 @@ const BenchesPage = () => {
             tag: "Heritage Landmark",
             qty: "45 Benches",
             timeline: "4 Weeks",
-            desc: "Custom architectural seating solutions designed to complement the historic significance of the museum plaza.",
+            material: "Powder Coated Mild Steel",
+            benefits: ["Vandal Resistant", "Classical Design", "Anti-Corrosive Coat"],
+            desc: "Custom architectural benches designed to match the historic and cultural significance of the museum plaza, built to withstand massive daily tourist crowds.",
             src: "/products/all_white/outdoor_benches_ulb_13.jpeg"
+        },
+        {
+            name: "Indore Smart City Plaza",
+            location: "Indore, Madhya Pradesh",
+            tag: "Smart City Infrastructure",
+            qty: "120 Benches",
+            timeline: "6 Weeks",
+            material: "Anodized Aluminium",
+            benefits: ["Rain Protection", "Ultra-Lightweight", "Modern Vibe"],
+            desc: "Sleek, futuristic anodized aluminium benches installed in pedestrian zones and smart plazas, optimized for weathering and low maintenance in public squares.",
+            src: "/products/all_white/outdoor_benches_ulb_14.jpeg"
+        },
+        {
+            name: "BKC Business District",
+            location: "Mumbai, Maharashtra",
+            tag: "Corporate Landscape",
+            qty: "32 Benches",
+            timeline: "2 Weeks",
+            material: "Marine Stainless Steel 316",
+            benefits: ["Elite Aesthetics", "Corrosion Proof", "Maximum Spec"],
+            desc: "Ultra-premium Grade 316 brushed stainless steel benches deployed in corporate walkways, matching the modern glass-and-steel skyscraper aesthetic.",
+            src: "/products/all_white/outdoor_benches_ulb_11.jpeg"
         }
     ];
 
@@ -838,21 +864,59 @@ const BenchesPage = () => {
             </section>
 
             {/* Case Studies / Projects */}
-            <section className="reveal-section bg-surface py-24 px-margin-mobile md:px-margin-desktop border-b border-outline-variant">
+            <section className="reveal-section bg-surface py-20 md:py-24 px-margin-mobile md:px-margin-desktop border-b border-outline-variant">
                 <div className="max-w-container-max mx-auto">
-                    <div className="mb-16 text-left space-y-4">
-                        <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
-                            Proven Excellence
-                        </span>
-                        <h2 className="font-headline-lg text-headline-lg text-deep-ink">Real Benches. Real Results. Across India.</h2>
-                        <div className="w-24 h-1 bg-craftsman-gold"></div>
-                        <p className="font-label-technical text-primary uppercase tracking-widest font-bold text-sm">
-                            50+ major projects delivered | 15+ cities served
-                        </p>
+                    {/* Header Grid */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
+                        <div className="lg:col-span-6 text-left space-y-4">
+                            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+                                Proven Excellence
+                            </span>
+                            <h2 className="font-headline-lg text-headline-lg text-deep-ink">Real Benches. Real Results. Across India.</h2>
+                            <div className="w-24 h-1 bg-craftsman-gold"></div>
+                        </div>
+                        <div className="lg:col-span-6">
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 lg:pt-0">
+                                {[
+                                    { val: "50+", label: "Major Projects" },
+                                    { val: "15+", label: "Cities Served" },
+                                    { val: "8k+", label: "Benches Placed" },
+                                    { val: "2 Yrs", label: "Direct Warranty" },
+                                ].map((stat, i) => (
+                                    <div key={i} className="border-l-2 border-craftsman-gold/30 pl-4 space-y-1 text-left">
+                                        <div className="font-headline-md text-2xl sm:text-3xl text-deep-ink font-bold">{stat.val}</div>
+                                        <div className="text-[10px] text-on-surface-variant font-label-caps tracking-widest font-semibold">{stat.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Interactive Tab Navigation */}
+                    <div className="flex border-b border-outline-variant overflow-x-auto no-scrollbar mb-8 scroll-smooth">
+                        {projectSlides.map((slide, idx) => {
+                            const isActive = activeSlide === idx;
+                            return (
+                                <button
+                                    key={idx}
+                                    onClick={() => setActiveSlide(idx)}
+                                    className={`flex-shrink-0 px-6 py-4 border-b-2 text-left transition-all duration-300 focus:outline-none ${
+                                        isActive
+                                            ? "border-craftsman-gold text-deep-ink opacity-100 font-bold"
+                                            : "border-transparent text-on-surface-variant opacity-60 hover:opacity-100"
+                                    }`}
+                                >
+                                    <span className="block text-[9px] tracking-widest font-semibold uppercase font-label-caps text-craftsman-gold mb-1">
+                                        PROJECT 0{idx + 1}
+                                    </span>
+                                    <span className="text-xs sm:text-sm font-medium whitespace-nowrap">{slide.name}</span>
+                                </button>
+                            );
+                        })}
                     </div>
 
                     {/* Case Study Slider */}
-                    <div className="relative mb-20 group">
+                    <div className="relative mb-8 group">
                         <div className="overflow-hidden relative border border-outline-variant bg-surface-container-lowest">
                             <div
                                 className="flex transition-transform duration-500 ease-in-out"
@@ -860,35 +924,60 @@ const BenchesPage = () => {
                             >
                                 {projectSlides.map((slide, idx) => (
                                     <div key={idx} className="w-full flex-shrink-0">
-                                        <div className="flex flex-col md:flex-row h-full md:min-h-[450px]">
-                                            <div className="md:w-1/2 h-64 md:h-auto overflow-hidden">
+                                        <div className="flex flex-col lg:flex-row h-full lg:min-h-[480px]">
+                                            {/* Image Showcase with Zoom effect */}
+                                            <div className="lg:w-1/2 h-64 sm:h-80 lg:h-auto overflow-hidden relative group/img border-b lg:border-b-0 lg:border-r border-outline-variant">
                                                 <img
                                                     alt={slide.name}
-                                                    className="w-full h-full object-cover"
+                                                    className="w-full h-full object-cover transform scale-100 group-hover/img:scale-105 transition-transform duration-700"
                                                     src={slide.src}
                                                 />
+                                                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 font-label-technical text-[9px] tracking-widest uppercase font-semibold border border-outline-variant">
+                                                    PROJECT PHOTO
+                                                </div>
                                             </div>
-                                            <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center space-y-6 text-left">
+
+                                            {/* Technical Context */}
+                                            <div className="lg:w-1/2 p-6 sm:p-10 lg:p-12 flex flex-col justify-center space-y-6 text-left">
                                                 <div className="space-y-2">
-                                                    <span className="font-label-technical text-primary uppercase tracking-widest text-xs font-semibold">
+                                                    <span className="font-label-technical text-craftsman-gold uppercase tracking-widest text-xs font-semibold">
                                                         {slide.tag}
                                                     </span>
-                                                    <h3 className="font-headline-md text-3xl text-on-surface">{slide.name}</h3>
-                                                    <p className="text-xs text-on-surface-variant uppercase tracking-wider font-semibold">
+                                                    <h3 className="font-headline-md text-2xl sm:text-3xl text-on-surface leading-tight">{slide.name}</h3>
+                                                    <div className="flex items-center gap-1.5 text-xs text-on-surface-variant font-medium">
+                                                        <span className="material-symbols-outlined text-sm">location_on</span>
                                                         {slide.location}
-                                                    </p>
-                                                </div>
-                                                <div className="grid grid-cols-2 gap-6 py-6 border-y border-outline-variant">
-                                                    <div>
-                                                        <p className="text-[10px] uppercase tracking-widest text-on-surface-variant mb-1 font-semibold">Quantity</p>
-                                                        <p className="font-bold text-primary text-lg">{slide.qty}</p>
-                                                    </div>
-                                                    <div>
-                                                        <p className="text-[10px] uppercase tracking-widest text-on-surface-variant mb-1 font-semibold">Timeline</p>
-                                                        <p className="font-bold text-primary text-lg">{slide.timeline}</p>
                                                     </div>
                                                 </div>
-                                                <p className="text-body-md text-on-surface-variant leading-relaxed">
+
+                                                <div className="grid grid-cols-3 gap-4 py-4 border-y border-outline-variant">
+                                                    <div>
+                                                        <p className="text-[9px] uppercase tracking-widest text-on-surface-variant mb-1 font-semibold">Quantity</p>
+                                                        <p className="font-bold text-deep-ink text-sm sm:text-base">{slide.qty}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-[9px] uppercase tracking-widest text-on-surface-variant mb-1 font-semibold">Timeline</p>
+                                                        <p className="font-bold text-deep-ink text-sm sm:text-base">{slide.timeline}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-[9px] uppercase tracking-widest text-on-surface-variant mb-1 font-semibold">Material</p>
+                                                        <p className="font-bold text-deep-ink text-sm sm:text-base truncate">{slide.material.split(' ')[0]}</p>
+                                                    </div>
+                                                </div>
+
+                                                {/* Technical Benefits */}
+                                                <div className="space-y-2">
+                                                    <p className="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Key Specs Met</p>
+                                                    <div className="flex flex-wrap gap-2">
+                                                        {slide.benefits.map((benefit, i) => (
+                                                            <span key={i} className="bg-surface-container-low border border-outline-variant text-on-surface text-[9px] font-bold uppercase px-2.5 py-1 font-label-caps tracking-wider">
+                                                                {benefit}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+
+                                                <p className="text-body-md text-on-surface-variant leading-relaxed text-sm">
                                                     {slide.desc}
                                                 </p>
                                             </div>
@@ -899,54 +988,65 @@ const BenchesPage = () => {
                         </div>
 
                         {/* Slider Controls */}
-                        <div className="absolute top-1/2 -translate-y-1/2 -left-6 md:-left-12">
+                        <div className="absolute top-1/2 -translate-y-1/2 -left-4 sm:-left-6 lg:-left-12 z-10">
                             <button
                                 onClick={prevSlide}
-                                className="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:bg-secondary hover:text-on-secondary transition-all focus:outline-none"
+                                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white text-deep-ink border border-outline-variant flex items-center justify-center shadow-md hover:bg-deep-ink hover:text-white transition-all focus:outline-none"
                             >
-                                <span className="material-symbols-outlined">chevron_left</span>
+                                <span className="material-symbols-outlined text-xl">chevron_left</span>
                             </button>
                         </div>
-                        <div className="absolute top-1/2 -translate-y-1/2 -right-6 md:-right-12">
+                        <div className="absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-6 lg:-right-12 z-10">
                             <button
                                 onClick={nextSlide}
-                                className="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:bg-secondary hover:text-on-secondary transition-all focus:outline-none"
+                                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white text-deep-ink border border-outline-variant flex items-center justify-center shadow-md hover:bg-deep-ink hover:text-white transition-all focus:outline-none"
                             >
-                                <span className="material-symbols-outlined">chevron_right</span>
+                                <span className="material-symbols-outlined text-xl">chevron_right</span>
                             </button>
-                        </div>
-
-                        {/* Pagination Dots */}
-                        <div className="flex justify-center space-x-3 mt-8">
-                            {projectSlides.map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={() => setActiveSlide(idx)}
-                                    className={`w-3 h-3 rounded-full transition-all focus:outline-none ${activeSlide === idx ? 'bg-primary scale-110' : 'bg-outline-variant'}`}
-                                />
-                            ))}
                         </div>
                     </div>
 
+                    {/* Pagination Dots */}
+                    <div className="flex justify-center space-x-2.5 mb-16">
+                        {projectSlides.map((_, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => setActiveSlide(idx)}
+                                className={`w-2.5 h-2.5 rounded-full transition-all focus:outline-none ${activeSlide === idx ? 'bg-craftsman-gold w-6' : 'bg-outline-variant hover:bg-on-surface-variant'}`}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Rebuilt Portfolio Call to Action */}
+                    <div className="text-center mb-20">
+                        <Link
+                            to="/catalogue"
+                            className="inline-flex items-center justify-center gap-3 border border-deep-ink hover:bg-deep-ink hover:text-white px-8 py-4 text-xs font-bold font-label-caps uppercase tracking-widest transition-all duration-300 group"
+                        >
+                            View More Projects &amp; Case Studies
+                            <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </Link>
+                    </div>
+
                     {/* Featured Spotlight */}
-                    <div className="bg-primary text-on-primary p-8 md:p-12 rounded-none mb-20 flex flex-col md:flex-row gap-10 items-center border border-outline-variant">
-                        <div className="md:w-1/2 space-y-6 text-left">
-                            <span className="font-label-technical uppercase tracking-[0.2em] text-secondary text-xs font-semibold block">
+                    <div className="bg-surface-container-low p-6 sm:p-10 lg:p-12 border border-outline-variant text-left flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+                        <div className="lg:w-1/2 space-y-6">
+                            <span className="font-label-technical uppercase tracking-[0.2em] text-craftsman-gold text-xs font-semibold block">
                                 Featured Spotlight
                             </span>
-                            <h3 className="font-headline-md text-3xl md:text-4xl text-on-primary">Industrial Heritage Series</h3>
-                            <p className="font-body-lg opacity-90 leading-relaxed text-sm md:text-base">
+                            <h3 className="font-headline-md text-2xl sm:text-3xl text-deep-ink font-bold leading-tight">Industrial Heritage Series</h3>
+                            <p className="font-body-lg text-on-surface-variant leading-relaxed text-sm">
                                 Our signature industrial-style bench features robust square-shaped leg supports, engineered for maximum stability in high-traffic urban environments. This design has been a preferred choice for heritage sites like the Vadnagar Museum and Navandhe Village developments.
                             </p>
                         </div>
-                        <div className="md:w-1/2 border-2 border-secondary/30 p-2 w-full">
-                            <div className="bg-surface-container-highest h-64 overflow-hidden relative">
+                        <div className="lg:w-1/2 border border-outline-variant p-2 w-full bg-white">
+                            <div className="bg-surface-dim aspect-video overflow-hidden relative border border-outline-variant">
                                 <img
                                     alt="Industrial Heritage Series Bench"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                                     src="/products/all_white/outdoor_benches_ulb_14.jpeg"
                                 />
-                                <div className="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 font-label-technical text-[10px] tracking-widest uppercase font-semibold">
+                                <div className="absolute top-4 left-4 bg-deep-ink text-white px-3 py-1 font-label-technical text-[9px] tracking-widest uppercase font-semibold">
                                     Heritage Edition
                                 </div>
                             </div>
@@ -954,7 +1054,7 @@ const BenchesPage = () => {
                     </div>
 
                     {/* Additional Installations Marquee */}
-                    <div className="border-t border-outline-variant pt-12">
+                    <div className="border-t border-outline-variant pt-12 mt-20">
                         <h4 className="font-label-technical text-on-surface-variant uppercase tracking-widest text-center text-xs font-semibold mb-8">
                             Additional Major Installations
                         </h4>
