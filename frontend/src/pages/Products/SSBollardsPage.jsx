@@ -123,7 +123,7 @@ const SSBollardsPage = () => {
                             <span className="font-label-technical text-[#C9A84C] tracking-[0.2em] uppercase font-semibold block mb-4">
                                 Urbanland Products manufactures high-quality Stainless Steel Bollards (SS Bollards) designed for traffic control, pedestrian safety, parking management and urban beautification. Made from SS 304 and SS 316 grades, our bollards offer superior corrosion resistance, strength and modern aesthetics for streets, parks, townships, commercial complexes and smart city projects.
                             </span>
-                            <h1 className="font-headline-xl text-[38px] font-[700] md:text-[48px] text-[#1A1A1A] max-w-xl leading-[1.2] md:leading-[1.1]">
+                            <h1 className="font-headline-xl text-[38px] font-[700] md:text-[48px] text-[#1A1A1A] max-w-xl leading-[1.2] md:leading-[1.1] text-left">
                                 Premium SS Bollards Manufacturer in India – Stainless Steel Traffic & Urban Safety Bollards
                             </h1>
                         </div>
@@ -153,10 +153,10 @@ const SSBollardsPage = () => {
 
                         {/* CTAs */}
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <Link to="/get-quote" className="bg-[#2C5F2E] text-white px-10 py-4 font-label-technical uppercase tracking-widest text-sm flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all duration-300">
+                            <Link to="/get-quote" className="bg-[#2C5F2E] text-white px-10 py-4 font-label-technical uppercase tracking-widest text-sm flex items-center justify-center rounded-[4px] border-b-2 border-[#2D2D2D] hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all duration-300">
                                 Request Custom Quote <span className="ml-2">→</span>
                             </Link>
-                            <Link to="/resources/downloads" className="border-2 border-[#2C5F2E] text-[#2C5F2E] px-10 py-4 font-label-technical uppercase tracking-widest text-sm flex items-center justify-center hover:bg-[#2C5F2E] hover:text-white transition-all duration-300">
+                            <Link to="/resources/downloads" className="border-2 border-[#2C5F2E] text-[#2C5F2E] px-10 py-4 font-label-technical uppercase tracking-widest text-sm flex items-center justify-center rounded-[4px] hover:bg-[#2C5F2E] hover:text-white transition-all duration-300">
                                 Download the Brochure <span className="ml-2">↓</span>
                             </Link>
                         </div>
@@ -165,8 +165,8 @@ const SSBollardsPage = () => {
                     {/* Hero Image Right */}
                     <div className="relative group hidden lg:flex h-full w-full py-10 flex-col justify-center">
                         <div className="relative h-full lg:h-[97%] w-full">
-                            <div className="absolute inset-0 bg-[#2C5F2E]/5 -rotate-3 rounded-lg transition-transform group-hover:rotate-0 duration-500"></div>
-                            <div className="relative h-full min-h-[600px] w-full overflow-hidden border border-[#DCDAD5] bg-[#E8E6E0] shadow-xl rounded-lg">
+                            <div className="absolute inset-0 bg-[#2C5F2E]/5 -rotate-3 transition-transform group-hover:rotate-0 duration-500 rounded-none"></div>
+                            <div className="relative h-full min-h-[600px] w-full overflow-hidden border border-[#DCDAD5] bg-[#E8E6E0] rounded-none">
                                 {carouselImages.map((img, idx) => (
                                     <img
                                         key={idx}
@@ -185,19 +185,19 @@ const SSBollardsPage = () => {
             </section>
 
             {/* CRAFTED FOR EVERY ENVIRONMENT */}
-            <section className="bg-[#F7F4EF] py-24 overflow-hidden transition-all duration-1000 opacity-100 translate-y-0">
-                <div className="max-w-[1280px] mx-auto px-6 md:px-12 mb-16 text-center space-y-4">
-                    <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Crafted for Every Environment</h2>
-                    <p className="font-body-lg text-[18px] text-[#44474A] max-w-3xl mx-auto">
+            <section className="bg-[#F7F4EF] py-24 overflow-hidden border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
+                <div className="max-w-[1280px] mx-auto px-6 md:px-12 mb-16 text-left space-y-4">
+                    <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Crafted for Every Environment</h2>
+                    <p className="font-body-lg text-[18px] text-[#44474A] max-w-3xl">
                         Explore our collection of premium outdoor seating installed in world-class spaces.
                     </p>
-                    <div className="w-24 h-1 bg-[#C9A84C] mx-auto mt-4"></div>
+                    <div className="w-24 h-1 bg-[#C9A84C] mt-4"></div>
                 </div>
 
                 <div className="relative group">
                     <div ref={heroScrollRef} className="flex overflow-x-auto space-x-6 px-6 lg:px-24 pb-12 scrollbar-none snap-x snap-mandatory scroll-smooth w-full">
                         {[{"tag":"Product Spotlight","h":"Premium Stainless Steel<br />Bollards in India","label":"01","desc":"High-security vehicle barriers & perimeter posts"},{"tag":"Perimeter Security","h":"Vandal-resistant fixed<br />or removable security<br />bollard systems","label":"02","desc":"Stainless Steel 304 or marine-grade 316"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by airport gates, corporate parks & malls"},{"tag":"Impact Resistant","h":"Concrete reinforced<br />impact bollards for<br />high-security protection","label":"04","desc":"Engineered to withstand heavy vehicle impacts"},{"tag":"Bespoke Heights","h":"Custom heights, diameters<br />and LED illuminated<br />head configurations","label":"05","desc":"Tailored to urban smart city guidelines"}].map((card, idx) => (
-                            <div key={idx} className="flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative overflow-hidden rounded-lg group/item">
+                            <div key={idx} className="flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative overflow-hidden group/item rounded-none border border-[#DCDAD5]">
                                 <img
                                     alt={card.tag}
                                     className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover/item:scale-105"
@@ -208,7 +208,7 @@ const SSBollardsPage = () => {
                         ))}
 
                         {/* View All Products CTA Card */}
-                        <div className="flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative overflow-hidden rounded-lg border border-[#DCDAD5] bg-[#2C5F2E] text-white flex flex-col justify-between p-8 md:p-12 h-[400px] md:h-[500px] shadow-xl group/cta">
+                        <div className="flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative overflow-hidden border border-[#DCDAD5] bg-[#2C5F2E] text-white flex flex-col justify-between p-8 md:p-12 h-[400px] md:h-[500px] group/cta rounded-none">
                             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #DCDAD5 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
                             <div className="relative z-10 flex flex-col justify-between h-full text-left">
                                 <div className="space-y-6">
@@ -216,7 +216,7 @@ const SSBollardsPage = () => {
                                         <span className="text-[#C9A84C] font-black tracking-tighter text-sm uppercase font-label-technical">Urbanland® Catalogue</span>
                                         <span className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse"></span>
                                     </div>
-                                    <h3 className="font-headline-lg text-[32px] text-white">
+                                    <h3 className="font-headline-lg text-[32px] text-white text-left">
                                         Explore Our Complete Architectural Collection
                                     </h3>
                                     <p className="font-body-md text-white/80 max-w-sm">
@@ -226,10 +226,10 @@ const SSBollardsPage = () => {
                                 
                                 <div className="space-y-6">
                                     <div className="flex flex-wrap gap-4 border-t border-white/10 pt-6">
-                                        <span className="bg-white/10 px-3 py-1 rounded-full text-xs font-label-technical uppercase tracking-wider">14+ Categories</span>
-                                        <span className="bg-white/10 px-3 py-1 rounded-full text-xs font-label-technical uppercase tracking-wider">Custom CAD/Specs</span>
+                                        <span className="bg-white/10 px-3 py-1 rounded-none text-xs font-label-technical uppercase tracking-wider">14+ Categories</span>
+                                        <span className="bg-white/10 px-3 py-1 rounded-none text-xs font-label-technical uppercase tracking-wider">Custom CAD/Specs</span>
                                     </div>
-                                    <Link to="/catalogue" className="bg-[#C9A84C] text-[#1A1C1E] px-8 py-4 font-label-technical uppercase tracking-widest text-xs hover:bg-white hover:text-[#2C5F2E] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
+                                    <Link to="/catalogue" className="bg-[#C9A84C] text-[#1A1C1E] px-8 py-4 font-label-technical uppercase tracking-widest text-xs hover:bg-white hover:text-[#2C5F2E] transition-all duration-300 flex items-center justify-center gap-2 rounded-[4px] border-b-2 border-[#1A1A1A]">
                                         View All Products
                                         <span className="material-symbols-outlined text-sm">arrow_forward</span>
                                     </Link>
@@ -240,12 +240,12 @@ const SSBollardsPage = () => {
 
                     {/* Navigation buttons */}
                     <div className="absolute top-[200px] md:top-[250px] -translate-y-1/2 left-6 md:left-12 lg:left-[3.5rem] z-20">
-                        <button onClick={scrollHeroLeft} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center shadow-xl hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
+                        <button onClick={scrollHeroLeft} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
                             <span className="material-symbols-outlined">chevron_left</span>
                         </button>
                     </div>
                     <div className="absolute top-[200px] md:top-[250px] -translate-y-1/2 right-6 md:right-12 lg:right-[3.5rem] z-20">
-                        <button onClick={scrollHeroRight} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center shadow-xl hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
+                        <button onClick={scrollHeroRight} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
                             <span className="material-symbols-outlined">chevron_right</span>
                         </button>
                     </div>
@@ -253,20 +253,20 @@ const SSBollardsPage = () => {
             </section>
 
             {/* WHY QUALITY MATTERS */}
-            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0">
-                <div className="max-w-[1280px] mx-auto">
-                    <div className="mb-16 text-center space-y-4">
-                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Why Quality SS Bollards Matter in Public & Outdoor Spaces</h2>
-                        <div className="w-24 h-1 bg-[#C9A84C] mx-auto"></div>
+            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
+                <div className="max-w-[1280px] mx-auto text-left">
+                    <div className="mb-16 text-left space-y-4">
+                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Why Quality SS Bollards Matter in Public & Outdoor Spaces</h2>
+                        <div className="w-24 h-1 bg-[#C9A84C]"></div>
                     </div>
-                    <div className="flex flex-wrap justify-center gap-8">
+                    <div className="flex flex-wrap justify-start gap-8">
                         {[{"title":"Premium Steel Grades","desc":"Manufactured in high-yield Stainless Steel 304 or marine-grade 316, ensuring zero rust in coastal or high-pollution cities."},{"title":"Impact Core Ready","desc":"Internal structural cores can be filled with concrete and rebar to function as heavy-duty anti-ram vehicle barriers."},{"title":"Removable Options","desc":"Removable variants feature key-lockable sub-surface sleeves, allowing security teams to easily control vehicle access."},{"title":"ISO Certified QC","desc":"All bollards undergo strict dimensional checks and ultrasonic weld tests to guarantee high structural integrity."}].map((r, idx) => (
-                            <div key={idx} className="flex-shrink-0 w-full sm:w-[280px] md:w-[300px] lg:w-[240px] xl:w-[260px] flex flex-col items-center text-center space-y-4 p-8 bg-[#F2F0EB] rounded-lg border border-[#DCDAD5] transition-all hover:shadow-xl">
-                                <div className="w-12 h-12 flex items-center justify-center text-[#2C5F2E]">
+                            <div key={idx} className="flex-shrink-0 w-full sm:w-[280px] md:w-[300px] lg:w-[240px] xl:w-[260px] flex flex-col items-start text-left space-y-4 p-8 bg-[#F2F0EB] border border-[#DCDAD5] rounded-none transition-all">
+                                <div className="w-12 h-12 flex items-center justify-start text-[#2C5F2E]">
                                     <span className="material-symbols-outlined text-[40px]">{icons[idx % icons.length]}</span>
                                 </div>
-                                <h3 className="font-bold text-[#1A1A1E]">{r.title}</h3>
-                                <p className="text-body-md text-[#44474A]">{r.desc}</p>
+                                <h3 className="font-bold text-[#1A1A1E] text-left">{r.title}</h3>
+                                <p className="text-body-md text-[#44474A] text-left">{r.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -274,10 +274,10 @@ const SSBollardsPage = () => {
             </section>
 
             {/* RANGE OF PREMIUM CONFIGURATIONS */}
-            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0">
+            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
                 <div className="max-w-[1280px] mx-auto">
                     <div className="mb-16 space-y-4 text-left">
-                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Three SS Bollards Configurations — Choose What Fits Your Project</h2>
+                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Three SS Bollards Configurations — Choose What Fits Your Project</h2>
                         <div className="w-24 h-1 bg-[#C9A84C]"></div>
                         <p className="font-body-lg text-[18px] text-[#44474A] max-w-3xl">
                             All Urbanland architectural products are built on proven specifications but fully customizable:
@@ -286,16 +286,16 @@ const SSBollardsPage = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {configCards.map((card, idx) => (
-                            <div key={card.key} className="bg-[#F2F0EB] border border-[#DCDAD5] rounded-lg hover:shadow-xl transition-all group p-0 flex flex-col justify-between overflow-hidden text-left">
+                            <div key={card.key} className="bg-[#F2F0EB] border border-[#DCDAD5] rounded-none transition-all group p-0 flex flex-col justify-between overflow-hidden text-left">
                                 <div>
-                                    <div className="w-full h-64 overflow-hidden rounded-t-lg relative">
+                                    <div className="w-full h-64 overflow-hidden relative rounded-none">
                                         <img alt={card.data.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src={carouselImages[card.data.imgIdx % carouselImages.length]} />
-                                        <span className="absolute top-4 left-4 text-[9px] font-black uppercase tracking-widest text-[#C9A84C] bg-black/60 px-3 py-1.5 rounded-full select-none">{card.badge}</span>
+                                        <span className="absolute top-4 left-4 text-[9px] font-black uppercase tracking-widest text-white bg-[#2C5F2E] px-3 py-1.5 rounded-none select-none">{card.badge}</span>
                                     </div>
                                     <div className="p-8">
-                                        <h3 className="font-headline-md text-[24px] mb-4 text-[#1A1A1E] leading-tight">{card.data.title}</h3>
-                                        <p className="text-xs font-semibold uppercase tracking-wider text-[#44474A] mb-4">Best for: {card.data.ideal}</p>
-                                        <ul className="space-y-2 text-xs font-semibold text-[#1A1A1E]/80">
+                                        <h3 className="font-headline-md text-[24px] mb-4 text-[#1A1A1E] leading-tight text-left">{card.data.title}</h3>
+                                        <p className="text-xs font-semibold uppercase tracking-wider text-[#44474A] mb-4 text-left">Best for: {card.data.ideal}</p>
+                                        <ul className="space-y-2 text-xs font-semibold text-[#1A1A1E]/80 text-left">
                                             {card.data.features.map((f, i) => (
                                                 <li key={i} className="flex items-center gap-2"><span className="text-[#C9A84C]">▸</span> {f}</li>
                                             ))}
@@ -303,7 +303,7 @@ const SSBollardsPage = () => {
                                     </div>
                                 </div>
                                 <div className="p-8 pt-0">
-                                    <Link to={"/get-quote/?product=ss-bollards&variant=" + card.key} className="bg-[#2C5F2E] text-white px-6 py-3 font-label-technical uppercase tracking-widest text-xs inline-block text-center rounded-none w-full hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-colors">
+                                    <Link to={"/get-quote/?product=ss-bollards&variant=" + card.key} className="bg-[#2C5F2E] text-white px-6 py-3 font-label-technical uppercase tracking-widest text-xs inline-block text-center rounded-[4px] border-b-2 border-[#1A1A1A] hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-colors w-full">
                                         Request {card.key.toUpperCase()} Quote →
                                     </Link>
                                 </div>
@@ -314,10 +314,10 @@ const SSBollardsPage = () => {
             </section>
 
             {/* MATERIALS & CUSTOMIZATION GUIDE */}
-            <section className="bg-[#F2F0EB] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0">
+            <section className="bg-[#F2F0EB] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
                 <div className="max-w-[1280px] mx-auto">
                     <div className="mb-16 space-y-4 text-left">
-                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Materials & Customization Guide</h2>
+                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Materials & Customization Guide</h2>
                         <div className="w-24 h-1 bg-[#C9A84C]"></div>
                         <p className="font-body-lg text-[18px] text-[#44474A] max-w-3xl">
                             Compare our high-performance materials and explore how we can tailor our products to your specific project requirements.
@@ -349,7 +349,7 @@ const SSBollardsPage = () => {
                                             <td className="p-4 md:p-6">
                                                 <div className="flex items-center gap-2">
                                                     {m.life}
-                                                    <div className="h-1.5 w-12 bg-[#C9A84C]/30 rounded-full overflow-hidden">
+                                                    <div className="h-1.5 w-12 bg-[#C9A84C]/30 rounded-none overflow-hidden">
                                                         <div className="h-full bg-[#C9A84C]" style={{ width: progressWidth }}></div>
                                                     </div>
                                                 </div>
@@ -370,7 +370,7 @@ const SSBollardsPage = () => {
                             const title = parts[0]?.trim() || "Customization";
                             const desc = parts.slice(1).join(":").trim() || "";
                             return (
-                                <div key={idx} className="p-6 bg-[#FFFFFF] border border-[#DCDAD5] text-center space-y-3 hover:border-[#2C5F2E] transition-colors">
+                                <div key={idx} className="p-6 bg-[#FFFFFF] border border-[#DCDAD5] text-center space-y-3 hover:border-[#2C5F2E] transition-colors rounded-none">
                                     <span className="material-symbols-outlined text-[#2C5F2E] text-3xl">{customIcons[idx % customIcons.length]}</span>
                                     <h4 className="font-bold text-[#1A1A1A] text-sm uppercase tracking-wider">{title}</h4>
                                     <p className="text-xs text-[#44474A]">{desc}</p>
@@ -382,10 +382,10 @@ const SSBollardsPage = () => {
             </section>
 
             {/* CASE STUDIES & PROJECTS */}
-            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0">
+            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
                 <div className="max-w-[1280px] mx-auto">
                     <div className="mb-16 space-y-4 text-left">
-                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Real Projects. Real Results. Across India.</h2>
+                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Real Projects. Real Results. Across India.</h2>
                         <div className="w-24 h-1 bg-[#C9A84C] whitespace-pre-line"></div>
                         <p className="font-label-technical text-[#2C5F2E] uppercase tracking-widest font-bold">70+ major projects delivered | 22+ cities served</p>
                     </div>
@@ -395,14 +395,14 @@ const SSBollardsPage = () => {
                             <div className="flex">
                                 {[{"tag":"Nagpur Smart City","subtitle":"Nagpur Municipal Corp","title":"Metro Station Entrances — 300 Fixed SS Bollards","time":"4 months","desc":" Nagpur Smart City authority deployed 300 inground fixed SS 304 bollards across 10 metro station plazas. The concrete-filled bollards provide high-security pedestrian boundary protection."},{"tag":"Taj Lands End","subtitle":"Taj Hotels — Mumbai","title":"Luxury Hotel Driveway Security — 45 SS Bollards","time":"2 months","desc":"Installed custom mirror-polished SS 316 fixed bollards along the hotel entrance driveway. The marine-grade steel resists beachfront salt spray."},{"tag":"Tata Green Hills","subtitle":"Tata Realty — Pune","title":"Emergency Fire Lane Gates — 20 Removable Bollards","time":"2 months","desc":"Supplied and installed 20 removable key-locked bollards at emergency fire exits. The sleeve design allows security staff to clear the road rapidly."}].map((p, idx) => (
                                     <div key={idx} className={"w-full flex-shrink-0 px-2 transition-all duration-500 " + (projectSlideIdx === idx ? "block" : "hidden")}>
-                                        <div className="bg-[#FFFFFF] border border-[#DCDAD5] overflow-hidden flex flex-col md:flex-row h-full md:h-[450px]">
+                                        <div className="bg-[#FFFFFF] border border-[#DCDAD5] overflow-hidden flex flex-col md:flex-row h-full md:h-[450px] rounded-none">
                                             <div className="md:w-1/2 h-64 md:h-full">
-                                                <img alt={p.title} className="w-full h-full object-cover" src={carouselImages[(idx + 1) % carouselImages.length]} />
+                                                <img alt={p.title} className="w-full h-full object-cover rounded-none" src={carouselImages[(idx + 1) % carouselImages.length]} />
                                             </div>
                                             <div className="md:w-1/2 p-6 md:p-10 flex flex-col justify-center space-y-6">
                                                 <div className="space-y-2">
                                                     <span className="font-label-technical text-[#2C5F2E] uppercase tracking-widest text-xs">{p.tag}</span>
-                                                    <h3 className="font-headline-md text-[24px] text-[#1A1A1A] leading-tight">{p.title}</h3>
+                                                    <h3 className="font-headline-md text-[24px] text-[#1A1A1A] leading-tight text-left">{p.title}</h3>
                                                     <p className="text-sm text-[#44474A] uppercase tracking-wider">{p.subtitle}</p>
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-6 py-6 border-y border-[#DCDAD5]">
@@ -425,28 +425,28 @@ const SSBollardsPage = () => {
 
                         {/* Slider controls */}
                         <div className="absolute top-1/2 -translate-y-1/2 -left-6 md:-left-12 z-20">
-                            <button onClick={handlePrevProject} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center shadow-xl hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
+                            <button onClick={handlePrevProject} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
                                 <span className="material-symbols-outlined">chevron_left</span>
                             </button>
                         </div>
                         <div className="absolute top-1/2 -translate-y-1/2 -right-6 md:-right-12 z-20">
-                            <button onClick={handleNextProject} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center shadow-xl hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
+                            <button onClick={handleNextProject} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
                                 <span className="material-symbols-outlined">chevron_right</span>
                             </button>
                         </div>
                     </div>
 
                     {/* Featured Spotlight Card */}
-                    <div className="bg-[#2C5F2E] text-white p-6 md:p-10 rounded-lg mb-20 flex flex-col md:flex-row gap-6 md:gap-10 items-center">
+                    <div className="bg-[#2C5F2E] text-white p-6 md:p-10 mb-20 flex flex-col md:flex-row gap-6 md:gap-10 items-center rounded-none">
                         <div className="md:w-1/2 space-y-6 text-left">
                             <span className="font-label-technical uppercase tracking-[0.2em] text-[#C9A84C]">Featured Spotlight</span>
-                            <h3 className="font-headline-md text-[24px] text-white leading-tight">Premium Fixed Bollard — Inground Cast Core</h3>
+                            <h3 className="font-headline-md text-[24px] text-white leading-tight text-left">Premium Fixed Bollard — Inground Cast Core</h3>
                             <p className="font-body-lg opacity-90 leading-relaxed">
                                 Airport terminals, corporate park entrance gates, shopping mall driveways. Featuring Material: Stainless Steel 316 (coastal marine grade), Finish: Mirror polished steel with reflective hazard band, Design: Domed top inground bollard for concrete casting, Capacity: Medium-impact security core barrier.
                             </p>
                         </div>
-                        <div className="md:w-1/2 border-2 border-[#C9A84C]/30 p-2 w-full h-full">
-                            <img src={carouselImages[1 % carouselImages.length]} alt="Featured Spotlight" className="w-full h-64 object-cover" />
+                        <div className="md:w-1/2 border-2 border-[#C9A84C]/30 p-2 w-full h-full rounded-none">
+                            <img src={carouselImages[1 % carouselImages.length]} alt="Featured Spotlight" className="w-full h-64 object-cover rounded-none" />
                         </div>
                     </div>
 
@@ -466,24 +466,24 @@ const SSBollardsPage = () => {
             </section>
 
             {/* INSTALLATION & WARRANTY support sections */}
-            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0 text-left">
+            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0 text-left">
                 <div className="max-w-[1280px] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                        <div className="p-8 bg-[#F2F0EB] border border-[#DCDAD5] rounded-lg flex items-start space-x-6">
-                            <div className="flex-shrink-0 w-12 h-12 bg-[#2C5F2E]/10 rounded-full flex items-center justify-center text-[#2C5F2E]">
+                        <div className="p-8 bg-[#F2F0EB] border border-[#DCDAD5] flex items-start space-x-6 rounded-none">
+                            <div className="flex-shrink-0 w-12 h-12 bg-[#2C5F2E]/10 rounded-none flex items-center justify-center text-[#2C5F2E]">
                                 <span className="material-symbols-outlined">local_shipping</span>
                             </div>
                             <div>
-                                <h3 className="font-bold text-[#1A1A1A] mb-2">Installation Support</h3>
+                                <h3 className="font-bold text-[#1A1A1A] mb-2 text-left">Installation Support</h3>
                                 <p className="text-body-md text-[#44474A] leading-relaxed">We provide professional delivery, anchoring and installation support across India.</p>
                             </div>
                         </div>
-                        <div className="p-8 bg-[#F2F0EB] border border-[#DCDAD5] rounded-lg flex items-start space-x-6">
-                            <div className="flex-shrink-0 w-12 h-12 bg-[#2C5F2E]/10 rounded-full flex items-center justify-center text-[#2C5F2E]">
+                        <div className="p-8 bg-[#F2F0EB] border border-[#DCDAD5] flex items-start space-x-6 rounded-none">
+                            <div className="flex-shrink-0 w-12 h-12 bg-[#2C5F2E]/10 rounded-none flex items-center justify-center text-[#2C5F2E]">
                                 <span className="material-symbols-outlined">verified_user</span>
                             </div>
                             <div>
-                                <h3 className="font-bold text-[#1A1A1A] mb-2">2-Year Comprehensive Warranty</h3>
+                                <h3 className="font-bold text-[#1A1A1A] mb-2 text-left">2-Year Comprehensive Warranty</h3>
                                 <p className="text-body-md text-[#44474A] leading-relaxed">Urbanland stands behind its products with a comprehensive 2-year guarantee on structure, coating, and components.</p>
                             </div>
                         </div>
@@ -491,9 +491,9 @@ const SSBollardsPage = () => {
 
                     {/* FAQ SECTION */}
                     <div className="max-w-3xl mx-auto">
-                        <div className="text-center mb-12">
-                            <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] mb-4">Frequently Asked Questions</h2>
-                            <div className="w-24 h-1 bg-[#C9A84C] mx-auto"></div>
+                        <div className="text-left mb-12">
+                            <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] mb-4 text-left">Frequently Asked Questions</h2>
+                            <div className="w-24 h-1 bg-[#C9A84C]"></div>
                         </div>
                         <div className="space-y-4">
                             {[{"q":"What steel grades are available?","a":"We manufacture bollards in Stainless Steel 304 and marine-grade 316. 316 is highly recommended for coastal locations."},{"q":"What is the difference between fixed and removable bollards?","a":"Fixed bollards are cast deep into concrete for permanent access prevention. Removable bollards use a lockable base sleeve for temporary access."},{"q":"Are they impact-resistant?","a":"Yes. We build structural core bollards reinforced with concrete cores to provide high-security vehicle barriers."},{"q":"What is the typical lead time?","a":"Standard SS bollards are manufactured in 20-25 days."},{"q":"Do you customize heights?","a":"Yes. We offer customized bollard heights from 600mm to 1200mm above ground level."}].map((faq, idx) => (

@@ -123,7 +123,7 @@ const CarShelterPage = () => {
                             <span className="font-label-technical text-[#C9A84C] tracking-[0.2em] uppercase font-semibold block mb-4">
                                 Durable and stylish car parking sheds engineered for India’s harsh climate. Available in Mild Steel, Stainless Steel, and Aluminium. Backed by India’s only 2-Year Comprehensive Guarantee.
                             </span>
-                            <h1 className="font-headline-xl text-[38px] font-[700] md:text-[48px] text-[#1A1A1A] max-w-xl leading-[1.2] md:leading-[1.1]">
+                            <h1 className="font-headline-xl text-[38px] font-[700] md:text-[48px] text-[#1A1A1A] max-w-xl leading-[1.2] md:leading-[1.1] text-left">
                                 Premium Car Sheds & Car Parking Sheds Manufacturer in India – Protect Your Vehicle in Style
                             </h1>
                         </div>
@@ -153,10 +153,10 @@ const CarShelterPage = () => {
 
                         {/* CTAs */}
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <Link to="/get-quote" className="bg-[#2C5F2E] text-white px-10 py-4 font-label-technical uppercase tracking-widest text-sm flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all duration-300">
+                            <Link to="/get-quote" className="bg-[#2C5F2E] text-white px-10 py-4 font-label-technical uppercase tracking-widest text-sm flex items-center justify-center rounded-[4px] border-b-2 border-[#2D2D2D] hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all duration-300">
                                 Request Custom Quote <span className="ml-2">→</span>
                             </Link>
-                            <Link to="/resources/downloads" className="border-2 border-[#2C5F2E] text-[#2C5F2E] px-10 py-4 font-label-technical uppercase tracking-widest text-sm flex items-center justify-center hover:bg-[#2C5F2E] hover:text-white transition-all duration-300">
+                            <Link to="/resources/downloads" className="border-2 border-[#2C5F2E] text-[#2C5F2E] px-10 py-4 font-label-technical uppercase tracking-widest text-sm flex items-center justify-center rounded-[4px] hover:bg-[#2C5F2E] hover:text-white transition-all duration-300">
                                 Download the Brochure <span className="ml-2">↓</span>
                             </Link>
                         </div>
@@ -165,8 +165,8 @@ const CarShelterPage = () => {
                     {/* Hero Image Right */}
                     <div className="relative group hidden lg:flex h-full w-full py-10 flex-col justify-center">
                         <div className="relative h-full lg:h-[97%] w-full">
-                            <div className="absolute inset-0 bg-[#2C5F2E]/5 -rotate-3 rounded-lg transition-transform group-hover:rotate-0 duration-500"></div>
-                            <div className="relative h-full min-h-[600px] w-full overflow-hidden border border-[#DCDAD5] bg-[#E8E6E0] shadow-xl rounded-lg">
+                            <div className="absolute inset-0 bg-[#2C5F2E]/5 -rotate-3 transition-transform group-hover:rotate-0 duration-500 rounded-none"></div>
+                            <div className="relative h-full min-h-[600px] w-full overflow-hidden border border-[#DCDAD5] bg-[#E8E6E0] rounded-none">
                                 {carouselImages.map((img, idx) => (
                                     <img
                                         key={idx}
@@ -185,19 +185,19 @@ const CarShelterPage = () => {
             </section>
 
             {/* CRAFTED FOR EVERY ENVIRONMENT */}
-            <section className="bg-[#F7F4EF] py-24 overflow-hidden transition-all duration-1000 opacity-100 translate-y-0">
-                <div className="max-w-[1280px] mx-auto px-6 md:px-12 mb-16 text-center space-y-4">
-                    <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Crafted for Every Environment</h2>
-                    <p className="font-body-lg text-[18px] text-[#44474A] max-w-3xl mx-auto">
+            <section className="bg-[#F7F4EF] py-24 overflow-hidden border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
+                <div className="max-w-[1280px] mx-auto px-6 md:px-12 mb-16 text-left space-y-4">
+                    <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Crafted for Every Environment</h2>
+                    <p className="font-body-lg text-[18px] text-[#44474A] max-w-3xl">
                         Explore our collection of premium outdoor seating installed in world-class spaces.
                     </p>
-                    <div className="w-24 h-1 bg-[#C9A84C] mx-auto mt-4"></div>
+                    <div className="w-24 h-1 bg-[#C9A84C] mt-4"></div>
                 </div>
 
                 <div className="relative group">
                     <div ref={heroScrollRef} className="flex overflow-x-auto space-x-6 px-6 lg:px-24 pb-12 scrollbar-none snap-x snap-mandatory scroll-smooth w-full">
                         {[{"tag":"Infrastructure Spotlight","h":"Premium Car Sheds<br />& Tensile Car Shelters","label":"01","desc":"Heavy-duty structural steel parking canopies"},{"tag":"Tensile Shades","h":"High-tensile PVDF<br />membrane roofing<br />structures","label":"02","desc":"Provides 100% UV block & heat reduction"},{"tag":"B2B Guarantee","h":"2-Year Warranty<br />& ISO Certified<br />Standards","label":"03","desc":"Trusted by hotels, developers, and corporate parks"},{"tag":"Weather Protection","h":"Wind-load certified<br />cantilever steel sheds<br />for multiple cars","label":"04","desc":"Galvanized frames with Akzonobel coatings"},{"tag":"Custom Parking","h":"Custom modular bays<br />in single-sided or<br />double-sided setups","label":"05","desc":"Tailored to commercial and residential parking"}].map((card, idx) => (
-                            <div key={idx} className="flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative overflow-hidden rounded-lg group/item">
+                            <div key={idx} className="flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative overflow-hidden group/item rounded-none border border-[#DCDAD5]">
                                 <img
                                     alt={card.tag}
                                     className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover/item:scale-105"
@@ -208,7 +208,7 @@ const CarShelterPage = () => {
                         ))}
 
                         {/* View All Products CTA Card */}
-                        <div className="flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative overflow-hidden rounded-lg border border-[#DCDAD5] bg-[#2C5F2E] text-white flex flex-col justify-between p-8 md:p-12 h-[400px] md:h-[500px] shadow-xl group/cta">
+                        <div className="flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-center relative overflow-hidden border border-[#DCDAD5] bg-[#2C5F2E] text-white flex flex-col justify-between p-8 md:p-12 h-[400px] md:h-[500px] group/cta rounded-none">
                             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #DCDAD5 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
                             <div className="relative z-10 flex flex-col justify-between h-full text-left">
                                 <div className="space-y-6">
@@ -216,7 +216,7 @@ const CarShelterPage = () => {
                                         <span className="text-[#C9A84C] font-black tracking-tighter text-sm uppercase font-label-technical">Urbanland® Catalogue</span>
                                         <span className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse"></span>
                                     </div>
-                                    <h3 className="font-headline-lg text-[32px] text-white">
+                                    <h3 className="font-headline-lg text-[32px] text-white text-left">
                                         Explore Our Complete Architectural Collection
                                     </h3>
                                     <p className="font-body-md text-white/80 max-w-sm">
@@ -226,10 +226,10 @@ const CarShelterPage = () => {
                                 
                                 <div className="space-y-6">
                                     <div className="flex flex-wrap gap-4 border-t border-white/10 pt-6">
-                                        <span className="bg-white/10 px-3 py-1 rounded-full text-xs font-label-technical uppercase tracking-wider">14+ Categories</span>
-                                        <span className="bg-white/10 px-3 py-1 rounded-full text-xs font-label-technical uppercase tracking-wider">Custom CAD/Specs</span>
+                                        <span className="bg-white/10 px-3 py-1 rounded-none text-xs font-label-technical uppercase tracking-wider">14+ Categories</span>
+                                        <span className="bg-white/10 px-3 py-1 rounded-none text-xs font-label-technical uppercase tracking-wider">Custom CAD/Specs</span>
                                     </div>
-                                    <Link to="/catalogue" className="bg-[#C9A84C] text-[#1A1C1E] px-8 py-4 font-label-technical uppercase tracking-widest text-xs hover:bg-white hover:text-[#2C5F2E] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
+                                    <Link to="/catalogue" className="bg-[#C9A84C] text-[#1A1C1E] px-8 py-4 font-label-technical uppercase tracking-widest text-xs hover:bg-white hover:text-[#2C5F2E] transition-all duration-300 flex items-center justify-center gap-2 rounded-[4px] border-b-2 border-[#1A1A1A]">
                                         View All Products
                                         <span className="material-symbols-outlined text-sm">arrow_forward</span>
                                     </Link>
@@ -240,12 +240,12 @@ const CarShelterPage = () => {
 
                     {/* Navigation buttons */}
                     <div className="absolute top-[200px] md:top-[250px] -translate-y-1/2 left-6 md:left-12 lg:left-[3.5rem] z-20">
-                        <button onClick={scrollHeroLeft} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center shadow-xl hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
+                        <button onClick={scrollHeroLeft} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
                             <span className="material-symbols-outlined">chevron_left</span>
                         </button>
                     </div>
                     <div className="absolute top-[200px] md:top-[250px] -translate-y-1/2 right-6 md:right-12 lg:right-[3.5rem] z-20">
-                        <button onClick={scrollHeroRight} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center shadow-xl hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
+                        <button onClick={scrollHeroRight} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
                             <span className="material-symbols-outlined">chevron_right</span>
                         </button>
                     </div>
@@ -253,20 +253,20 @@ const CarShelterPage = () => {
             </section>
 
             {/* WHY QUALITY MATTERS */}
-            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0">
-                <div className="max-w-[1280px] mx-auto">
-                    <div className="mb-16 text-center space-y-4">
-                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Why Quality Car Shelter Matter in Public & Outdoor Spaces</h2>
-                        <div className="w-24 h-1 bg-[#C9A84C] mx-auto"></div>
+            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
+                <div className="max-w-[1280px] mx-auto text-left">
+                    <div className="mb-16 text-left space-y-4">
+                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Why Quality Car Shelter Matter in Public & Outdoor Spaces</h2>
+                        <div className="w-24 h-1 bg-[#C9A84C]"></div>
                     </div>
-                    <div className="flex flex-wrap justify-center gap-8">
+                    <div className="flex flex-wrap justify-start gap-8">
                         {[{"title":"Cantilever Design","desc":"Provides unobstructed space beneath the canopy, allowing drivers to park easily without hitting structural posts."},{"title":"PVDF Membrane","desc":"Uses premium high-tensile PVDF membrane roofing which blocks 100% of UV rays and reduces temperature under the canopy by up to 10°C."},{"title":"Wind Resistance","desc":"Structural steel framework is wind-load calculated and certified to withstand wind velocities of up to 120 km/h."},{"title":"Staggered Delivery","desc":"Modular fabrication enables staggered delivery and rapid erection, minimizing site disruptions in operational car parks."}].map((r, idx) => (
-                            <div key={idx} className="flex-shrink-0 w-full sm:w-[280px] md:w-[300px] lg:w-[240px] xl:w-[260px] flex flex-col items-center text-center space-y-4 p-8 bg-[#F2F0EB] rounded-lg border border-[#DCDAD5] transition-all hover:shadow-xl">
-                                <div className="w-12 h-12 flex items-center justify-center text-[#2C5F2E]">
+                            <div key={idx} className="flex-shrink-0 w-full sm:w-[280px] md:w-[300px] lg:w-[240px] xl:w-[260px] flex flex-col items-start text-left space-y-4 p-8 bg-[#F2F0EB] border border-[#DCDAD5] rounded-none transition-all">
+                                <div className="w-12 h-12 flex items-center justify-start text-[#2C5F2E]">
                                     <span className="material-symbols-outlined text-[40px]">{icons[idx % icons.length]}</span>
                                 </div>
-                                <h3 className="font-bold text-[#1A1A1E]">{r.title}</h3>
-                                <p className="text-body-md text-[#44474A]">{r.desc}</p>
+                                <h3 className="font-bold text-[#1A1A1E] text-left">{r.title}</h3>
+                                <p className="text-body-md text-[#44474A] text-left">{r.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -274,10 +274,10 @@ const CarShelterPage = () => {
             </section>
 
             {/* RANGE OF PREMIUM CONFIGURATIONS */}
-            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0">
+            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
                 <div className="max-w-[1280px] mx-auto">
                     <div className="mb-16 space-y-4 text-left">
-                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Three Car Shelter Configurations — Choose What Fits Your Project</h2>
+                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Three Car Shelter Configurations — Choose What Fits Your Project</h2>
                         <div className="w-24 h-1 bg-[#C9A84C]"></div>
                         <p className="font-body-lg text-[18px] text-[#44474A] max-w-3xl">
                             All Urbanland architectural products are built on proven specifications but fully customizable:
@@ -286,16 +286,16 @@ const CarShelterPage = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {configCards.map((card, idx) => (
-                            <div key={card.key} className="bg-[#F2F0EB] border border-[#DCDAD5] rounded-lg hover:shadow-xl transition-all group p-0 flex flex-col justify-between overflow-hidden text-left">
+                            <div key={card.key} className="bg-[#F2F0EB] border border-[#DCDAD5] rounded-none transition-all group p-0 flex flex-col justify-between overflow-hidden text-left">
                                 <div>
-                                    <div className="w-full h-64 overflow-hidden rounded-t-lg relative">
+                                    <div className="w-full h-64 overflow-hidden relative rounded-none">
                                         <img alt={card.data.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src={carouselImages[card.data.imgIdx % carouselImages.length]} />
-                                        <span className="absolute top-4 left-4 text-[9px] font-black uppercase tracking-widest text-[#C9A84C] bg-black/60 px-3 py-1.5 rounded-full select-none">{card.badge}</span>
+                                        <span className="absolute top-4 left-4 text-[9px] font-black uppercase tracking-widest text-white bg-[#2C5F2E] px-3 py-1.5 rounded-none select-none">{card.badge}</span>
                                     </div>
                                     <div className="p-8">
-                                        <h3 className="font-headline-md text-[24px] mb-4 text-[#1A1A1E] leading-tight">{card.data.title}</h3>
-                                        <p className="text-xs font-semibold uppercase tracking-wider text-[#44474A] mb-4">Best for: {card.data.ideal}</p>
-                                        <ul className="space-y-2 text-xs font-semibold text-[#1A1A1E]/80">
+                                        <h3 className="font-headline-md text-[24px] mb-4 text-[#1A1A1E] leading-tight text-left">{card.data.title}</h3>
+                                        <p className="text-xs font-semibold uppercase tracking-wider text-[#44474A] mb-4 text-left">Best for: {card.data.ideal}</p>
+                                        <ul className="space-y-2 text-xs font-semibold text-[#1A1A1E]/80 text-left">
                                             {card.data.features.map((f, i) => (
                                                 <li key={i} className="flex items-center gap-2"><span className="text-[#C9A84C]">▸</span> {f}</li>
                                             ))}
@@ -303,7 +303,7 @@ const CarShelterPage = () => {
                                     </div>
                                 </div>
                                 <div className="p-8 pt-0">
-                                    <Link to={"/get-quote/?product=car-shelters&variant=" + card.key} className="bg-[#2C5F2E] text-white px-6 py-3 font-label-technical uppercase tracking-widest text-xs inline-block text-center rounded-none w-full hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-colors">
+                                    <Link to={"/get-quote/?product=car-shelters&variant=" + card.key} className="bg-[#2C5F2E] text-white px-6 py-3 font-label-technical uppercase tracking-widest text-xs inline-block text-center rounded-[4px] border-b-2 border-[#1A1A1A] hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-colors w-full">
                                         Request {card.key.toUpperCase()} Quote →
                                     </Link>
                                 </div>
@@ -314,10 +314,10 @@ const CarShelterPage = () => {
             </section>
 
             {/* MATERIALS & CUSTOMIZATION GUIDE */}
-            <section className="bg-[#F2F0EB] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0">
+            <section className="bg-[#F2F0EB] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
                 <div className="max-w-[1280px] mx-auto">
                     <div className="mb-16 space-y-4 text-left">
-                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Materials & Customization Guide</h2>
+                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Materials & Customization Guide</h2>
                         <div className="w-24 h-1 bg-[#C9A84C]"></div>
                         <p className="font-body-lg text-[18px] text-[#44474A] max-w-3xl">
                             Compare our high-performance materials and explore how we can tailor our products to your specific project requirements.
@@ -349,7 +349,7 @@ const CarShelterPage = () => {
                                             <td className="p-4 md:p-6">
                                                 <div className="flex items-center gap-2">
                                                     {m.life}
-                                                    <div className="h-1.5 w-12 bg-[#C9A84C]/30 rounded-full overflow-hidden">
+                                                    <div className="h-1.5 w-12 bg-[#C9A84C]/30 rounded-none overflow-hidden">
                                                         <div className="h-full bg-[#C9A84C]" style={{ width: progressWidth }}></div>
                                                     </div>
                                                 </div>
@@ -370,7 +370,7 @@ const CarShelterPage = () => {
                             const title = parts[0]?.trim() || "Customization";
                             const desc = parts.slice(1).join(":").trim() || "";
                             return (
-                                <div key={idx} className="p-6 bg-[#FFFFFF] border border-[#DCDAD5] text-center space-y-3 hover:border-[#2C5F2E] transition-colors">
+                                <div key={idx} className="p-6 bg-[#FFFFFF] border border-[#DCDAD5] text-center space-y-3 hover:border-[#2C5F2E] transition-colors rounded-none">
                                     <span className="material-symbols-outlined text-[#2C5F2E] text-3xl">{customIcons[idx % customIcons.length]}</span>
                                     <h4 className="font-bold text-[#1A1A1A] text-sm uppercase tracking-wider">{title}</h4>
                                     <p className="text-xs text-[#44474A]">{desc}</p>
@@ -382,10 +382,10 @@ const CarShelterPage = () => {
             </section>
 
             {/* CASE STUDIES & PROJECTS */}
-            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0">
+            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0">
                 <div className="max-w-[1280px] mx-auto">
                     <div className="mb-16 space-y-4 text-left">
-                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A]">Real Projects. Real Results. Across India.</h2>
+                        <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] text-left">Real Projects. Real Results. Across India.</h2>
                         <div className="w-24 h-1 bg-[#C9A84C] whitespace-pre-line"></div>
                         <p className="font-label-technical text-[#2C5F2E] uppercase tracking-widest font-bold">40+ major projects delivered | 18+ cities served</p>
                     </div>
@@ -395,14 +395,14 @@ const CarShelterPage = () => {
                             <div className="flex">
                                 {[{"tag":"Adani Corporate House","subtitle":"Adani Realty — Ahmedabad","title":"Corporate Headquarters — 120 Car Tensile Canopy","time":"5 months","desc":"Designed, fabricated, and erected 120 car parking cantilever tensile shelters at the Adani corporate office. The cantilever design eliminated central poles, maximizing driving lanes and preventing car scrapes."},{"tag":"Nagpur Smart City","subtitle":"Nagpur Municipal Corp","title":"Smart City Parking Hub — 45 Solar Parking Bays","time":"4 months","desc":"Installed modular structural steel solar car sheds at the central smart city parking hub. Integrated off-grid monocrystalline solar roofing systems, contributing power back to the grid and sheltering municipal fleets."},{"tag":"Taj Lands End","subtitle":"Taj Hotels — Mumbai","title":"Luxury Hotel Guest Parking — 30 Cantilever Bays","time":"3 months","desc":"Constructed premium cantilever car shelters with marine-grade hot-dip galvanized steel and PVDF fabrics. Structures successfully resist severe beachfront winds and corrosive salt sprays."}].map((p, idx) => (
                                     <div key={idx} className={"w-full flex-shrink-0 px-2 transition-all duration-500 " + (projectSlideIdx === idx ? "block" : "hidden")}>
-                                        <div className="bg-[#FFFFFF] border border-[#DCDAD5] overflow-hidden flex flex-col md:flex-row h-full md:h-[450px]">
+                                        <div className="bg-[#FFFFFF] border border-[#DCDAD5] overflow-hidden flex flex-col md:flex-row h-full md:h-[450px] rounded-none">
                                             <div className="md:w-1/2 h-64 md:h-full">
-                                                <img alt={p.title} className="w-full h-full object-cover" src={carouselImages[(idx + 1) % carouselImages.length]} />
+                                                <img alt={p.title} className="w-full h-full object-cover rounded-none" src={carouselImages[(idx + 1) % carouselImages.length]} />
                                             </div>
                                             <div className="md:w-1/2 p-6 md:p-10 flex flex-col justify-center space-y-6">
                                                 <div className="space-y-2">
                                                     <span className="font-label-technical text-[#2C5F2E] uppercase tracking-widest text-xs">{p.tag}</span>
-                                                    <h3 className="font-headline-md text-[24px] text-[#1A1A1A] leading-tight">{p.title}</h3>
+                                                    <h3 className="font-headline-md text-[24px] text-[#1A1A1A] leading-tight text-left">{p.title}</h3>
                                                     <p className="text-sm text-[#44474A] uppercase tracking-wider">{p.subtitle}</p>
                                                 </div>
                                                 <div className="grid grid-cols-2 gap-6 py-6 border-y border-[#DCDAD5]">
@@ -425,28 +425,28 @@ const CarShelterPage = () => {
 
                         {/* Slider controls */}
                         <div className="absolute top-1/2 -translate-y-1/2 -left-6 md:-left-12 z-20">
-                            <button onClick={handlePrevProject} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center shadow-xl hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
+                            <button onClick={handlePrevProject} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
                                 <span className="material-symbols-outlined">chevron_left</span>
                             </button>
                         </div>
                         <div className="absolute top-1/2 -translate-y-1/2 -right-6 md:-right-12 z-20">
-                            <button onClick={handleNextProject} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center shadow-xl hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
+                            <button onClick={handleNextProject} className="w-12 h-12 rounded-full bg-[#2C5F2E] text-white flex items-center justify-center hover:bg-[#C9A84C] hover:text-[#1A1C1E] transition-all border-none cursor-pointer">
                                 <span className="material-symbols-outlined">chevron_right</span>
                             </button>
                         </div>
                     </div>
 
                     {/* Featured Spotlight Card */}
-                    <div className="bg-[#2C5F2E] text-white p-6 md:p-10 rounded-lg mb-20 flex flex-col md:flex-row gap-6 md:gap-10 items-center">
+                    <div className="bg-[#2C5F2E] text-white p-6 md:p-10 mb-20 flex flex-col md:flex-row gap-6 md:gap-10 items-center rounded-none">
                         <div className="md:w-1/2 space-y-6 text-left">
                             <span className="font-label-technical uppercase tracking-[0.2em] text-[#C9A84C]">Featured Spotlight</span>
-                            <h3 className="font-headline-md text-[24px] text-white leading-tight">Premium Tensile Car Shelter — Cantilever Style</h3>
+                            <h3 className="font-headline-md text-[24px] text-white leading-tight text-left">Premium Tensile Car Shelter — Cantilever Style</h3>
                             <p className="font-body-lg opacity-90 leading-relaxed">
                                 Corporate offices, luxury residential apartments, premium hospitals. Featuring Frame: Heavy structural steel hollow sections with epoxy zinc primer and polyurethane top coat, Roofing: 900 GSM PVDF high-tensile German tensile membrane, Design: Cantilever design with posts on one side only, Capacity: Multi-car modular bays (expandable).
                             </p>
                         </div>
-                        <div className="md:w-1/2 border-2 border-[#C9A84C]/30 p-2 w-full h-full">
-                            <img src={carouselImages[1 % carouselImages.length]} alt="Featured Spotlight" className="w-full h-64 object-cover" />
+                        <div className="md:w-1/2 border-2 border-[#C9A84C]/30 p-2 w-full h-full rounded-none">
+                            <img src={carouselImages[1 % carouselImages.length]} alt="Featured Spotlight" className="w-full h-64 object-cover rounded-none" />
                         </div>
                     </div>
 
@@ -466,24 +466,24 @@ const CarShelterPage = () => {
             </section>
 
             {/* INSTALLATION & WARRANTY support sections */}
-            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#DCDAD5] transition-all duration-1000 opacity-100 translate-y-0 text-left">
+            <section className="bg-[#F7F4EF] py-24 px-6 md:px-12 border-b border-[#C9A84C] transition-all duration-1000 opacity-100 translate-y-0 text-left">
                 <div className="max-w-[1280px] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                        <div className="p-8 bg-[#F2F0EB] border border-[#DCDAD5] rounded-lg flex items-start space-x-6">
-                            <div className="flex-shrink-0 w-12 h-12 bg-[#2C5F2E]/10 rounded-full flex items-center justify-center text-[#2C5F2E]">
+                        <div className="p-8 bg-[#F2F0EB] border border-[#DCDAD5] flex items-start space-x-6 rounded-none">
+                            <div className="flex-shrink-0 w-12 h-12 bg-[#2C5F2E]/10 rounded-none flex items-center justify-center text-[#2C5F2E]">
                                 <span className="material-symbols-outlined">local_shipping</span>
                             </div>
                             <div>
-                                <h3 className="font-bold text-[#1A1A1A] mb-2">Installation Support</h3>
+                                <h3 className="font-bold text-[#1A1A1A] mb-2 text-left">Installation Support</h3>
                                 <p className="text-body-md text-[#44474A] leading-relaxed">We provide professional delivery, anchoring and installation support across India.</p>
                             </div>
                         </div>
-                        <div className="p-8 bg-[#F2F0EB] border border-[#DCDAD5] rounded-lg flex items-start space-x-6">
-                            <div className="flex-shrink-0 w-12 h-12 bg-[#2C5F2E]/10 rounded-full flex items-center justify-center text-[#2C5F2E]">
+                        <div className="p-8 bg-[#F2F0EB] border border-[#DCDAD5] flex items-start space-x-6 rounded-none">
+                            <div className="flex-shrink-0 w-12 h-12 bg-[#2C5F2E]/10 rounded-none flex items-center justify-center text-[#2C5F2E]">
                                 <span className="material-symbols-outlined">verified_user</span>
                             </div>
                             <div>
-                                <h3 className="font-bold text-[#1A1A1A] mb-2">2-Year Comprehensive Warranty</h3>
+                                <h3 className="font-bold text-[#1A1A1A] mb-2 text-left">2-Year Comprehensive Warranty</h3>
                                 <p className="text-body-md text-[#44474A] leading-relaxed">Urbanland stands behind its products with a comprehensive 2-year guarantee on structure, coating, and components.</p>
                             </div>
                         </div>
@@ -491,9 +491,9 @@ const CarShelterPage = () => {
 
                     {/* FAQ SECTION */}
                     <div className="max-w-3xl mx-auto">
-                        <div className="text-center mb-12">
-                            <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] mb-4">Frequently Asked Questions</h2>
-                            <div className="w-24 h-1 bg-[#C9A84C] mx-auto"></div>
+                        <div className="text-left mb-12">
+                            <h2 className="font-headline-lg text-[32px] text-[#1A1A1A] mb-4 text-left">Frequently Asked Questions</h2>
+                            <div className="w-24 h-1 bg-[#C9A84C]"></div>
                         </div>
                         <div className="space-y-4">
                             {[{"q":"Which material is best for coastal areas?","a":"Hot-dip galvanized structural steel or marine-grade anodized aluminium with high-tensile PVDF roofing membranes."},{"q":"What is the typical lead time for car sheds?","a":"30-45 days depending on the structural design approval and foundation excavation requirements."},{"q":"Can car sheds be customized for multiple vehicles?","a":"Yes. We offer modular multi-car bays in single-sided cantilever or double-sided layouts."},{"q":"Do you provide installation services?","a":"Yes. We provide complete turnkey foundation works, structural erection, and membrane installation."},{"q":"What does the 2-Year Guarantee cover?","a":"Covers structural structural integrity, weld defects, paint peeling, and water leakages under standard weather conditions."}].map((faq, idx) => (
