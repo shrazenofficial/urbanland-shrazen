@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // Import image assets
 import gbg1 from '../../assets/gallery_real_estate.png';
@@ -18,6 +18,9 @@ const MenuOverlay = ({ isOpen, setIsOpen }) => {
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   // Background images for the preview card. The default is gbg1
   const bgImages = [gbg1, gbg1, gbg2, gbg3, gbg4, gbg5, gbg1];
@@ -240,6 +243,7 @@ const MenuOverlay = ({ isOpen, setIsOpen }) => {
               {links.map((link, index) => {
                 const hasSub = !!link.subLinks;
                 const isExpanded = expandedIndex === index;
+                const isActiveMain = currentPath === link.path || (link.subLinks && link.subLinks.some(sub => sub.path === currentPath));
  
                 const handleLinkClick = (e) => {
                   if (hasSub) {
@@ -262,15 +266,24 @@ const MenuOverlay = ({ isOpen, setIsOpen }) => {
                         onClick={handleLinkClick}
                         onMouseEnter={() => setHoveredIndex(index)}
                         onMouseLeave={() => setHoveredIndex(null)}
-                        className="menu-link-text group relative flex items-center text-[clamp(1.8rem,5vw,2.5rem)] sm:text-[clamp(2.3rem,6vw,3.6rem)] lg:text-[clamp(2rem,7.5vh,4.2rem)] leading-[1.05] text-[#2D2D2D]/60 font-semibold tracking-tight hover:text-[#2C5F2E] hover:translate-x-4 transition-all duration-300 select-none cursor-pointer no-underline"
+                        className={`menu-link-text group relative flex items-center text-[clamp(1.8rem,5vw,2.5rem)] sm:text-[clamp(2.3rem,6vw,3.6rem)] lg:text-[clamp(2rem,7.5vh,4.2rem)] leading-[1.05] font-semibold tracking-tight hover:text-[#2C5F2E] hover:translate-x-4 transition-all duration-300 select-none cursor-pointer no-underline ${
+                          isActiveMain ? "text-[#2C5F2E]" : "text-[#2D2D2D]/60"
+                        }`}
                       >
+                        {isActiveMain && (
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#C9A84C] mr-3 inline-block animate-pulse shrink-0" />
+                        )}
                         <span>{link.name}</span>
                       </Link>
                       
                       {hasSub && (
                         <button
                           onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                          className="menu-sub-toggle-btn w-10 h-10 rounded-full border border-black/10 hover:border-[#2C5F2E] text-black/60 hover:text-[#2C5F2E] flex items-center justify-center text-sm font-semibold cursor-pointer active:scale-90 transition-all select-none hover:bg-black/5 bg-transparent"
+                          className={`menu-sub-toggle-btn w-10 h-10 rounded-full border flex items-center justify-center text-sm font-semibold cursor-pointer active:scale-90 transition-all select-none hover:bg-black/5 bg-transparent ${
+                            isActiveMain
+                              ? "border-[#2C5F2E]/30 text-[#2C5F2E] hover:border-[#2C5F2E]"
+                              : "border-black/10 text-black/60 hover:border-[#2C5F2E] hover:text-[#2C5F2E]"
+                          }`}
                         >
                           {isExpanded ? "✕" : "＋"}
                         </button>
@@ -280,16 +293,23 @@ const MenuOverlay = ({ isOpen, setIsOpen }) => {
                     {/* Sub Links Accordion panel */}
                     {hasSub && isExpanded && (
                       <div className="menu-sublinks-panel flex flex-wrap gap-x-2.5 gap-y-2 mt-4 mb-6 pl-4 sm:pl-8 border-l-2 border-[#2C5F2E] max-w-full">
-                        {link.subLinks.map((sub) => (
-                          <Link
-                            key={sub.name}
-                            to={sub.path}
-                            onClick={() => setIsOpen(false)}
-                            className="menu-sublink-item px-4 py-2 rounded-full bg-black/5 border border-black/5 text-[#2D2D2D]/80 hover:text-white hover:bg-[#2C5F2E] hover:border-[#2C5F2E] text-[0.625rem] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 no-underline select-none"
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
+                        {link.subLinks.map((sub) => {
+                          const isActiveSub = currentPath === sub.path;
+                          return (
+                            <Link
+                              key={sub.name}
+                              to={sub.path}
+                              onClick={() => setIsOpen(false)}
+                              className={`menu-sublink-item px-4 py-2 rounded-full text-[0.625rem] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 no-underline select-none border ${
+                                isActiveSub
+                                  ? "bg-[#2C5F2E] text-white border-[#2C5F2E]"
+                                  : "bg-black/5 border-black/5 text-[#2D2D2D]/80 hover:text-white hover:bg-[#2C5F2E] hover:border-[#2C5F2E]"
+                              }`}
+                            >
+                              {sub.name}
+                            </Link>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
