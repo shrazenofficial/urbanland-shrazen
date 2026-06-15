@@ -1028,31 +1028,6 @@ const BenchesPage = () => {
                         </Link>
                     </div>
 
-                    {/* Featured Spotlight */}
-                    <div className="bg-surface-container-low p-6 sm:p-10 lg:p-12 border border-outline-variant text-left flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-                        <div className="lg:w-1/2 space-y-6">
-                            <span className="font-label-technical uppercase tracking-[0.2em] text-craftsman-gold text-xs font-semibold block">
-                                Featured Spotlight
-                            </span>
-                            <h3 className="font-headline-md text-2xl sm:text-3xl text-deep-ink font-bold leading-tight">Industrial Heritage Series</h3>
-                            <p className="font-body-lg text-on-surface-variant leading-relaxed text-sm">
-                                Our signature industrial-style bench features robust square-shaped leg supports, engineered for maximum stability in high-traffic urban environments. This design has been a preferred choice for heritage sites like the Vadnagar Museum and Navandhe Village developments.
-                            </p>
-                        </div>
-                        <div className="lg:w-1/2 border border-outline-variant p-2 w-full bg-white">
-                            <div className="bg-surface-dim aspect-video overflow-hidden relative border border-outline-variant">
-                                <img
-                                    alt="Industrial Heritage Series Bench"
-                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                                    src="/products/all_white/outdoor_benches_ulb_14.jpeg"
-                                />
-                                <div className="absolute top-4 left-4 bg-deep-ink text-white px-3 py-1 font-label-technical text-[9px] tracking-widest uppercase font-semibold">
-                                    Heritage Edition
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     {/* Additional Installations Marquee */}
                     <div className="border-t border-outline-variant pt-12 mt-20">
                         <h4 className="font-label-technical text-on-surface-variant uppercase tracking-widest text-center text-xs font-semibold mb-8">
