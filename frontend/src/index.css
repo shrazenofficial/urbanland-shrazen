@@ -78,7 +78,45 @@
   --spacing-base: 8px;
   --spacing-margin-desktop: 64px;
   --spacing-gutter: 24px;
+  --spacing-section-gap: 120px;
+
+
+  --color-forest-green: #2C5F2E;
+  --color-deep-ink: #1A1A1A;
+  --color-charcoal-industrial: #2D2D2D;
+  --color-craftsman-gold: #C9A84C;
+  --color-outline: #72796e;
+
+  --font-headline-lg-mobile: "Playfair Display", serif;
+  --font-display-lg: "Playfair Display", serif;
+  --font-display-lg-mobile: "Playfair Display", serif;
+  --font-accent-italic: "Playfair Display", serif;
+  --font-label-caps: "Inter", sans-serif;
+
+  --text-headline-lg-mobile: 32px;
+  --text-headline-lg-mobile--line-height: 1.3;
+  --text-headline-lg-mobile--font-weight: 600;
+
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-display-lg-mobile: 40px;
+  --text-display-lg-mobile--line-height: 1.2;
+  --text-display-lg-mobile--letter-spacing: -0.01em;
+  --text-display-lg-mobile--font-weight: 700;
+
+  --text-accent-italic: 20px;
+  --text-accent-italic--line-height: 1.4;
+  --text-accent-italic--font-weight: 400;
+
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 1.0;
+  --text-label-caps--letter-spacing: 0.1em;
+  --text-label-caps--font-weight: 700;
 }
+
 
 html,
 body {
@@ -856,3 +894,40 @@ font-size: 0.75rem; /* Converted to rem for TV & 4K monitor scaling */
 .py-10 {
   padding-block: calc(var(--spacing) * 18);
 }
+
+/* --- Hero Section & Bento Grid Custom Styles --- */
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-hero {
+    animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+.bento-img-container {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #2D2D2D;
+}
+.bento-img-container img {
+    transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+}
+.bento-img-container:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Reveal Up Animations --- */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
