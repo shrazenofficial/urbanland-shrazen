@@ -385,9 +385,9 @@ const BenchesPage = () => {
                             </p>
                         </div>
                         <div className="w-full md:w-1/3 h-64 md:h-auto overflow-hidden">
-                            <img 
-                                alt="NFC wood close-up detail" 
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                            <img
+                                alt="NFC wood close-up detail"
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 src="/products/all_white/outdoor_benches_ulb_15.jpeg"
                             />
                         </div>
@@ -436,10 +436,10 @@ const BenchesPage = () => {
                             </div>
                         </div>
                         <div className="w-full md:w-1/2 h-64 md:h-auto bg-surface-dim relative overflow-hidden group">
-                            <img 
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                                alt="Close up architectural detail of stainless steel joint" 
-                                src="/products/all_white/outdoor_benches_ulb_13.jpeg" 
+                            <img
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                alt="Close up architectural detail of stainless steel joint"
+                                src="/products/all_white/outdoor_benches_ulb_13.jpeg"
                             />
                             <div className="absolute inset-0 bg-primary/10"></div>
                         </div>
@@ -447,10 +447,10 @@ const BenchesPage = () => {
 
                     {/* 05 COMMUNITY & SOCIAL HUB (Full Width Feature) */}
                     <div className="col-span-12 reveal-up relative h-96 overflow-hidden border border-outline hover:border-craftsman-gold transition-colors duration-300 group">
-                        <img 
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                            alt="A wide angle shot of a vibrant urban park plaza" 
-                            src="/products/all_white/outdoor_benches_ulb_03.jpeg" 
+                        <img
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt="A wide angle shot of a vibrant urban park plaza"
+                            src="/products/all_white/outdoor_benches_ulb_03.jpeg"
                         />
                         <div className="absolute inset-0 bg-gradient-to-r from-deep-ink/90 via-deep-ink/50 to-transparent flex items-center px-8 md:px-20 text-left">
                             <div className="max-w-xl text-white">
@@ -504,9 +504,8 @@ const BenchesPage = () => {
                             return (
                                 <div
                                     key={idx}
-                                    className={`group bento-card relative overflow-hidden bg-surface-container-low border border-outline-variant hover:border-craftsman-gold hover:shadow-lg transition-all duration-300 p-0 flex ${
-                                        isLarge ? "md:col-span-8 flex-col md:flex-row" : "md:col-span-4 flex-col justify-between"
-                                    }`}
+                                    className={`group bento-card relative overflow-hidden bg-surface-container-low border border-outline-variant hover:border-craftsman-gold hover:shadow-lg transition-all duration-300 p-0 flex ${isLarge ? "md:col-span-8 flex-col md:flex-row" : "md:col-span-4 flex-col justify-between"
+                                        }`}
                                 >
                                     {isLarge ? (
                                         <>
@@ -610,11 +609,10 @@ const BenchesPage = () => {
                                             <button
                                                 key={key}
                                                 onClick={() => setConfigMaterial(key)}
-                                                className={`group border p-4 text-left transition-all duration-300 rounded-none ${
-                                                    isSelected
+                                                className={`group border p-4 text-left transition-all duration-300 rounded-none ${isSelected
                                                         ? "border-craftsman-gold bg-surface-container-low"
                                                         : "border-outline-variant hover:bg-surface-container-low/50"
-                                                }`}
+                                                    }`}
                                             >
                                                 <div className="flex items-center justify-between mb-3">
                                                     <span className="font-bold text-sm text-on-surface flex items-center gap-1">
@@ -637,29 +635,28 @@ const BenchesPage = () => {
                                                         )}
                                                     </span>
                                                     <div
-                                                        className={`w-8 h-8 rounded-full border border-outline-variant ${
-                                                            key === "wpc"
+                                                        className={`w-8 h-8 rounded-full border border-outline-variant ${key === "wpc"
                                                                 ? "bg-[#8B5E3C]"
                                                                 : key === "nfc"
-                                                                ? "bg-[#A0522D]"
-                                                                : key === "aluminium"
-                                                                ? "bg-[#C0C0C0]"
-                                                                : key === "mild_steel"
-                                                                ? "bg-[#4A4A4A]"
-                                                                : "bg-[#E5E4E2]"
-                                                        }`}
+                                                                    ? "bg-[#A0522D]"
+                                                                    : key === "aluminium"
+                                                                        ? "bg-[#C0C0C0]"
+                                                                        : key === "mild_steel"
+                                                                            ? "bg-[#4A4A4A]"
+                                                                            : "bg-[#E5E4E2]"
+                                                            }`}
                                                     />
                                                 </div>
                                                 <p className="text-[10px] text-on-surface-variant uppercase font-semibold tracking-wider font-label-technical">
                                                     {key === "wpc"
                                                         ? "Wood-Plastic Composite"
                                                         : key === "nfc"
-                                                        ? "Premium Bio-Composite"
-                                                        : key === "aluminium"
-                                                        ? "Corrosion-Resistant"
-                                                        : key === "mild_steel"
-                                                        ? "Structural Hardness"
-                                                        : "Marine Grade 316"}
+                                                            ? "Premium Bio-Composite"
+                                                            : key === "aluminium"
+                                                                ? "Corrosion-Resistant"
+                                                                : key === "mild_steel"
+                                                                    ? "Structural Hardness"
+                                                                    : "Marine Grade 316"}
                                                 </p>
                                             </button>
                                         );
@@ -681,11 +678,10 @@ const BenchesPage = () => {
                                                     <button
                                                         key={len}
                                                         onClick={() => setConfigLength(len)}
-                                                        className={`px-6 py-2 border text-sm font-medium transition-colors rounded-none ${
-                                                            isSelected
+                                                        className={`px-6 py-2 border text-sm font-medium transition-colors rounded-none ${isSelected
                                                                 ? "border-primary bg-primary text-on-primary"
                                                                 : "border-outline-variant text-on-surface hover:bg-surface-container-low"
-                                                        }`}
+                                                            }`}
                                                     >
                                                         {len === "Custom" ? "Custom" : `${len}m`}
                                                     </button>
@@ -704,11 +700,10 @@ const BenchesPage = () => {
                                                     <button
                                                         key={design}
                                                         onClick={() => setConfigDesign(design)}
-                                                        className={`px-6 py-2 border text-sm font-medium transition-colors rounded-none ${
-                                                            isSelected
+                                                        className={`px-6 py-2 border text-sm font-medium transition-colors rounded-none ${isSelected
                                                                 ? "border-primary bg-primary text-on-primary"
                                                                 : "border-outline-variant text-on-surface hover:bg-surface-container-low"
-                                                        }`}
+                                                            }`}
                                                     >
                                                         {design}
                                                     </button>
@@ -726,7 +721,7 @@ const BenchesPage = () => {
                                                     type="checkbox"
                                                     checked={configAntiGraffiti}
                                                     onChange={() => setConfigAntiGraffiti(!configAntiGraffiti)}
-                                                    className="form-checkbox h-5 w-5 text-forest-green border-outline-variant focus:ring-forest-green rounded-none"
+                                                    className="appearance-none h-5 w-5 border border-outline-variant bg-transparent checked:bg-[#c9a48c] checked:border-[#c9a48c] focus:outline-none focus:ring-2 focus:ring-[#c9a48c]/30 rounded-none relative cursor-pointer before:content-[''] before:absolute before:left-[6px] before:top-[2px] before:w-[6px] before:h-[11px] before:border-r-2 before:border-b-2 before:border-white before:rotate-45 before:opacity-0 checked:before:opacity-100 transition-all"
                                                 />
                                                 <span className="text-sm font-medium text-on-surface">Anti-graffiti Coating</span>
                                             </label>
@@ -736,7 +731,7 @@ const BenchesPage = () => {
                                                     type="checkbox"
                                                     checked={configGroundFixing}
                                                     onChange={() => setConfigGroundFixing(!configGroundFixing)}
-                                                    className="form-checkbox h-5 w-5 text-forest-green border-outline-variant focus:ring-forest-green rounded-none"
+                                                    className="appearance-none h-5 w-5 border border-outline-variant bg-transparent checked:bg-[#c9a48c] checked:border-[#c9a48c] focus:outline-none focus:ring-2 focus:ring-[#c9a48c]/30 rounded-none relative cursor-pointer before:content-[''] before:absolute before:left-[6px] before:top-[2px] before:w-[6px] before:h-[11px] before:border-r-2 before:border-b-2 before:border-white before:rotate-45 before:opacity-0 checked:before:opacity-100 transition-all"
                                                 />
                                                 <span className="text-sm font-medium text-on-surface">Ground Fixing Kit</span>
                                             </label>
@@ -1054,7 +1049,7 @@ const BenchesPage = () => {
                 </div>
                 <div className="relative reveal-up" style={{ transitionDelay: '100ms' }}>
                     {/* Slider Container */}
-                    <div 
+                    <div
                         ref={collectionScrollRef}
                         onScroll={handleCollectionScrollEvent}
                         className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar px-[10%] md:px-[20%] pb-6"
@@ -1062,10 +1057,10 @@ const BenchesPage = () => {
                         {collectionSlides.map((slide, idx) => (
                             <div key={idx} className="flex-none w-[80vw] md:w-[50vw] snap-center relative group">
                                 <div className="aspect-[16/9] overflow-hidden rounded-none border border-outline-variant">
-                                    <img 
-                                        alt={slide.alt} 
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                                        src={slide.src} 
+                                    <img
+                                        alt={slide.alt}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        src={slide.src}
                                     />
                                 </div>
                                 <div className="absolute bottom-6 left-6 bg-surface/90 backdrop-blur-sm px-4 py-2 border border-outline-variant rounded-none shadow-sm">
@@ -1077,13 +1072,13 @@ const BenchesPage = () => {
                     {/* Navigation Controls */}
                     <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center mt-12">
                         <div className="flex gap-4">
-                            <button 
+                            <button
                                 onClick={() => handleCollectionScroll('left')}
                                 className="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:border-forest-green hover:text-forest-green hover:bg-forest-green/5 transition-all duration-300 cursor-pointer"
                             >
                                 <span className="material-symbols-outlined">west</span>
                             </button>
-                            <button 
+                            <button
                                 onClick={() => handleCollectionScroll('right')}
                                 className="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:border-forest-green hover:text-forest-green hover:bg-forest-green/5 transition-all duration-300 cursor-pointer"
                             >
@@ -1092,8 +1087,8 @@ const BenchesPage = () => {
                         </div>
                         <div className="flex gap-2">
                             {collectionSlides.map((_, idx) => (
-                                <div 
-                                    key={idx} 
+                                <div
+                                    key={idx}
                                     className={`w-2 h-2 rounded-full transition-all duration-300 ${collectionActiveSlide === idx ? 'bg-forest-green scale-125' : 'bg-outline-variant'}`}
                                 />
                             ))}
