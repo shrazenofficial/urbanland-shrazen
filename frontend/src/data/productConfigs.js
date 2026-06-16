@@ -208,7 +208,7 @@ export const productConfigs = {
             materialData: {
                 wpc: {
                     title: "WPC Composite",
-                    image: "https://lh3.googleusercontent.com/aida/AP1WRLtgD7SA9M12_oiqHyZaUoEmieg3YIdcuA_t2drB1O9bK6m9NhAz17prczyQ4BDQErNLxkyNxEj4_3i4SrHBS-ONjkBO_anG5R_7LTOdxhQHzULZxAFRPbPGpX6VcX-J41loMovajr2BHLLHln28JgpoQrgjs-UPUJGED9UaVhpirzcfuuLYTD113lSqNvGj-bwUiOwPrIBW6x5pt4Vt174gMGYP2HeOZXDr4hqLMzUnldGhbQBPu_rzzgx6",
+                    image: "/assets/products/benches/spec-wpc-composite.webp",
                     lifespan: "25+ YEARS",
                     lifespanBar: "85%",
                     maintenance: "LOW",
@@ -220,7 +220,7 @@ export const productConfigs = {
                 },
                 nfc: {
                     title: "NFC Wood",
-                    image: "https://lh3.googleusercontent.com/aida/AP1WRLu4kehjsIlYIod5XaZV1H_2dygHbDVZRVIWJKem5M-ABnJF0EU82X6fQxe7kEXSE0_oraQXj0i6Yjmk06yj9Br0CDeUA8ewX22vgCeUCkCdEQk_2YkpKGyUS67eHHyPab--cN_Sy9IxIkJO5btRA0vNrbAz9n-VhbzHp8xlDjB2i324TWMN5qslfJ5iuj2jK4FhH0ms-0QbyRIMFumT51qCOwMsmM1QOxBXjv_y1W6wB_fZRnPVI07WGgOI",
+                    image: "/assets/products/benches/spec-nfc-wood.webp",
                     lifespan: "30+ YEARS",
                     lifespanBar: "92%",
                     maintenance: "VERY LOW",
@@ -232,7 +232,7 @@ export const productConfigs = {
                 },
                 aluminium: {
                     title: "Anodized Aluminium",
-                    image: "https://lh3.googleusercontent.com/aida/AP1WRLuHiCFQa4uzPyzkbrZHdUP1s3ywut8_y1pBwgqZ9U26PWWVof8ehu0S8I5rbGF2yo51YtN50l2UV2xOeXiyCuAd6vomNlVS2I0nrOlDlY31U9nWD7VLmCyfVFmX27IzH6nPtN4ug5JyExdWMuadJV7-Y3okqu3XPB7t-LnUjgTlxsf3jZ-lDlMtWuSlClhniZ_cNPDvQZ_X5Xogrj2onzHzEfHpFgjET-kJZsvFM_Gz0LmOfyeEF6i3Xm0",
+                    image: "/assets/products/benches/spec-anodized-aluminium.webp",
                     lifespan: "40+ YEARS",
                     lifespanBar: "95%",
                     maintenance: "MINIMAL",
@@ -244,7 +244,7 @@ export const productConfigs = {
                 },
                 mild_steel: {
                     title: "Mild Steel",
-                    image: "https://lh3.googleusercontent.com/aida/AP1WRLtSdjWUT-NGXhFQoXWb-l45x2qyF7QUus3SUfGXNjx8KsxS9I0_V_Ltys1lgp2yBsVRD2IKZZ4pfijM1C0m81c7jIelEVzJ_Wt1oT1Rz1G61YDGmH7_PSlknNtgKIKL9tPdO0xEtT77WvF-cEmr69D4rj8v-6sguc2x09jfFeGt-UAx_F9_T8EXiuvjykbOtg2Ea_7sZ17fH01gPNIKfQHkWJQqDADqTWfvIdqkbqW7ti5NKlOiPLVkS8uQ",
+                    image: "/assets/products/benches/spec-mild-steel.webp",
                     lifespan: "15+ YEARS",
                     lifespanBar: "60%",
                     maintenance: "MODERATE",
@@ -256,7 +256,7 @@ export const productConfigs = {
                 },
                 stainless_steel: {
                     title: "Stainless Steel",
-                    image: "https://lh3.googleusercontent.com/aida/AP1WRLuF4lrmMmZBglF67n7dt_IYze2X0o0AYG_XjSjG1iPcD7_ykZLR3BN4lEd4rb9Hq8gFa3T8f-qQWwzA7Ae1zGdon5POQqrpUNZMKjk3La34xsVPw28-_Ib2WqWahkV0VxWUYrrYp7f_tb_007eRszio0kdMMKhj06wfovfidshBbtnm_AurMV4HbyC7Ei6fkIS1qTwPw0qoFS7hqaXfqZ8R5-tP3TVo87RvrmgS8Da2d2kZwVdZUH4KeZq9",
+                    image: "/assets/products/benches/spec-stainless-steel.webp",
                     lifespan: "50+ YEARS",
                     lifespanBar: "100%",
                     maintenance: "ZERO",
