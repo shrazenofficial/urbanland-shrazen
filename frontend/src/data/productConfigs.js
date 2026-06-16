@@ -2676,7 +2676,7 @@ export const productConfigs = {
                     icon: "deck",
                     title: "Ultimate Relaxation & Comfort",
                     desc: "Ergonomically designed with plush cushions and reclining options, they provide the perfect spot to unwind by the pool.",
-                    image: "/products/all_white/7-1.webp_202606080031.jpeg"
+                    image: "/assets/products/poolside-loungers/philosophy-comfort.webp"
                 },
                 {
                     num: "02.",
@@ -2697,14 +2697,14 @@ export const productConfigs = {
                     title: "Low Maintenance",
                     desc: "Easy-to-clean surfaces and fade-resistant materials require minimal upkeep, even in high-traffic pool environments.",
                     tags: ["UV RESISTANT", "RUST PROOF"],
-                    image: "/products/all_white/7-3.webp_202606080031.jpeg"
+                    image: "/assets/products/poolside-loungers/philosophy-maintenance.webp"
                 },
                 {
                     num: "05.",
                     icon: "shield",
                     title: "Durability & Longevity",
                     desc: "Strong construction ensures years of reliable performance in demanding outdoor and poolside conditions.",
-                    image: "/products/all_white/7.webp_202606080031.jpeg"
+                    image: "/assets/products/poolside-loungers/philosophy-durability.webp"
                 }
             ]
         },
