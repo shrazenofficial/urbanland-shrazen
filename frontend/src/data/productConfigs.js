@@ -2808,7 +2808,7 @@ export const productConfigs = {
                     material: "HDPE Wicker & Quick-Dry Foam",
                     benefits: ["Chlorine Resistant", "Water Repellent", "UV Protected"],
                     desc: "Premium synthetic wicker loungers supplied and installed across the main pool deck and beachfront lounge areas, offering resort guests elite comfort and style.",
-                    src: poolsideLoungersImg
+                    src: "/assets/products/poolside-loungers/excellence-synthetic-wicker-poolside-lounger.webp"
                 },
                 {
                     name: "Grand Hyatt Pool Deck",
@@ -2819,7 +2819,7 @@ export const productConfigs = {
                     material: "Anodized Aluminium",
                     benefits: ["Rust Proof Frame", "Quick-Dry Padding", "Minimalist Design"],
                     desc: "Modern anodized aluminium sunbeds with high-tensile mesh fabric integrated into the luxury rooftop pool deck, providing high durability and low maintenance.",
-                    src: "/products/all_white/7-1.webp_202606080031.jpeg"
+                    src: "/assets/products/poolside-loungers/excellence-anodized-aluminium-pool-lounger.webp"
                 },
                 {
                     name: "Prestige Lakeside Habitat",
@@ -2830,7 +2830,7 @@ export const productConfigs = {
                     material: "HDPE Wicker & Sunbrella Canvas",
                     benefits: ["Fade Resistant", "Comfort Recline", "Weatherproof"],
                     desc: "Elegant wicker daybeds and chaise loungers deployed in the central clubhouse pool area of a premium township, creating a relaxing community leisure zone.",
-                    src: "/products/all_white/7-3.webp_202606080031.jpeg"
+                    src: "/assets/products/poolside-loungers/excellence-hdpe-wicker-sunbed.webp"
                 }
             ]
         },
