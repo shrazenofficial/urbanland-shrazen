@@ -2061,26 +2061,37 @@ export const productConfigs = {
             ],
             slides: [
                 {
-                    name: "Wadhwa Group",
-                    location: "Panvel, Maharashtra",
-                    tag: "Township Parking",
-                    qty: "120 Carports",
-                    timeline: "6 Weeks",
-                    material: "Powder Coated Mild Steel",
-                    benefits: ["Cantilever Design", "Anti-UV Polycarbonate", "Rain Drainage"],
-                    desc: "Supplied and installed 120 cantilever and pillar car sheds across premium residential sectors, maximizing vehicle protection.",
+                    name: "Godrej Golf Links",
+                    location: "Greater Noida, Uttar Pradesh",
+                    tag: "Integrated Township Infrastructure",
+                    qty: "180 Car Sheds",
+                    timeline: "8 Weeks",
+                    material: "Cantilever Steel",
+                    benefits: ["Cantilever Design", "Heat Reduction", "Rainwater Management"],
+                    desc: "Supplied and installed 180 cantilever car sheds, providing efficient vehicle protection across premium township parking sectors.",
                     src: carSheltersImg
                 },
                 {
-                    name: "Jindal Power Campus",
-                    location: "Simhapuri, Nellore",
-                    tag: "Corporate Parking",
-                    qty: "65 Carports",
-                    timeline: "4 Weeks",
-                    material: "Heavy Duty Galvanized MS",
-                    benefits: ["Solar Panel Ready", "High Wind Resistant", "Low Maintenance"],
-                    desc: "Installed 65 heavy-duty solar-ready car sheds at the factory campus to protect corporate employee vehicles.",
+                    name: "Infosys Campus",
+                    location: "Bengaluru, Karnataka",
+                    tag: "Corporate Campus Parking",
+                    qty: "220 Car Sheds",
+                    timeline: "10 Weeks",
+                    material: "Powder Coated MS",
+                    benefits: ["Large Scale Deployment", "UV Protection", "Low Maintenance"],
+                    desc: "Supplied and installed 220 cantilever car sheds across employee and visitor parking zones, maximizing vehicle protection and long-term operational efficiency.",
                     src: carSheltersUgc
+                },
+                {
+                    name: "Prestige Lakeside Habitat",
+                    location: "Bengaluru, Karnataka",
+                    tag: "Premium Residential Development",
+                    qty: "140 Car Sheds",
+                    timeline: "6 Weeks",
+                    material: "UV-Protected MS",
+                    benefits: ["Premium Aesthetics", "Weather Protection", "Space Optimization"],
+                    desc: "Supplied and installed 140 cantilever car sheds across residential parking sectors, maximizing vehicle protection while enhancing the township's architectural appeal.",
+                    src: carSheltersPng
                 }
             ]
         },
