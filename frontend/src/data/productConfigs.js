@@ -1583,6 +1583,39 @@ export const productConfigs = {
                     benefits: ["Waterproof Roof", "UV Blocking", "Privacy Curtains"],
                     desc: "Supplied and installed custom poolside cabanas featuring luxury performance drapes and insulated shade ceilings.",
                     src: cabanasImg
+                },
+                {
+                    name: "Grand Hyatt Resort & Spa",
+                    location: "Goa",
+                    tag: "Five-Star Hospitality",
+                    qty: "12 Cabanas",
+                    timeline: "6 Weeks",
+                    material: "Marine-Grade Aluminium & Sunbrella Fabric",
+                    benefits: ["Rust-Proof Frame", "Fade-Resistant Fabric", "Integrated LED Lighting"],
+                    desc: "Delivered 12 premium wind-resistant cabanas for beachfront lounge areas, customized with weather-proof sheer curtains and dual loungers.",
+                    src: cabanasUgc
+                },
+                {
+                    name: "Prestige Golfshire Villas",
+                    location: "Bengaluru, Karnataka",
+                    tag: "Premium Residential Villa",
+                    qty: "8 Cabanas",
+                    timeline: "5 Weeks",
+                    material: "Premium WPC & Mild Steel (Powder Coated)",
+                    benefits: ["Wood-Polymer Accent", "High Wind Resistance", "Plush Daybeds"],
+                    desc: "Installed WPC accent cabanas in the clubhouse and private villa pool decks, blending naturally with the scenic landscape.",
+                    src: cabanasPng
+                },
+                {
+                    name: "DLF Kings Court",
+                    location: "New Delhi",
+                    tag: "Ultra-Luxury Residential",
+                    qty: "4 Cabanas",
+                    timeline: "3-4 Weeks",
+                    material: "Heavy-Duty Stainless Steel & Tensile Membrane",
+                    benefits: ["Ultra-Modern Look", "Zero Maintenance", "Rainwater Drainage"],
+                    desc: "Designed and erected sleek, minimalist stainless steel cabanas with tensile roofs for the rooftop recreation deck.",
+                    src: cabanasImg
                 }
             ]
         },
