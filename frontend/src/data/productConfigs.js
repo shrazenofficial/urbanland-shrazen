@@ -2385,14 +2385,36 @@ export const productConfigs = {
             slides: [
                 {
                     name: "Dario's Cafe",
-                    location: "Pune, Maharashtra",
-                    tag: "Hospitality Seating",
-                    qty: "3 Swings",
+                    location: "Koregaon Park, Pune",
+                    tag: "Boutique Cafe Seating",
+                    qty: "3 Swing Chairs",
                     timeline: "1 Week",
-                    material: "Woven HDPE Wicker & Steel",
-                    benefits: ["Teardrop Design", "Plush Padding", "Sturdy Curved Stand"],
-                    desc: "Supplied 3 premium Cane (Wicker) Hanging Swing Chairs, creating a comfortable and highly photogenic indoor relax zone for cafe guests.",
-                    src: caneFurniturePng
+                    material: "Premium Cane (Wicker) & Curved Metal Stand",
+                    benefits: ["Teardrop Shaped", "Plush Neutral Cushion", "Indoor & Outdoor Utility"],
+                    desc: "Installed premium teardrop-shaped hanging swing chairs crafted from woven wicker, supported by sleek curved metal stands and featuring plush, neutral-toned cushions for a relaxing indoor cafe lounge experience.",
+                    src: "/assets/products/wicker-furniture/hero-2.webp"
+                },
+                {
+                    name: "Titanium Corporate Park",
+                    location: "Prahladnagar, Ahmedabad",
+                    tag: "Modern Executive Lounge",
+                    qty: "24 Seating Units",
+                    timeline: "3 Weeks",
+                    material: "Metal-Wooden Lounge Tables & Armchairs",
+                    benefits: ["High-Traffic Durable", "AkzoNobel Finish", "Ergonomic Cushioning"],
+                    desc: "Furnished the central breakout lounge with premium steel-framed wooden dining/coffee tables and matching modular armchairs to optimize collaborative working.",
+                    src: "/assets/products/wicker-furniture/wicker-furniture-1.webp"
+                },
+                {
+                    name: "Symbiosis Cafeteria",
+                    location: "Viman Nagar, Pune",
+                    tag: "Institutional Dining Hall",
+                    qty: "40 Table & Bench Sets",
+                    timeline: "4 Weeks",
+                    material: "Seasoned Teak Wood & Powder Coated MS",
+                    benefits: ["Scratch-Resistant Tops", "Heavy-Duty Framing", "Easy Maintenance"],
+                    desc: "Supplied heavy-duty metal-wooden indoor bench sets and dining tables for the student cafeteria, built to withstand continuous daily use.",
+                    src: "/assets/products/wicker-furniture/wicker-furniture-3.webp"
                 }
             ]
         },
