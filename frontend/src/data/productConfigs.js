@@ -675,16 +675,16 @@ export const productConfigs = {
                 { icon: "apartment", label: "50+ Projects" }
             ],
             mainImage: {
-                src: dustbinsImg,
+                src: "/assets/products/dustbins/hero-main.webp",
                 alt: "Premium Commercial Dustbins"
             },
             subImage1: {
-                src: dustbinsUgc,
+                src: "/assets/products/dustbins/hero-1.webp",
                 alt: "Outdoor Bins Deployed",
                 label: "PUBLIC WASTE BINS"
             },
             subImage2: {
-                src: dustbinsPng,
+                src: "/assets/products/dustbins/hero-2.webp",
                 alt: "Modern Segregation Bins",
                 label: "STAINLESS STEEL TWIN BINS"
             }
@@ -698,17 +698,22 @@ export const productConfigs = {
                 {
                     title: "Twin Bin Segregation Station",
                     alt: "Twin Bin Segregation Station",
-                    src: dustbinsImg
+                    src: "/assets/products/dustbins/dustins-product-1.webp"
                 },
                 {
                     title: "Outdoor Park Litter Bin",
                     alt: "Outdoor Park Litter Bin",
-                    src: dustbinsUgc
+                    src: "/assets/products/dustbins/dustins-product-2.webp"
                 },
                 {
                     title: "Commercial Waste Station",
                     alt: "Commercial Waste Station",
-                    src: dustbinsPng
+                    src: "/assets/products/dustbins/dustins-product-3.webp"
+                },
+                {
+                    title: "Custom Smart Bin",
+                    alt: "Custom Smart Bin",
+                    src: "/assets/products/dustbins/dustins-product-4.webp"
                 }
             ],
             viewAllRedirect: "/catalogue"
@@ -723,7 +728,7 @@ export const productConfigs = {
                     icon: "clean_hands",
                     title: "Hygiene & Cleanliness",
                     desc: "Properly designed dustbins help control waste, reduce littering, and maintain a clean and healthy environment in public and private spaces.",
-                    image: dustbinsUgc
+                    image: "/assets/products/dustbins/dustbins-card-1.webp"
                 },
                 {
                     num: "02.",
@@ -743,14 +748,14 @@ export const productConfigs = {
                     icon: "cleaning_services",
                     title: "Ease of Use & Maintenance",
                     desc: "User-friendly designs with smooth surfaces make cleaning quick and efficient for municipal staff and facility managers.",
-                    image: dustbinsImg
+                    image: "/assets/products/dustbins/dustbins-card-2.webp"
                 },
                 {
                     num: "05.",
                     icon: "recycling",
                     title: "Smart Waste Management",
                     desc: "Supports segregation, recycling, and sustainability goals in smart cities, townships, and institutional campuses.",
-                    image: dustbinsPng
+                    image: "/assets/products/dustbins/dustbins-card-3.webp"
                 }
             ]
         },
@@ -767,21 +772,21 @@ export const productConfigs = {
                     title: "Single Litter Bins",
                     alt: "Single Litter Bins",
                     path: "/catalogue",
-                    src: dustbinsImg,
+                    src: "/assets/products/dustbins/dustins-product-1.webp",
                     desc: "Classic open-top or swing lid bins designed for streetscapes and municipal parks."
                 },
                 {
                     title: "Twin / Triple Segregation Bins",
                     alt: "Twin Segregation Bins",
                     path: "/catalogue",
-                    src: dustbinsUgc,
+                    src: "/assets/products/dustbins/dustins-product-2.webp",
                     desc: "Color-coded wet and dry waste segregation stations for commercial malls and corporate plazas."
                 },
                 {
                     title: "Heavy Duty Municipal Bins",
                     alt: "Municipal Bins",
                     path: "/catalogue",
-                    src: dustbinsPng,
+                    src: "/assets/products/dustbins/dustins-product-3.webp",
                     desc: "Lockable, galvanized steel casing bins built to resist vandalism and high-traffic wear."
                 }
             ]
@@ -791,9 +796,9 @@ export const productConfigs = {
             title: "MATERIALS & CUSTOMIZATION OPTIONS FOR DUSTBINS",
             description: "Configure capacity, lids, segregation modules, and finishes.",
             radialMap: {
-                centralImage: dustbinsPng,
+                centralImage: "/assets/products/dustbins/dustbins-configurator-main.png",
                 centralImageAlt: "Premium Urbanland Twin Dustbin",
-                backgroundImage: dustbinsImg,
+                backgroundImage: "/assets/products/dustbins/dustbins-configurator-bg.webp",
                 cards: [
                     {
                         title: "Color-coded Segregation",
@@ -846,7 +851,7 @@ export const productConfigs = {
                     material: "Grade 304 Stainless Steel",
                     benefits: ["Anti-Fingerprint", "Fire-Safe Lid", "Sleek Polish"],
                     desc: "Supplied premium brushed stainless steel segregation bins to match the ultra-modern architecture of the new airport terminal.",
-                    src: dustbinsImg
+                    src: "/assets/products/dustbins/navi-mumbai-airport-project-1.webp"
                 },
                 {
                     name: "Dharoi Dam Campus",
@@ -857,7 +862,7 @@ export const productConfigs = {
                     material: "Galvanized Powder Coated Steel",
                     benefits: ["Vandal-Resistant", "Rain Hoods", "High Capacity"],
                     desc: "Executed a campus-wide waste management upgrade, deploying 350 high-durability litter bins along nature walks and tourist zones.",
-                    src: dustbinsUgc
+                    src: "/assets/products/dustbins/dharoi-dam-campus-project-2.webp"
                 }
             ]
         },
@@ -924,16 +929,16 @@ export const productConfigs = {
                 { icon: "apartment", label: "50+ Projects" }
             ],
             mainImage: {
-                src: busSheltersImg,
+                src: "/assets/products/bus-shelters/hero-main.webp",
                 alt: "Premium Bus Stop Shelter"
             },
             subImage1: {
-                src: busSheltersUgc,
+                src: "/assets/products/bus-shelters/hero-main-1.webp",
                 alt: "Bus Shelter Site View",
-                label: "TOWNSHIP TRANSIT"
+                label: "TOWOWNSHIP TRANSIT"
             },
             subImage2: {
-                src: busSheltersPng,
+                src: "/assets/products/bus-shelters/hero-main-2.webp",
                 alt: "Smart Bus Shelter render",
                 label: "SMART CITY SHELTER"
             }
@@ -947,17 +952,22 @@ export const productConfigs = {
                 {
                     title: "Cantilever Bus Shelter",
                     alt: "Cantilever Bus Shelter",
-                    src: busSheltersImg
+                    src: "/assets/products/bus-shelters/bus-shelter-1.webp"
                 },
                 {
                     title: "Solar Powered Shelter",
                     alt: "Solar Powered Shelter",
-                    src: busSheltersUgc
+                    src: "/assets/products/bus-shelters/bus-shelter-2.webp"
                 },
                 {
                     title: "Stainless Steel Smart Shelter",
                     alt: "Stainless Steel Smart Shelter",
-                    src: busSheltersPng
+                    src: "/assets/products/bus-shelters/bus-shelter-3.webp"
+                },
+                {
+                    title: "Custom Smart Shelter",
+                    alt: "Custom Smart Shelter",
+                    src: "/assets/products/bus-shelters/bus-shelter-4.webp"
                 }
             ],
             viewAllRedirect: "/catalogue"
@@ -972,7 +982,7 @@ export const productConfigs = {
                     icon: "umbrella",
                     title: "Protection from Weather",
                     desc: "Shielding commuters from rain, wind, sun and dust ensures a comfortable wait regardless of weather conditions.",
-                    image: busSheltersUgc
+                    image: "/assets/products/bus-shelters/product-card-1.webp"
                 },
                 {
                     num: "02.",
@@ -992,14 +1002,14 @@ export const productConfigs = {
                     icon: "eco",
                     title: "Environmental Responsibility",
                     desc: "Eco-friendly materials and energy-efficient features (like solar panels) contribute to a greener urban environment.",
-                    image: busSheltersImg
+                    image: "/assets/products/bus-shelters/product-card-2.webp"
                 },
                 {
                     num: "05.",
                     icon: "location_city",
                     title: "Community Integration",
                     desc: "Modern bus shelters reflect the character of the community, enhancing the urban landscape and fostering a sense of belonging.",
-                    image: busSheltersPng
+                    image: "/assets/products/bus-shelters/product-card-3.webp"
                 }
             ]
         },
@@ -1016,21 +1026,21 @@ export const productConfigs = {
                     title: "Mild Steel Shelters",
                     alt: "Mild Steel Shelters",
                     path: "/catalogue",
-                    src: busSheltersImg,
+                    src: "/assets/products/bus-shelters/bus-shelter-1.webp",
                     desc: "Cost-effective, highly durable powder-coated steel shelters ideal for inland municipal projects."
                 },
                 {
                     title: "Stainless Steel Shelters",
                     alt: "Stainless Steel Shelters",
                     path: "/catalogue",
-                    src: busSheltersUgc,
+                    src: "/assets/products/bus-shelters/bus-shelter-2.webp",
                     desc: "Grade 304/316 structures providing maximum life and corrosion resistance in coastal areas."
                 },
                 {
                     title: "Aluminium Smart Shelters",
                     alt: "Aluminium Smart Shelters",
                     path: "/catalogue",
-                    src: busSheltersPng,
+                    src: "/assets/products/bus-shelters/bus-shelter-3.webp",
                     desc: "Lightweight, contemporary shelters designed to support digital displays and solar panel routing."
                 }
             ]
@@ -1040,9 +1050,9 @@ export const productConfigs = {
             title: "MATERIALS & CUSTOMIZATION OPTIONS FOR BUS SHELTERS",
             description: "Configure frame materials, roof shading, seating modules, and smart add-ons.",
             radialMap: {
-                centralImage: busSheltersPng,
+                centralImage: "/assets/products/bus-shelters/bus-shelter-main.webp",
                 centralImageAlt: "Premium Urbanland Bus Shelter",
-                backgroundImage: busSheltersImg,
+                backgroundImage: "/assets/products/bus-shelters/bus-shelter-bg.webp",
                 cards: [
                     {
                         title: "Polycarbonate / Glass Roof",
@@ -1095,7 +1105,7 @@ export const productConfigs = {
                     material: "Powder Coated Mild Steel",
                     benefits: ["Cantilever Roof", "Integrated Bench", "Vandal Proof"],
                     desc: "Successfully delivered and installed 4 custom bus shelters at Wadhwa Wise City, significantly enhancing transit accessibility for residents.",
-                    src: busSheltersImg
+                    src: "/assets/products/bus-shelters/wadhwa-wise-city-project-1.webp"
                 },
                 {
                     name: "Jindal Power Campus",
@@ -1106,7 +1116,7 @@ export const productConfigs = {
                     material: "Heavy-Duty MS & Polycarbonate",
                     benefits: ["High Capacity", "Rain Deflectors", "Solar Ready"],
                     desc: "Executed a comprehensive site infrastructure upgrade, including 5 bus shelters, seating, and waste management facilities for the Simhapuri unit.",
-                    src: busSheltersUgc
+                    src: "/assets/products/bus-shelters/jindal-power-campus.webp"
                 }
             ]
         },
@@ -1687,16 +1697,16 @@ export const productConfigs = {
                 { icon: "apartment", label: "50+ Projects" }
             ],
             mainImage: {
-                src: canteenTablesImg,
+                src: "/assets/products/canteen-tables/hero-main.webp",
                 alt: "Premium Canteen Table Set"
             },
             subImage1: {
-                src: canteenTablesUgc,
+                src: "/assets/products/canteen-tables/hero-1.webp",
                 alt: "Cafeteria Dining Setup",
                 label: "IT PARK CAFETERIA"
             },
             subImage2: {
-                src: canteenTablesPng,
+                src: "/assets/products/canteen-tables/hero-2.webp",
                 alt: "Modern canteen benches set",
                 label: "INTEGRATED SEATING"
             }
@@ -1710,17 +1720,22 @@ export const productConfigs = {
                 {
                     title: "4-Seater Integrated Table",
                     alt: "4-Seater Integrated Table",
-                    src: canteenTablesImg
+                    src: "/assets/products/canteen-tables/canteen-table-1.webp"
                 },
                 {
                     title: "6-Seater Cafeteria Table",
                     alt: "6-Seater Cafeteria Table",
-                    src: canteenTablesUgc
+                    src: "/assets/products/canteen-tables/canteen-table-2.webp"
                 },
                 {
                     title: "Heavy Duty Dining Suite",
                     alt: "Heavy Duty Dining Suite",
-                    src: canteenTablesPng
+                    src: "/assets/products/canteen-tables/canteen-table-3.webp"
+                },
+                {
+                    title: "Custom Cafeteria Dining Table",
+                    alt: "Custom Cafeteria Dining Table",
+                    src: "/assets/products/canteen-tables/canteen-table-4.webp"
                 }
             ],
             viewAllRedirect: "/catalogue"
@@ -1735,7 +1750,7 @@ export const productConfigs = {
                     icon: "groups",
                     title: "Social Hub",
                     desc: "Canteen tables serve as gathering spots where people come together to eat, converse, and build connections, fostering community.",
-                    image: canteenTablesUgc
+                    image: "/assets/products/canteen-tables/sec3-canteen-table-1.webp"
                 },
                 {
                     num: "02.",
@@ -1755,14 +1770,14 @@ export const productConfigs = {
                     icon: "view_quilt",
                     title: "Space Optimization",
                     desc: "Efficiently designed canteen tables maximize seating capacity while optimizing space utilization, avoiding overcrowding.",
-                    image: canteenTablesImg
+                    image: "/assets/products/canteen-tables/sec3-canteen-table-2.webp"
                 },
                 {
                     num: "05.",
                     icon: "clean_hands",
                     title: "Hygiene and Cleanliness",
                     desc: "Easy-to-clean and highly durable tables prevent the spread of germs and maintain a healthy, sanitary environment.",
-                    image: canteenTablesPng
+                    image: "/assets/products/canteen-tables/sec3-canteen-table-3.webp"
                 }
             ]
         },
@@ -1779,21 +1794,21 @@ export const productConfigs = {
                     title: "Integrated Seating Tables",
                     alt: "Integrated Seating Tables",
                     path: "/catalogue",
-                    src: canteenTablesImg,
+                    src: "/assets/products/canteen-tables/canteen-table-1.webp",
                     desc: "Tables with permanently attached swing-out or fixed stools, optimizing cleaning and organization."
                 },
                 {
                     title: "Stainless Steel Cafeteria Tables",
                     alt: "Stainless Steel Tables",
                     path: "/catalogue",
-                    src: canteenTablesUgc,
+                    src: "/assets/products/canteen-tables/canteen-table-2.webp",
                     desc: "Maximum hygiene tables ideal for hospitals, food processing units, and industrial mess halls."
                 },
                 {
                     title: "Metal-Wooden Dining Tables",
                     alt: "Metal-Wooden Tables",
                     path: "/catalogue",
-                    src: canteenTablesPng,
+                    src: "/assets/products/canteen-tables/canteen-table-3.webp",
                     desc: "Warm natural wood tops paired with strong steel legs, perfect for modern offices and university cafes."
                 }
             ]
@@ -1803,9 +1818,9 @@ export const productConfigs = {
             title: "MATERIALS & CUSTOMIZATION OPTIONS FOR CANTEEN TABLES",
             description: "Configure capacities, attached seating formats, and tabletop materials.",
             radialMap: {
-                centralImage: canteenTablesPng,
+                centralImage: "/assets/products/canteen-tables/sec-6-canteen-table-main.webp",
                 centralImageAlt: "Premium Canteen Table Set",
-                backgroundImage: canteenTablesImg,
+                backgroundImage: "/assets/products/canteen-tables/sec-6-canteen-table-bg.webp",
                 cards: [
                     {
                         title: "Tabletop Selection",
@@ -1858,7 +1873,7 @@ export const productConfigs = {
                     material: "Stainless Steel & Heavy Laminates",
                     benefits: ["Easy Sanitizing", "Integrated Benches", "Sleek Frame"],
                     desc: "Supplied 32+ custom-configured canteen tables, creating an organized, stylish dining hall for thousands of corporate employees.",
-                    src: canteenTablesImg
+                    src: "/assets/products/canteen-tables/panchshil-park-project-1.webp"
                 },
                 {
                     name: "EON Kharadi Infra",
@@ -1869,7 +1884,7 @@ export const productConfigs = {
                     material: "Premium Metal-Wooden",
                     benefits: ["High Capacity", "Warm Aesthetics", "Footrests"],
                     desc: "Deployed 26 large capacity dining tables, blending heavy metal frames with beautiful wood finishes to match the modern cafeteria design.",
-                    src: canteenTablesUgc
+                    src: "/assets/products/canteen-tables/eon-kharadi-infra-park-project-2.webp"
                 }
             ]
         },
@@ -1936,16 +1951,16 @@ export const productConfigs = {
                 { icon: "apartment", label: "50+ Projects" }
             ],
             mainImage: {
-                src: carSheltersImg,
+                src: "/assets/products/car-sheds/hero-main.webp",
                 alt: "Premium Car Parking Shed"
             },
             subImage1: {
-                src: carSheltersUgc,
+                src: "/assets/products/car-sheds/hero-1.webp",
                 alt: "Carport Site View",
                 label: "VILLA DOUBLE CARPORT"
             },
             subImage2: {
-                src: carSheltersPng,
+                src: "/assets/products/car-sheds/hero-2.webp",
                 alt: "Cantilever parking shed render",
                 label: "CANTILEVER STRUCTURE"
             }
@@ -1959,17 +1974,22 @@ export const productConfigs = {
                 {
                     title: "Cantilever Parking Shed",
                     alt: "Cantilever Parking Shed",
-                    src: carSheltersImg
+                    src: "/assets/products/car-sheds/car-shed-1.webp"
                 },
                 {
                     title: "Villas Double Carport",
                     alt: "Villas Double Carport",
-                    src: carSheltersUgc
+                    src: "/assets/products/car-sheds/car-shed-2.webp"
                 },
                 {
                     title: "Commercial Solar Carport",
                     alt: "Commercial Solar Carport",
-                    src: carSheltersPng
+                    src: "/assets/products/car-sheds/car-shed-3.webp"
+                },
+                {
+                    title: "Custom Parking Shed",
+                    alt: "Custom Parking Shed",
+                    src: "/assets/products/car-sheds/car-shed-4.webp"
                 }
             ],
             viewAllRedirect: "/catalogue"
@@ -1984,7 +2004,7 @@ export const productConfigs = {
                     icon: "directions_car",
                     title: "Complete Vehicle Protection",
                     desc: "Shields your car from intense sun, heavy rain, dust storms, and harmful UV rays—keeping your vehicle cooler and damage-free.",
-                    image: carSheltersUgc
+                    image: "/assets/products/car-sheds/product-card-1.webp"
                 },
                 {
                     num: "02.",
@@ -2004,14 +2024,14 @@ export const productConfigs = {
                     icon: "home_work",
                     title: "Property Value Enhancement",
                     desc: "A well-designed car shed improves the aesthetic appeal and increases the overall market value of your home or commercial property.",
-                    image: carSheltersImg
+                    image: "/assets/products/car-sheds/product-card-2.webp"
                 },
                 {
                     num: "05.",
                     icon: "solar_power",
                     title: "Environmental Responsibility",
                     desc: "Made with durable, recyclable metals and optional solar-ready roofing layouts to support green living.",
-                    image: carSheltersPng
+                    image: "/assets/products/car-sheds/product-card-3.webp"
                 }
             ]
         },
@@ -2028,21 +2048,21 @@ export const productConfigs = {
                     title: "Cantilever Car Sheds",
                     alt: "Cantilever Car Sheds",
                     path: "/catalogue",
-                    src: carSheltersImg,
+                    src: "/assets/products/car-sheds/car-shed-1.webp",
                     desc: "Sleek, post-free designs that maximize parking clearance and ease of entry."
                 },
                 {
                     title: "Pillar Supported Sheds",
                     alt: "Pillar Supported Sheds",
                     path: "/catalogue",
-                    src: carSheltersUgc,
+                    src: "/assets/products/car-sheds/car-shed-2.webp",
                     desc: "Classic robust four-post structural frames offering maximum wind load capacity."
                 },
                 {
                     title: "Tensile Fabric Carports",
                     alt: "Tensile Fabric Carports",
                     path: "/catalogue",
-                    src: carSheltersPng,
+                    src: "/assets/products/car-sheds/car-shed-3.webp",
                     desc: "Contemporary aesthetic structures featuring high-strength architectural membranes."
                 }
             ]
@@ -2052,9 +2072,9 @@ export const productConfigs = {
             title: "MATERIALS & CUSTOMIZATION OPTIONS FOR CAR SHELTERS",
             description: "Select framing alloys, roofing sheets, dimensions, and solar attachments.",
             radialMap: {
-                centralImage: carSheltersPng,
+                centralImage: "/assets/products/car-sheds/car-shed-main.webp",
                 centralImageAlt: "Premium Car Parking Shed",
-                backgroundImage: carSheltersImg,
+                backgroundImage: "/assets/products/car-sheds/car-shed-bg.webp",
                 cards: [
                     {
                         title: "Polycarbonate / Tensile Roof",
@@ -2107,7 +2127,7 @@ export const productConfigs = {
                     material: "Cantilever Steel",
                     benefits: ["Cantilever Design", "Heat Reduction", "Rainwater Management"],
                     desc: "Supplied and installed 180 cantilever car sheds, providing efficient vehicle protection across premium township parking sectors.",
-                    src: carSheltersImg
+                    src: "/assets/products/car-sheds/godrej-golf-links-project.webp"
                 },
                 {
                     name: "Infosys Campus",
@@ -2118,7 +2138,7 @@ export const productConfigs = {
                     material: "Powder Coated MS",
                     benefits: ["Large Scale Deployment", "UV Protection", "Low Maintenance"],
                     desc: "Supplied and installed 220 cantilever car sheds across employee and visitor parking zones, maximizing vehicle protection and long-term operational efficiency.",
-                    src: carSheltersUgc
+                    src: "/assets/products/car-sheds/infosys-campus-project.webp"
                 },
                 {
                     name: "Prestige Lakeside Habitat",
@@ -2129,7 +2149,7 @@ export const productConfigs = {
                     material: "UV-Protected MS",
                     benefits: ["Premium Aesthetics", "Weather Protection", "Space Optimization"],
                     desc: "Supplied and installed 140 cantilever car sheds across residential parking sectors, maximizing vehicle protection while enhancing the township's architectural appeal.",
-                    src: carSheltersPng
+                    src: "/assets/products/car-sheds/prestige-lakeside-project.webp"
                 }
             ]
         },
