@@ -13,7 +13,6 @@ const SolutionsHub = () => {
   const [activeFaq, setActiveFaq] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeMosaicSlide, setActiveMosaicSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   const mosaicItems = [
     {
@@ -112,6 +111,10 @@ const SolutionsHub = () => {
       og_image: gbg1
     });
 
+    const slideInterval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % 5);
+    }, 6000);
+
     // Scroll reveal observer
     const observerOptions = {
       threshold: 0.05,
@@ -135,70 +138,35 @@ const SolutionsHub = () => {
 
     return () => {
       cleanPageSEO();
+      clearInterval(slideInterval);
       sections.forEach(section => observer.unobserve(section));
     };
   }, []);
 
-  useEffect(() => {
-    let slideInterval;
-    if (!isPaused) {
-      slideInterval = setInterval(() => {
-        setActiveSlide((prev) => (prev + 1) % 5);
-      }, 5000);
-    }
-    return () => {
-      if (slideInterval) clearInterval(slideInterval);
-    };
-  }, [isPaused]);
-
   return (
     <div className="w-full bg-background text-on-surface font-body-md antialiased overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-[100dvh] min-h-[650px] flex items-center overflow-hidden bg-[#0A0D0B] pb-24 md:pb-28">
-        <style dangerouslySetInnerHTML={{__html: `
-          @keyframes progress-width {
-            from { transform: scaleX(0); }
-            to { transform: scaleX(1); }
-          }
-          @keyframes kenburns-zoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.08); }
-          }
-          @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fade-in-up {
-            animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-          }
-        `}} />
-
+      <section className="relative h-[100dvh] min-h-[600px] flex items-center overflow-hidden bg-[#1A1A1A]">
         {/* Slide backgrounds */}
-        {slides.map((slide, index) => {
-          const isActive = activeSlide === index;
-          return (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                isActive ? "opacity-100 z-0" : "opacity-0 z-0 pointer-events-none"
-              }`}
-            >
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover select-none"
-                style={{
-                  animation: isActive ? 'kenburns-zoom 15s ease-out forwards' : 'none'
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
-            </div>
-          );
-        })}
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              activeSlide === index ? "opacity-100 z-0" : "opacity-0 z-0 pointer-events-none"
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover select-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/90 via-[#1A1A1A]/60 to-transparent z-10" />
+          </div>
+        ))}
 
         {/* Content Container */}
-        <div className="relative z-10 max-w-container-max mx-auto w-full px-6 md:px-margin-desktop text-white">
-          <div key={activeSlide} className="max-w-2xl space-y-6 animate-fade-in-up">
+        <div className="relative z-10 w-full px-6 md:px-margin-desktop text-white">
+          <div className="max-w-2xl space-y-6">
             <div className="inline-flex items-center gap-3 py-1.5 px-3.5 bg-craftsman-gold text-charcoal-industrial rounded-full font-label-caps text-[10px] uppercase tracking-widest font-bold">
               <span className="w-2 h-2 rounded-full bg-forest-green animate-pulse"></span>
               {slides[activeSlide].subtitle}
@@ -220,13 +188,13 @@ const SolutionsHub = () => {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link
                 to={slides[activeSlide].path}
-                className="bg-craftsman-gold text-charcoal-industrial px-8 py-4 font-label-caps text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 hover:bg-white hover:text-charcoal-industrial transition-all duration-300 no-underline"
+                className="bg-craftsman-gold text-charcoal-industrial px-8 py-4 font-label-caps text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 hover:bg-white hover:text-charcoal-industrial transition-all duration-300"
               >
                 Explore Sector Solutions <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
               </Link>
               <Link
                 to="/contact"
-                className="border-2 border-white text-white px-8 py-4 font-label-caps text-xs uppercase tracking-widest flex items-center justify-center hover:bg-white/10 transition-all duration-300 no-underline"
+                className="border-2 border-white text-white px-8 py-4 font-label-caps text-xs uppercase tracking-widest flex items-center justify-center hover:bg-white/10 transition-all duration-300"
               >
                 Get Custom Quote
               </Link>
@@ -246,63 +214,36 @@ const SolutionsHub = () => {
           </div>
         </div>
 
-        {/* Cinematic Bottom-Dock Mini Preview Cards */}
-        <div className="absolute bottom-8 left-0 w-full z-20 px-6 md:px-margin-desktop">
-          <div className="max-w-container-max mx-auto">
-            <div className="flex md:grid md:grid-cols-5 gap-3 md:gap-4 lg:gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scrollbar-none snap-x snap-mandatory">
-              {slides.map((slide, idx) => {
-                const isActive = activeSlide === idx;
-                return (
-                  <div
-                    key={idx}
-                    className={`snap-center shrink-0 w-[260px] md:w-auto flex items-center gap-3 p-3 bg-black/45 border backdrop-blur-md transition-all duration-300 relative overflow-hidden group select-none rounded-[4px] cursor-pointer ${
-                      isActive 
-                        ? "border-craftsman-gold bg-black/75 scale-[1.03] shadow-[0_8px_24px_rgba(0,0,0,0.5)]" 
-                        : "border-white/10 bg-black/35 hover:border-white/30 hover:bg-black/55"
-                    }`}
-                    onMouseEnter={() => {
-                      setActiveSlide(idx);
-                      setIsPaused(true);
-                    }}
-                    onMouseLeave={() => {
-                      setIsPaused(false);
-                    }}
-                    onClick={() => {
-                      setActiveSlide(idx);
-                      setIsPaused(true);
-                    }}
-                  >
-                    {/* Thumbnail Image */}
-                    <div className="w-10 h-10 rounded overflow-hidden shrink-0 bg-white/5 border border-white/10 relative">
-                      <img src={slide.image} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-black/20" />
-                    </div>
-
-                    {/* Meta Info */}
-                    <div className="flex flex-col text-left">
-                      <span className="font-mono text-[9px] text-craftsman-gold/90 font-bold uppercase tracking-wider">
-                        0{idx + 1}
-                      </span>
-                      <span className="font-label-caps text-[10px] lg:text-[11px] uppercase tracking-wider font-extrabold text-white/95 truncate max-w-[150px]">
-                        {slide.title.replace(" Projects", "").replace(" Outdoors", "").replace(" Gardens", "").replace(" Campuses", "")}
-                      </span>
-                    </div>
-
-                    {/* Progress Loader Bar */}
-                    {isActive && (
-                      <div 
-                        className="absolute bottom-0 left-0 w-full h-[3px] bg-craftsman-gold origin-left"
-                        style={{
-                          animation: isPaused ? 'none' : 'progress-width 5s linear forwards',
-                          transform: isPaused ? 'scaleX(1)' : undefined
-                        }}
-                      />
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+        {/* Navigation Controls */}
+        <div className="absolute bottom-10 right-6 md:right-margin-desktop z-20 flex items-center gap-6 select-none">
+          <div className="text-white/50 text-xs sm:text-sm font-semibold tracking-widest font-mono">
+            <span className="text-craftsman-gold text-base md:text-lg font-bold">
+              {String(activeSlide + 1).padStart(2, '0')}
+            </span> / {String(slides.length).padStart(2, '0')}
           </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length)}
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white bg-white/5 hover:bg-white/15 cursor-pointer transition-colors duration-300 active:scale-95"
+            >
+              <span className="material-symbols-outlined">chevron_left</span>
+            </button>
+            <button
+              onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)}
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white bg-white/5 hover:bg-white/15 cursor-pointer transition-colors duration-300 active:scale-95"
+            >
+              <span className="material-symbols-outlined">chevron_right</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Visual Progress Indicator */}
+        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-white/10 z-20">
+          <div 
+            className="h-full bg-craftsman-gold transition-all duration-6000 ease-linear"
+            style={{ width: `${((activeSlide + 1) / slides.length) * 100}%` }}
+          />
         </div>
       </section>
 
