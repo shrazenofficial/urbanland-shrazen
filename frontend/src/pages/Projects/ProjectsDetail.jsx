@@ -383,9 +383,28 @@ const projectsMeta = {
 
 import { getOptimizedImageUrl } from "../../utils/image";
 
+// Predefined external CDN case study images to match lodha-project.html styling
+const caseImages = [
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBGRygtxv8S6btOks0aFuSimblKmGpVn0tVaK3-ZIwpeXbqg6Gtfocgq9MecCc9CCLNXb7K7yuZl_Ni-yowvAb2mOhZ1z4Txem50MH4t1LKT-zWFejJr4saS8Ejp39LLeVSN2CVovG6J77iOLQhnN500r-zXlFQtOk7T8zR9V6Smr0b70nsG3w4INZmuwuK4vZUntYFxNu2fi5S25oq4DGVmslV3nMi3IXSjgodFHW-0BbcbdQ-hOWjkr4YZtLluWiVkCyC_RvJ301W",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuDIpM5Gfrx9Pxnjf4ZfeBuztby-rdUGAPXwlOV5MamTW8ZjGuBIHHdoEYU4uhabFPQ7fBiWDaHWrM1zaSOuL8xdiWkqGxRffeKHPVz2bRV_BWsZO1ifVrViN5QGbwCTfoetfCed4KyOxUx3s8As6LYRbI34Cwg-sIx51kzv0Q9aJ4422mn6BC4qSgmjU7XSrTE6zW9b2cAJ1jnHCvsRPPYpe_0ZG-_NseFM9eWHjMfvUw9TzxVwLj5wwSQZkW2d8eJkK_mIW1Q6bXQs",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBKGGASxYdEF-q11rM2s8BUVEpQ1-ROEbQCr9Y6-hJyS4R0WW199pB6Om_aTUUuXGOQ_vm_Bk3iBEgUw_X0B3JJ6yFwaYxc2n1ZdWZq3_1kbiFFx6lTsE4jLtv9QvkFeK-gAxRflLRx_7UeEpYNYUfCavfXm4fsopjmotrGUAb5d618HXKZWd_8fZ8H-DchOOBpwrN_3j4I5cgyyJLinOtP_Mz9YK2VcGIO8C_MqBILG5PsDv1yDuRjjUJOB_SG4gcsxjbIxPRXtUFr",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuCHXoXWGOYXacb6orNzrXAmlbABl0PSXWDH9YhJ6AbsRTJ_ooJMfBZpW3SffOEWlYABiyQEVXRUpd2XfpsYViurH-IDYmbjGbINeppaLQ2q1rWGeIbePG5TzTXwY4bFKqq55cLrDg22os7BwuF2kDE_tzHuajSnKO45XKuKWpo04RDr2_237LAOqZG4iThVhYFXe5utNcCQGtwIMZuWgAr63lsDwttqnq-lo12UHYzaRtdG49ctFXK3xX7BdNK7T1LFBhdtmAZ6jsUw"
+];
+
+// Helper to determine delivered units count per project page
+const deliveredUnitsMap = {
+  lodha: "250+",
+  adani: "150+",
+  oberoi: "100+",
+  mumbai: "300+",
+  delhi: "120+",
+  bangalore: "90+",
+  pune: "80+"
+};
+
 const ProjectsDetail = () => {
   const { segment } = useParams();
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeFaq, setActiveFaq] = useState(null);
 
   const rawMeta = projectsMeta[segment] || projectsMeta["lodha"];
   const meta = React.useMemo(() => {
@@ -409,230 +428,279 @@ const ProjectsDetail = () => {
     };
   }, [rawMeta]);
 
-  // Gallery array to loop visual assets for case studies
-  const galleryImages = React.useMemo(() => {
-    return [gbg1, gbg2, gbg3, gbg4, gbg5, welcome1, welcome2].map(getOptimizedImageUrl);
-  }, []);
-
   useEffect(() => {
+    if (!meta) return;
+
     updatePageSEO({
       title: meta.metaTitle || `${meta.title} Showcase | Urbanland Projects`,
       description: meta.metaDesc || meta.desc,
       og_image: meta.image
     });
-    return () => cleanPageSEO();
+
+    // Intersection Observer for Scroll Reveal Animations
+    const revealUpObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
+
+    const revealUps = document.querySelectorAll('.reveal-up');
+    revealUps.forEach(el => revealUpObserver.observe(el));
+
+    return () => {
+      cleanPageSEO();
+      revealUps.forEach(el => revealUpObserver.unobserve(el));
+    };
   }, [meta]);
 
+  if (!meta) return null;
+
+  const unitsCount = deliveredUnitsMap[segment] || "150+";
+
+  // Sustainability Ratings for Solutions rows
+  const sustainabilityRatings = [
+    "A++ High-Impact",
+    "LEED V4 Compatible",
+    "Cradle-to-Cradle Gold",
+    "100% Circular",
+    "Project-Specific"
+  ];
+
+  // Icons and titles for Challenges section
+  const challengeIcons = ["domain", "eco", "forest", "recycling", "nature_people"];
+  const challengeTitles = [
+    "Green building standards",
+    "Environmental impact",
+    "WPC/NFC Wood",
+    "Waste reduction",
+    "Biophilic design"
+  ];
+
+  // Why Choose Us content
+  const defaultChooseDesc = [
+    "We prioritize high-performance wood-plastic composites and recycled metals for minimal environmental footprint.",
+    "Products engineered to last 15-20 years in harsh outdoor conditions with near-zero degradation.",
+    "Detailed material documentation provided for LEED, IGBC, and BREEAM certification points.",
+    "Optimized supply chain allowing for project delivery in as little as 2 weeks for standard models.",
+    "From architectural consultation and site layout design to final installation and maintenance training.",
+    "Comprehensive structural and material warranty backed by our authoritative quality assurance process."
+  ];
+
+  const whyChooseItems = [
+    { title: "Green Materials", icon: "eco", desc: meta.whyChoose[0] || defaultChooseDesc[0] },
+    { title: "Long Life", icon: "verified", desc: meta.whyChoose[1] || defaultChooseDesc[1] },
+    { title: "Certification Support", icon: "description", desc: meta.whyChoose[2] || defaultChooseDesc[2] },
+    { title: "Fast Delivery", icon: "speed", desc: meta.whyChoose[3] || defaultChooseDesc[3] },
+    { title: "End-to-End Support", icon: "handshake", desc: meta.whyChoose[4] || defaultChooseDesc[4] },
+    { title: "2-Year Warranty", icon: "security", desc: defaultChooseDesc[5] }
+  ];
+
+  // Additional installations
+  const isSplitList = meta.extraCases && meta.extraCases.includes("|");
+  const extraInstallations = isSplitList
+    ? meta.extraCases.split("|").map(x => x.trim())
+    : [
+        "Rustomjee Urbania",
+        "Piramal Revanta",
+        "Shapoorji Pallonji",
+        "Indiabulls Sky",
+        "Hiranandani Gardens",
+        "Brigade Exotica",
+        "Oberoi Realty",
+        "Prestige Estates"
+      ];
+
   return (
-    <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-0">
-      {/* Hero Banner - Full Screen */}
-      <section className="w-full h-[100vh] md:h-dvh mb-16 relative bg-black/5 overflow-hidden">
-        {/* Background Image spanning full width */}
-        <img
-          src={meta.image}
-          alt={meta.title}
-          className="absolute inset-0 w-full h-full object-cover select-none z-0"
-        />
-        {/* Overlay gradient spanning full width */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/45 z-10" />
-
-        {/* Content container aligned with site margins */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-end text-white pb-16 md:pb-24">
-          {/* Title & Description inside Hero */}
-          <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12">
-            <span className="text-[10px] font-black uppercase tracking-wider bg-[#C9A84C] text-[#232120] px-3.5 py-1.5 rounded-full w-fit mb-3 block">
-              Case Study
-            </span>
-            <h1 className="text-3.5xl sm:text-5.5xl md:text-6.5xl lg:text-[4rem] font-bold uppercase leading-none tracking-tight max-w-4xl" style={{ textShadow: '2px 2px 10px rgba(0,0,0,0.4)' }}>
-              {meta.title}
-            </h1>
-            <p className="text-xs sm:text-sm font-medium tracking-wide text-white/95 mt-4 max-w-2xl leading-relaxed animate-fadeIn" style={{ textShadow: '1px 1px 5px rgba(0,0,0,0.55)' }}>
-              {meta.subTitle}
-            </p>
-
-            {/* Breadcrumb inside Hero, below tagline */}
-            <nav className="flex items-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-white text-[#1A1A1A] border border-black/10 px-4 py-2.5 rounded-full w-fit mt-6 shadow-md">
+    <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-0 overflow-x-hidden pt-0 antialiased">
+      
+      {/* Dynamic Hero Section */}
+      <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden py-20 px-margin-mobile lg:px-0">
+        <div className="max-w-container-max mx-auto pt-[100px] px-margin-mobile md:px-margin-desktop w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Text Block */}
+          <div className="lg:col-span-6 z-10 animate-hero text-left">
+            <div className="inline-block border-b-2 border-craftsman-gold mb-6 pb-1">
+              <span className="font-label-technical text-primary tracking-widest uppercase font-semibold text-xs">
+                Case Study
+              </span>
+            </div>
+            
+            {/* Dynamic Breadcrumbs */}
+            <nav className="flex items-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-white text-[#1A1A1A] border border-black/10 px-4 py-2.5 rounded-full w-fit mb-6 shadow-sm">
               <Link to="/" className="text-[#1A1A1A]/60 hover:text-[#2C5F2E] transition-colors no-underline">Home</Link>
               <span className="text-[#1A1A1A]/30">/</span>
               <Link to="/projects" className="text-[#1A1A1A]/60 hover:text-[#2C5F2E] transition-colors no-underline">Projects</Link>
               <span className="text-[#1A1A1A]/30">/</span>
               <span className="text-[#2C5F2E] font-bold">{meta.title}</span>
             </nav>
-          </div>
-        </div>
-      </section>
 
-      {/* Narrative Scope & Specs visual split */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left text summaries & specs badges */}
-        <div className="lg:col-span-7 text-left">
-          <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Site Scope & Delivery</span>
-          <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1A1A1A] mb-6 leading-none">
-            Project Overview & Scope
-          </h2>
-          <p className="text-sm sm:text-base leading-relaxed text-[#2D2D2D]/85">
-            {meta.desc}
-          </p>
+            <h1 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-ink mb-6 leading-tight max-w-xl">
+              {meta.title}
+            </h1>
+            
+            <div className="w-24 h-1 bg-craftsman-gold mb-6"></div>
+            
+            <p className="font-body-lg text-on-surface-variant max-w-xl mb-8">
+              {meta.desc}
+            </p>
 
-          {/* Mini logistics card grid instead of text blocks */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 mb-8">
-            <div className="bg-[#EAE5DB]/30 rounded-2xl p-4 border border-black/[0.03]">
-              <span className="block text-[8px] font-black uppercase tracking-wider text-black/40">Contracting Client</span>
-              <span className="text-xs font-black uppercase text-black/85 block mt-1">{meta.client}</span>
-            </div>
-            <div className="bg-[#EAE5DB]/30 rounded-2xl p-4 border border-black/[0.03]">
-              <span className="block text-[8px] font-black uppercase tracking-wider text-black/40">Supplied Volume</span>
-              <span className="text-xs font-black uppercase text-black/85 block mt-1">{meta.volume}</span>
-            </div>
-            <div className="bg-[#EAE5DB]/30 rounded-2xl p-4 border border-black/[0.03]">
-              <span className="block text-[8px] font-black uppercase tracking-wider text-black/40">Supplied Equipment</span>
-              <span className="text-xs font-black uppercase text-[#2C5F2E] block mt-1">{meta.supplied.split(',')[0]}</span>
-            </div>
-            <div className="bg-[#EAE5DB]/30 rounded-2xl p-4 border border-black/[0.03]">
-              <span className="block text-[8px] font-black uppercase tracking-wider text-black/40">Certifications Met</span>
-              <span className="text-xs font-black uppercase text-[#C9A84C] block mt-1">{meta.standards.split(',')[0]}</span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-4">
-            <Link
-              to="/contact"
-              className="px-6 py-3.5 bg-[#2C5F2E] hover:bg-[#C9A84C] text-white rounded-full font-bold uppercase tracking-wider text-[10px] transition-colors cursor-pointer shadow-md no-underline"
-            >
-              Request Custom Quote →
-            </Link>
-            <Link
-              to="/resources/downloads"
-              className="px-6 py-3.5 bg-[#EAE5DB] text-[#2D2D2D] rounded-full font-bold uppercase tracking-wider text-[10px] hover:bg-black hover:text-white transition-colors border border-black/[0.04] cursor-pointer no-underline"
-            >
-              Download Project Portfolio ↓
-            </Link>
-          </div>
-        </div>
-
-        {/* Right huge immersive image card */}
-        <div className="lg:col-span-5 relative group overflow-hidden rounded-[2.5rem] shadow-xl aspect-square border border-black/[0.05] select-none">
-          <img 
-            src={meta.image} 
-            alt={meta.title} 
-            className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-          <span className="absolute bottom-6 left-6 text-[9px] font-black uppercase tracking-widest text-white bg-black/45 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full">
-            ✦ Installation Site Verified
-          </span>
-        </div>
-      </section>
-
-      {/* Challenges Visual Cards Section */}
-      {meta.challenges && (
-        <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-          <div className="bg-white rounded-[2.5rem] border border-black/[0.04] p-8 md:p-14 shadow-sm">
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Sustainability Demands</span>
-            <h2 className="text-3xl font-black uppercase tracking-tight text-[#1A1A1A] mb-12 border-b border-[#2D2D2D]/10 pb-4">
-              Sustainability & Architectural Challenges
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {meta.challenges.slice(0, 3).map((item, idx) => (
-                <div key={idx} className="bg-white rounded-[2rem] border border-black/[0.03] overflow-hidden flex flex-col hover:shadow-md transition-all group">
-                  <div className="w-full aspect-[16/10] overflow-hidden relative select-none">
-                    <img 
-                      src={item.image} 
-                      alt={`Challenge ${idx + 1}`} 
-                      className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500" 
-                    />
-
-                  </div>
-                  <div className="p-6 flex-1 flex flex-col justify-start">
-                    <p className="text-xs sm:text-sm text-[#2D2D2D]/85 leading-relaxed font-semibold">
-                      {item.text}
-                    </p>
-                  </div>
+            {/* Standard Checklist */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              {["IGBC Certified Materials", "Climate-Resilient Design", "Low Lifecycle Maintenance", "Eco-Luxury Aesthetics"].map((pt, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-forest-green font-bold" style={{ fontVariationSettings: "'wght' 700" }}>check_circle</span>
+                  <span className="font-body-md text-sm md:text-base text-deep-ink font-semibold">{pt}</span>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
 
-      {/* Tailored Green Solutions Section */}
-      {meta.solutions && (
-        <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-          <div className="mb-12">
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Green Solutions</span>
-            <h2 className="text-3xl font-black uppercase tracking-tight text-[#1A1A1A] leading-none">
-              Eco-Friendly Furniture Solutions Delivered
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <Link to="/contact" className="bg-forest-green text-white px-8 py-4 font-label-technical text-xs uppercase tracking-widest hover:bg-deep-ink transition-all no-underline text-center">
+                Request Quote for Your Project →
+              </Link>
+              <Link to="/resources/downloads" className="border-2 border-craftsman-gold text-craftsman-gold px-8 py-4 font-label-technical text-xs uppercase tracking-widest hover:bg-craftsman-gold hover:text-white transition-all no-underline text-center">
+                Download Sustainable Portfolio ↓
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Immersive Image */}
+          <div className="lg:col-span-6 z-10 relative flex justify-center items-center">
+            <div className="relative aspect-[4/3] w-full max-w-2xl overflow-hidden border border-outline-variant shadow-2xl">
+              <img
+                alt={meta.title}
+                className="w-full h-full object-cover"
+                src={meta.image}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
+              
+              {/* Gold Badge for Units Delivered */}
+              <div className="absolute -bottom-6 -left-6 bg-craftsman-gold p-8 hidden lg:block border border-outline-variant shadow-lg z-20">
+                <p className="font-display-lg text-4xl text-white font-bold leading-none">{unitsCount}</p>
+                <p className="font-label-technical text-[10px] text-white uppercase tracking-widest mt-2">Units Delivered</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Structural Grid lines matching BenchesPage */}
+        <div className="absolute top-0 left-0 w-full h-full structural-grid -z-30 opacity-60"></div>
+        <div className="absolute top-1/2 left-0 w-full h-1px bg-outline-variant/10 -z-20"></div>
+        <div className="absolute top-0 left-1/4 w-1px h-full bg-outline-variant/10 -z-20"></div>
+      </section>
+
+      {/* Challenges Section */}
+      <section className="reveal-section py-24 px-margin-mobile md:px-margin-desktop bg-[#F7F4EF] border-t border-outline-variant">
+        <div className="max-w-container-max mx-auto">
+          <div className="mb-16 text-center space-y-4 reveal-up flex flex-col items-center">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+              Sustainability Demands
+            </span>
+            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-ink max-w-3xl">
+              Sustainability Challenges in {meta.title.replace(" Projects", "")} Developments
             </h2>
+            <div className="w-24 h-1 bg-craftsman-gold"></div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {meta.challenges.map((c, idx) => (
+              <div key={idx} className="bg-surface-container-low p-8 border border-outline-variant hover:border-craftsman-gold/40 hover:shadow-md transition-all duration-300 flex flex-col text-left reveal-up">
+                <span className="material-symbols-outlined text-craftsman-gold text-4xl mb-6">{challengeIcons[idx] || "domain"}</span>
+                <h3 className="font-label-technical text-xs font-bold uppercase tracking-wider mb-4 text-deep-ink">{challengeTitles[idx] || "Challenge"}</h3>
+                <p className="font-body-md text-on-surface-variant text-sm leading-relaxed">{c.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Green Solutions Section */}
+      <section className="reveal-section py-24 px-margin-mobile md:px-margin-desktop bg-[#EFEDE8]">
+        <div className="max-w-container-max mx-auto">
+          
+          <div className="mb-16 text-left space-y-4 reveal-up">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+              Green Solutions
+            </span>
+            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-ink">
+              Green Outdoor Furniture Solutions
+            </h2>
+            <div className="w-24 h-1 bg-craftsman-gold"></div>
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl pt-2">
+              Precision engineered for {meta.title}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-4">
             {meta.solutions.map((item, idx) => (
-              <div key={idx} className="bg-white rounded-[2rem] border border-black/[0.03] overflow-hidden flex flex-col shadow-sm hover:border-[#2C5F2E]/25 transition-all group">
-                <div className="w-full aspect-[16/10] overflow-hidden select-none">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500" 
-                  />
+              <div
+                key={idx}
+                className={`bg-[#F7F4EF] p-8 flex flex-col md:flex-row items-center gap-8 border-l-4 ${
+                  idx % 2 === 0 ? "border-forest-green" : "border-craftsman-gold"
+                } reveal-up`}
+              >
+                <div className="w-32 h-32 flex-shrink-0 overflow-hidden border border-outline-variant">
+                  <img className="w-full h-full object-cover" alt={item.title} src={item.image} />
                 </div>
-                <div className="p-6 flex-1 flex flex-col justify-start">
-                  <div className="w-8 h-8 rounded-md bg-[#2C5F2E]/10 flex items-center justify-center font-bold text-[#2C5F2E] mb-4 text-xs select-none">
-                    0{idx + 1}
-                  </div>
-                  <h3 className="text-base font-black text-black uppercase mb-2 leading-none">{item.title}</h3>
-                  <p className="text-xs text-[#2D2D2D]/60 leading-relaxed font-medium">{item.desc}</p>
+                <div className="flex-grow text-left">
+                  <h3 className="font-headline-md text-xl md:text-2xl text-forest-green mb-1 font-semibold">{item.title}</h3>
+                  <p className="font-body-md text-on-surface-variant text-sm md:text-base leading-relaxed">{item.desc}</p>
+                </div>
+                <div className="text-left md:text-right shrink-0">
+                  <p className="font-label-technical text-[10px] text-forest-green tracking-wider uppercase font-bold">Sustainability Rating</p>
+                  <p className="font-headline-md text-lg text-craftsman-gold font-bold mt-1">
+                    {sustainabilityRatings[idx % sustainabilityRatings.length]}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* Verified Cases Image Gallery Section (Uses images more than text) */}
-      {meta.cases && (
-        <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 select-none">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
-            <div>
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] mb-3 block">— Visual Case Studies</span>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-[#1A1A1A] leading-none">
-                Verified Project Installations
-              </h2>
-            </div>
-            <div className="flex gap-6">
-              {meta.stats.map((stat, idx) => (
-                <div key={idx} className="flex flex-col gap-1 pr-6 border-r border-black/10 last:border-none">
-                  <span className="text-2xl font-black text-[#2C5F2E] leading-none">{stat.value}</span>
-                  <span className="text-[8px] font-bold uppercase tracking-wider text-black/45">{stat.label}</span>
+      {/* Real Projects (Stats & Grid Cases) Section */}
+      <section className="reveal-section py-24 px-margin-mobile md:px-margin-desktop bg-[#2D2D2D] text-white">
+        <div className="max-w-container-max mx-auto">
+          
+          {/* Stats Callouts */}
+          <div className="text-center mb-16 reveal-up space-y-4 flex flex-col items-center">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+              Proven Excellence
+            </span>
+            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">
+              Real Green Projects. Real Sustainable Impact.
+            </h2>
+            <div className="w-24 h-1 bg-craftsman-gold"></div>
+            <div className="flex flex-wrap justify-center gap-12 mt-8">
+              {meta.stats.map((s, idx) => (
+                <div key={idx} className="text-center">
+                  <p className="font-display-lg text-5xl text-craftsman-gold font-bold leading-none mb-2">{s.value}</p>
+                  <p className="font-label-technical text-[10px] text-white/60 uppercase tracking-widest">{s.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Cases grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {meta.cases.map((c, idx) => {
-              // Cycle through available visual gallery assets
-              const cardImage = galleryImages[idx % galleryImages.length];
+              const durationMatch = c.desc.match(/(?:Completed in|Completed|delivered in) ([^.]+)/i);
+              const durationText = durationMatch ? durationMatch[1].trim() : "";
               return (
-                <div 
-                  key={idx} 
-                  className="group relative bg-[#2D2D2D] rounded-[2.5rem] overflow-hidden aspect-[16/11] flex flex-col justify-end p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-black/5 cursor-pointer"
-                >
-                  {/* Photo background */}
-                  <div className="absolute inset-0 z-0 transition-transform duration-700 ease-out transform group-hover:scale-103">
-                    <img src={cardImage} alt={c.name} className="w-full h-full object-cover opacity-60 group-hover:opacity-45 transition-opacity" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
-                  </div>
-
-                  {/* Content overlay */}
-                  <div className="relative z-10 w-full text-left">
-                    <span className="text-[9px] font-black uppercase tracking-wider text-[#C9A84C] bg-[#C9A84C]/10 border border-[#C9A84C]/35 px-3 py-1 rounded-full mb-3 inline-block">
-                      {c.location}
-                    </span>
-                    <h3 className="text-lg sm:text-xl font-black uppercase text-white mb-2 leading-tight group-hover:text-[#C9A84C] transition-colors">
-                      {c.name}
-                    </h3>
-                    <p className="text-xs text-white/70 leading-relaxed font-semibold max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 overflow-hidden pt-1 border-t border-white/10 mt-2">
-                      {c.desc}
+                <div key={idx} className="group relative aspect-[3/4] overflow-hidden border border-white/5 reveal-up">
+                  <img
+                    alt={c.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={caseImages[idx % caseImages.length]}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent p-6 flex flex-col justify-end text-left">
+                    <h4 className="font-headline-md text-white text-lg font-bold mb-1">
+                      {c.name.split(" Projects")[0].split(" Project")[0].split(" Common")[0]}
+                    </h4>
+                    <p className="font-label-technical text-[10px] text-craftsman-gold uppercase tracking-wider font-semibold">
+                      {c.location} {durationText ? `| ${durationText}` : ""}
                     </p>
                   </div>
                 </div>
@@ -640,102 +708,126 @@ const ProjectsDetail = () => {
             })}
           </div>
 
-          {meta.extraCases && (
-            <div className="bg-[#EAE5DB]/35 rounded-[2rem] border border-black/[0.03] p-6 text-center mt-8">
-              <p className="text-xs text-black/65 font-bold leading-relaxed">
-                📢 <strong>Additional Regional Deployments:</strong> {meta.extraCases}
-              </p>
-            </div>
-          )}
-        </section>
-      )}
-
-      {/* Why Choose Us Section */}
-      {meta.whyChoose && (
-        <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-          <div className="bg-white rounded-[2.5rem] border border-black/[0.04] p-8 md:p-14 shadow-sm">
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Developer Preference</span>
-            <h2 className="text-3xl font-black uppercase tracking-tight text-[#1A1A1A] mb-12 border-b border-[#2D2D2D]/10 pb-4">
-              Why Leading Developers Prefer Urbanland Projects
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-              {meta.whyChoose.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-4 p-2 rounded-xl transition-all hover:bg-[#F7F4EF]/55">
-                  <span className="w-6 h-6 rounded-full bg-[#2C5F2E]/10 text-[#2C5F2E] flex items-center justify-center shrink-0 select-none">
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span className="text-xs sm:text-sm text-[#2D2D2D]/85 font-semibold leading-relaxed">
-                    {item}
-                  </span>
+          {/* Additional Luxury/Sustainable Installations block */}
+          <div className="bg-white/5 p-8 md:p-12 border border-white/10 reveal-up">
+            <h3 className="font-headline-md text-craftsman-gold text-lg md:text-xl font-bold mb-8 text-left">
+              Additional Luxury Sustainable Installations
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-12 text-left">
+              {extraInstallations.map((inst, idx) => (
+                <div key={idx} className="flex items-center gap-3 border-b border-white/10 pb-2">
+                  <span className="font-bold text-craftsman-gold">0{idx + 1}</span>
+                  <span className="font-body-md text-sm text-white/80">{inst}</span>
                 </div>
               ))}
             </div>
+            {!isSplitList && meta.extraCases && (
+              <div className="mt-8 pt-6 border-t border-white/10 text-left text-sm text-white/60 font-body-md">
+                {meta.extraCases}
+              </div>
+            )}
           </div>
-        </section>
-      )}
 
-      {/* Sector FAQ Accordion */}
-      {meta.faqs && (
-        <section className="max-w-[850px] mx-auto px-6 mb-12">
-          <div className="text-center mb-12">
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— FAQ</span>
-            <h2 className="text-3xl font-black uppercase tracking-tight text-[#1A1A1A]">
-              Frequently Asked Questions
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="reveal-section py-24 px-margin-mobile md:px-margin-desktop bg-[#F7F4EF]">
+        <div className="max-w-container-max mx-auto">
+          <div className="mb-16 text-center space-y-4 reveal-up flex flex-col items-center">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+              Developer Preference
+            </span>
+            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-ink max-w-3xl">
+              Why Luxury Developers Prefer Urbanland’s Sustainable Solutions
             </h2>
+            <div className="w-24 h-1 bg-craftsman-gold"></div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {whyChooseItems.map((item, idx) => (
+              <div key={idx} className="p-8 bg-white border border-outline-variant hover:shadow-lg transition-all duration-300 flex flex-col text-left reveal-up">
+                <div className="w-12 h-12 bg-forest-green flex items-center justify-center text-white mb-6">
+                  <span className="material-symbols-outlined">{item.icon}</span>
+                </div>
+                <h3 className="font-headline-md text-lg text-forest-green font-bold mb-4">{item.title}</h3>
+                <p className="font-body-md text-on-surface-variant text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="flex flex-col gap-4">
+      {/* FAQ Accordion Section */}
+      <section className="reveal-section py-24 px-margin-mobile md:px-margin-desktop bg-[#F2F0EB]">
+        <div className="max-w-3xl mx-auto">
+          <div className="mb-12 text-center space-y-4 reveal-up flex flex-col items-center">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+              FAQ
+            </span>
+            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-ink">
+              Project Support &amp; Sustainability FAQs
+            </h2>
+            <div className="w-24 h-1 bg-craftsman-gold"></div>
+          </div>
+          
+          <div className="space-y-4">
             {meta.faqs.map((faq, idx) => {
-              const isOpen = activeIndex === idx;
+              const isOpen = activeFaq === idx;
               return (
-                <div 
-                  key={idx}
-                  className={`bg-white rounded-[2rem] border transition-all duration-500 overflow-hidden shadow-[0_5px_20px_rgba(0,0,0,0.005)] ${
-                    isOpen 
-                      ? "border-[#2C5F2E]/40 ring-1 ring-[#2C5F2E]/10" 
-                      : "border-black/[0.03] hover:border-black/10"
-                  }`}
-                >
+                <div key={idx} className="bg-white border border-outline-variant transition-all duration-300 reveal-up">
                   <button
-                    onClick={() => setActiveIndex(isOpen ? null : idx)}
-                    className="w-full px-6 py-6 md:px-8 flex justify-between items-center text-left cursor-pointer focus:outline-none border-none select-none group bg-white"
+                    onClick={() => setActiveFaq(isOpen ? null : idx)}
+                    className="w-full p-6 text-left flex justify-between items-center cursor-pointer select-none bg-white border-none focus:outline-none"
                   >
-                    <h3 className="text-sm sm:text-base font-black uppercase tracking-tight text-[#1A1A1A] group-hover:text-[#2C5F2E] pr-6 transition-colors leading-snug">
-                      {faq.q}
-                    </h3>
-                    <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 shrink-0 select-none ${
-                      isOpen ? "bg-[#2C5F2E] text-white rotate-45" : "bg-[#F7F4EF] text-[#2D2D2D] group-hover:bg-[#2C5F2E]/10"
-                    }`}>
-                      ＋
-                    </span>
+                    <span className="font-headline-md text-forest-green text-sm md:text-base font-semibold">{faq.q}</span>
+                    <span className={`material-symbols-outlined transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>expand_more</span>
                   </button>
-
-                  <div className={`transition-all duration-500 ease-in-out overflow-hidden ${
-                    isOpen ? "max-h-[300px] border-t border-black/[0.05]" : "max-h-0"
-                  }`}>
-                    <p className="px-6 py-6 md:px-8 text-xs sm:text-sm leading-relaxed text-[#2D2D2D]/75 bg-[#F7F4EF]/20">
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[300px] border-t border-outline-variant/30' : 'max-h-0'}`}>
+                    <div className="p-6 font-body-md text-on-surface-variant text-xs md:text-sm text-left leading-relaxed">
                       {faq.a}
-                    </p>
+                    </div>
                   </div>
                 </div>
               );
             })}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* Unified CTA section */}
-      <CTASection 
-        title={`Ready to Specify ${meta.title} for Your Project?`}
-        description="Support green building standards, earn IGBC points, and reduce opex with our premium outdoor solutions."
-        tagText="Collaborate with Urbanland"
-        primaryText="Request Project Quote →"
-        primaryLink="/contact"
-        secondaryText="Download Brochure ↓"
-        secondaryLink="/resources/downloads"
-      />
+      {/* Final CTA Section */}
+      <section className="relative py-24 px-margin-mobile md:px-margin-desktop bg-forest-green text-white text-center overflow-hidden">
+        
+        {/* Decorative Gold Radial Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0"
+            style={{
+              backgroundImage: "radial-gradient(#C9A84C 1px, transparent 1px)",
+              backgroundSize: "32px 32px"
+            }}
+          ></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
+          <h2 className="font-display-lg text-headline-lg-mobile md:text-[2.5rem] text-white font-bold mb-8 leading-tight">
+            Ready to Enhance Safety and Aesthetics with Premium Sustainable Outdoor Furniture?
+          </h2>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Link
+              to="/contact"
+              className="bg-craftsman-gold text-white px-10 py-5 font-label-technical text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-xl no-underline text-center"
+            >
+              Request Quote
+            </Link>
+            <Link
+              to="/resources/downloads"
+              className="border-2 border-white text-white px-10 py-5 font-label-technical text-xs uppercase tracking-widest hover:bg-white hover:text-forest-green transition-all no-underline text-center"
+            >
+              Download Brochure
+            </Link>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };

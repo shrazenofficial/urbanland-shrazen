@@ -151,9 +151,8 @@ const SolutionsHub = () => {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              activeSlide === index ? "opacity-100 z-0" : "opacity-0 z-0 pointer-events-none"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${activeSlide === index ? "opacity-100 z-0" : "opacity-0 z-0 pointer-events-none"
+              }`}
           >
             <img
               src={slide.image}
@@ -199,7 +198,7 @@ const SolutionsHub = () => {
                 Get Custom Quote
               </Link>
             </div>
-            
+
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-8 border-t border-white/20">
               <div className="flex items-center gap-2 font-label-caps text-xs text-white/80">
                 <span className="text-craftsman-gold font-bold">✓</span> 2-Year Guarantee
@@ -240,7 +239,7 @@ const SolutionsHub = () => {
 
         {/* Visual Progress Indicator */}
         <div className="absolute bottom-0 left-0 w-full h-[3px] bg-white/10 z-20">
-          <div 
+          <div
             className="h-full bg-craftsman-gold transition-all duration-6000 ease-linear"
             style={{ width: `${((activeSlide + 1) / slides.length) * 100}%` }}
           />
@@ -265,7 +264,7 @@ const SolutionsHub = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
           {/* Real Estate (Large) */}
           <Link to="/solutions/real-estate" className="md:col-span-8 group relative overflow-hidden h-[380px] sm:h-[420px] md:h-[450px] border border-outline-variant/30 block">
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${gbg1})` }}
             >
@@ -273,7 +272,7 @@ const SolutionsHub = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-industrial/95 via-charcoal-industrial/60 to-transparent md:from-charcoal-industrial/90 md:via-charcoal-industrial/20 md:to-transparent transition-all duration-500 md:group-hover:from-charcoal-industrial md:group-hover:via-charcoal-industrial/75 opacity-90 md:opacity-85 md:group-hover:opacity-95"></div>
             <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full">
               <h3 className="font-headline-md text-headline-md text-white mb-1 md:mb-2">Real Estate</h3>
-              
+
               <div className="md:opacity-0 md:max-h-0 overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[250px] opacity-100 max-h-[300px] transition-all duration-500 ease-in-out">
                 <p className="text-white/80 font-body-md mb-3 md:mb-4 max-w-lg">Elevate luxury townships and premium residential complexes with durable, architecturally aligned amenities.</p>
                 <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
@@ -287,10 +286,10 @@ const SolutionsHub = () => {
               </div>
             </div>
           </Link>
- 
+
           {/* Hospitality */}
           <Link to="/solutions/hospitality" className="md:col-span-4 group relative overflow-hidden h-[380px] sm:h-[420px] md:h-[450px] border border-outline-variant/30 block">
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${gbg2})` }}
             >
@@ -298,7 +297,7 @@ const SolutionsHub = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-industrial/95 via-charcoal-industrial/60 to-transparent md:from-charcoal-industrial/90 md:via-charcoal-industrial/20 md:to-transparent transition-all duration-500 md:group-hover:from-charcoal-industrial md:group-hover:via-charcoal-industrial/75 opacity-90 md:opacity-85 md:group-hover:opacity-95"></div>
             <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full">
               <h3 className="font-headline-md text-headline-md text-white mb-1 md:mb-2">Hospitality</h3>
-              
+
               <div className="md:opacity-0 md:max-h-0 overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[250px] opacity-100 max-h-[300px] transition-all duration-500 ease-in-out">
                 <p className="text-white/80 font-body-md mb-3 md:mb-4">Designer-grade resilience for luxury hotels, resorts, and high-traffic leisure zones.</p>
                 <span className="text-craftsman-gold font-label-caps text-xs uppercase tracking-widest flex items-center gap-2 md:group-hover:gap-4 transition-all">
@@ -307,10 +306,10 @@ const SolutionsHub = () => {
               </div>
             </div>
           </Link>
- 
+
           {/* Healthcare */}
           <Link to="/solutions/healthcare" className="md:col-span-4 group relative overflow-hidden h-[320px] sm:h-[350px] md:h-[380px] border border-outline-variant/30 block">
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${gbg3})` }}
             >
@@ -318,7 +317,7 @@ const SolutionsHub = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-industrial/95 via-charcoal-industrial/60 to-transparent md:from-charcoal-industrial/90 md:via-charcoal-industrial/20 md:to-transparent transition-all duration-500 md:group-hover:from-charcoal-industrial md:group-hover:via-charcoal-industrial/75 opacity-90 md:opacity-85 md:group-hover:opacity-95"></div>
             <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full">
               <h3 className="font-headline-md text-headline-md text-white mb-1 md:mb-2">Healthcare</h3>
-              
+
               <div className="md:opacity-0 md:max-h-0 overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[250px] opacity-100 max-h-[300px] transition-all duration-500 ease-in-out">
                 <p className="text-white/80 font-body-md mb-3 md:mb-4">Ergonomic and hygienic outdoor furniture for healing gardens and patient recovery areas.</p>
                 <span className="text-craftsman-gold font-label-caps text-xs uppercase tracking-widest flex items-center gap-2 md:group-hover:gap-4 transition-all">
@@ -327,10 +326,10 @@ const SolutionsHub = () => {
               </div>
             </div>
           </Link>
- 
+
           {/* Education */}
           <Link to="/solutions/education" className="md:col-span-4 group relative overflow-hidden h-[320px] sm:h-[350px] md:h-[380px] border border-outline-variant/30 block">
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${gbg4})` }}
             >
@@ -338,7 +337,7 @@ const SolutionsHub = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-industrial/95 via-charcoal-industrial/60 to-transparent md:from-charcoal-industrial/90 md:via-charcoal-industrial/20 md:to-transparent transition-all duration-500 md:group-hover:from-charcoal-industrial md:group-hover:via-charcoal-industrial/75 opacity-90 md:opacity-85 md:group-hover:opacity-95"></div>
             <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full">
               <h3 className="font-headline-md text-headline-md text-white mb-1 md:mb-2">Education</h3>
-              
+
               <div className="md:opacity-0 md:max-h-0 overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[250px] opacity-100 max-h-[300px] transition-all duration-500 ease-in-out">
                 <p className="text-white/80 font-body-md mb-3 md:mb-4">Robust, low-maintenance collaborative zones for modern university campuses and schools.</p>
                 <span className="text-craftsman-gold font-label-caps text-xs uppercase tracking-widest flex items-center gap-2 md:group-hover:gap-4 transition-all">
@@ -347,10 +346,10 @@ const SolutionsHub = () => {
               </div>
             </div>
           </Link>
- 
+
           {/* Municipal / Smart Cities */}
           <Link to="/solutions/municipal-smart-city" className="md:col-span-4 group relative overflow-hidden h-[320px] sm:h-[350px] md:h-[380px] border border-outline-variant/30 block">
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${gbg5})` }}
             >
@@ -358,7 +357,7 @@ const SolutionsHub = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal-industrial/95 via-charcoal-industrial/60 to-transparent md:from-charcoal-industrial/90 md:via-charcoal-industrial/20 md:to-transparent transition-all duration-500 md:group-hover:from-charcoal-industrial md:group-hover:via-charcoal-industrial/75 opacity-90 md:opacity-85 md:group-hover:opacity-95"></div>
             <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full">
               <h3 className="font-headline-md text-headline-md text-white mb-1 md:mb-2">Smart Cities</h3>
-              
+
               <div className="md:opacity-0 md:max-h-0 overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[250px] opacity-100 max-h-[300px] transition-all duration-500 ease-in-out">
                 <p className="text-white/80 font-body-md mb-3 md:mb-4">Scalable, tech-integrated public transit shelters and civic furniture for urban planning.</p>
                 <span className="text-craftsman-gold font-label-caps text-xs uppercase tracking-widest flex items-center gap-2 md:group-hover:gap-4 transition-all">
@@ -385,7 +384,7 @@ const SolutionsHub = () => {
               Our components are trusted by India's leading developers and institutional architects for their unmatched structural integrity.
             </p>
           </div>
-          
+
           <div className="flex gap-8 shrink-0">
             <div className="text-center">
               <div className="font-display-lg text-headline-lg text-primary">50+</div>
@@ -404,7 +403,7 @@ const SolutionsHub = () => {
         {/* Mosaic Gallery (Desktop & Tablet) */}
         <div className="hidden md:grid grid-cols-2 md:grid-cols-4 h-[450px] sm:h-[550px] md:h-[600px] gap-2 md:gap-4 px-4">
           <div className="relative group cursor-pointer overflow-hidden rounded-lg">
-            <div 
+            <div
               className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${mosaicItems[0].img})` }}
             >
@@ -416,7 +415,7 @@ const SolutionsHub = () => {
           </div>
 
           <div className="relative group cursor-pointer overflow-hidden rounded-lg md:row-span-2">
-            <div 
+            <div
               className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${mosaicItems[1].img})` }}
             >
@@ -428,7 +427,7 @@ const SolutionsHub = () => {
           </div>
 
           <div className="relative group cursor-pointer overflow-hidden rounded-lg">
-            <div 
+            <div
               className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${mosaicItems[2].img})` }}
             >
@@ -440,7 +439,7 @@ const SolutionsHub = () => {
           </div>
 
           <div className="relative group cursor-pointer overflow-hidden rounded-lg md:row-span-2">
-            <div 
+            <div
               className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${mosaicItems[3].img})` }}
             >
@@ -452,7 +451,7 @@ const SolutionsHub = () => {
           </div>
 
           <div className="relative group cursor-pointer overflow-hidden rounded-lg">
-            <div 
+            <div
               className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${mosaicItems[4].img})` }}
             >
@@ -464,7 +463,7 @@ const SolutionsHub = () => {
           </div>
 
           <div className="relative group cursor-pointer overflow-hidden rounded-lg">
-            <div 
+            <div
               className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${mosaicItems[5].img})` }}
             >
@@ -480,14 +479,14 @@ const SolutionsHub = () => {
         <div className="block md:hidden px-4 relative h-[320px] sm:h-[400px]">
           <div className="relative w-full h-full overflow-hidden rounded-lg group">
             {/* Active image background */}
-            <div 
+            <div
               className="w-full h-full bg-cover bg-center"
               style={{ backgroundImage: `url(${mosaicItems[activeMosaicSlide].img})` }}
             ></div>
-            
+
             {/* Premium legibility gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-            
+
             {/* Slide Information */}
             <div className="absolute bottom-0 left-0 w-full p-6 text-left z-10">
               <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-[10px] block mb-1">
@@ -525,9 +524,8 @@ const SolutionsHub = () => {
                 <button
                   key={idx}
                   onClick={() => setActiveMosaicSlide(idx)}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    activeMosaicSlide === idx ? "bg-craftsman-gold w-3" : "bg-white/40"
-                  }`}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${activeMosaicSlide === idx ? "bg-craftsman-gold w-3" : "bg-white/40"
+                    }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
@@ -635,13 +633,12 @@ const SolutionsHub = () => {
           ].map((faq, idx) => {
             const isOpen = activeFaq === idx;
             return (
-              <div 
-                key={idx} 
-                className={`bg-surface-container-lowest border transition-all duration-300 overflow-hidden ${
-                  isOpen ? "border-craftsman-gold/60" : "border-outline-variant/30 hover:border-outline-variant/60"
-                } rounded-lg`}
+              <div
+                key={idx}
+                className={`bg-surface-container-lowest border transition-all duration-300 overflow-hidden ${isOpen ? "border-craftsman-gold/60" : "border-outline-variant/30 hover:border-outline-variant/60"
+                  } rounded-lg`}
               >
-                <button 
+                <button
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-surface-container-lowest select-none group"
                   onClick={() => toggleFaq(idx)}
                 >
@@ -697,14 +694,14 @@ const SolutionsHub = () => {
               <span className="text-secondary">Premium Outdoor Solutions?</span>
             </h2>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="bg-secondary text-on-secondary px-8 py-4 font-label-technical uppercase tracking-widest text-xs font-bold flex items-center justify-center hover:opacity-90 transition-all duration-300 rounded-[4px]"
               >
                 Request a Custom Quote <span className="ml-2">→</span>
               </Link>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="border-2 border-white text-white px-8 py-4 font-label-technical uppercase tracking-widest text-xs font-bold flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 rounded-[4px]"
               >
                 Talk to an Engineer <span className="ml-2">→</span>
