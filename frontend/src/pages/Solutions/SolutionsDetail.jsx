@@ -303,9 +303,31 @@ const verticalsMeta = {
 };
 
 import { getOptimizedImageUrl } from "../../utils/image";
+import RealEstateSolutions from "./RealEstateSolutions";
+import HospitalitySolutions from "./HospitalitySolutions";
+import HealthcareSolutions from "./HealthcareSolutions";
+import EducationSolutions from "./EducationSolutions";
+import SmartCitySolutions from "./SmartCitySolutions";
 
 const SolutionsDetail = () => {
   const { vertical } = useParams();
+  
+  if (vertical === "real-estate") {
+    return <RealEstateSolutions />;
+  }
+  if (vertical === "hospitality") {
+    return <HospitalitySolutions />;
+  }
+  if (vertical === "healthcare") {
+    return <HealthcareSolutions />;
+  }
+  if (vertical === "education") {
+    return <EducationSolutions />;
+  }
+  if (vertical === "municipal-smart-city") {
+    return <SmartCitySolutions />;
+  }
+
   const [activeIndex, setActiveIndex] = useState(null);
 
   const rawMeta = verticalsMeta[vertical] || verticalsMeta["real-estate"];

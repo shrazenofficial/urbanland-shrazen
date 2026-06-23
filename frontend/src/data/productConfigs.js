@@ -2387,34 +2387,34 @@ export const productConfigs = {
                     name: "Dario's Cafe",
                     location: "Koregaon Park, Pune",
                     tag: "Boutique Cafe Seating",
-                    qty: "3 Swing Chairs",
+                    qty: "3 Nos.",
                     timeline: "1 Week",
-                    material: "Premium Cane (Wicker) & Curved Metal Stand",
+                    material: "Premium Cane (Wicker)",
                     benefits: ["Teardrop Shaped", "Plush Neutral Cushion", "Indoor & Outdoor Utility"],
-                    desc: "Installed premium teardrop-shaped hanging swing chairs crafted from woven wicker, supported by sleek curved metal stands and featuring plush, neutral-toned cushions for a relaxing indoor cafe lounge experience.",
+                    desc: "Installed premium wicker hanging swing chairs featuring elegant teardrop styling and comfortable cushioned seating for a premium cafe lounge environment.",
                     src: "/assets/products/indoor-furniture/dario-cafe-project-1.webp"
                 },
                 {
-                    name: "Titanium Corporate Park",
-                    location: "Prahladnagar, Ahmedabad",
-                    tag: "Modern Executive Lounge",
-                    qty: "24 Seating Units",
+                    name: "Prestige Lakeside Habitat",
+                    location: "Whitefield, Bengaluru",
+                    tag: "Luxury Clubhouse Lounge",
+                    qty: "10 Sofa Sets",
                     timeline: "3 Weeks",
-                    material: "Metal-Wooden Lounge Tables & Armchairs",
-                    benefits: ["High-Traffic Durable", "AkzoNobel Finish", "Ergonomic Cushioning"],
-                    desc: "Furnished the central breakout lounge with premium steel-framed wooden dining/coffee tables and matching modular armchairs to optimize collaborative working.",
-                    src: "/assets/products/indoor-furniture/indoor-furniture-5.webp"
+                    material: "Premium Upholstery & Solid Wood",
+                    benefits: ["Deep Comfort Seating", "Solid Wood Base", "Premium Fabric Finish"],
+                    desc: "Installed contemporary upholstered sofa sets throughout the clubhouse lounge, creating elegant gathering spaces designed for resident comfort and everyday use.",
+                    src: "/assets/products/indoor-furniture/prestige-lakeside-project-2.webp"
                 },
                 {
-                    name: "Symbiosis Cafeteria",
-                    location: "Viman Nagar, Pune",
-                    tag: "Institutional Dining Hall",
-                    qty: "40 Table & Bench Sets",
-                    timeline: "4 Weeks",
-                    material: "Seasoned Teak Wood & Powder Coated MS",
-                    benefits: ["Scratch-Resistant Tops", "Heavy-Duty Framing", "Easy Maintenance"],
-                    desc: "Supplied heavy-duty metal-wooden indoor bench sets and dining tables for the student cafeteria, built to withstand continuous daily use.",
-                    src: "/assets/products/indoor-furniture/indoor-furniture-6.webp"
+                    name: "One International Centre",
+                    location: "Lower Parel, Mumbai",
+                    tag: "Corporate Reception Lounge",
+                    qty: "12 Lounge Chairs",
+                    timeline: "2 Weeks",
+                    material: "Commercial Grade Upholstery & Powder Coated Steel",
+                    benefits: ["High-Traffic Durable", "Ergonomic Comfort", "Premium Reception Styling"],
+                    desc: "Supplied modern lounge chairs for the corporate reception and waiting area, enhancing visitor comfort while maintaining a sophisticated workplace aesthetic.",
+                    src: "/assets/products/indoor-furniture/one-international-centre-project-3.webp"
                 }
             ]
         },
@@ -3028,16 +3028,16 @@ export const productConfigs = {
                 { icon: "apartment", label: "50+ Projects" }
             ],
             mainImage: {
-                src: aluminiumBenchesImg,
+                src: "/assets/products/ss-bollards/hero-main.webp",
                 alt: "Premium SS Bollards Set"
             },
             subImage1: {
-                src: canteenTablesImg,
+                src: "/assets/products/ss-bollards/hero-1.webp",
                 alt: "SS Bollard Baseplate View",
                 label: "PEDESTRIAN BOUNDARY"
             },
             subImage2: {
-                src: carSheltersImg,
+                src: "/assets/products/ss-bollards/hero-2.webp",
                 alt: "SS Bollard Reflective View",
                 label: "REFLECTIVE STRIP BOLLARDS"
             }
@@ -3051,17 +3051,22 @@ export const productConfigs = {
                 {
                     title: "Fixed Brushed Bollards",
                     alt: "Fixed Brushed Bollards",
-                    src: aluminiumBenchesImg
+                    src: "/assets/products/ss-bollards/ss-bollards-1.webp"
                 },
                 {
                     title: "Removable Access Bollards",
                     alt: "Removable Access Bollards",
-                    src: canteenTablesImg
+                    src: "/assets/products/ss-bollards/ss-bollards-2.webp"
                 },
                 {
                     title: "Decorative Reflective Bollards",
                     alt: "Decorative Reflective Bollards",
-                    src: carSheltersImg
+                    src: "/assets/products/ss-bollards/ss-bollards-3.webp"
+                },
+                {
+                    title: "Illuminated LED Bollards",
+                    alt: "Illuminated LED Bollards",
+                    src: "/assets/products/ss-bollards/ss-bollards-4.webp"
                 }
             ],
             viewAllRedirect: "/catalogue"
@@ -3076,7 +3081,7 @@ export const productConfigs = {
                     icon: "shield",
                     title: "Superior Corrosion Resistance",
                     desc: "SS 304 and SS 316 grades provide excellent protection against rust, especially in coastal, high-humidity and polluted environments.",
-                    image: aluminiumBenchesImg
+                    image: "/assets/products/ss-bollards/product-card-1.webp"
                 },
                 {
                     num: "02.",
@@ -3096,14 +3101,14 @@ export const productConfigs = {
                     icon: "cleaning_services",
                     title: "Low Maintenance & Long Life",
                     desc: "Weather-resistant and easy to clean — requires almost no upkeep compared to mild steel or painted bollards.",
-                    image: canteenTablesImg
+                    image: "/assets/products/ss-bollards/product-card-2.webp"
                 },
                 {
                     num: "05.",
                     icon: "commute",
                     title: "Versatile Applications",
                     desc: "Ideal for traffic management, parking demarcation, pedestrian zones, landscaping, smart cities and high-security areas.",
-                    image: carSheltersImg
+                    image: "/assets/products/ss-bollards/product-card-3.webp"
                 }
             ]
         },
@@ -3120,21 +3125,21 @@ export const productConfigs = {
                     title: "Fixed SS Bollards",
                     alt: "Fixed SS Bollards",
                     path: "/catalogue",
-                    src: aluminiumBenchesImg,
+                    src: "/assets/products/ss-bollards/ss-bollards-1.webp",
                     desc: "Permanently embedded sub-surface bollards built for high security and perimeter control."
                 },
                 {
                     title: "Removable Lockable Bollards",
                     alt: "Removable Bollards",
                     path: "/catalogue",
-                    src: canteenTablesImg,
+                    src: "/assets/products/ss-bollards/ss-bollards-2.webp",
                     desc: "Bollards with lockable ground plates, offering temporary vehicle access control for plazas."
                 },
                 {
                     title: "Flanged Baseplate Bollards",
                     alt: "Flanged Bollards",
                     path: "/catalogue",
-                    src: carSheltersImg,
+                    src: "/assets/products/ss-bollards/ss-bollards-3.webp",
                     desc: "Surface-mounted bollards with pre-drilled base plates, ideal for rapid indoor/parking installation."
                 }
             ]
@@ -3144,9 +3149,9 @@ export const productConfigs = {
             title: "MATERIALS & CUSTOMIZATION OPTIONS FOR SS BOLLARDS",
             description: "Configure diameters, height extensions, metal grades, and illumination details.",
             radialMap: {
-                centralImage: aluminiumBenchesPng,
+                centralImage: "/assets/products/ss-bollards/sec-6-ss-bollards-main.webp",
                 centralImageAlt: "Premium SS Bollard",
-                backgroundImage: aluminiumBenchesImg,
+                backgroundImage: "/assets/products/ss-bollards/sec6-ss-bollards-bg.webp",
                 cards: [
                     {
                         title: "Grade 304 / 316 Alloys",
@@ -3199,7 +3204,7 @@ export const productConfigs = {
                     material: "SS 304 Satin Brushed",
                     benefits: ["Heavy Baseplate", "Clean Aesthetics", "Pedestrian Safety"],
                     desc: "Supplied and installed 100mm diameter baseplate SS bollards, protecting the pedestrian drop-off zone at the main SEZ tower.",
-                    src: aluminiumBenchesImg
+                    src: "/assets/products/ss-bollards/gigaplex-it-sez-project-1.webp"
                 }
             ]
         },

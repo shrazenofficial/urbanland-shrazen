@@ -16,10 +16,10 @@ export const getOptimizedImageUrl = (url) => {
   }
 
   // Dynamically check if the domain is proxied by Cloudflare (non-localhost and non-vercel.app)
-  const isCloudflareActive = typeof window !== 'undefined' && 
-    !window.location.hostname.includes('localhost') && 
-    !window.location.hostname.includes('127.0.0.1') && 
-    !window.location.hostname.includes('192.168.') && 
+  const isCloudflareActive = typeof window !== 'undefined' &&
+    !window.location.hostname.includes('localhost') &&
+    !window.location.hostname.includes('127.0.0.1') &&
+    !window.location.hostname.includes('192.168.') &&
     !window.location.hostname.includes('vercel.app');
 
   // 1. WordPress dynamic images (external absolute URLs)
