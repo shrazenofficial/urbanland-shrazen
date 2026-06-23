@@ -503,112 +503,101 @@ const ProjectsDetail = () => {
   const extraInstallations = isSplitList
     ? meta.extraCases.split("|").map(x => x.trim())
     : [
-        "Rustomjee Urbania",
-        "Piramal Revanta",
-        "Shapoorji Pallonji",
-        "Indiabulls Sky",
-        "Hiranandani Gardens",
-        "Brigade Exotica",
-        "Oberoi Realty",
-        "Prestige Estates"
-      ];
+      "Rustomjee Urbania",
+      "Piramal Revanta",
+      "Shapoorji Pallonji",
+      "Indiabulls Sky",
+      "Hiranandani Gardens",
+      "Brigade Exotica",
+      "Oberoi Realty",
+      "Prestige Estates"
+    ];
 
   return (
     <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-0 overflow-x-hidden pt-0 antialiased">
-      
+
       {/* Dynamic Hero Section */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden py-24 bg-gradient-to-br from-[#122213] via-[#0E1A0F] to-[#0A120A] text-white px-margin-mobile lg:px-0">
-        <div className="max-w-container-max mx-auto pt-[100px] px-margin-mobile md:px-margin-desktop w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
+      <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col items-center justify-center overflow-hidden py-32 bg-gradient-to-b from-[#122213] to-[#0A120A] text-white px-margin-mobile lg:px-0">
+        {/* Full-Screen Background Image with Green/Charcoal Gradient Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={meta.image}
+            alt={meta.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A120A]/70 via-[#0E1A0F]/85 to-[#0A120A] pointer-events-none"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto pt-[100px] w-full text-center relative z-10 px-margin-mobile md:px-margin-desktop">
+          <div className="inline-block border-b-2 border-craftsman-gold mb-6 pb-1">
+            <span className="font-label-technical text-craftsman-gold tracking-widest uppercase font-semibold text-xs">
+              Case Study
+            </span>
+          </div>
+
+          {/* Dynamic Breadcrumbs (Centered) */}
+          <nav className="flex items-center justify-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-white/5 text-white/80 border border-white/10 px-4 py-2.5 rounded-full w-fit mx-auto mb-8 backdrop-blur-md shadow-lg">
+            <Link to="/" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Home</Link>
+            <span className="text-white/30">/</span>
+            <Link to="/projects" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Projects</Link>
+            <span className="text-white/30">/</span>
+            <span className="text-craftsman-gold font-bold">{meta.title}</span>
+          </nav>
+
+          {/* Title */}
+          <h1 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-[3.5rem] text-white mb-6 leading-tight max-w-3xl mx-auto tracking-wide font-bold">
+            {meta.title}
+          </h1>
           
-          {/* Left Text Block */}
-          <div className="lg:col-span-5 z-10 animate-hero text-left">
-            <div className="inline-block border-b-2 border-craftsman-gold mb-6 pb-1">
-              <span className="font-label-technical text-craftsman-gold tracking-widest uppercase font-semibold text-xs">
-                Case Study
-              </span>
-            </div>
-            
-            {/* Dynamic Breadcrumbs */}
-            <nav className="flex items-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-white/5 text-white/80 border border-white/10 px-4 py-2.5 rounded-full w-fit mb-6 backdrop-blur-md shadow-sm">
-              <Link to="/" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Home</Link>
-              <span className="text-white/30">/</span>
-              <Link to="/projects" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Projects</Link>
-              <span className="text-white/30">/</span>
-              <span className="text-craftsman-gold font-bold">{meta.title}</span>
-            </nav>
+          <div className="w-24 h-1 bg-craftsman-gold mx-auto mb-8"></div>
 
-            <h1 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-[3rem] text-white mb-6 leading-tight max-w-xl">
-              {meta.title}
-            </h1>
-            
-            <div className="w-24 h-1 bg-craftsman-gold mb-6"></div>
-            
-            <p className="font-body-lg text-white/70 max-w-xl mb-8 leading-relaxed">
-              {meta.desc}
-            </p>
+          {/* Description */}
+          <p className="font-body-lg text-white/85 max-w-2xl mx-auto mb-10 leading-relaxed text-sm md:text-lg">
+            {meta.desc}
+          </p>
 
-            {/* Glassmorphic Feature Badges */}
-            <div className="grid grid-cols-1 gap-4 mb-4">
-              {[
-                { text: "IGBC Certified Materials", icon: "workspace_premium" },
-                { text: "Climate-Resilient Design", icon: "wb_sunny" },
-                { text: "Low Lifecycle Maintenance", icon: "build" },
-                { text: "Eco-Luxury Aesthetics", icon: "temp_preferences_custom" }
-              ].map((pt, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-lg hover:border-craftsman-gold hover:bg-white/10 transition-all duration-300 group">
-                  <span className="material-symbols-outlined text-craftsman-gold text-lg group-hover:scale-110 transition-transform duration-300">{pt.icon}</span>
-                  <span className="font-body-md text-xs sm:text-sm text-white/95 font-semibold">{pt.text}</span>
-                </div>
-              ))}
-            </div>
+          {/* Glassmorphic Highlights Checklist (Horizontal list of pills) */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10 max-w-3xl mx-auto">
+            {[
+              { text: "IGBC Certified Materials", icon: "workspace_premium" },
+              { text: "Climate-Resilient Design", icon: "wb_sunny" },
+              { text: "Low Lifecycle Maintenance", icon: "build" },
+              { text: "Eco-Luxury Aesthetics", icon: "temp_preferences_custom" }
+            ].map((pt, idx) => (
+              <div key={idx} className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full hover:border-craftsman-gold hover:bg-white/10 transition-all duration-300 group">
+                <span className="material-symbols-outlined text-craftsman-gold text-sm group-hover:scale-110 transition-transform duration-300">{pt.icon}</span>
+                <span className="font-body-md text-[11px] text-white/95 font-semibold tracking-wide">{pt.text}</span>
+              </div>
+            ))}
           </div>
 
-          {/* Right Immersive Image */}
-          <div className="lg:col-span-7 z-10 relative flex justify-center items-center">
-            {/* Background Radial Glow */}
-            <div className="absolute w-[350px] h-[350px] bg-craftsman-gold/10 blur-[80px] rounded-full -top-10 -right-10 -z-10 pointer-events-none animate-pulse-slow"></div>
-            
-            <div className="relative w-full h-[45vh] sm:h-[55vh] lg:h-[65vh] overflow-hidden border border-white/10 shadow-2xl hover:shadow-craftsman-gold/10 transition-shadow duration-500 group rounded-lg">
-              <img
-                alt={meta.title}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                src={meta.image}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none"></div>
-              
-              {/* Floating Location Badge */}
-              <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-4 py-2 border border-white/10 rounded-full z-20 flex items-center gap-2">
-                <span className="material-symbols-outlined text-craftsman-gold text-sm">location_on</span>
-                <span className="font-label-technical text-[9px] text-white uppercase tracking-widest">{meta.location || segment}</span>
+          {/* Floating Location and Scope Stats Bar */}
+          <div className="flex justify-center items-center gap-8 mb-12 bg-black/40 backdrop-blur-md border border-white/10 p-5 rounded-xl max-w-xl mx-auto shadow-2xl">
+            <div className="flex items-center gap-3 text-left">
+              <span className="material-symbols-outlined text-craftsman-gold text-3xl">location_on</span>
+              <div>
+                <p className="font-label-technical text-[9px] text-white/60 uppercase tracking-widest">Location</p>
+                <p className="font-body-md text-sm text-white font-semibold mt-0.5">{meta.location || segment}</p>
               </div>
-
-              {/* Gold Badge for Units Delivered */}
-              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-craftsman-gold to-[#a98835] p-6 hidden lg:block border border-white/20 shadow-xl z-20 hover:-translate-y-1 transition-transform duration-300 rounded-lg">
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-white text-3xl">domain</span>
-                  <div>
-                    <p className="font-display-lg text-3xl text-white font-bold leading-none">{unitsCount}</p>
-                    <p className="font-label-technical text-[9px] text-white/90 uppercase tracking-widest mt-1">Units Delivered</p>
-                  </div>
-                </div>
+            </div>
+            <div className="w-px h-10 bg-white/15"></div>
+            <div className="flex items-center gap-3 text-left">
+              <span className="material-symbols-outlined text-craftsman-gold text-3xl">domain</span>
+              <div>
+                <p className="font-label-technical text-[9px] text-white/60 uppercase tracking-widest">Scope</p>
+                <p className="font-body-md text-sm text-white font-semibold mt-0.5">{unitsCount} Units Delivered</p>
               </div>
             </div>
           </div>
 
-          {/* Bottom Transition Action Panel */}
-          <div className="lg:col-span-12 mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6 z-20">
-            <div className="space-y-1 text-left">
-              <h4 className="font-label-technical text-craftsman-gold uppercase tracking-widest text-xs font-semibold">Transforming Spaces Sustainably</h4>
-              <p className="font-body-md text-xs text-white/50">Request customized project specifications or download our sustainable solutions catalogue.</p>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/contact" className="bg-craftsman-gold text-white px-8 py-4 font-label-technical text-xs uppercase tracking-widest hover:bg-white hover:text-[#122213] hover:shadow-lg hover:shadow-craftsman-gold/25 transition-all duration-300 no-underline text-center">
-                Request Quote for Your Project →
-              </Link>
-              <Link to="/resources/downloads" className="border-2 border-white/30 text-white px-8 py-4 font-label-technical text-xs uppercase tracking-widest hover:border-white hover:bg-white/10 transition-all duration-300 no-underline text-center">
-                Download Sustainable Portfolio ↓
-              </Link>
-            </div>
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact" className="bg-craftsman-gold text-white px-8 py-4 font-label-technical text-xs uppercase tracking-widest hover:bg-white hover:text-[#122213] hover:shadow-lg hover:shadow-craftsman-gold/25 transition-all duration-300 no-underline text-center">
+              Request Quote for Your Project →
+            </Link>
+            <Link to="/resources/downloads" className="border-2 border-white/30 text-white px-8 py-4 font-label-technical text-xs uppercase tracking-widest hover:border-white hover:bg-white/10 transition-all duration-300 no-underline text-center">
+              Download Sustainable Portfolio ↓
+            </Link>
           </div>
         </div>
 
@@ -651,7 +640,7 @@ const ProjectsDetail = () => {
       {/* Green Solutions Section */}
       <section className="reveal-section py-24 px-margin-mobile md:px-margin-desktop bg-[#EFEDE8]">
         <div className="max-w-container-max mx-auto">
-          
+
           <div className="mb-16 text-left space-y-4 reveal-up">
             <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
               Green Solutions
@@ -669,9 +658,8 @@ const ProjectsDetail = () => {
             {meta.solutions.map((item, idx) => (
               <div
                 key={idx}
-                className={`bg-[#F7F4EF] p-8 flex flex-col md:flex-row items-center gap-8 border-l-4 ${
-                  idx % 2 === 0 ? "border-forest-green" : "border-craftsman-gold"
-                } reveal-up`}
+                className={`bg-[#F7F4EF] p-8 flex flex-col md:flex-row items-center gap-8 border-l-4 ${idx % 2 === 0 ? "border-forest-green" : "border-craftsman-gold"
+                  } reveal-up`}
               >
                 <div className="w-32 h-32 flex-shrink-0 overflow-hidden border border-outline-variant">
                   <img className="w-full h-full object-cover" alt={item.title} src={item.image} />
@@ -695,7 +683,7 @@ const ProjectsDetail = () => {
       {/* Real Projects (Stats & Grid Cases) Section */}
       <section className="reveal-section py-24 px-margin-mobile md:px-margin-desktop bg-[#2D2D2D] text-white">
         <div className="max-w-container-max mx-auto">
-          
+
           {/* Stats Callouts */}
           <div className="text-center mb-16 reveal-up space-y-4 flex flex-col items-center">
             <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
