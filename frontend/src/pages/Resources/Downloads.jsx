@@ -4,7 +4,7 @@ import { updatePageSEO, cleanPageSEO } from "../../lib/seo";
 import { getOptimizedImageUrl } from "../../utils/image";
 
 const Downloads = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", company: "", purpose: "Architect" });
+  const [formData, setFormData] = useState({ name: "", email: "", company: "", phone: "", purpose: "Architect" });
   const [submitted, setSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -42,7 +42,7 @@ const Downloads = () => {
 
   const handleUnlockSubmit = (e) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.company) {
+    if (formData.name && formData.email && formData.company && formData.phone) {
       setSubmitted(true);
       setShowModal(false);
       localStorage.setItem("downloads_unlocked", "true");
@@ -467,8 +467,14 @@ const Downloads = () => {
 
       {/* Verification Modal Popup Form */}
       {showModal && (
-        <div className="fixed inset-0 bg-charcoal-industrial/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-[2rem] border border-charcoal-industrial/10 p-6 md:p-10 max-w-lg w-full shadow-2xl relative">
+        <div 
+          onClick={() => setShowModal(false)}
+          className="fixed inset-0 bg-charcoal-industrial/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 cursor-pointer"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-[2rem] border border-charcoal-industrial/10 p-6 md:p-10 max-w-lg w-full shadow-2xl relative cursor-default"
+          >
             <button 
               onClick={() => setShowModal(false)}
               className="absolute top-6 right-6 text-charcoal-industrial/40 hover:text-charcoal-industrial cursor-pointer material-symbols-outlined"
@@ -510,6 +516,20 @@ const Downloads = () => {
                   placeholder="karan@architects.in"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full bg-[#fcf9f4]/80 border border-charcoal-industrial/15 rounded-full px-5 py-3.5 text-xs text-charcoal-industrial focus:outline-none focus:border-forest-green font-medium font-outfit"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="font-label-caps text-[9px] uppercase tracking-wider text-charcoal-industrial/60">
+                  Mobile Number *
+                </label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="+91 98765 43210"
+                  value={formData.phone || ""}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full bg-[#fcf9f4]/80 border border-charcoal-industrial/15 rounded-full px-5 py-3.5 text-xs text-charcoal-industrial focus:outline-none focus:border-forest-green font-medium font-outfit"
                 />
               </div>
