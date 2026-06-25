@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { updatePageSEO, cleanPageSEO } from "../../lib/seo";
 import CTASection from "../../components/CTASection/CTASection";
@@ -456,6 +456,46 @@ const ProjectsDetail = () => {
     };
   }, [meta]);
 
+  const challengesRef = useRef(null);
+  const [activeChallengeIdx, setActiveChallengeIdx] = useState(0);
+
+  // Auto-slide effect for mobile viewports
+  useEffect(() => {
+    if (!meta || !meta.challenges) return;
+
+    const interval = setInterval(() => {
+      if (window.innerWidth >= 768) return; // Only auto-slide on mobile viewports
+
+      setActiveChallengeIdx((prev) => {
+        const next = (prev + 1) % meta.challenges.length;
+        if (challengesRef.current) {
+          const container = challengesRef.current;
+          // Approximate container width per card + gap
+          const cardWidth = container.offsetWidth * 0.85 + 24;
+          container.scrollTo({
+            left: next * cardWidth,
+            behavior: "smooth"
+          });
+        }
+        return next;
+      });
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [meta]);
+
+  // Handle manual scroll sync to update indicator dots
+  const handleChallengesScroll = () => {
+    if (!challengesRef.current) return;
+    const container = challengesRef.current;
+    const scrollLeft = container.scrollLeft;
+    const cardWidth = container.offsetWidth * 0.85 + 24;
+    const index = Math.round(scrollLeft / cardWidth);
+    if (index >= 0 && index < meta.challenges.length) {
+      setActiveChallengeIdx(index);
+    }
+  };
+
   if (!meta) return null;
 
   const unitsCount = deliveredUnitsMap[segment] || "150+";
@@ -626,7 +666,11 @@ const ProjectsDetail = () => {
             <div className="w-24 h-1 bg-craftsman-gold"></div>
           </div>
           {/* Mobile horizontal snap-slider / Desktop 5-column grid */}
-          <div className="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory gap-6 md:grid-cols-5 pb-6 md:pb-0 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 scrollbar-none">
+          <div
+            ref={challengesRef}
+            onScroll={handleChallengesScroll}
+            className="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory gap-6 md:grid-cols-5 pb-6 md:pb-0 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 scrollbar-none"
+          >
             {meta.challenges.map((c, idx) => (
               <div
                 key={idx}
@@ -646,7 +690,9 @@ const ProjectsDetail = () => {
             {meta.challenges.map((_, idx) => (
               <div
                 key={idx}
-                className="w-1.5 h-1.5 rounded-full bg-forest-green/20"
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  idx === activeChallengeIdx ? "w-6 bg-craftsman-gold" : "w-1.5 bg-forest-green/20"
+                }`}
               />
             ))}
           </div>
