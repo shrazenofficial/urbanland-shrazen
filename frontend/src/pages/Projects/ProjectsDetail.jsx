@@ -460,7 +460,10 @@ const ProjectsDetail = () => {
   const [activeChallengeIdx, setActiveChallengeIdx] = useState(0);
   const [activeWhyChooseIdx, setActiveWhyChooseIdx] = useState(0);
 
-  // Auto-slide effect for mobile viewports
+  const solutionsRef = useRef(null);
+  const [activeSolutionIdx, setActiveSolutionIdx] = useState(0);
+
+  // Auto-slide effect for mobile viewports (Challenges)
   useEffect(() => {
     if (!meta || !meta.challenges) return;
 
@@ -485,7 +488,32 @@ const ProjectsDetail = () => {
     return () => clearInterval(interval);
   }, [meta]);
 
-  // Handle manual scroll sync to update indicator dots
+  // Auto-slide effect for mobile viewports (Solutions)
+  useEffect(() => {
+    if (!meta || !meta.solutions) return;
+
+    const interval = setInterval(() => {
+      if (window.innerWidth >= 768) return; // Only auto-slide on mobile viewports
+
+      setActiveSolutionIdx((prev) => {
+        const next = (prev + 1) % meta.solutions.length;
+        if (solutionsRef.current) {
+          const container = solutionsRef.current;
+          // Approximate container width per card + gap
+          const cardWidth = container.offsetWidth * 0.85 + 24;
+          container.scrollTo({
+            left: next * cardWidth,
+            behavior: "smooth"
+          });
+        }
+        return next;
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [meta]);
+
+  // Handle manual scroll sync to update indicator dots (Challenges)
   const handleChallengesScroll = () => {
     if (!challengesRef.current) return;
     const container = challengesRef.current;
@@ -494,6 +522,18 @@ const ProjectsDetail = () => {
     const index = Math.round(scrollLeft / cardWidth);
     if (index >= 0 && index < meta.challenges.length) {
       setActiveChallengeIdx(index);
+    }
+  };
+
+  // Handle manual scroll sync to update indicator dots (Solutions)
+  const handleSolutionsScroll = () => {
+    if (!solutionsRef.current) return;
+    const container = solutionsRef.current;
+    const scrollLeft = container.scrollLeft;
+    const cardWidth = container.offsetWidth * 0.85 + 24;
+    const index = Math.round(scrollLeft / cardWidth);
+    if (index >= 0 && index < meta.solutions.length) {
+      setActiveSolutionIdx(index);
     }
   };
 
@@ -787,7 +827,8 @@ const ProjectsDetail = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6 md:gap-0 md:space-y-4">
+          {/* Desktop View */}
+          <div className="hidden md:flex flex-col space-y-4">
             {meta.solutions.map((item, idx) => (
               <div
                 key={idx}
@@ -813,6 +854,60 @@ const ProjectsDetail = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mobile Snap-Slider View */}
+          <div className="block md:hidden">
+            <div
+              ref={solutionsRef}
+              onScroll={handleSolutionsScroll}
+              className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 -mx-margin-mobile px-margin-mobile scrollbar-none"
+            >
+              {meta.solutions.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="min-w-[85vw] sm:min-w-[45%] snap-align-start bg-white rounded-2xl overflow-hidden border border-outline-variant hover:shadow-lg transition-all duration-300 flex flex-col text-left"
+                >
+                  {/* Card Image with Rating overlay tag */}
+                  <div className="w-full h-48 relative overflow-hidden bg-surface-container-high">
+                    <img className="w-full h-full object-cover" alt={item.title} src={item.image} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                    <div className="absolute top-4 right-4 bg-forest-green text-white font-label-technical text-[9px] px-2.5 py-1 rounded-full uppercase tracking-wider font-bold">
+                      Rating: {sustainabilityRatings[idx % sustainabilityRatings.length].split(" ")[0]}
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6 flex flex-col justify-between flex-grow">
+                    <div>
+                      <h3 className="font-headline-md text-lg text-forest-green font-bold mb-2">{item.title}</h3>
+                      <p className="font-body-md text-on-surface-variant text-xs leading-relaxed mb-4">{item.desc}</p>
+                    </div>
+
+                    {/* Bottom rating block */}
+                    <div className="border-t border-outline-variant/30 pt-3 flex items-center justify-between">
+                      <span className="font-label-technical text-[9px] text-forest-green tracking-wider uppercase font-bold">
+                        Eco-Impact Class
+                      </span>
+                      <span className="font-headline-md text-sm text-craftsman-gold font-bold">
+                        {sustainabilityRatings[idx % sustainabilityRatings.length]}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Swipe Dots indicator */}
+            <div className="flex justify-center items-center gap-2 mt-4">
+              {meta.solutions.map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeSolutionIdx ? "w-6 bg-craftsman-gold" : "w-1.5 bg-forest-green/20"
+                    }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
