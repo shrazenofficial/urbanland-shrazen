@@ -341,26 +341,26 @@ const Downloads = () => {
         
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
           <h2 className="font-headline-xl text-3xl md:text-5xl mb-6 text-white uppercase tracking-tight">
-            Ready to Explore Our Collection?
+            Ready to Bring Your Project to Life?
           </h2>
           <p className="font-body-lg text-sm md:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Download our Master Catalogue and discover premium outdoor furniture solutions for your next project.
-            Engineered for permanence, designed for people.
+            Whether you're planning a residential community, commercial development, public park, or institutional space, our team is here to help you choose the right outdoor furniture solutions.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button
-              onClick={() => triggerDownload("Master Catalogue 2026 PDF")}
-              className="w-full sm:w-auto bg-craftsman-gold text-forest-green hover:bg-white hover:text-forest-green px-8 py-5 font-label-technical uppercase tracking-widest text-xs font-bold transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer rounded-sm"
-            >
-              Download Master Catalogue
-              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </button>
             <Link
               to="/contact"
-              className="w-full sm:w-auto border border-white text-white hover:bg-white hover:text-forest-green px-8 py-5 font-label-technical uppercase tracking-widest text-xs font-bold transition-all duration-300 rounded-sm text-center no-underline"
+              className="w-full sm:w-auto bg-craftsman-gold text-forest-green hover:bg-white hover:text-forest-green px-8 py-5 font-label-technical uppercase tracking-widest text-xs font-bold transition-all duration-300 rounded-sm text-center no-underline flex items-center justify-center gap-2 cursor-pointer"
             >
               Contact Us
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </Link>
+            <Link
+              to="/contact?subject=quote"
+              className="w-full sm:w-auto border border-white text-white hover:bg-white hover:text-forest-green px-8 py-5 font-label-technical uppercase tracking-widest text-xs font-bold transition-all duration-300 rounded-sm text-center no-underline flex items-center justify-center gap-2 cursor-pointer"
+            >
+              Request a Quote
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </Link>
           </div>
         </div>
