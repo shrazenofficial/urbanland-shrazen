@@ -195,20 +195,20 @@ const Downloads = () => {
                 <span className="material-symbols-outlined text-craftsman-gold text-3xl select-none mt-1">auto_awesome</span>
                 <div>
                   <p className="font-label-technical text-xs font-bold text-charcoal-industrial uppercase tracking-wider">
-                    Edition 2026 Features
+                    Catalogue Highlights
                   </p>
-                  <ul className="mt-3 space-y-2 text-xs md:text-sm text-on-surface-variant/80 font-medium">
-                    <li className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-forest-green text-sm font-bold">check</span>
-                      WPC, NFC Wood, Aluminium &amp; Steel collections
+                  <ul className="mt-3 space-y-2.5 text-xs md:text-sm text-on-surface-variant/80 font-medium">
+                    <li className="flex items-start gap-2">
+                      <span className="material-symbols-outlined text-forest-green text-sm font-bold mt-0.5">check</span>
+                      <span>Extensive collection of outdoor furniture &amp; site furnishing solutions</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-forest-green text-sm font-bold">check</span>
-                      Comprehensive technical drawings &amp; BOQ templates
+                    <li className="flex items-start gap-2">
+                      <span className="material-symbols-outlined text-forest-green text-sm font-bold mt-0.5">check</span>
+                      <span>Hundreds of modern designs for commercial &amp; public spaces</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-forest-green text-sm font-bold">check</span>
-                      Certified eco-luxury sustainable designs
+                    <li className="flex items-start gap-2">
+                      <span className="material-symbols-outlined text-forest-green text-sm font-bold mt-0.5">check</span>
+                      <span>Available in WPC, NFC Wood, Aluminium, Mild Steel &amp; Stainless Steel</span>
                     </li>
                   </ul>
                 </div>
