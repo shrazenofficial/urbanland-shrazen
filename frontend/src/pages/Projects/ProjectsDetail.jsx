@@ -625,13 +625,29 @@ const ProjectsDetail = () => {
             </h2>
             <div className="w-24 h-1 bg-craftsman-gold"></div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {/* Mobile horizontal snap-slider / Desktop 5-column grid */}
+          <div className="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory gap-6 md:grid-cols-5 pb-6 md:pb-0 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 scrollbar-none">
             {meta.challenges.map((c, idx) => (
-              <div key={idx} className="bg-surface-container-low p-8 border border-outline-variant hover:border-craftsman-gold/40 hover:shadow-md transition-all duration-300 flex flex-col text-left reveal-up">
-                <span className="material-symbols-outlined text-craftsman-gold text-4xl mb-6">{challengeIcons[idx] || "domain"}</span>
+              <div
+                key={idx}
+                className="min-w-[85vw] sm:min-w-[45%] md:min-w-0 snap-align-start bg-surface-container-low p-8 border border-outline-variant hover:border-craftsman-gold/40 hover:shadow-md transition-all duration-300 flex flex-col text-left reveal-up"
+              >
+                <div className="w-12 h-12 bg-craftsman-gold/10 text-craftsman-gold flex items-center justify-center rounded-lg mb-6">
+                  <span className="material-symbols-outlined text-craftsman-gold text-2xl">{challengeIcons[idx] || "domain"}</span>
+                </div>
                 <h3 className="font-label-technical text-xs font-bold uppercase tracking-wider mb-4 text-deep-ink">{challengeTitles[idx] || "Challenge"}</h3>
                 <p className="font-body-md text-on-surface-variant text-sm leading-relaxed">{c.text}</p>
               </div>
+            ))}
+          </div>
+
+          {/* Sleek Swipe Dots (Visible on mobile only) */}
+          <div className="flex md:hidden justify-center items-center gap-2 mt-4">
+            {meta.challenges.map((_, idx) => (
+              <div
+                key={idx}
+                className="w-1.5 h-1.5 rounded-full bg-forest-green/20"
+              />
             ))}
           </div>
         </div>
@@ -654,25 +670,29 @@ const ProjectsDetail = () => {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6 md:gap-0 md:space-y-4">
             {meta.solutions.map((item, idx) => (
               <div
                 key={idx}
-                className={`bg-[#F7F4EF] p-8 flex flex-col md:flex-row items-center gap-8 border-l-4 ${idx % 2 === 0 ? "border-forest-green" : "border-craftsman-gold"
-                  } reveal-up`}
+                className={`bg-[#F7F4EF] rounded-lg overflow-hidden border border-outline-variant hover:border-craftsman-gold/40 hover:shadow-md transition-all duration-300 flex flex-col md:flex-row items-stretch gap-0 md:gap-8 border-l-4 ${idx % 2 === 0 ? "border-forest-green" : "border-craftsman-gold"
+                  } p-0 md:p-8 reveal-up`}
               >
-                <div className="w-32 h-32 flex-shrink-0 overflow-hidden border border-outline-variant">
+                {/* Product Image Container */}
+                <div className="w-full h-64 md:w-32 md:h-32 flex-shrink-0 overflow-hidden border-b md:border-b-0 border-outline-variant/30">
                   <img className="w-full h-full object-cover" alt={item.title} src={item.image} />
                 </div>
-                <div className="flex-grow text-left">
-                  <h3 className="font-headline-md text-xl md:text-2xl text-forest-green mb-1 font-semibold">{item.title}</h3>
-                  <p className="font-body-md text-on-surface-variant text-sm md:text-base leading-relaxed">{item.desc}</p>
-                </div>
-                <div className="text-left md:text-right shrink-0">
-                  <p className="font-label-technical text-[10px] text-forest-green tracking-wider uppercase font-bold">Sustainability Rating</p>
-                  <p className="font-headline-md text-lg text-craftsman-gold font-bold mt-1">
-                    {sustainabilityRatings[idx % sustainabilityRatings.length]}
-                  </p>
+                {/* Content Area */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between flex-grow gap-6 p-6 md:p-0">
+                  <div className="flex-grow text-left">
+                    <h3 className="font-headline-md text-xl md:text-2xl text-forest-green mb-2 md:mb-1 font-semibold">{item.title}</h3>
+                    <p className="font-body-md text-on-surface-variant text-sm md:text-base leading-relaxed">{item.desc}</p>
+                  </div>
+                  <div className="text-left md:text-right shrink-0 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/30">
+                    <p className="font-label-technical text-[10px] text-forest-green tracking-wider uppercase font-bold">Sustainability Rating</p>
+                    <p className="font-headline-md text-lg text-craftsman-gold font-bold mt-1">
+                      {sustainabilityRatings[idx % sustainabilityRatings.length]}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
