@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { updatePageSEO, cleanPageSEO } from "../../lib/seo";
 import AdvantageCTA from "../../components/AdvantageCTA/AdvantageCTA";
+import { getOptimizedImageUrl } from "../../utils/image";
 
 const trustItems = [
   "Master Catalogue",
@@ -207,49 +208,46 @@ const ResourcesHub = () => {
   return (
     <div className="w-full bg-[#fcf9f4] text-[#1c1c19] font-sans overflow-x-hidden pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-[640px] md:min-h-[716px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[#fcf9f4]/80 z-10"></div>
-          <img
-            className="w-full h-full object-cover"
-            alt="Minimalist urban bench landscape showcase"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_dEL1OxvrW5JvdGCGOSirMUW062F_x705fdolWum4ct9GBB2yGjUXOu11zaupORQ65jllwHQmjn8AVkW9_6Srir8X1n7j6OTJQvNORxUVImvjOUAc-6DNRyxflGJgP4hqFB_17sc_4f60MfpxVHwKMIZuZoUQ95oI8bY4x6eN7hMQR1NeRCzm6J2vcRTRFPKUHzWgmYsOJu6cmuOYj-m7COuOFYwnNzXieBU1t-FrpjEYgoO0mY4OdJHULgi7o85cTWODUw_IB0ZG"
-          />
-        </div>
-        <div className="relative z-20 max-w-[1280px] mx-auto px-6 md:px-16 w-full py-20 text-left">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-headline-lg text-[#002f09] mb-4">
-              Resources
-            </h1>
-            <p className="font-body-lg text-lg text-[#41493f] mb-8 leading-relaxed">
-              Everything you need to make informed decisions about sustainable outdoor furniture... Explore
-              our technical guides, case studies, and environmental impact reports designed for architects and
-              urban planners.
-            </p>
-            <div className="flex flex-wrap gap-4 mb-12">
-              <button
-                onClick={scrollToResources}
-                className="bg-[#C9A84C] text-white px-8 py-4 font-semibold uppercase tracking-widest hover:brightness-110 transition-all flex items-center gap-2 rounded-lg cursor-pointer"
-              >
-                Browse All Resources <span className="material-symbols-outlined">arrow_forward</span>
-              </button>
-              <Link
-                to="/resources/downloads"
-                className="border-2 border-[#002f09] text-[#002f09] px-8 py-4 font-semibold uppercase tracking-widest hover:bg-[#002f09]/5 transition-all flex items-center gap-2 rounded-lg no-underline cursor-pointer"
-              >
-                Download Master Catalogue <span className="material-symbols-outlined">download</span>
-              </Link>
-            </div>
+      <section className="w-full relative bg-charcoal-industrial text-white overflow-hidden py-24 md:py-32 flex flex-col items-center">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30 select-none pointer-events-none"
+          style={{ backgroundImage: `url(${getOptimizedImageUrl("https://lh3.googleusercontent.com/aida-public/AB6AXuC_dEL1OxvrW5JvdGCGOSirMUW062F_x705fdolWum4ct9GBB2yGjUXOu11zaupORQ65jllwHQmjn8AVkW9_6Srir8X1n7j6OTJQvNORxUVImvjOUAc-6DNRyxflGJgP4hqFB_17sc_4f60MfpxVHwKMIZuZoUQ95oI8bY4x6eN7hMQR1NeRCzm6J2vcRTRFPKUHzWgmYsOJu6cmuOYj-m7COuOFYwnNzXieBU1t-FrpjEYgoO0mY4OdJHULgi7o85cTWODUw_IB0ZG")})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-industrial/80 to-charcoal-industrial" />
+        
+        <div className="relative w-full max-w-container-max px-margin-mobile md:px-margin-desktop flex flex-col items-center text-center gap-4">
+          <span className="font-label-caps tracking-[0.2em] uppercase font-bold text-xs text-craftsman-gold bg-craftsman-gold/10 px-4 py-2 rounded-full border border-craftsman-gold/30">
+            ✦ Knowledge Center
+          </span>
+          <h1 className="font-display-lg-mobile text-4xl md:font-display-lg md:text-6xl lg:text-7xl text-white max-w-4xl uppercase font-bold tracking-tight">
+            Resources
+          </h1>
+          <p className="font-body-lg text-white/80 max-w-3xl mt-2 leading-relaxed">
+            Everything you need to make informed decisions about sustainable outdoor furniture... Explore
+            our technical guides, case studies, and environmental impact reports designed for architects and
+            urban planners.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mt-4">
+            <button
+              onClick={scrollToResources}
+              className="bg-craftsman-gold text-charcoal-industrial px-8 py-4 font-label-technical uppercase tracking-widest text-xs font-bold hover:bg-white transition-all duration-300 rounded-[4px] cursor-pointer"
+            >
+              Browse All Resources
+            </button>
+            <Link
+              to="/resources/downloads"
+              className="border-2 border-white text-white px-8 py-4 font-label-technical uppercase tracking-widest text-xs font-bold hover:bg-white hover:text-charcoal-industrial transition-all duration-300 rounded-[4px] no-underline"
+            >
+              Download Master Catalogue
+            </Link>
           </div>
-          {/* Trust Line */}
-          <div className="border-t border-[#2D2D2D]/10 pt-6 flex flex-wrap items-center justify-between gap-y-4">
+          
+          <div className="flex flex-wrap justify-center gap-3 mt-8 font-label-caps text-xs text-craftsman-gold">
             {trustItems.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-craftsman-gold font-semibold text-xs tracking-wider uppercase">
-                <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  check_circle
-                </span>
-                {item}
-              </div>
+              <span key={idx} className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-craftsman-gold/30">
+                <span className="material-symbols-outlined text-[16px]">check</span> {item}
+              </span>
             ))}
           </div>
         </div>
