@@ -123,7 +123,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="w-full bg-background text-[#1A1A1A] pb-24 overflow-x-hidden pt-32 relative">
+    <div className="w-full bg-background text-[#1A1A1A] pb-24 pt-32 relative">
       {/* Background ambient radial gradients */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_top_right,rgba(44,95,46,0.06),transparent_65%)] pointer-events-none z-0" />
       <div className="absolute top-[40%] left-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_bottom_left,rgba(201,168,76,0.04),transparent_65%)] pointer-events-none z-0" />
@@ -167,9 +167,8 @@ const FAQ = () => {
       <section className="py-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
-          {/* Side Navigation Categories */}
-          <div className="lg:col-span-3 lg:sticky lg:top-28 h-fit">
-            <div className="space-y-2 flex lg:flex-col overflow-x-auto pb-4 lg:pb-0 gap-2 scrollbar-none">
+          <div className="lg:col-span-3">
+            <div className="lg:sticky lg:top-32 space-y-2 flex lg:flex-col overflow-x-auto pb-4 lg:pb-0 gap-2 scrollbar-none">
               <h3 className="hidden lg:block font-label-technical text-xs text-outline uppercase tracking-widest mb-4">
                 Categories
               </h3>
