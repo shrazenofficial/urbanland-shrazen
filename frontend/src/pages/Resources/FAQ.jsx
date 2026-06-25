@@ -91,8 +91,11 @@ const FAQ = () => {
 
       for (const cat of categories) {
         const el = document.getElementById(cat.id);
-        if (el && scrollPosition >= el.offsetTop) {
-          currentSectionId = cat.id;
+        if (el) {
+          const absoluteTop = el.getBoundingClientRect().top + window.scrollY;
+          if (scrollPosition >= absoluteTop) {
+            currentSectionId = cat.id;
+          }
         }
       }
       setActiveCategory(currentSectionId);
