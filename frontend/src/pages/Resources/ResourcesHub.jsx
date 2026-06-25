@@ -206,7 +206,7 @@ const ResourcesHub = () => {
   };
 
   return (
-    <div className="w-full bg-[#fcf9f4] text-[#1c1c19] font-sans overflow-x-hidden pt-20">
+    <div className="w-full bg-[#fcf9f4] text-[#1c1c19] font-sans overflow-x-hidden pt-0">
       {/* Hero Section */}
       <section className="w-full relative bg-charcoal-industrial text-white overflow-hidden py-24 md:py-32 flex flex-col items-center">
         <div 
