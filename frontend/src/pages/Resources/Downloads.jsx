@@ -178,14 +178,15 @@ const Downloads = () => {
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <div className="lg:col-span-5 order-2 lg:order-1">
-              <span className="font-label-technical text-craftsman-gold text-xs font-bold tracking-[0.2em] uppercase block mb-3">
+            <div className="lg:col-span-5 order-2 lg:order-1 space-y-4">
+              <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
                 The Collection
               </span>
-              <h2 className="font-headline-lg text-3xl md:text-5xl text-charcoal-industrial mb-6 font-bold tracking-tight leading-tight">
+              <h2 className="font-headline-lg text-headline-lg text-charcoal-industrial leading-tight">
                 Master Catalogue
               </h2>
-              <p className="font-body-md text-sm md:text-base text-on-surface-variant/90 mb-8 leading-relaxed">
+              <div className="w-24 h-1 bg-craftsman-gold"></div>
+              <p className="font-body-md text-sm md:text-base text-on-surface-variant/90 pt-2 pb-4 leading-relaxed">
                 Our comprehensive catalogue showcases our complete range of premium outdoor furniture and site
                 furnishing products. Discover Benches, Planter Boxes, Bus Shelters, Dustbins, Tables &amp; Seating, and bespoke Urban Infrastructure Solutions designed for modern B2B developments.
               </p>
@@ -284,11 +285,14 @@ const Downloads = () => {
       {/* Section 3: Value Propositions */}
       <section className="py-20 bg-surface">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <div className="text-center mb-16">
-            <h2 className="font-headline-lg text-3xl md:text-4xl text-charcoal-industrial mb-4">
+          <div className="text-center mb-16 space-y-4 flex flex-col items-center">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+              Value Proposition
+            </span>
+            <h2 className="font-headline-lg text-headline-lg text-charcoal-industrial">
               Why Download Our Catalogue?
             </h2>
-            <div className="h-1 w-20 bg-craftsman-gold mx-auto"></div>
+            <div className="w-24 h-1 bg-craftsman-gold"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -353,10 +357,14 @@ const Downloads = () => {
       {/* Section 4: FAQ */}
       <section className="py-20 bg-surface-container border-t border-charcoal-industrial/5">
         <div className="max-w-3xl mx-auto px-margin-mobile md:px-0">
-          <div className="text-center mb-12">
-            <h2 className="font-headline-lg text-3xl text-charcoal-industrial mb-4">
+          <div className="text-center mb-12 space-y-4 flex flex-col items-center">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+              FAQ
+            </span>
+            <h2 className="font-headline-lg text-headline-lg text-charcoal-industrial">
               Frequently Asked Questions
             </h2>
+            <div className="w-24 h-1 bg-craftsman-gold"></div>
           </div>
           
           <div className="space-y-4">
