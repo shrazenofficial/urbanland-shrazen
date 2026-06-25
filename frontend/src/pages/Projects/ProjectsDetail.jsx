@@ -588,7 +588,7 @@ const ProjectsDetail = () => {
           <h1 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-[3.5rem] text-white mb-6 leading-tight max-w-3xl mx-auto tracking-wide font-bold">
             {meta.title}
           </h1>
-          
+
           <div className="w-24 h-1 bg-craftsman-gold mx-auto mb-8"></div>
 
           {/* Description */}
@@ -690,9 +690,8 @@ const ProjectsDetail = () => {
             {meta.challenges.map((_, idx) => (
               <div
                 key={idx}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  idx === activeChallengeIdx ? "w-6 bg-craftsman-gold" : "w-1.5 bg-forest-green/20"
-                }`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeChallengeIdx ? "w-6 bg-craftsman-gold" : "w-1.5 bg-forest-green/20"
+                  }`}
               />
             ))}
           </div>
