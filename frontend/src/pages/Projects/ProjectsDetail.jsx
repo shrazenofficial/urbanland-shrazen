@@ -528,7 +528,7 @@ const ProjectsDetail = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A120A]/70 via-[#0E1A0F]/85 to-[#0A120A] pointer-events-none"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto pt-[100px] w-full text-center relative z-10 px-margin-mobile md:px-margin-desktop">
+        <div className="max-w-4xl mx-auto pt-10 md:pt-[100px] w-full text-center relative z-10 px-margin-mobile md:px-margin-desktop">
           <div className="inline-block border-b-2 border-craftsman-gold mb-6 pb-1">
             <span className="font-label-technical text-craftsman-gold tracking-widest uppercase font-semibold text-xs">
               Case Study
@@ -556,15 +556,15 @@ const ProjectsDetail = () => {
             {meta.desc}
           </p>
 
-          {/* Glassmorphic Highlights Checklist (Horizontal list of pills) */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10 max-w-3xl mx-auto">
+          {/* Glassmorphic Highlights Checklist (2x2 grid on mobile, horizontal flex on sm+) */}
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 mb-10 max-w-[420px] sm:max-w-3xl mx-auto">
             {[
               { text: "IGBC Certified Materials", icon: "workspace_premium" },
               { text: "Climate-Resilient Design", icon: "wb_sunny" },
               { text: "Low Lifecycle Maintenance", icon: "build" },
               { text: "Eco-Luxury Aesthetics", icon: "temp_preferences_custom" }
             ].map((pt, idx) => (
-              <div key={idx} className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full hover:border-craftsman-gold hover:bg-white/10 transition-all duration-300 group">
+              <div key={idx} className="flex items-center justify-center text-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full hover:border-craftsman-gold hover:bg-white/10 transition-all duration-300 group w-full sm:w-auto">
                 <span className="material-symbols-outlined text-craftsman-gold text-sm group-hover:scale-110 transition-transform duration-300">{pt.icon}</span>
                 <span className="font-body-md text-[11px] text-white/95 font-semibold tracking-wide">{pt.text}</span>
               </div>
