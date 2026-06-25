@@ -828,26 +828,33 @@ const ProjectsDetail = () => {
           </div>
 
           {/* Desktop View */}
-          <div className="hidden md:flex flex-col space-y-4">
+          <div className="hidden md:flex flex-wrap justify-center gap-8">
             {meta.solutions.map((item, idx) => (
               <div
                 key={idx}
-                className={`bg-[#F7F4EF] rounded-lg overflow-hidden border border-outline-variant hover:border-craftsman-gold/40 hover:shadow-md transition-all duration-300 flex flex-col md:flex-row items-stretch gap-0 md:gap-8 border-l-4 ${idx % 2 === 0 ? "border-forest-green" : "border-craftsman-gold"
-                  } p-0 md:p-8 reveal-up`}
+                className="bg-white rounded-2xl overflow-hidden border border-outline-variant hover:shadow-xl hover:border-craftsman-gold/40 hover:-translate-y-1 transition-all duration-300 flex flex-col text-left w-full md:w-[calc(33.33%-1.5rem)] min-w-[300px] reveal-up"
               >
                 {/* Product Image Container */}
-                <div className="w-full h-64 md:w-32 md:h-32 flex-shrink-0 overflow-hidden border-b md:border-b-0 border-outline-variant/30">
-                  <img className="w-full h-full object-cover" alt={item.title} src={item.image} />
+                <div className="w-full h-56 relative overflow-hidden bg-surface-container-high">
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    alt={item.title}
+                    src={item.image}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                  <div className="absolute top-4 right-4 bg-forest-green text-white font-label-technical text-[9px] px-2.5 py-1 rounded-full uppercase tracking-wider font-bold">
+                    Rating: {sustainabilityRatings[idx % sustainabilityRatings.length].split(" ")[0]}
+                  </div>
                 </div>
                 {/* Content Area */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between flex-grow gap-6 p-6 md:p-0">
-                  <div className="flex-grow text-left">
-                    <h3 className="font-headline-md text-xl md:text-2xl text-forest-green mb-2 md:mb-1 font-semibold">{item.title}</h3>
-                    <p className="font-body-md text-on-surface-variant text-sm md:text-base leading-relaxed">{item.desc}</p>
+                <div className="p-8 flex flex-col justify-between flex-grow space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="font-headline-md text-xl text-forest-green mb-1 font-bold">{item.title}</h3>
+                    <p className="font-body-md text-on-surface-variant text-sm leading-relaxed">{item.desc}</p>
                   </div>
-                  <div className="text-left md:text-right shrink-0 border-t md:border-t-0 pt-4 md:pt-0 border-outline-variant/30">
-                    <p className="font-label-technical text-[10px] text-forest-green tracking-wider uppercase font-bold">Sustainability Rating</p>
-                    <p className="font-headline-md text-lg text-craftsman-gold font-bold mt-1">
+                  <div className="border-t border-outline-variant/40 pt-4 flex items-center justify-between">
+                    <p className="font-label-technical text-[10px] text-forest-green tracking-wider uppercase font-bold m-0">Sustainability Rating</p>
+                    <p className="font-headline-md text-base text-craftsman-gold font-bold m-0">
                       {sustainabilityRatings[idx % sustainabilityRatings.length]}
                     </p>
                   </div>
