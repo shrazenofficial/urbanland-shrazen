@@ -82,6 +82,10 @@
   --spacing-margin-desktop: 64px;
   --spacing-gutter: 24px;
   --spacing-section-gap: 120px;
+  --spacing-stack-xl: 80px;
+  --spacing-stack-lg: 64px;
+  --spacing-stack-md: 32px;
+  --spacing-stack-sm: 16px;
 
 
   --color-forest-green: #2C5F2E;
@@ -89,6 +93,12 @@
   --color-charcoal-industrial: #2D2D2D;
   --color-craftsman-gold: #C9A84C;
   --color-outline: #72796e;
+  --color-forest-deep: #2C5F2E;
+  --color-architectural-gold: #C9A84C;
+  --color-industrial-charcoal: #2D2D2D;
+  --color-tertiary: #272727;
+  --color-tertiary-container: #3d3d3d;
+  --color-on-tertiary-container: #a9a8a7;
 
   --font-headline-lg-mobile: "Playfair Display", serif;
   --font-display-lg: "Playfair Display", serif;

@@ -6,6 +6,7 @@ import BenchesConfigurator from "../../components/BenchesConfigurator";
 import ProductConfigurator from "../../components/ProductConfigurator";
 import ScrollVideoSection from "../../components/ScrollVideoSection";
 import SupportFAQ from "../../components/SupportFAQ/SupportFAQ";
+import AdvantageCTA from "../../components/AdvantageCTA/AdvantageCTA";
 
 
 const getVideoSectionData = (productId) => {
@@ -1046,6 +1047,9 @@ const ProductDetailPage = ({ productId: propProductId }) => {
 
             {/* Support & FAQ */}
             <SupportFAQ />
+
+            {/* Bottom Advantage & Conversion Area */}
+            <AdvantageCTA />
         </div>
     );
 };

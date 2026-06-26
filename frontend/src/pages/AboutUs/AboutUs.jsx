@@ -1,306 +1,451 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { updatePageSEO, cleanPageSEO } from "../../lib/seo";
-import CTASection from "../../components/CTASection/CTASection";
+import { getOptimizedImageUrl } from "../../utils/image";
 
-// Import images
-import welcome1 from '../../assets/welcome-1.png';
-import welcome2 from '../../assets/welcome-2.png';
+import lodhaLogo from "../../assets/brands/1.png";
+import oberoiLogo from "../../assets/brands/12-1.png";
+import kalpataruLogo from "../../assets/brands/13-3.webp";
+import godrejLogo from "../../assets/brands/3-1.png";
+import tataLogo from "../../assets/brands/3.png";
 
 const AboutUs = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   useEffect(() => {
     updatePageSEO({
-      title: "About Urbanland Products | Sustainable Outdoor Furniture Manufacturer in India",
-      description: "Urbanland Products is a leading Made-in-India manufacturer of premium, sustainable outdoor furniture – benches, planter boxes, bus shelters, dustbins and more. Founded in 2023 with a passion for green urban solutions, we deliver durable, eco-friendly products that enhance public and private spaces across India.",
-      og_image: welcome1
+      title: "About Urbanland Products | India's Sustainable Outdoor Furniture Manufacturer",
+      description: "Learn about Urbanland Products, our mission, founder, team, and commitment to manufacturing premium sustainable outdoor furniture for projects across India."
     });
     return () => cleanPageSEO();
   }, []);
 
   return (
-    <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-32">
+    <div className="w-full bg-[#fcf9f4] text-[#1c1c19] font-body-md overflow-x-hidden pt-20">
       {/* Hero Section */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-20 text-center md:text-left">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="w-full md:w-[60%]">
-            <p className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-4">— Built with Sustainability at Heart</p>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight uppercase leading-none text-[#1A1A1A] max-w-4xl">
-              About <br/>
-              <span className="text-[#C9A84C]">Urbanland Products</span>
+      <header className="relative w-full h-[70vh] min-h-[500px] md:h-[921px] md:min-h-[600px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="w-full h-full bg-cover bg-center select-none"
+            style={{
+              backgroundImage: `url(${getOptimizedImageUrl(
+                "https://lh3.googleusercontent.com/aida-public/AB6AXuBJaj7ZzTk-LfCZLjEDK6N94vTzH-S2nEuRAZ5EDYJg5EyUydp792DQpT9ozD5Ht_rdo68jh9F0TMbZfIsSu0cmzz6FpnJQbpSRFhmlKXvY-JoFLIBxb5xvf5GCWX9S31quwdBRO6oK3FsmHQeldHtajsExOnCgNvI2TEEowFH3uXkbTAJK3YsNUMbDibwSH55h1MhHox8lTJvrVxyQBb5-CTDORHb3aF6YtKD0Zvw21p7AIEauYMF-_gBdklRSomBLYvtUGdRAIL3w"
+              )})`
+            }}
+            data-alt="A sweeping wide-angle architectural shot of a contemporary urban plaza at sunset featuring premium Urbanland wood-composite benches."
+          />
+          <div className="absolute inset-0 bg-industrial-charcoal/40" />
+        </div>
+        <div className="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-white">
+          <div className="max-w-3xl">
+            <h1 className="font-display-lg-mobile text-3xl sm:font-display-lg sm:text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight drop-shadow-md uppercase font-bold tracking-tight">
+              Building Sustainable Outdoor Spaces for Tomorrow
             </h1>
-            <p className="text-sm sm:text-base text-[#2D2D2D]/85 max-w-2xl leading-relaxed mt-6">
-              We design and manufacture premium, sustainable outdoor furniture that transforms urban spaces into beautiful, functional and eco-friendly environments. From benches and planter boxes to bus shelters and amenity solutions — every product is engineered for Indian conditions, built with green materials, and crafted to last.
+            <p className="font-body-lg text-sm sm:text-base md:text-lg mb-10 opacity-90 leading-relaxed max-w-2xl">
+              Urbanland Products designs and manufactures premium outdoor furniture and urban infrastructure solutions that combine durability, sustainability, and timeless design for India's evolving landscapes.
             </p>
-            
-            {/* Trust Line */}
-            <div className="mt-8 flex flex-wrap gap-y-2 gap-x-4 justify-center md:justify-start text-xs font-semibold text-[#2C5F2E] bg-[#EAE5DB]/40 px-5 py-3 rounded-full border border-black/[0.04] w-fit">
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Founded 2023</span>
-              </span>
-              <span className="opacity-30">|</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>ISO 9001:2015 Certified</span>
-              </span>
-              <span className="opacity-30">|</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>2-Year Guarantee</span>
-              </span>
-              <span className="opacity-30">|</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>50+ Projects Delivered</span>
-              </span>
-              <span className="opacity-30">|</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Made in India</span>
-              </span>
-            </div>
-
-            {/* CTAs */}
-            <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-              <a
-                href="#our-story"
-                className="px-6 py-3.5 bg-[#2C5F2E] text-white rounded-full font-bold uppercase tracking-wider text-xs hover:bg-[#2D2D2D] transition-all duration-300 shadow-md cursor-pointer no-underline"
-              >
-                Learn More About Our Story →
-              </a>
+            <div className="flex flex-wrap gap-4 mb-12">
               <Link
-                to="/resources/downloads"
-                className="px-6 py-3.5 bg-[#EAE5DB] text-[#2D2D2D] rounded-full font-bold uppercase tracking-wider text-xs hover:bg-[#C9A84C] hover:text-white transition-all duration-300 border border-black/[0.04] cursor-pointer no-underline"
+                to="/products"
+                className="bg-forest-deep text-white px-8 py-4 font-label-md text-xs uppercase tracking-widest flex items-center gap-2 hover:bg-primary transition-colors no-underline rounded-[4px] font-bold"
               >
-                Download Company Profile ↓
+                Explore Our Products{" "}
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </Link>
+              <Link
+                to="/contact"
+                className="border-2 border-architectural-gold text-architectural-gold px-8 py-4 font-label-md text-xs uppercase tracking-widest hover:bg-architectural-gold/10 transition-colors no-underline rounded-[4px] font-bold"
+              >
+                Contact Our Team
               </Link>
             </div>
-          </div>
-
-          <div className="w-full md:w-[35%] max-w-[420px] aspect-square rounded-[3rem] overflow-hidden shadow-lg border border-black/[0.04] select-none shrink-0 relative bg-black/5">
-            <img
-              src={welcome1}
-              alt="Urbanland premium street furniture bench installation"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          </div>
-        </div>
-      </section>
-
-      {/* Section 1: Our Story */}
-      <section id="our-story" className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24 scroll-mt-32">
-        <div className="bg-white rounded-[2.5rem] border border-black/[0.04] p-8 md:p-16 shadow-[0_8px_30px_rgba(0,0,0,0.015)]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] mb-3 block">— Since 2023</span>
-              <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1A1A1A] mb-6 leading-none">
-                Our Story – From Vision to Reality
-              </h2>
-              <div className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed space-y-6">
-                <p>
-                  Urbanland Products was founded in 2023 by Raj Shekhar in Vasai, Maharashtra, with a clear mission: to create high-quality, sustainable outdoor furniture that enhances public and private spaces across India.
-                </p>
-                <p>
-                  What started as a passion to replace traditional wood with modern, eco-friendly alternatives has grown into one of the most trusted names in urban furniture manufacturing. Today, we operate from Vasai with a dedicated factory in MIDC and supply premium benches, planter boxes, bus shelters, dustbins, wicker furniture and more to real estate developers, municipal corporations, hotels, hospitals, universities and smart city projects.
-                </p>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 h-[300px] lg:h-[400px] rounded-[2rem] overflow-hidden select-none shrink-0 relative bg-black/5 shadow-md">
-              <img
-                src={welcome2}
-                alt="Urbanland manufacturing and warehouse assets"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
+            {/* Trust Badges */}
+            <div className="flex flex-wrap gap-x-8 gap-y-4 pt-8 border-t border-white/20">
+              {[
+                "Made in India",
+                "ISO 9001:2015 Certified",
+                "2-Year Warranty",
+                "50+ Projects Delivered"
+              ].map((badge, idx) => (
+                <div key={idx} className="flex items-center gap-2 font-label-md text-xs uppercase tracking-wider font-semibold">
+                  <span className="material-symbols-outlined text-architectural-gold text-[18px]">check_circle</span>{" "}
+                  {badge}
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* Section 2: Mission & Vision */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-[#2D2D2D] text-white rounded-[2.5rem] p-8 md:p-12 shadow-md border border-white/5 flex flex-col justify-between aspect-[16/11]">
-            <div>
-              <span className="text-[8px] font-black uppercase tracking-widest text-[#C9A84C] bg-white/10 px-3 py-1 rounded-full w-fit mb-6 block border border-white/5">
-                Our Purpose
-              </span>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-[#C9A84C] mb-4">Mission</h2>
-              <p className="text-xs sm:text-sm text-white/80 leading-relaxed max-w-md">
-                To deliver durable, stylish and truly sustainable outdoor furniture that reduces environmental impact while enhancing the beauty and functionality of urban India.
-              </p>
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#C9A84C]/60 mt-6 block">
-              — Shaping The Urban Green Horizon
-            </span>
-          </div>
-
-          <div className="bg-[#2C5F2E] text-white rounded-[2.5rem] p-8 md:p-12 shadow-md border border-white/5 flex flex-col justify-between aspect-[16/11]">
-            <div>
-              <span className="text-[8px] font-black uppercase tracking-widest text-[#C9A84C] bg-white/10 px-3 py-1 rounded-full w-fit mb-6 block border border-white/5">
-                Our Goal
-              </span>
-              <h2 className="text-3xl font-black uppercase tracking-tight text-[#C9A84C] mb-4">Vision</h2>
-              <p className="text-xs sm:text-sm text-white/80 leading-relaxed max-w-md">
-                To become India’s most preferred manufacturer of green urban furniture, helping cities, developers and institutions create beautiful, long-lasting public and private spaces that support biophilic design and green living.
-              </p>
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#C9A84C]/60 mt-6 block">
-              — Biophilic Urbanism Across Metros
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: Commitment to Sustainability */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-        <div className="bg-white rounded-[2.5rem] border border-black/[0.04] p-8 md:p-16 shadow-[0_8px_30px_rgba(0,0,0,0.015)]">
-          <div className="max-w-3xl">
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Sustainability at the Core</span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1A1A1A] mb-6 leading-none">
-              Sustainability at the Core of Everything We Do
+      {/* Meet the Founder */}
+      <section className="py-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-stack-md items-center">
+          <div className="order-2 md:order-1">
+            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink mb-8 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-architectural-gold">
+              Meet Our Founder
             </h2>
-            <div className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed space-y-6">
-              <p className="font-bold text-black text-sm">
-                At Urbanland Products, sustainability is not a marketing term — it is our foundation.
-              </p>
-              <p>
-                We actively replace traditional teak, sesam and acacia wood with WPC (Wood-Plastic Composite) and NFC Wood (Natural Fiber Composite) — materials made from recycled plastics and natural fibers. This approach significantly reduces deforestation, lowers carbon footprint and supports the circular economy.
-              </p>
-              <p>
-                Our products are designed for longevity (12–20+ years), drastically reducing replacement waste. We focus on recyclable materials, low-VOC finishes and energy-efficient manufacturing processes. Architects and developers love working with us because our solutions help them achieve IGBC, GRIHA and LEED green building certifications.
-              </p>
+            <p className="font-body-md text-sm md:text-body-md text-on-surface-variant mb-8 leading-loose">
+              Founded by Raj Shekhar in 2023, Urbanland Products was built on a simple belief—outdoor spaces should be beautiful, durable, and environmentally responsible. Watch Raj share the vision behind Urbanland, our commitment to sustainable manufacturing, and how we're helping shape greener communities across India.
+            </p>
+            <button
+              onClick={() => setIsVideoOpen(true)}
+              className="flex items-center gap-3 font-label-md text-xs uppercase tracking-widest text-primary font-bold group cursor-pointer"
+            >
+              <span className="w-12 h-12 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                <span
+                  className="material-symbols-outlined text-[20px]"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  play_arrow
+                </span>
+              </span>
+              Watch Founder Story
+            </button>
+          </div>
+          <div className="order-1 md:order-2 grid grid-cols-12 gap-4 relative">
+            <div className="col-span-8 h-64 md:h-96 bg-surface-container relative z-10 overflow-hidden rounded-[2px] shadow-sm">
+              <img
+                className="w-full h-full object-cover"
+                src={getOptimizedImageUrl(
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuDm5XSys0gybXBlcF-qyh5z00D4Ppdw369F6iNuxj2HK4hYzvU4UCoIu3ycvS7KfnfgUgrpM0VhhoAWVpLhPecxLjO0TwmlCW1ZJP2pLzgpHvapEajOK-7TjoomLe_PXXsOfz0wNGT-CAXOvifTGd5v0NiRAgF1NyAUJ0Reymlp5_0EOdU2LR-U2mT08ocIiXtyqdxDz4NJd4uU40w80p2vLH1IP_zq9M_93vOrrzX31ZGzPOse-m55kWpzt8i5nyDC3RF_RAwmsqWQ"
+                )}
+                alt="Raj Shekhar, founder of Urbanland Products."
+              />
             </div>
+            <div
+              onClick={() => setIsVideoOpen(true)}
+              className="col-span-10 col-start-3 -mt-16 md:-mt-32 relative z-20 aspect-video bg-industrial-charcoal flex items-center justify-center group cursor-pointer shadow-xl rounded-[2px] overflow-hidden"
+            >
+              <img
+                className="absolute inset-0 w-full h-full object-cover opacity-60"
+                src={getOptimizedImageUrl(
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuDR3s1qp4gGvJths9T-z1i3P_jRxLjlYgJl6wt4RvbCELAXwHeMKUtQEfLkJAH2iUiFBTeSH-r64ngm4VJPrHL6uEO4nol7vzUcpmUuM6Ls7IiHeNpZnARoaUTLruRtNpmAhpxTgKlf7nrPwDJQaTwtW96ESZnQPN4z0_ALJKm04nMfo5pIgbqLOpOdQgbE1KZDG14Fc-1NQtDz7KyUgfTd1seE4u12PGyPSnTHQmKBs8_Fv7GRZCGaE1DnhX0UEcjijIHhfuPYeHgx"
+                )}
+                alt="Manufacturing story video thumbnail."
+              />
+              <span
+                className="material-symbols-outlined text-white text-5xl md:text-6xl group-hover:scale-110 transition-transform"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                play_circle
+              </span>
+            </div>
+            <div className="absolute -top-4 -right-4 w-32 h-32 border-t-2 border-r-2 border-architectural-gold/30 hidden md:block" />
           </div>
         </div>
       </section>
 
-      {/* Section 4: Why Choose Us */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-        <div className="mb-12">
-          <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— The Urbanland Difference</span>
-          <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1A1A1A] leading-none">
-            Why Leading Organisations Choose Urbanland
+      {/* Our Story */}
+      <section className="bg-surface-container py-stack-xl">
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
+          <div className="md:col-span-5 flex flex-col justify-center">
+            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink mb-8 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-architectural-gold">
+              Our Journey
+            </h2>
+            <p className="font-body-md text-sm md:text-body-md text-on-surface-variant mb-10 leading-loose">
+              From a manufacturing unit in Vasai, Maharashtra, Urbanland Products has grown into a trusted partner for architects, developers, municipalities, hospitality brands, educational institutions, and infrastructure projects across India. Today, we manufacture benches, planter boxes, bus shelters, litter bins, pergolas, street furniture, and custom urban solutions designed specifically for Indian weather conditions.
+            </p>
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 font-label-md text-xs uppercase tracking-widest text-primary border-b-2 border-primary pb-1 hover:text-architectural-gold hover:border-architectural-gold transition-all no-underline w-fit font-bold"
+            >
+              View Our Projects{" "}
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </Link>
+          </div>
+          <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 md:mt-0">
+            <div
+              className="h-48 sm:h-64 bg-cover bg-center rounded-[2px] shadow-sm md:mt-8"
+              style={{
+                backgroundImage: `url(${getOptimizedImageUrl(
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuApkPAanoNjQEEQGfh8HFJoi-GEb6_4LNSRi6E3ZFrEGAhQZG1SWPy3-iPN7KCcCo398HmUYdNQxaL230bTjI90kpTsJ9NwXg_dLQBVGmcuMK9c6UxVziEl4JfsREbi2psjVM0EqsN1zkeDxTllfquNJd1kXYgFS6KMVF1rsnqG47XBvDfMETyipaX9pVcTAR8DgMFtpj-2FctTcf_y8phJ7pSuurEPpvhxi4fOus4LMR8TRw1Lgz_Cba25xFQONh6uzYpRiiR7sm-U"
+                )})`
+              }}
+              data-alt="Laser cutting machinery in a manufacturing facility in India."
+            />
+            <div
+              className="h-48 sm:h-64 bg-cover bg-center rounded-[2px] shadow-sm"
+              style={{
+                backgroundImage: `url(${getOptimizedImageUrl(
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuD3JH01lKMnM39y_xHM-ffYFL55ug-E2DTerZ3eBn7CiBFzWNV0dx8EHriavOiw4bjnt8PF5nxlGkYbXPYpRtisQlt10a5zshf-hwCiUUFqDVMOeWcI0RpmLsMTW2Tl4ulZoxqqyV7qF9j2ke3hc7REI85LYkcKgrBUYpqBnlUk2VDldB6h6TJyQ9jr8lExto9XopNFZeszS4XmoUzd0jPLlpGC8SHJDNmf4WftA-JkqwfCJ85jvquI62JmhcLrT11YkVeZiX3wrMa1"
+                )})`
+              }}
+              data-alt="Outdoor furniture installation in a premium residential complex."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-[2px] after:bg-architectural-gold inline-block">
+            Driven by Purpose
           </h2>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <div className="w-10 h-10 rounded-full bg-[#2C5F2E]/10 flex items-center justify-center font-bold text-[#2C5F2E] mb-4 text-xs">
-              01
-            </div>
-            <h3 className="text-base font-black text-black uppercase mb-2">Made in India</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Proudly supporting Aatmanirbhar Bharat with robust in-house fabrication and local components.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+          <div className="p-8 md:p-10 border border-industrial-charcoal/10 bg-white hover:border-architectural-gold transition-colors duration-300 rounded-[2px] shadow-sm flex flex-col items-start">
+            <span className="material-symbols-outlined text-architectural-gold text-4xl mb-6">flag</span>
+            <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-primary uppercase font-bold">
+              Our Mission
+            </h3>
+            <p className="font-body-md text-sm md:text-body-md text-on-surface-variant leading-relaxed">
+              To create outdoor furniture that combines thoughtful design, lasting durability, and sustainable materials for modern Indian spaces.
             </p>
           </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <div className="w-10 h-10 rounded-full bg-[#2C5F2E]/10 flex items-center justify-center font-bold text-[#2C5F2E] mb-4 text-xs">
-              02
-            </div>
-            <h3 className="text-base font-black text-black uppercase mb-2">Premium Quality</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Built to withstand the Indian climate, UV weathering, and heavy usage without structural degradation.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <div className="w-10 h-10 rounded-full bg-[#2C5F2E]/10 flex items-center justify-center font-bold text-[#2C5F2E] mb-4 text-xs">
-              03
-            </div>
-            <h3 className="text-base font-black text-black uppercase mb-2">Eco-Friendly Materials</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Extensive utilization of WPC, NFC Wood, Aluminium & Stainless Steel to drive biophilic green goals.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <div className="w-10 h-10 rounded-full bg-[#2C5F2E]/10 flex items-center justify-center font-bold text-[#2C5F2E] mb-4 text-xs">
-              04
-            </div>
-            <h3 className="text-base font-black text-black uppercase mb-2">Fast Delivery</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Optimized logistics and MIDC Vasai factory pipelines deliver custom scopes in just 2–4 weeks.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <div className="w-10 h-10 rounded-full bg-[#2C5F2E]/10 flex items-center justify-center font-bold text-[#2C5F2E] mb-4 text-xs">
-              05
-            </div>
-            <h3 className="text-base font-black text-black uppercase mb-2">End-to-End Support</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Comprehensive assistance from technical design consultation and custom BOQ preparation to delivery and anchoring.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <div className="w-10 h-10 rounded-full bg-[#2C5F2E]/10 flex items-center justify-center font-bold text-[#2C5F2E] mb-4 text-xs">
-              06
-            </div>
-            <h3 className="text-base font-black text-black uppercase mb-2">2-Year Warranty</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              India's only 2-Year Comprehensive Warranty for unmatched developer and city administration peace of mind.
+          <div className="p-8 md:p-10 border border-industrial-charcoal/10 bg-white hover:border-architectural-gold transition-colors duration-300 rounded-[2px] shadow-sm flex flex-col items-start">
+            <span className="material-symbols-outlined text-architectural-gold text-4xl mb-6">visibility</span>
+            <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-primary uppercase font-bold">
+              Our Vision
+            </h3>
+            <p className="font-body-md text-sm md:text-body-md text-on-surface-variant leading-relaxed">
+              To become India's most trusted manufacturer of sustainable outdoor furniture and urban infrastructure solutions.
             </p>
           </div>
         </div>
+      </section>
 
-        <div className="bg-[#EAE5DB]/40 rounded-[2rem] p-8 border border-black/[0.04] mt-8 text-center">
-          <p className="text-xs sm:text-sm flex items-center justify-center gap-1.5 font-semibold text-[#2C5F2E] uppercase tracking-wide">
-            <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>Proven Track Record — 50+ successful projects across real estate, municipal, hospitality, healthcare and education sectors.</span>
+      {/* Sustainability (Forest Green Section) */}
+      <section className="bg-[#124719] py-stack-xl text-white">
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-stack-md items-center">
+          <div className="space-y-6">
+            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-white font-bold leading-tight">
+              Sustainability Isn't an Add-on. It's Our Foundation.
+            </h2>
+            <p className="font-body-lg text-sm sm:text-base opacity-90 leading-relaxed">
+              We replace traditional hardwood with innovative materials like WPC and NFC Wood, reducing deforestation while improving product longevity.
+            </p>
+            <ul className="space-y-4 font-body-md text-sm">
+              {[
+                "Last 12–20+ years",
+                "Reduce maintenance costs",
+                "Support green building initiatives",
+                "Minimise environmental impact"
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-architectural-gold text-[18px]">eco</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/materials"
+              className="bg-architectural-gold text-primary px-10 py-4 font-label-md text-xs uppercase tracking-widest hover:brightness-110 transition-all inline-block no-underline rounded-[4px] font-bold"
+            >
+              Explore Our Materials
+            </Link>
+          </div>
+          <div className="relative h-[300px] md:h-[500px] overflow-hidden group rounded-[2px] mt-8 md:mt-0 shadow-md">
+            <img
+              className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700 select-none"
+              src={getOptimizedImageUrl(
+                "https://lh3.googleusercontent.com/aida-public/AB6AXuBc7KXqwSY_d3RAD1vewxzgcWxqPBWmKDvSqaoUKHtUHEk7cZPkg-gV300hoPuiFUy--fL1DieV2ND4jNeJ6JYoD_eOXr1phyC7DYAJmNUntiYGif_CNxAbA1sDGiH6vbPFwK6xT36imZhEgtUaW6jn4Pu4r0RDAixNjCrfIP2oc1I72lC4wBINlbvkoNoyyJnG5d-PESj7p_lffrV99JRnHYgRjWkTj2RuB7KoxdLdxukgEY7gxJkTT_8lWP_Njqpq5mSe6Q2VlC89"
+              )}
+              alt="Macro texture of high-end sustainable WPC material."
+            />
+            <div className="absolute inset-0 border-[10px] md:border-[20px] border-white/5 pointer-events-none" />
+          </div>
+        </div>
+      </section>
+
+      {/* Meet the Team */}
+      <section className="py-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div className="max-w-3xl mb-12">
+          <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink mb-6 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-architectural-gold">
+            The People Behind Urbanland
+          </h2>
+          <p className="font-body-md text-sm md:text-body-md text-on-surface-variant leading-relaxed">
+            Every project is backed by a passionate team of designers, engineers, craftsmen, and project specialists who ensure every product meets the highest standards of quality and sustainability. From concept to installation, we work together to deliver outdoor spaces that last for years.
           </p>
         </div>
+        {/* Bento-style Team Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+          {[
+            {
+              role: "Lead Designer",
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBjQ9lLzJQ2tuaduJnZd5AVdQ1lSIpZqbgNLihGlyuICk3y0Zj0Mq6rSuLhYUfY9OmRjETJVeY2KaUGmi4Gj9589bjPkIAP6ICQnfI8nMNHj6gj-zkKT0rm6CP5qUsXkPIqqAbPGQeF_9kAPuK44pEU476ZTFI8wtT9SDoIlUEe3xKdBwyNe9jbpYMI3O21K_uQBPzvYxHxnmp45L1O4XzBp279lHOGCghtvuO0aLz0nYhIY8VO_MKB2pi_agyzU_OZgtWzmvOsJjwf"
+            },
+            {
+              role: "Project Engineer",
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBf1rosto9YMDdRzzScSFe0Wu92FXUZ_FJddzMLBVCX3O31IjQbsriWEig7IzKd55y4d3Oxnh5BGvLw2_F4Y7xcb22sBO466YymU66IHdv6y1Ccr600xvQOmheMIoczzE1Jlhu5cW7suxziKUWBArNfaNj6OLF5FGN26CSGwlxSj8mlBceoigUyeEpuip3EO9QVfdh7QD8-p7iIOTnrSbxD2eXXfchLKBVAQQq8lzhqxvU1u08PGfm4vaVqnanUxQPTlKYUPUjXi6Fa"
+            },
+            {
+              role: "Materials Specialist",
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCNzlJvbH3V_zJsom5aSJe6einwh0mkIyAwZuNhFAfNGfAoNIKhQF-Ec_v91_M9eO545k_fqXU6ooaeIGbGnaUni07810MUthb2gPNjEt9csS5ejMyDxZbw_SS8d5baI2vjIPJf3lfRuYGS4bLlowIAjll9rHxgvcZP-gl1RKqCC2EAwO7-w3-ne1n6uXJ8sImjRkzYop00SiCCBwHcxyWZn_bAdvUFl0N8txrOhr79u-r4orob5gK-jgELXN6MeXRVZUbOz4vBVzGh"
+            },
+            {
+              role: "Client Relations",
+              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAXZ_yE13_xfiuAYBmnJtEG5ULOzAaOpLpWfBEA4S3BOFSkGmp5Y62UAbPTMNAzb6fjhAhKZR2DcH145xGnfYWEzT9EbhIfGa6l1Hsty-NvamJk3DRPT2oiLOAIL0WlW5jKp6O1FL8phlt_8vC8EGPxgJPPww-nTmhSGBHCs4QQCdYkqBmN8AlzuA-hvzBFAZbXDOLpp7UFavh6GpWTf5vcEnjGWfxa_TPfGwDgR_R4DdvEG7kMdLJAIhnXewAKOrHvXkak8VovN-rG"
+            }
+          ].map((member, idx) => (
+            <div key={idx} className="group relative aspect-[3/4] overflow-hidden bg-surface-container rounded-[2px] shadow-sm select-none">
+              <img
+                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                src={getOptimizedImageUrl(member.img)}
+                alt={`Professional headshot of a ${member.role} at Urbanland.`}
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-industrial-charcoal to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="font-label-md text-xs uppercase tracking-wider font-semibold">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Section 5: Our Journey So Far */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-        <div className="bg-[#2D2D2D] text-white rounded-[2.5rem] p-8 md:p-16 shadow-lg border border-white/5">
-          <div className="max-w-3xl">
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] mb-3 block">— Our Milestones</span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white mb-6 leading-none">
-              Our Journey So Far
+      {/* Why Urbanland */}
+      <section className="bg-[#2D2D2D] text-white py-stack-xl">
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-white relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-[2px] after:bg-architectural-gold inline-block">
+              Why Clients Choose Urbanland
             </h2>
-            <div className="text-xs sm:text-sm text-white/80 leading-relaxed space-y-6">
-              <p>
-                Since 2023, we have successfully delivered projects for leading names including Godrej, Kalpataru, Wadhwa Wise City, TATA Projects and many municipal & smart city initiatives across Maharashtra, Gujarat, Andhra Pradesh, Karnataka and beyond.
-              </p>
-              <p>
-                From luxury villa landscaping to large township amenity decks and public infrastructure, every project reflects our commitment to quality, sustainability and timely delivery.
-              </p>
-            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "verified",
+                title: "Premium sustainable materials",
+                desc: "Sourced for resilience and environmental responsibility."
+              },
+              {
+                icon: "settings_input_component",
+                title: "Custom manufacturing",
+                desc: "Bespoke urban solutions tailored to your unique site requirements."
+              },
+              {
+                icon: "speed",
+                title: "Fast project execution",
+                desc: "Optimized timelines for rapid delivery and on-site assembly."
+              },
+              {
+                icon: "local_shipping",
+                title: "Pan-India delivery & installation",
+                desc: "Dedicated logistics and expert setup in any state."
+              },
+              {
+                icon: "support_agent",
+                title: "Dedicated project support",
+                desc: "Expert guidance from blueprint planning to final walkthrough."
+              },
+              {
+                icon: "security",
+                title: "2-Year Comprehensive Warranty",
+                desc: "Guaranteed durability and peace of mind for every installation."
+              }
+            ].map((item, idx) => (
+              <div 
+                key={idx} 
+                className="flex items-start gap-4 p-5 rounded-[4px] hover:bg-white/5 transition-all duration-300 hover:-translate-y-1"
+              >
+                <span className="material-symbols-outlined text-architectural-gold text-3xl shrink-0">
+                  {item.icon}
+                </span>
+                <div>
+                  <h4 className="font-label-md text-xs uppercase tracking-wider mb-2 font-bold text-white">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs md:text-sm opacity-70 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Final Call-to-Action */}
-      <CTASection 
-        title="Ready to Partner with a Sustainable Outdoor Furniture Manufacturer?"
-        description="Get in touch with our team of technical experts to review custom drawings, design swatches, and material specifications."
-        tagText="Ready to Partner"
-        primaryText="Get in Touch With Us →"
-        primaryLink="/contact"
-        secondaryText="Download Company Profile ↓"
-        secondaryLink="/resources/downloads"
-      />
+      {/* Trusted Across India */}
+      <section className="py-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-12">
+          <div>
+            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink mb-6 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-architectural-gold">
+              Trusted by Industry Leaders
+            </h2>
+            <p className="font-body-md text-sm md:text-body-md text-on-surface-variant leading-relaxed">
+              We've successfully delivered outdoor furniture solutions for developers, hospitality brands, educational institutions, healthcare facilities, municipalities, and infrastructure projects across multiple states.
+            </p>
+          </div>
+          <div className="flex items-end md:justify-end mt-4 md:mt-0">
+            <Link
+              to="/projects"
+              className="font-label-md text-xs uppercase tracking-widest text-primary font-bold flex items-center gap-2 group no-underline"
+            >
+              See Our Portfolio{" "}
+              <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform text-[16px]">
+                arrow_forward
+              </span>
+            </Link>
+          </div>
+        </div>
+        {/* Logo Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center opacity-40 grayscale hover:grayscale-0 transition-all duration-1000">
+          {[
+            { logo: lodhaLogo, alt: "LODHA" },
+            { logo: godrejLogo, alt: "GODREJ" },
+            { logo: kalpataruLogo, alt: "KALPATARU" },
+            { logo: tataLogo, alt: "TATA" },
+            { logo: oberoiLogo, alt: "OBEROI" }
+          ].map((brand) => (
+            <div
+              key={brand.alt}
+              className="h-16 w-36 flex items-center justify-center p-3 bg-gray-400/10 hover:bg-gray-400/20 rounded-xl transition-all duration-300 shadow-sm"
+            >
+              <img
+                src={brand.logo}
+                alt={`${brand.alt} logo`}
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-stack-xl bg-surface-container-highest border-y border-industrial-charcoal/5">
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+          <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink mb-6 font-bold">
+            Ready to Create Better Outdoor Spaces?
+          </h2>
+          <p className="font-body-lg text-sm sm:text-base text-on-surface-variant mb-12 max-w-2xl mx-auto leading-relaxed">
+            Whether you're designing a township, resort, park, campus, or public space, we'd love to be part of your project.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto bg-primary text-on-primary px-12 py-5 font-label-md text-xs uppercase tracking-widest hover:opacity-90 transition-all no-underline text-center font-bold rounded-[4px]"
+            >
+              Request a Quote
+            </Link>
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto border-2 border-primary text-primary px-12 py-5 font-label-md text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all no-underline text-center font-bold rounded-[4px]"
+            >
+              Contact Our Team
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Story Modal */}
+      {isVideoOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+          <div className="relative w-full max-w-4xl aspect-video bg-black shadow-2xl rounded-lg overflow-hidden">
+            <button
+              onClick={() => setIsVideoOpen(false)}
+              className="absolute top-4 right-4 z-50 text-white bg-black/40 hover:bg-black/80 w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <span className="material-symbols-outlined">close</span>
+            </button>
+            <iframe
+              className="w-full h-full border-0"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+              title="Founder Story Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default AboutUs;
-
