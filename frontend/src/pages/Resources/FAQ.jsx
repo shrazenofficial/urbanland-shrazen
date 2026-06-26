@@ -131,100 +131,48 @@ const FAQ = () => {
       <div className="absolute top-[40%] left-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_bottom_left,rgba(201,168,76,0.04),transparent_65%)] pointer-events-none z-0" />
 
       {/* Dynamic Hero Section */}
-      <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col items-center justify-center overflow-hidden py-32 bg-gradient-to-b from-[#122213] to-[#0A120A] text-white px-margin-mobile lg:px-0">
-        {/* Full-Screen Background Image with Green/Charcoal Gradient Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={getOptimizedImageUrl(faqHeroImage)}
-            alt="Frequently Asked Questions"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A120A]/70 via-[#0E1A0F]/85 to-[#0A120A] pointer-events-none"></div>
-        </div>
-
-        <div className="max-w-4xl mx-auto pt-10 md:pt-[100px] w-full text-center relative z-10 px-margin-mobile md:px-margin-desktop">
-          <div className="inline-block border-b-2 border-craftsman-gold mb-6 pb-1">
-            <span className="font-label-technical text-craftsman-gold tracking-widest uppercase font-semibold text-xs">
-              Support Center
-            </span>
-          </div>
+      <section className="bg-surface py-20 border-b border-outline-variant/10 text-center">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+          <span className="inline-block px-4 py-1 bg-surface-container text-forest-green font-label-technical text-xs uppercase tracking-widest mb-6">
+            Support Center
+          </span>
 
           {/* Dynamic Breadcrumbs (Centered) */}
-          <nav className="flex items-center justify-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-white/5 text-white/80 border border-white/10 px-4 py-2.5 rounded-full w-fit mx-auto mb-8 backdrop-blur-md shadow-lg">
-            <Link to="/" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Home</Link>
-            <span className="text-white/30">&gt;</span>
-            <Link to="/resources" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Resources</Link>
-            <span className="text-white/30">&gt;</span>
+          <nav className="flex items-center justify-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-surface-container-low text-on-surface/80 border border-outline-variant/30 px-4 py-2.5 rounded-full w-fit mx-auto mb-8 backdrop-blur-md shadow-sm">
+            <Link to="/" className="text-on-surface/60 hover:text-craftsman-gold transition-colors no-underline">Home</Link>
+            <span className="text-on-surface/30">&gt;</span>
+            <Link to="/resources" className="text-on-surface/60 hover:text-craftsman-gold transition-colors no-underline">Resources</Link>
+            <span className="text-on-surface/30">&gt;</span>
             <span className="text-craftsman-gold font-bold">FAQ</span>
           </nav>
 
-          {/* Title */}
-          <h1 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-[3.5rem] text-white mb-6 leading-tight max-w-3xl mx-auto tracking-wide font-bold">
+          <h1 className="font-display-lg text-4xl md:text-5xl text-on-surface mb-6 font-bold leading-tight max-w-3xl mx-auto">
             Frequently Asked Questions
           </h1>
-
-          <div className="w-24 h-1 bg-craftsman-gold mx-auto mb-8"></div>
-
-          {/* Description */}
-          <p className="font-body-lg text-white/85 max-w-2xl mx-auto mb-10 leading-relaxed text-sm md:text-lg">
+          <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed text-sm md:text-lg">
             Clear answers to the most common questions about our sustainable outdoor furniture, materials, projects, warranty and services.
           </p>
 
-          {/* Glassmorphic Highlights Checklist */}
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 mb-10 max-w-[420px] sm:max-w-3xl mx-auto">
-            {[
-              { text: "Honest Answers", icon: "forum" },
-              { text: "2-Year Guarantee", icon: "verified" },
-              { text: "Sustainable & Green Focus", icon: "eco" },
-              { text: "Made in India", icon: "location_on" }
-            ].map((pt, idx) => (
-              <div key={idx} className="flex items-center justify-center text-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full hover:border-craftsman-gold hover:bg-white/10 transition-all duration-300 group w-full sm:w-auto">
-                <span className="material-symbols-outlined text-craftsman-gold text-sm group-hover:scale-110 transition-transform duration-300">{pt.icon}</span>
-                <span className="font-body-md text-[11px] text-white/95 font-semibold tracking-wide">{pt.text}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Floating Location and Scope Stats Bar */}
-          <div className="flex justify-center items-center gap-8 mb-12 bg-black/40 backdrop-blur-md border border-white/10 p-5 rounded-xl max-w-xl mx-auto shadow-2xl">
-            <div className="flex items-center gap-3 text-left">
-              <span className="material-symbols-outlined text-craftsman-gold text-3xl">support_agent</span>
-              <div>
-                <p className="font-label-technical text-[9px] text-white/60 uppercase tracking-widest">Support</p>
-                <p className="font-body-md text-sm text-white font-semibold mt-0.5">Pan-India Coverage</p>
-              </div>
+          {/* Trust Line */}
+          <div className="flex flex-wrap justify-center items-center gap-y-4 gap-x-12 pt-8 border-t border-outline-variant/30">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-forest-green" style={{ fontVariationSettings: "'wght' 700" }}>check</span>
+              <span className="font-label-technical text-xs text-on-surface uppercase tracking-wider font-semibold">Honest Answers</span>
             </div>
-            <div className="w-px h-10 bg-white/15"></div>
-            <div className="flex items-center gap-3 text-left">
-              <span className="material-symbols-outlined text-craftsman-gold text-3xl">history</span>
-              <div>
-                <p className="font-label-technical text-[9px] text-white/60 uppercase tracking-widest">Availability</p>
-                <p className="font-body-md text-sm text-white font-semibold mt-0.5">24/7 Support Portal</p>
-              </div>
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-forest-green" style={{ fontVariationSettings: "'wght' 700" }}>check</span>
+              <span className="font-label-technical text-xs text-on-surface uppercase tracking-wider font-semibold">2-Year Guarantee</span>
             </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="bg-craftsman-gold text-white px-8 py-4 font-label-technical text-xs uppercase tracking-widest hover:bg-white hover:text-[#122213] hover:shadow-lg hover:shadow-craftsman-gold/25 transition-all duration-300 no-underline text-center">
-              Request Info/Quotes →
-            </Link>
-            <Link to="/resources/downloads" className="border-2 border-white/30 text-white px-8 py-4 font-label-technical text-xs uppercase tracking-widest hover:border-white hover:bg-white/10 transition-all duration-300 no-underline text-center">
-              Download Catalogue ↓
-            </Link>
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-forest-green" style={{ fontVariationSettings: "'wght' 700" }}>check</span>
+              <span className="font-label-technical text-xs text-on-surface uppercase tracking-wider font-semibold">Sustainable & Green Focus</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-forest-green" style={{ fontVariationSettings: "'wght' 700" }}>check</span>
+              <span className="font-label-technical text-xs text-on-surface uppercase tracking-wider font-semibold">Made in India</span>
+            </div>
           </div>
         </div>
-
-        {/* Structural Grid lines and radial pattern */}
-        <div className="absolute inset-0 opacity-5 pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(#C9A84C 1px, transparent 1px)",
-            backgroundSize: "32px 32px"
-          }}
-        ></div>
-        <div className="absolute top-0 left-0 w-full h-full structural-grid -z-30 opacity-20"></div>
-        <div className="absolute top-1/2 left-0 w-full h-1px bg-white/5 -z-20"></div>
-        <div className="absolute top-0 left-1/4 w-1px h-full bg-white/5 -z-20"></div>
       </section>
 
       {/* Main FAQ Layout */}
