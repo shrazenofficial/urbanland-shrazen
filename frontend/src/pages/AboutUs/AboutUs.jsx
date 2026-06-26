@@ -108,35 +108,29 @@ const AboutUs = () => {
               Watch Founder Story
             </button>
           </div>
-          <div className="order-1 md:order-2 grid grid-cols-12 gap-4 relative">
-            <div className="col-span-8 h-64 md:h-96 bg-surface-container relative z-10 overflow-hidden rounded-[2px] shadow-sm">
-              <img
-                className="w-full h-full object-cover"
-                src={getOptimizedImageUrl(
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuDm5XSys0gybXBlcF-qyh5z00D4Ppdw369F6iNuxj2HK4hYzvU4UCoIu3ycvS7KfnfgUgrpM0VhhoAWVpLhPecxLjO0TwmlCW1ZJP2pLzgpHvapEajOK-7TjoomLe_PXXsOfz0wNGT-CAXOvifTGd5v0NiRAgF1NyAUJ0Reymlp5_0EOdU2LR-U2mT08ocIiXtyqdxDz4NJd4uU40w80p2vLH1IP_zq9M_93vOrrzX31ZGzPOse-m55kWpzt8i5nyDC3RF_RAwmsqWQ"
-                )}
-                alt="Raj Shekhar, founder of Urbanland Products."
-              />
+          <div className="order-1 md:order-2 relative h-[300px] md:h-[450px] w-full rounded-lg overflow-hidden shadow-2xl group cursor-pointer" onClick={() => setIsVideoOpen(true)}>
+            <img
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src={getOptimizedImageUrl(
+                "https://img.youtube.com/vi/G933XopJkMw/maxresdefault.jpg"
+              )}
+              alt="Manufacturing story video thumbnail."
+            />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+              <div className="relative flex items-center justify-center">
+                {/* Pulsing Outer Rings */}
+                <div className="absolute w-24 h-24 rounded-full bg-red-600/30 animate-ping duration-1000"></div>
+                <div className="absolute w-20 h-20 rounded-full bg-red-600/40 animate-pulse"></div>
+                {/* Main Play Button */}
+                <div className="relative w-16 h-16 md:w-20 md:h-20 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform group-hover:scale-110">
+                  <span className="material-symbols-outlined text-3xl md:text-4xl translate-x-0.5" style={{ fontVariationSettings: "'FILL' 1" }}>
+                    play_arrow
+                  </span>
+                </div>
+              </div>
             </div>
-            <div
-              onClick={() => setIsVideoOpen(true)}
-              className="col-span-10 col-start-3 -mt-16 md:-mt-32 relative z-20 aspect-video bg-industrial-charcoal flex items-center justify-center group cursor-pointer shadow-xl rounded-[2px] overflow-hidden"
-            >
-              <img
-                className="absolute inset-0 w-full h-full object-cover opacity-60"
-                src={getOptimizedImageUrl(
-                  "https://img.youtube.com/vi/G933XopJkMw/maxresdefault.jpg"
-                )}
-                alt="Manufacturing story video thumbnail."
-              />
-              <span
-                className="material-symbols-outlined text-white text-5xl md:text-6xl group-hover:scale-110 transition-transform"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                play_circle
-              </span>
-            </div>
-            <div className="absolute -top-4 -right-4 w-32 h-32 border-t-2 border-r-2 border-architectural-gold/30 hidden md:block" />
+            <div className="absolute -top-4 -right-4 w-32 h-32 border-t-2 border-r-2 border-architectural-gold/30 hidden md:block pointer-events-none" />
+            <div className="absolute -bottom-4 -left-4 w-32 h-32 border-b-2 border-l-2 border-architectural-gold/30 hidden md:block pointer-events-none" />
           </div>
         </div>
       </section>
