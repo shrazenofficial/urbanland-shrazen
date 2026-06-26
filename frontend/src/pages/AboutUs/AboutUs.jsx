@@ -81,9 +81,15 @@ const AboutUs = () => {
       <section className="py-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-stack-md items-center">
           <div className="order-2 md:order-1">
-            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink mb-8 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-architectural-gold">
-              Meet Our Founder
-            </h2>
+            <div className="mb-6">
+              <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block mb-2">
+                FOUNDER
+              </span>
+              <h2 className="font-headline-lg text-headline-lg text-deep-ink mb-4">
+                Meet Our Founder
+              </h2>
+              <div className="w-24 h-1 bg-craftsman-gold"></div>
+            </div>
             <p className="font-body-md text-sm md:text-body-md text-on-surface-variant mb-8 leading-loose">
               Founded by Raj Shekhar in 2023, Urbanland Products was built on a simple belief—outdoor spaces should be beautiful, durable, and environmentally responsible. Watch Raj share the vision behind Urbanland, our commitment to sustainable manufacturing, and how we're helping shape greener communities across India.
             </p>
@@ -139,9 +145,15 @@ const AboutUs = () => {
       <section className="bg-surface-container py-stack-xl">
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter">
           <div className="md:col-span-5 flex flex-col justify-center">
-            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink mb-8 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-architectural-gold">
-              Our Journey
-            </h2>
+            <div className="mb-6">
+              <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block mb-2">
+                HISTORY
+              </span>
+              <h2 className="font-headline-lg text-headline-lg text-deep-ink mb-4">
+                Our Journey
+              </h2>
+              <div className="w-24 h-1 bg-craftsman-gold"></div>
+            </div>
             <p className="font-body-md text-sm md:text-body-md text-on-surface-variant mb-10 leading-loose">
               From a manufacturing unit in Vasai, Maharashtra, Urbanland Products has grown into a trusted partner for architects, developers, municipalities, hospitality brands, educational institutions, and infrastructure projects across India. Today, we manufacture benches, planter boxes, bus shelters, litter bins, pergolas, street furniture, and custom urban solutions designed specifically for Indian weather conditions.
             </p>
@@ -179,9 +191,15 @@ const AboutUs = () => {
       {/* Mission & Vision */}
       <section className="py-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-[2px] after:bg-architectural-gold inline-block">
-            Driven by Purpose
-          </h2>
+          <div className="inline-block text-center">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block mb-1">
+              VALUES & VISION
+            </span>
+            <h2 className="font-headline-lg text-headline-lg text-deep-ink mb-4">
+              Driven by Purpose
+            </h2>
+            <div className="w-24 h-1 bg-craftsman-gold mx-auto"></div>
+          </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
           <div className="p-8 md:p-10 border border-industrial-charcoal/10 bg-white hover:border-architectural-gold transition-colors duration-300 rounded-[2px] shadow-sm flex flex-col items-start">
@@ -209,9 +227,15 @@ const AboutUs = () => {
       <section className="bg-[#124719] py-stack-xl text-white">
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-stack-md items-center">
           <div className="space-y-6">
-            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-white font-bold leading-tight">
-              Sustainability Isn't an Add-on. It's Our Foundation.
-            </h2>
+            <div>
+              <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block mb-2">
+                ECOLOGICAL COMMITMENT
+              </span>
+              <h2 className="font-headline-lg text-headline-lg text-white mb-4 leading-tight">
+                Sustainability Isn't an Add-on. It's Our Foundation.
+              </h2>
+              <div className="w-24 h-1 bg-craftsman-gold"></div>
+            </div>
             <p className="font-body-lg text-sm sm:text-base opacity-90 leading-relaxed">
               We replace traditional hardwood with innovative materials like WPC and NFC Wood, reducing deforestation while improving product longevity.
             </p>
@@ -251,9 +275,15 @@ const AboutUs = () => {
       {/* Meet the Team */}
       <section className="py-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="max-w-3xl mb-12">
-          <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink mb-6 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-architectural-gold">
-            The People Behind Urbanland
-          </h2>
+          <div>
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block mb-2">
+              OUR TEAM
+            </span>
+            <h2 className="font-headline-lg text-headline-lg text-deep-ink mb-4">
+              The People Behind Urbanland
+            </h2>
+            <div className="w-24 h-1 bg-craftsman-gold mb-6"></div>
+          </div>
           <p className="font-body-md text-sm md:text-body-md text-on-surface-variant leading-relaxed">
             Every project is backed by a passionate team of designers, engineers, craftsmen, and project specialists who ensure every product meets the highest standards of quality and sustainability. From concept to installation, we work together to deliver outdoor spaces that last for years.
           </p>
@@ -296,9 +326,15 @@ const AboutUs = () => {
       <section className="bg-[#2D2D2D] text-white py-stack-xl">
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           <div className="text-center mb-16">
-            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-white relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-[2px] after:bg-architectural-gold inline-block">
-              Why Clients Choose Urbanland
-            </h2>
+            <div className="inline-block text-center">
+              <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block mb-1">
+                OUR ADVANTAGES
+              </span>
+              <h2 className="font-headline-lg text-headline-lg text-white mb-4">
+                Why Clients Choose Urbanland
+              </h2>
+              <div className="w-24 h-1 bg-craftsman-gold mx-auto"></div>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -356,9 +392,15 @@ const AboutUs = () => {
       <section className="py-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-12">
           <div>
-            <h2 className="font-headline-lg text-2xl md:text-headline-lg text-deep-ink mb-6 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-[2px] after:bg-architectural-gold">
-              Trusted by Industry Leaders
-            </h2>
+            <div>
+              <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block mb-2">
+                PARTNERS & CLIENTS
+              </span>
+              <h2 className="font-headline-lg text-headline-lg text-deep-ink mb-4">
+                Trusted by Industry Leaders
+              </h2>
+              <div className="w-24 h-1 bg-craftsman-gold mb-6"></div>
+            </div>
             <p className="font-body-md text-sm md:text-body-md text-on-surface-variant leading-relaxed">
               We've successfully delivered outdoor furniture solutions for developers, hospitality brands, educational institutions, healthcare facilities, municipalities, and infrastructure projects across multiple states.
             </p>
