@@ -11,7 +11,14 @@ export const getOptimizedImageUrl = (url) => {
   if (url.startsWith("data:")) return url;
 
   // If it's already optimized or external CDN, return as is
-  if (url.includes("images.unsplash.com") || url.includes("images.weserv.nl") || url.includes("/cdn-cgi/image/")) {
+  if (
+    url.includes("images.unsplash.com") ||
+    url.includes("images.weserv.nl") ||
+    url.includes("/cdn-cgi/image/") ||
+    url.includes("googleusercontent.com") ||
+    url.includes("youtube.com") ||
+    url.includes("ytimg.com")
+  ) {
     return url;
   }
 

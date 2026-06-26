@@ -467,7 +467,7 @@ const AboutUs = () => {
       {/* Video Story Modal */}
       {isVideoOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 transition-all duration-300 ease-out animate-fade-in"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-md p-4 transition-all duration-300 ease-out animate-fade-in"
           onClick={() => setIsVideoOpen(false)}
         >
           <style>{`
@@ -490,12 +490,6 @@ const AboutUs = () => {
             className="relative w-full max-w-[92vw] lg:max-w-6xl aspect-video bg-black shadow-2xl border border-white/10 rounded-lg overflow-hidden transform transition-all duration-500 scale-100 ease-out animate-pop-up"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setIsVideoOpen(false)}
-              className="absolute top-4 right-4 z-50 text-white bg-black/40 hover:bg-black/80 w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer hover:scale-105 duration-200"
-            >
-              <span className="material-symbols-outlined">close</span>
-            </button>
             <iframe
               className="w-full h-full border-0"
               src="https://www.youtube.com/embed/G933XopJkMw?autoplay=1"
@@ -504,6 +498,12 @@ const AboutUs = () => {
               allowFullScreen
             />
           </div>
+          <button
+            onClick={() => setIsVideoOpen(false)}
+            className="mt-6 md:mt-0 md:absolute md:top-6 md:right-6 z-50 text-white bg-white/10 border border-white/20 hover:bg-white/20 w-12 h-12 rounded-full flex items-center justify-center transition-all cursor-pointer hover:scale-105 duration-200"
+          >
+            <span className="material-symbols-outlined">close</span>
+          </button>
         </div>
       )}
     </div>
