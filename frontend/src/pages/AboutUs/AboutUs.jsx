@@ -468,17 +468,39 @@ const AboutUs = () => {
 
       {/* Video Story Modal */}
       {isVideoOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-4xl aspect-video bg-black shadow-2xl rounded-lg overflow-hidden">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 transition-all duration-300 ease-out animate-fade-in"
+          onClick={() => setIsVideoOpen(false)}
+        >
+          <style>{`
+            @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+            @keyframes popUp {
+              from { transform: scale(0.85); opacity: 0; }
+              to { transform: scale(1); opacity: 1; }
+            }
+            .animate-fade-in {
+              animation: fadeIn 0.25s ease-out forwards;
+            }
+            .animate-pop-up {
+              animation: popUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+          `}</style>
+          <div 
+            className="relative w-full max-w-[92vw] lg:max-w-6xl aspect-video bg-black shadow-2xl border border-white/10 rounded-lg overflow-hidden transform transition-all duration-500 scale-100 ease-out animate-pop-up"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               onClick={() => setIsVideoOpen(false)}
-              className="absolute top-4 right-4 z-50 text-white bg-black/40 hover:bg-black/80 w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute top-4 right-4 z-50 text-white bg-black/40 hover:bg-black/80 w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer hover:scale-105 duration-200"
             >
               <span className="material-symbols-outlined">close</span>
             </button>
             <iframe
               className="w-full h-full border-0"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+              src="https://www.youtube.com/embed/G933XopJkMw?autoplay=1"
               title="Founder Story Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
