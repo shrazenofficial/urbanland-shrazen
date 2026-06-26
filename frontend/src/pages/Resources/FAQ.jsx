@@ -152,7 +152,9 @@ const FAQ = () => {
           {/* Dynamic Breadcrumbs (Centered) */}
           <nav className="flex items-center justify-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-white/5 text-white/80 border border-white/10 px-4 py-2.5 rounded-full w-fit mx-auto mb-8 backdrop-blur-md shadow-lg">
             <Link to="/" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Home</Link>
-            <span className="text-white/30">/</span>
+            <span className="text-white/30">&gt;</span>
+            <Link to="/resources" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Resources</Link>
+            <span className="text-white/30">&gt;</span>
             <span className="text-craftsman-gold font-bold">FAQ</span>
           </nav>
 

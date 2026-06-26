@@ -75,7 +75,9 @@ const SupportFAQ = ({ support = DEFAULT_SUPPORT, faq = DEFAULT_FAQ, showHero = f
                         {/* Dynamic Breadcrumbs (Centered) */}
                         <nav className="flex items-center justify-center select-none text-[9px] sm:text-[10px] font-black uppercase tracking-widest gap-2 bg-white/5 text-white/80 border border-white/10 px-4 py-2.5 rounded-full w-fit mx-auto mb-8 backdrop-blur-md shadow-lg">
                             <Link to="/" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Home</Link>
-                            <span className="text-white/30">/</span>
+                            <span className="text-white/30">&gt;</span>
+                            <Link to="/resources" className="text-white/60 hover:text-craftsman-gold transition-colors no-underline">Resources</Link>
+                            <span className="text-white/30">&gt;</span>
                             <span className="text-craftsman-gold font-bold">FAQ</span>
                         </nav>
 
@@ -209,69 +211,6 @@ const SupportFAQ = ({ support = DEFAULT_SUPPORT, faq = DEFAULT_FAQ, showHero = f
                         </div>
                     </div>
                 </div>
-            </section>
-
-            {/* Rebuilt Advantage CTA Section */}
-            <section className="reveal-section bg-primary text-on-primary py-24 px-margin-mobile md:px-margin-desktop overflow-hidden relative text-left transition-all duration-1000 opacity-100 translate-y-0">
-                <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-                    <div className="space-y-10 border-l-2 border-secondary/30 pl-8 md:pl-10">
-                        <div className="space-y-2">
-                            <span className="font-label-technical text-secondary tracking-[0.2em] uppercase font-semibold text-xs block">
-                                The Urbanland Advantage
-                            </span>
-                            <h3 className="font-headline-md text-3xl md:text-4xl text-on-primary leading-tight">
-                                Why Urbanland Stands Apart
-                            </h3>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                            <div className="flex items-start space-x-4">
-                                <span className="material-symbols-outlined text-secondary text-2xl">verified</span>
-                                <div>
-                                    <p className="font-bold text-sm uppercase tracking-wider font-label-technical">ISO 9001:2015</p>
-                                    <p className="text-xs text-white/70 mt-1">Certified manufacturing excellence</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start space-x-4">
-                                <span className="material-symbols-outlined text-secondary text-2xl">workspace_premium</span>
-                                <div>
-                                    <p className="font-bold text-sm uppercase tracking-wider font-label-technical">2-Year Guarantee</p>
-                                    <p className="text-xs text-white/70 mt-1">India's only comprehensive warranty</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start space-x-4">
-                                <span className="material-symbols-outlined text-secondary text-2xl">precision_manufacturing</span>
-                                <div>
-                                    <p className="font-bold text-sm uppercase tracking-wider font-label-technical">Precision Engineering</p>
-                                    <p className="text-xs text-white/70 mt-1">Built for high-traffic durability</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start space-x-4">
-                                <span className="material-symbols-outlined text-secondary text-2xl">public</span>
-                                <div>
-                                    <p className="font-bold text-sm uppercase tracking-wider font-label-technical">Pan-India Delivery</p>
-                                    <p className="text-xs text-white/70 mt-1">Professional installation support</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bg-white/5 p-8 md:p-12 border border-white/10 backdrop-blur-sm rounded-none">
-                        <h2 className="font-headline-lg text-3xl md:text-4xl text-on-primary mb-8 leading-tight">
-                            Ready to Install Premium Outdoor Products in Your Space?
-                        </h2>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <Link className="bg-secondary text-on-secondary px-8 py-4 font-label-technical uppercase tracking-widest text-xs font-bold flex items-center justify-center hover:opacity-90 transition-all duration-300 rounded-[4px] no-underline" to="/contact">
-                                Request Custom Quote <span className="ml-2">→</span>
-                            </Link>
-                            <a href="#" className="border-2 border-white text-white px-8 py-4 font-label-technical uppercase tracking-widest text-xs font-bold flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 rounded-[4px] no-underline">
-                                Download the Brochure <span className="ml-2">↓</span>
-                            </a>
-                        </div>
-                        <p className="mt-8 text-xs text-white/60 font-label-technical uppercase tracking-widest font-semibold">
-                            Trusted by 50+ major projects across 15+ Indian cities
-                        </p>
-                    </div>
-                </div>
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-black/10 -skew-x-12 translate-x-1/4 z-0 animate-pulse-slow"></div>
             </section>
         </div>
     );
