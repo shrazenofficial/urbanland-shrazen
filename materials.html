@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sustainable Materials Guide | ARCH-FAB</title>
+    <meta content="Technical guide to sustainable materials for outdoor furniture in India." name="description" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Shared Components JSON Mapping & Style Guidance -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#e6c366",
+                        "forest-deep": "#2C5F2E",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#9cd597",
+                        "tertiary": "#272727",
+                        "tertiary-container": "#3d3d3d",
+                        "on-secondary-container": "#785d03",
+                        "surface-container": "#f0ede9",
+                        "on-background": "#1c1c19",
+                        "on-secondary-fixed-variant": "#584400",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e5e2dd",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e4e2e1",
+                        "secondary-container": "#fed979",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c1c9bc",
+                        "on-secondary-fixed": "#241a00",
+                        "primary": "#002f09",
+                        "secondary": "#755b00",
+                        "surface-bright": "#fcf9f4",
+                        "site-canvas": "#F7F4EF",
+                        "secondary-fixed": "#ffdf90",
+                        "inverse-on-surface": "#f3f0eb",
+                        "on-tertiary-container": "#a9a8a7",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-primary-fixed": "#002105",
+                        "architectural-gold": "#C9A84C",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-surface-variant": "#41493f",
+                        "industrial-charcoal": "#2D2D2D",
+                        "surface-container-low": "#f6f3ee",
+                        "primary-container": "#124719",
+                        "surface-dim": "#dcdad5",
+                        "surface-tint": "#366937",
+                        "primary-fixed-dim": "#9cd597",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e5e2dd",
+                        "on-primary-container": "#7eb67b",
+                        "on-primary-fixed-variant": "#1d5122",
+                        "surface": "#fcf9f4",
+                        "on-primary": "#ffffff",
+                        "background": "#fcf9f4",
+                        "inverse-surface": "#31302d",
+                        "primary-fixed": "#b7f1b1",
+                        "on-surface": "#1c1c19",
+                        "outline": "#72796E",
+                        "surface-container-high": "#ebe8e3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "stack-sm": "16px",
+                        "stack-md": "32px",
+                        "stack-xl": "80px",
+                        "stack-lg": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "label-sm": ["Montserrat"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "label-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(252, 249, 244, 0.95), rgba(252, 249, 244, 0.6), transparent);
+        }
+
+        .border-thin {
+            border-width: 1px;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md selection:bg-architectural-gold/30">
+    <!-- TopNavBar -->
+    <header class="bg-surface docked full-width top-0 sticky border-b border-industrial-charcoal/10 z-50">
+        <nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+            <div class="text-headline-md font-headline-md font-bold text-primary tracking-tight">ARCH-FAB</div>
+            <div class="hidden md:flex items-center gap-stack-md">
+                <a class="text-on-surface-variant font-label-md text-label-md hover:text-architectural-gold transition-colors duration-300"
+                    href="#">Collections</a>
+                <a class="text-on-surface-variant font-label-md text-label-md hover:text-architectural-gold transition-colors duration-300"
+                    href="#">Projects</a>
+                <a class="text-primary border-b-2 border-architectural-gold pb-1 font-label-md text-label-md"
+                    href="#">Materials</a>
+                <a class="text-on-surface-variant font-label-md text-label-md hover:text-architectural-gold transition-colors duration-300"
+                    href="#">Downloads</a>
+                <a class="text-on-surface-variant font-label-md text-label-md hover:text-architectural-gold transition-colors duration-300"
+                    href="#">Sustainability</a>
+            </div>
+            <button
+                class="bg-primary text-on-primary px-6 py-2 uppercase font-label-md text-label-md scale-95 active:opacity-80 transition-all hover:bg-forest-deep">
+                Contact Us
+            </button>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[819px] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="w-full h-full bg-cover bg-center"
+                    data-alt="A macro architectural photograph of premium material textures including sustainable wood grain and brushed champagne-colored metal. Soft atmospheric lighting highlights the intricate patterns and high-end industrial quality, set against a clean minimalist background. The mood is authoritative and resilient, reflecting a premium manufacturing aesthetic with a sophisticated neutral palette."
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAaAbGkILRLkSjz7e5-pkfuhFuBUIRlIHN3El3lWUVVRZkTDFD7HB2Ptkk7FSXyJf2sLdXtBzRPD2IQTbdKcF3mb_vA9J-4Fdwg4ARaKyjlT_9uRCIB_L7SN24E5qrGOUJkGF8s3eNp_vGY1A4FIHPbnFJOsytwqZaSGbxDFn3kMXNCLLw_aMN59fFuV0fFYfJBBf214RXYFIRr3y5u7zov_DEJaO0a1iPq9rfGQlmxLUuFF-YVWC5aO6E_4HjiyQ9PrJek7CZsmiK')">
+                </div>
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+                <div class="max-w-3xl">
+                    <h1 class="font-display-lg text-display-lg text-primary mb-stack-sm">Sustainable Materials Guide
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-md">
+                        Choosing the right material is critical for long-lasting, beautiful and eco-friendly outdoor
+                        furniture. This guide compares the materials we use at Urbanland Products — with a strong focus
+                        on sustainability, durability and performance in Indian conditions.
+                    </p>
+                    <div class="flex flex-col gap-2 mb-stack-lg">
+                        <div class="flex items-center gap-2 text-forest-deep font-label-md">
+                            <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            <span>WPC &amp; NFC Wood – Sustainable Alternatives to Traditional Wood</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-forest-deep font-label-md">
+                            <span class="material-symbols-outlined text-[18px]">verified</span>
+                            <span>ISO 9001:2015 Certified</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-forest-deep font-label-md">
+                            <span class="material-symbols-outlined text-[18px]">security</span>
+                            <span>2-Year Guarantee on All Materials</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-gutter">
+                        <a class="bg-primary text-on-primary px-8 py-4 font-label-md text-label-md uppercase hover:bg-forest-deep transition-all flex items-center gap-2"
+                            href="#">
+                            Download Full Materials Guide (PDF) <span
+                                class="material-symbols-outlined">arrow_forward</span>
+                        </a>
+                        <a class="border border-architectural-gold text-architectural-gold px-8 py-4 font-label-md text-label-md uppercase hover:bg-architectural-gold hover:text-white transition-all flex items-center gap-2"
+                            href="#">
+                            Request Material Samples <span class="material-symbols-outlined">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 1: Why Material Choice Matters -->
+        <section class="py-stack-xl px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+                <div class="md:col-span-5">
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-stack-md">Engineered for the Extremes
+                        of the Subcontinent</h2>
+                </div>
+                <div class="md:col-span-7">
+                    <div
+                        class="font-body-lg text-body-lg text-on-surface-variant space-y-stack-sm border-l-4 border-architectural-gold pl-8">
+                        <p>India's climate presents a unique challenge: intense UV radiation, extreme humidity
+                            fluctuations, and heavy monsoon cycles that decimate traditional timber in just a few
+                            seasons.</p>
+                        <p>At ARCH-FAB, we believe durability is the ultimate form of sustainability. By replacing
+                            traditional hardwood with advanced alternatives like Wood Polymer Composites (WPC) and
+                            Natural Fiber Composites (NFC), we help projects achieve <strong>IGBC, GRIHA, and LEED
+                                certifications</strong> while ensuring a lifespan measured in decades, not years.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 2: Comparison Table -->
+        <section class="py-stack-xl bg-surface-container-low px-margin-desktop overflow-x-auto">
+            <div class="max-w-container-max mx-auto">
+                <h3 class="font-headline-md text-headline-md text-primary mb-stack-lg text-center">Technical Performance
+                    Comparison</h3>
+                <div class="min-w-[800px]">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-industrial-charcoal/20">
+                                <th
+                                    class="py-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+                                    Material</th>
+                                <th
+                                    class="py-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+                                    Lifespan</th>
+                                <th
+                                    class="py-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+                                    Maintenance</th>
+                                <th
+                                    class="py-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+                                    Sustainability Score</th>
+                                <th
+                                    class="py-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+                                    Best For</th>
+                                <th
+                                    class="py-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+                                    Cost vs MS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-body-md text-on-surface">
+                            <tr class="border-b border-industrial-charcoal/10 hover:bg-white transition-colors">
+                                <td class="py-6 font-bold text-forest-deep">WPC</td>
+                                <td class="py-6">12–15 years</td>
+                                <td class="py-6">Very Low</td>
+                                <td class="py-6"><span
+                                        class="bg-forest-deep/10 text-forest-deep px-3 py-1 rounded-full text-label-sm">Excellent</span>
+                                </td>
+                                <td class="py-6">Gardens/balconies</td>
+                                <td class="py-6">1.6–2×</td>
+                            </tr>
+                            <tr class="border-b border-industrial-charcoal/10 hover:bg-white transition-colors">
+                                <td class="py-6 font-bold text-forest-deep">NFC Wood</td>
+                                <td class="py-6">15–20+ years</td>
+                                <td class="py-6">Very Low</td>
+                                <td class="py-6"><span
+                                        class="bg-forest-deep/10 text-forest-deep px-3 py-1 rounded-full text-label-sm">Excellent</span>
+                                </td>
+                                <td class="py-6">Architectural landscapes</td>
+                                <td class="py-6">2.0–2.8×</td>
+                            </tr>
+                            <tr class="border-b border-industrial-charcoal/10 hover:bg-white transition-colors">
+                                <td class="py-6 font-bold text-forest-deep">Aluminium</td>
+                                <td class="py-6">15–20+ years</td>
+                                <td class="py-6">Minimal</td>
+                                <td class="py-6"><span
+                                        class="bg-forest-deep/10 text-forest-deep px-3 py-1 rounded-full text-label-sm">Very
+                                        Good</span></td>
+                                <td class="py-6">Coastal/rooftops</td>
+                                <td class="py-6">2.2–2.8×</td>
+                            </tr>
+                            <tr class="border-b border-industrial-charcoal/10 hover:bg-white transition-colors">
+                                <td class="py-6 font-bold text-forest-deep">Mild Steel</td>
+                                <td class="py-6">8–12 years</td>
+                                <td class="py-6">Low</td>
+                                <td class="py-6"><span
+                                        class="bg-industrial-charcoal/10 text-industrial-charcoal px-3 py-1 rounded-full text-label-sm">Good</span>
+                                </td>
+                                <td class="py-6">Parks/municipal</td>
+                                <td class="py-6">Base (1×)</td>
+                            </tr>
+                            <tr class="border-b border-industrial-charcoal/10 hover:bg-white transition-colors">
+                                <td class="py-6 font-bold text-forest-deep">Stainless Steel</td>
+                                <td class="py-6">15–20+ years</td>
+                                <td class="py-6">Very Low</td>
+                                <td class="py-6"><span
+                                        class="bg-forest-deep/10 text-forest-deep px-3 py-1 rounded-full text-label-sm">Very
+                                        Good</span></td>
+                                <td class="py-6">Luxury coastal</td>
+                                <td class="py-6">2.5–3×</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <!-- Section 3: Detailed Material Breakdown -->
+        <section class="py-stack-xl px-margin-desktop max-w-container-max mx-auto space-y-stack-xl">
+            <!-- WPC / NFC -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+                <div class="order-2 md:order-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined text-architectural-gold"
+                            style="font-variation-settings: 'FILL' 1;">eco</span>
+                        <h3 class="font-headline-lg text-headline-lg text-primary">WPC &amp; NFC Wood</h3>
+                    </div>
+                    <p class="font-body-md text-on-surface-variant mb-stack-sm">Our flagship composite materials blend
+                        recycled wood fibers with high-density polymers (WPC) or natural husks (NFC) to create a finish
+                        that is indistinguishable from real wood but impervious to rot, termites, and UV fading.</p>
+                    <ul class="space-y-3 font-label-md text-label-md text-on-surface">
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-architectural-gold rounded-full"></span>Zero splintering and
+                            warp-resistant</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-architectural-gold rounded-full"></span>Authentic grain textures
+                            in 12+ shades</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-architectural-gold rounded-full"></span>Requires no annual oiling
+                            or painting</li>
+                    </ul>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="aspect-video bg-cover bg-center rounded-lg"
+                        data-alt="A high-resolution close-up showing the cross-section and surface grain of premium Wood Polymer Composite (WPC) decking. The lighting is crisp, revealing the dense structural integrity and rich, earthy walnut color. The setting is a bright architectural studio environment with a focus on sustainable manufacturing excellence."
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC52gn3Vz4ScISNGqxS6zWEx5s7zeDXa40IbX383eprzhKyF42uCMVM65mtf4LHe0VCs4M8O7ZrfFSYNon1wxFGRjqm_9gRhKT1DXvZeYsi4mHFsOs48HMBopgj0DQOoxF5Y4YjNRnibSPA07ATFb2r_rjMTmAZ3e3HiduzSVLnzmQJmGSy4DFKwHcaiAWg0WRKYLoUejCkkU7w8YAfSH3kcYj5OkUpsF8PMTam-7g5NsK_bxwIgxYKbqAqalAJpV3nmGUFtasectTV')">
+                    </div>
+                </div>
+            </div>
+            <!-- Aluminium / Steel -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+                <div class="order-1">
+                    <div class="aspect-video bg-cover bg-center rounded-lg"
+                        data-alt="Close-up detail of powder-coated architectural aluminum with a matte charcoal finish. The image showcases the precision-engineered smooth edges and the subtle texture of the coating. Soft daylight reflects off the metallic surface, emphasizing a premium, industrial-modern aesthetic suitable for high-end landscape design."
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVLsl3XxtPWNuebYzPMVvo0ob0dkEF4y2UfCdXSoZlFJZGmQMHmDg407txvmbEgjALrHW6Ib0tTv0-D5mPYkKQ4A_0FY42ny2ibCqmg4d9foNMd0G0GA-AO-Ec0FrNwsDPFeHFEdP-YXHFsm9927x59hAcD4cMtszmbBeE-p5m9LuADWQU6NMxRnJ2VdVCgomT22rdQqA52ctq9rp0bdVFJR6VxU7HnqopNb46aXJQ_ipjLwVlL1TgrBGjxJ486BcE1GwEOishhuc9')">
+                    </div>
+                </div>
+                <div class="order-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined text-architectural-gold"
+                            style="font-variation-settings: 'FILL' 1;">architecture</span>
+                        <h3 class="font-headline-lg text-headline-lg text-primary">Metals &amp; Coatings</h3>
+                    </div>
+                    <p class="font-body-md text-on-surface-variant mb-stack-sm">From lightweight Aluminium to heavy-duty
+                        Stainless Steel, our metal structures are treated with architectural-grade powder coatings that
+                        exceed salt-spray testing standards.</p>
+                    <ul class="space-y-3 font-label-md text-label-md text-on-surface">
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-architectural-gold rounded-full"></span>304 &amp; 316 Grade
+                            Stainless Steel for coastal air</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-architectural-gold rounded-full"></span>Corrosion-resistant
+                            dual-coat processes</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-architectural-gold rounded-full"></span>Fully recyclable
+                            structural components</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Section 4: Sustainability Advantage -->
+        <section class="bg-primary-container text-on-primary py-stack-xl">
+            <div class="px-margin-desktop max-w-container-max mx-auto">
+                <div class="text-center mb-stack-lg">
+                    <h2 class="font-display-lg text-headline-lg mb-4">The Sustainability Advantage</h2>
+                    <p class="font-body-lg max-w-2xl mx-auto opacity-80">Building for the future means selecting
+                        materials that give back more than they take.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-gutter text-center">
+                    <div class="p-stack-sm border border-white/10 flex flex-col items-center">
+                        <span class="material-symbols-outlined text-architectural-gold mb-4 text-4xl">forest</span>
+                        <h4 class="font-label-md text-label-md uppercase mb-2">Reduced Timber</h4>
+                        <p class="text-label-sm opacity-70">Saves hundreds of hectares of forest annually.</p>
+                    </div>
+                    <div class="p-stack-sm border border-white/10 flex flex-col items-center">
+                        <span class="material-symbols-outlined text-architectural-gold mb-4 text-4xl">recycling</span>
+                        <h4 class="font-label-md text-label-md uppercase mb-2">Recycled Content</h4>
+                        <p class="text-label-sm opacity-70">Up to 90% recycled fibers and polymers.</p>
+                    </div>
+                    <div class="p-stack-sm border border-white/10 flex flex-col items-center">
+                        <span class="material-symbols-outlined text-architectural-gold mb-4 text-4xl">update</span>
+                        <h4 class="font-label-md text-label-md uppercase mb-2">Long Lifespan</h4>
+                        <p class="text-label-sm opacity-70">20+ years reduced replacement cycles.</p>
+                    </div>
+                    <div class="p-stack-sm border border-white/10 flex flex-col items-center">
+                        <span
+                            class="material-symbols-outlined text-architectural-gold mb-4 text-4xl">verified_user</span>
+                        <h4 class="font-label-md text-label-md uppercase mb-2">Green Credits</h4>
+                        <p class="text-label-sm opacity-70">Contribution to LEED &amp; IGBC certifications.</p>
+                    </div>
+                    <div class="p-stack-sm border border-white/10 flex flex-col items-center">
+                        <span class="material-symbols-outlined text-architectural-gold mb-4 text-4xl">air</span>
+                        <h4 class="font-label-md text-label-md uppercase mb-2">Low-VOC</h4>
+                        <p class="text-label-sm opacity-70">Zero toxic off-gassing in extreme heat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section 5: FAQ -->
+        <section class="py-stack-xl px-margin-desktop max-w-3xl mx-auto">
+            <h2 class="font-headline-lg text-headline-lg text-primary mb-stack-lg text-center">Frequently Asked
+                Questions</h2>
+            <div class="space-y-4">
+                <details class="group bg-white border border-industrial-charcoal/10 rounded-lg overflow-hidden">
+                    <summary
+                        class="flex justify-between items-center p-6 cursor-pointer font-label-md text-label-md list-none">
+                        Which material is best for high-salinity coastal environments?
+                        <span
+                            class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="p-6 pt-0 font-body-md text-on-surface-variant">
+                        For coastal areas like Mumbai, Goa, or Chennai, we recommend Aluminium or 316-Grade Stainless
+                        Steel. WPC/NFC is also excellent as it does not absorb moisture or salt, unlike natural wood.
+                    </div>
+                </details>
+                <details class="group bg-white border border-industrial-charcoal/10 rounded-lg overflow-hidden">
+                    <summary
+                        class="flex justify-between items-center p-6 cursor-pointer font-label-md text-label-md list-none">
+                        Do your materials require annual painting or staining?
+                        <span
+                            class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="p-6 pt-0 font-body-md text-on-surface-variant">
+                        No. WPC and NFC materials are pre-pigmented during the extrusion process. Our metals are
+                        powder-coated in controlled environments. A simple soap-and-water wash once or twice a year is
+                        all that's required.
+                    </div>
+                </details>
+                <details class="group bg-white border border-industrial-charcoal/10 rounded-lg overflow-hidden">
+                    <summary
+                        class="flex justify-between items-center p-6 cursor-pointer font-label-md text-label-md list-none">
+                        What is the warranty period for structural integrity?
+                        <span
+                            class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="p-6 pt-0 font-body-md text-on-surface-variant">
+                        We offer a standard 2-year guarantee on all material finishes and a 10-year structural warranty
+                        for our premium NFC and Stainless Steel ranges under normal usage conditions.
+                    </div>
+                </details>
+            </div>
+        </section>
+        <!-- Final CTA -->
+        <section class="py-stack-xl px-margin-desktop bg-surface-container-highest">
+            <div class="max-w-container-max mx-auto text-center">
+                <h2 class="font-headline-lg text-display-lg text-primary mb-stack-md">Ready to Choose the Right
+                    Sustainable Material for Your Project?</h2>
+                <div class="flex flex-wrap justify-center gap-gutter">
+                    <a class="bg-primary text-on-primary px-10 py-4 font-label-md text-label-md uppercase hover:bg-forest-deep transition-all"
+                        href="#">
+                        Request Custom Quote →
+                    </a>
+                    <a class="border-2 border-architectural-gold text-architectural-gold px-10 py-4 font-label-md text-label-md uppercase hover:bg-architectural-gold hover:text-white transition-all"
+                        href="#">
+                        Download Full Materials Guide (PDF) →
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-highest border-t border-industrial-charcoal/10">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+            <div class="col-span-1 md:col-span-1">
+                <div class="text-headline-lg font-headline-lg text-primary mb-4">ARCH-FAB</div>
+                <p class="font-body-md text-on-surface-variant opacity-80">Defining urban landscapes with resilient
+                    architectural design.</p>
+            </div>
+            <div>
+                <h5 class="font-label-md text-label-md text-primary mb-4 uppercase">Resources</h5>
+                <ul class="space-y-2">
+                    <li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-architectural-gold transition-colors"
+                            href="#">Technical Specifications</a></li>
+                    <li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-architectural-gold transition-colors"
+                            href="#">Installation Guides</a></li>
+                    <li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-architectural-gold transition-colors"
+                            href="#">Warranty Information</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-label-md text-label-md text-primary mb-4 uppercase">Company</h5>
+                <ul class="space-y-2">
+                    <li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-architectural-gold transition-colors"
+                            href="#">Maintenance</a></li>
+                    <li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-architectural-gold transition-colors"
+                            href="#">Press Kit</a></li>
+                    <li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-architectural-gold transition-colors"
+                            href="#">Sustainability Report</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-label-md text-label-md text-primary mb-4 uppercase">Legal</h5>
+                <ul class="space-y-2">
+                    <li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-architectural-gold transition-colors"
+                            href="#">Privacy Policy</a></li>
+                    <li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-architectural-gold transition-colors"
+                            href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="px-margin-desktop py-6 max-w-container-max mx-auto border-t border-industrial-charcoal/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">© 2024 ARCH-FAB. All rights
+                reserved. Built for permanence.</p>
+            <div class="flex gap-4">
+                <span
+                    class="material-symbols-outlined text-primary cursor-pointer hover:text-architectural-gold">language</span>
+                <span
+                    class="material-symbols-outlined text-primary cursor-pointer hover:text-architectural-gold">mail</span>
+                <span
+                    class="material-symbols-outlined text-primary cursor-pointer hover:text-architectural-gold">location_on</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Micro-interaction for table rows
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'translateX(8px)';
+                row.style.transition = 'transform 0.3s ease';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Simple observer for reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section > div').forEach(div => {
+            div.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(div);
+        });
+    </script>
+</body>
+
+</html>

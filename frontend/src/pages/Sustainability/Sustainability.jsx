@@ -1,364 +1,481 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { updatePageSEO, cleanPageSEO } from "../../lib/seo";
-import CTASection from "../../components/CTASection/CTASection";
+import { getOptimizedImageUrl } from "../../utils/image";
+import AdvantageCTA from "../../components/AdvantageCTA/AdvantageCTA";
 
-// Reuse assets
-import welcome2 from '../../assets/welcome-2.png';
-
-const faqsList = [
+const sustainabilityFaqsList = [
   {
-    q: "What makes your products green?",
-    a: "We use WPC and NFC Wood made from recycled plastics and natural fibers, replacing traditional wood and reducing deforestation. All our steel components are also fully recyclable."
+    q: "How does using WPC or NFC Wood help the environment?",
+    a: "By using Wood-Plastic Composite (WPC) and Natural Fiber Composite (NFC), we significantly reduce the demand for traditional hardwood timber. This helps protect natural forests. Additionally, these materials incorporate recycled plastics and natural fibres, supporting a circular economy."
   },
   {
-    q: "Do your products help with green building certifications?",
-    a: "Yes. Our materials contribute significantly to IGBC, GRIHA and LEED certification points through durability, low maintenance, and use of recycled and locally sourced materials."
+    q: "Are your products suitable for green building projects?",
+    a: "Yes. Our use of sustainable materials and commitment to durability can help your project meet criteria for green building certifications such as IGBC, GRIHA, and LEED."
   },
   {
-    q: "How sustainable are WPC and NFC Wood compared to real wood?",
-    a: "Significantly more sustainable. They use recycled industrial plastic waste and natural fiber residues, prevent deforestation, last much longer (12–20+ years), and require zero toxic chemical varnishes or treatments."
+    q: "What is the expected lifespan of your outdoor furniture?",
+    a: "Our products are engineered for longevity, typically offering a lifespan of 12 to 20+ years. This reduces the need for frequent replacements, saving both resources and long-term costs."
   },
   {
-    q: "Are your products recyclable?",
-    a: "Yes. WPC and NFC Wood have high recyclability, and our metal products (Aluminium & Stainless Steel) are 100% recyclable at the end of their lifecycle."
+    q: "Do your materials require toxic chemical treatments?",
+    a: "No. Unlike traditional timber which often requires periodic painting, staining, or chemical treatments to prevent rot and insect damage, our WPC and NFC materials are naturally weather-resistant and require minimal maintenance."
   },
   {
-    q: "What is your warranty on sustainable products?",
-    a: "All products come with India’s only 2-Year Comprehensive Warranty covering any manufacturing defects or structural breakdowns."
+    q: "Are your manufacturing processes certified?",
+    a: "Yes, Urbanland Products is ISO 9001:2015 certified, ensuring that our quality management systems meet international standards for excellence and consistency."
   }
 ];
 
+const sustainabilityAdvantages = [
+  { icon: "forest", title: "Eco-Friendly Wood", desc: "WPC & NFC reduce reliance on natural timber" },
+  { icon: "rebase_edit", title: "Circular Economy", desc: "Made with recycled materials" },
+  { icon: "apartment", title: "Green Credits", desc: "Supports LEED, IGBC, and GRIHA projects" },
+  { icon: "build", title: "Zero Toxicity", desc: "High-durability and zero toxic treatments needed" }
+];
+
 const Sustainability = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeFAQIndex, setActiveFAQIndex] = useState(null);
+  const heroImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuC-OpmWZvkQvIz-N06e_DCCScg4pH87jbuJm8qh3E_k2t4pPFlfV6QmGEoDJpWITI-NJPUTooOVZ1L5FfeF267bnmurW64z-it6YEMxOTrnHpqGVA1GfUIOybhX2BXdo0_8ULW3RpWdkZEbyBj8cNetRbAEGi88uiQZ6vrUib3iAcoPO5LMAgqxERTUpF9WGrtfGCiRYlxMfEp7hGrAfPVDR7wQ2OkagRGmZwalStXct3wJjT8FBw7hVlnlM6gSR2GVDTV29fqDOPPg";
 
   useEffect(() => {
     updatePageSEO({
       title: "Sustainability | Green Outdoor Furniture Manufacturer in India | Urbanland Products",
-      description: "Urbanland Products is deeply committed to sustainability. We manufacture premium outdoor furniture using eco-friendly WPC and NFC Wood instead of traditional timber. Our green products reduce deforestation, support IGBC, GRIHA & LEED certifications, and create lasting positive environmental impact.",
-      og_image: welcome2
+      description: "Discover how Urbanland Products designs and manufactures sustainable outdoor furniture using WPC, NFC Wood, aluminium and recyclable materials. Built for long-lasting performance while supporting greener urban spaces across India.",
+      og_image: heroImage
     });
-    return () => cleanPageSEO();
+
+    // Smooth reveal animation on scroll
+    const observerOptions = {
+      threshold: 0.05,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll('.reveal-section');
+    sections.forEach(section => {
+      section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+      observer.observe(section);
+    });
+
+    // Intersection Observer for Reveal Up Animations
+    const revealUpObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    const revealUps = document.querySelectorAll('.reveal-up');
+    revealUps.forEach(el => revealUpObserver.observe(el));
+
+    return () => {
+      cleanPageSEO();
+      sections.forEach(section => observer.unobserve(section));
+      revealUps.forEach(el => revealUpObserver.unobserve(el));
+    };
   }, []);
 
   return (
-    <div className="w-full bg-[#F7F4EF] text-[#1A1A1A] font-sans pb-24 overflow-x-hidden pt-32">
-      {/* Header / Hero */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-20 text-center md:text-left">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="w-full md:w-[60%]">
-            <p className="text-[0.8125rem] md:text-sm font-black uppercase tracking-widest text-[#2C5F2E] mb-4">— Ecological Integrity</p>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight uppercase leading-none text-[#1A1A1A] max-w-5xl">
-              Sustainability at <br/>
-              <span className="text-[#C9A84C]">Urbanland Products</span>
-            </h1>
-            <p className="text-sm sm:text-base text-[#2D2D2D]/85 max-w-2xl leading-relaxed mt-6">
-              We believe beautiful outdoor spaces should never harm the planet. That’s why every bench, planter box and amenity solution we manufacture is designed with green materials, zero deforestation, and long-term environmental responsibility at its core.
-            </p>
+    <div className="w-full bg-[#fcf9f4] text-[#1c1c19] font-sans overflow-x-hidden pt-0 selection:bg-[#C9A84C] selection:text-white">
+      <style>{`
+        summary::-webkit-details-marker {
+          display: none;
+        }
+      `}</style>
 
-            {/* Trust Line */}
-            <div className="mt-8 flex flex-wrap gap-y-2 gap-x-4 justify-center md:justify-start text-xs font-semibold text-[#2C5F2E] bg-[#EAE5DB]/40 px-5 py-3 rounded-full border border-black/[0.04] w-fit">
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>WPC & NFC Wood Alternatives</span>
-              </span>
-              <span className="opacity-30">|</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Supports IGBC, GRIHA & LEED</span>
-              </span>
-              <span className="opacity-30">|</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Recycled Content Focus</span>
-              </span>
-              <span className="opacity-30">|</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>2-Year Guarantee</span>
-              </span>
-            </div>
-
-            {/* CTAs */}
-            <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-              <Link
-                to="/contact"
-                className="px-6 py-3.5 bg-[#2C5F2E] text-white rounded-full font-bold uppercase tracking-wider text-xs hover:bg-[#2D2D2D] transition-all duration-300 shadow-md cursor-pointer no-underline"
-              >
-                Request Sustainable Quote →
-              </Link>
-              <Link
-                to="/resources/downloads"
-                className="px-6 py-3.5 bg-[#EAE5DB] text-[#2D2D2D] rounded-full font-bold uppercase tracking-wider text-xs hover:bg-[#C9A84C] hover:text-white transition-all duration-300 border border-black/[0.04] cursor-pointer no-underline"
-              >
-                Download Sustainability Report ↓
-              </Link>
-            </div>
-          </div>
-
-          <div className="w-full md:w-[35%] max-w-[420px] aspect-square rounded-[3rem] overflow-hidden shadow-lg border border-black/[0.04] select-none shrink-0 relative bg-black/5">
-            <img
-              src={welcome2}
-              alt="Lush green garden setup with eco-friendly planters"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          </div>
-        </div>
-      </section>
-
-      {/* Section 1: Our Green Commitment */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-        <div className="bg-white rounded-[2.5rem] border border-black/[0.04] p-8 md:p-16 shadow-[0_8px_30px_rgba(0,0,0,0.015)]">
-          <div className="max-w-4xl">
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Our Promise</span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1A1A1A] mb-6 leading-none">
-              Our Strong Commitment to Sustainability
-            </h2>
-            <div className="text-xs sm:text-sm text-[#2D2D2D]/75 leading-relaxed space-y-6">
-              <p className="font-bold text-black text-sm">
-                At Urbanland Products, sustainability is not an add-on — it is the foundation of our business.
-              </p>
-              <p>
-                We have completely moved away from traditional teak, sesam and acacia wood and replaced them with WPC (Wood-Plastic Composite) and NFC Wood (Natural Fiber Composite). These advanced green materials are made from recycled plastics and natural fibers, significantly reducing deforestation, lowering carbon emissions, and supporting the circular economy.
-              </p>
-              <p>
-                Every product we create is engineered to last 12–20+ years, drastically cutting replacement waste and long-term environmental impact.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: How Our Green Products Make a Difference */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-        <div className="mb-12">
-          <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Environmental Impact</span>
-          <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1A1A1A] leading-none">
-            Environmental & Client Benefits of Choosing Urbanland
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <h3 className="text-base font-black text-black uppercase mb-2">Reduces Deforestation</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              WPC & NFC Wood replace natural timber, saving tropical forests and preserving ecological biodiversity.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <h3 className="text-base font-black text-black uppercase mb-2">Uses Recycled Content</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Diverts high-density industrial plastic waste from oceans and landfills into durable materials.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <h3 className="text-base font-black text-black uppercase mb-2">Lower Carbon Footprint</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Our 12–20+ years long-life design cuts replacement frequency, lowering long-term manufacturing energy.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <h3 className="text-base font-black text-black uppercase mb-2">Supports Certifications</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Helps architects and private builders achieve premium IGBC, GRIHA and LEED green building certification points.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <h3 className="text-base font-black text-black uppercase mb-2">Biophilic Design</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Creates healthier, calming public outdoor spaces that support biophilic design, improving air quality and well-being.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-[0_5px_15px_rgba(0,0,0,0.005)]">
-            <h3 className="text-base font-black text-black uppercase mb-2">Low Maintenance</h3>
-            <p className="text-xs text-[#2D2D2D]/60 leading-relaxed">
-              Requires zero chemical paints, varnishes or anti-termite treatments, reducing chemical runoff.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: Our Sustainable Materials */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-        <div className="bg-white rounded-[2.5rem] border border-black/[0.04] p-8 md:p-16 shadow-[0_8px_30px_rgba(0,0,0,0.015)]">
-          <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Technical Spec</span>
-          <h2 className="text-3xl font-black uppercase tracking-tight text-[#1A1A1A] mb-8 leading-none">
-            Sustainable Materials We Use
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="pb-4 md:pb-0 md:pr-6 md:border-r border-black/[0.08]">
-              <h3 className="text-base font-black text-black uppercase mb-2">WPC (Wood-Plastic Composite)</h3>
-              <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
-                Recycled plastic + natural fibers. Delivers a beautiful natural wood look with zero maintenance and extreme weather resistance.
-              </p>
-            </div>
-            <div className="pb-4 md:pb-0 md:px-6 md:border-r border-black/[0.08]">
-              <h3 className="text-base font-black text-black uppercase mb-2">NFC Wood (Natural Fiber Composite)</h3>
-              <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
-                Advanced natural fiber material with superior strength and a beautiful, high-end matte finish. Perfect for luxury architectural installations.
-              </p>
-            </div>
-            <div className="md:pl-6">
-              <h3 className="text-base font-black text-black uppercase mb-2">Aluminium & Stainless Steel</h3>
-              <p className="text-xs text-[#2D2D2D]/70 leading-relaxed">
-                Highly durable, low-corrosion metals with excellent biological trace profiles and 100% infinite lifecycle recyclability.
-              </p>
-            </div>
-          </div>
-
-          <p className="text-xs sm:text-sm flex items-center justify-center gap-1.5 font-bold text-[#2C5F2E] border-t border-black/[0.05] pt-6 uppercase tracking-wide">
-            <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>All materials are chosen for their ability to deliver beauty, performance and genuine environmental responsibility.</span>
+      {/* Hero Section */}
+      <section className="w-full relative bg-charcoal-industrial text-white overflow-hidden py-24 md:py-32 flex flex-col items-center">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30 select-none pointer-events-none"
+          style={{
+            backgroundImage: `url(${getOptimizedImageUrl(heroImage)})`
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-industrial/80 to-charcoal-industrial" />
+        
+        <div className="relative w-full max-w-container-max px-margin-mobile md:px-margin-desktop flex flex-col items-center text-center gap-4">
+          <span className="font-label-caps tracking-[0.2em] uppercase font-bold text-xs text-craftsman-gold bg-craftsman-gold/10 px-4 py-2 rounded-full border border-craftsman-gold/30">
+            ✦ Ecological Commitment
+          </span>
+          <h1 className="font-display-lg-mobile text-4xl md:font-display-lg md:text-6xl lg:text-7xl text-white max-w-4xl uppercase font-bold tracking-tight">
+            Sustainability
+          </h1>
+          <p className="font-body-lg text-white/80 max-w-3xl mt-2 leading-relaxed">
+            Sustainability is at the heart of everything we build. From responsibly selected materials to
+            long-lasting outdoor furniture, we're committed to creating products that reduce environmental
+            impact while enhancing public and private spaces across India.
           </p>
-        </div>
-      </section>
 
-      {/* Section 4: Real Green Impact */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-        <div className="bg-[#2D2D2D] text-white rounded-[2.5rem] p-8 md:p-16 shadow-lg border border-white/5">
-          <div className="max-w-3xl">
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#C9A84C] mb-3 block">— Nationwide Footprint</span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white mb-6 leading-none">
-              Real Projects. Real Sustainable Impact.
-            </h2>
-            <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
-              We have delivered 50+ green projects across India, including major luxury residential, municipal and institutional developments. Every installation contributes to reduced deforestation, lower carbon emissions and healthier urban environments.
-            </p>
+          <div className="flex flex-wrap justify-center gap-4 mt-4">
+            <Link
+              to="/products"
+              className="bg-craftsman-gold text-charcoal-industrial px-8 py-4 font-label-technical uppercase tracking-widest text-xs font-bold hover:bg-white transition-all duration-300 rounded-[4px] no-underline flex items-center gap-2"
+            >
+              Explore Our Products <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </Link>
+            <Link
+              to="/resources/downloads"
+              className="border-2 border-white text-white px-8 py-4 font-label-technical uppercase tracking-widest text-xs font-bold hover:bg-white hover:text-charcoal-industrial transition-all duration-300 rounded-[4px] no-underline flex items-center gap-2"
+            >
+              Download Product Catalogue <span className="material-symbols-outlined text-[16px]">download</span>
+            </Link>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-3 mt-8 font-label-caps text-xs text-craftsman-gold">
+            {[
+              "WPC & NFC Wood",
+              "Green Building Points",
+              "Durable & Low-Maintenance",
+              "ISO 9001:2015 Certified"
+            ].map((badge, idx) => (
+              <span key={idx} className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-craftsman-gold/30">
+                <span className="material-symbols-outlined text-craftsman-gold text-[16px]">check_circle</span> {badge}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Section 5: Our Green Promise */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 mb-24">
-        <div className="bg-white rounded-[2.5rem] border border-black/[0.04] p-8 md:p-16 shadow-[0_8px_30px_rgba(0,0,0,0.015)]">
-          <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Core Values</span>
-          <h2 className="text-3xl font-black uppercase tracking-tight text-[#1A1A1A] mb-8 leading-none">
-            Our Green Promise to You
-          </h2>
-
-          <ul className="text-xs sm:text-sm text-[#2D2D2D]/85 leading-relaxed space-y-4 max-w-2xl">
-            <li className="flex items-start gap-3">
-              <span className="text-[#2C5F2E] flex items-center justify-center shrink-0 w-5 h-5 rounded-full bg-[#2C5F2E]/10 select-none mt-0.5">
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </span>
-              <span>We will never use endangered, undocumented, or illegal timber in any of our furniture components.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-[#2C5F2E] flex items-center justify-center shrink-0 w-5 h-5 rounded-full bg-[#2C5F2E]/10 select-none mt-0.5">
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </span>
-              <span>We actively promote WPC and NFC Wood as sustainable, high-durability, biophilic alternatives to natural wood.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-[#2C5F2E] flex items-center justify-center shrink-0 w-5 h-5 rounded-full bg-[#2C5F2E]/10 select-none mt-0.5">
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </span>
-              <span>We actively support our developer clients and landscape architects in achieving premium green building certifications.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-[#2C5F2E] flex items-center justify-center shrink-0 w-5 h-5 rounded-full bg-[#2C5F2E]/10 select-none mt-0.5">
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </span>
-              <span>We design products for maximum lifespan (12–20+ years) to minimize waste and promote the circular economy.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-[#2C5F2E] flex items-center justify-center shrink-0 w-5 h-5 rounded-full bg-[#2C5F2E]/10 select-none mt-0.5">
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </span>
-              <span>We continue to research and innovate new green materials, low-VOC finishes, and energy-efficient manufacturing processes.</span>
-            </li>
-          </ul>
+      {/* Section 1: Philosophy */}
+      <section className="reveal-section py-stack-xl bg-[#fcf9f4]">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          <div className="max-w-4xl text-left reveal-up">
+            <span className="font-label-technical text-[#C9A84C] tracking-[0.2em] uppercase font-semibold text-xs block mb-4">
+              Environmental Philosophy
+            </span>
+            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#002f09] mb-4 font-bold">
+              Built for a Sustainable Future
+            </h2>
+            <div className="w-24 h-1 bg-[#C9A84C] mb-8"></div>
+            <blockquote className="font-body-lg text-lg md:text-body-lg text-[#41493f] leading-relaxed m-0">
+              Sustainability isn't an afterthought—it's part of our manufacturing philosophy. Instead of relying on traditional hardwoods such as teak, acacia and sesam, we use innovative materials like WPC (Wood-Plastic Composite) and NFC Wood (Natural Fiber Composite). These materials incorporate recycled plastics and natural fibres, helping reduce dependence on natural timber while supporting more responsible manufacturing. Every Urbanland product is engineered for durability, with an expected lifespan of 12–20+ years, helping minimise replacement waste and long-term maintenance.
+            </blockquote>
+          </div>
         </div>
       </section>
 
-      {/* FAQ Accordion Block */}
-      <section className="max-w-[850px] mx-auto px-6 mb-24">
-        <div className="text-center mb-12">
-          <span className="text-[10px] font-black uppercase tracking-widest text-[#2C5F2E] mb-3 block">— Clear Answers</span>
-          <h2 className="text-3xl font-black uppercase tracking-tight text-[#1A1A1A] leading-none">
-            Frequently Asked Questions
-          </h2>
+      {/* Section 2: Grid Benefits */}
+      <section className="reveal-section py-stack-xl bg-[#F0EDE9]">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          <div className="text-center mb-stack-xl reveal-up">
+            <span className="font-label-technical text-[#C9A84C] tracking-[0.2em] uppercase font-semibold text-xs block mb-4">
+              Material Advantages
+            </span>
+            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#002f09] mb-4 font-bold">
+              Why Sustainable Materials Matter
+            </h2>
+            <div className="w-24 h-1 bg-[#C9A84C] mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+            {/* Item 1 */}
+            <div className="bg-[#fcf9f4] p-10 border border-[#2D2D2D]/5 flex flex-col items-start hover:border-[#C9A84C] transition-colors group">
+              <div className="w-12 h-12 bg-[#e5e2dd] flex items-center justify-center mb-6 group-hover:bg-[#002f09] transition-colors">
+                <span className="material-symbols-outlined text-[#002f09] group-hover:text-white">forest</span>
+              </div>
+              <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-[#2D2D2D]">Reduces Reliance on Natural Timber</h3>
+              <p className="text-[#41493f] text-sm leading-relaxed">Our WPC and NFC Wood alternatives help reduce the need for traditional hardwood.</p>
+            </div>
+            {/* Item 2 */}
+            <div className="bg-[#fcf9f4] p-10 border border-[#2D2D2D]/5 flex flex-col items-start hover:border-[#C9A84C] transition-colors group">
+              <div className="w-12 h-12 bg-[#e5e2dd] flex items-center justify-center mb-6 group-hover:bg-[#002f09] transition-colors">
+                <span className="material-symbols-outlined text-[#002f09] group-hover:text-white">rebase_edit</span>
+              </div>
+              <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-[#2D2D2D]">Uses Recycled Materials</h3>
+              <p className="text-[#41493f] text-sm leading-relaxed">We incorporate recycled plastics and natural fibres wherever possible to support a circular approach to manufacturing.</p>
+            </div>
+            {/* Item 3 */}
+            <div className="bg-[#fcf9f4] p-10 border border-[#2D2D2D]/5 flex flex-col items-start hover:border-[#C9A84C] transition-colors group">
+              <div className="w-12 h-12 bg-[#e5e2dd] flex items-center justify-center mb-6 group-hover:bg-[#002f09] transition-colors">
+                <span className="material-symbols-outlined text-[#002f09] group-hover:text-white">hourglass_empty</span>
+              </div>
+              <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-[#2D2D2D]">Built to Last</h3>
+              <p className="text-[#41493f] text-sm leading-relaxed">Products designed for long service life reduce replacement frequency, maintenance requirements and material waste.</p>
+            </div>
+            {/* Item 4 */}
+            <div className="bg-[#fcf9f4] p-10 border border-[#2D2D2D]/5 flex flex-col items-start hover:border-[#C9A84C] transition-colors group">
+              <div className="w-12 h-12 bg-[#e5e2dd] flex items-center justify-center mb-6 group-hover:bg-[#002f09] transition-colors">
+                <span className="material-symbols-outlined text-[#002f09] group-hover:text-white">apartment</span>
+              </div>
+              <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-[#2D2D2D]">Supports Green Building Projects</h3>
+              <p className="text-[#41493f] text-sm leading-relaxed">Our material choices can contribute to sustainable building initiatives, including IGBC, GRIHA and LEED projects.</p>
+            </div>
+            {/* Item 5 */}
+            <div className="bg-[#fcf9f4] p-10 border border-[#2D2D2D]/5 flex flex-col items-start hover:border-[#C9A84C] transition-colors group">
+              <div className="w-12 h-12 bg-[#e5e2dd] flex items-center justify-center mb-6 group-hover:bg-[#002f09] transition-colors">
+                <span className="material-symbols-outlined text-[#002f09] group-hover:text-white">build</span>
+              </div>
+              <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-[#2D2D2D]">Low Maintenance</h3>
+              <p className="text-[#41493f] text-sm leading-relaxed">Unlike traditional timber, our materials require minimal upkeep, reducing the need for paints, coatings and chemical treatments.</p>
+            </div>
+            {/* Item 6 */}
+            <div className="bg-[#fcf9f4] p-10 border border-[#2D2D2D]/5 flex flex-col items-start hover:border-[#C9A84C] transition-colors group">
+              <div className="w-12 h-12 bg-[#e5e2dd] flex items-center justify-center mb-6 group-hover:bg-[#002f09] transition-colors">
+                <span className="material-symbols-outlined text-[#002f09] group-hover:text-white">nature_people</span>
+              </div>
+              <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-[#2D2D2D]">Designed for Better Outdoor Spaces</h3>
+              <p className="text-[#41493f] text-sm leading-relaxed">We help architects, landscape designers and developers create durable, functional and environmentally responsible public spaces.</p>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="flex flex-col gap-4">
-          {faqsList.map((faq, idx) => {
-            const isOpen = activeIndex === idx;
-            return (
-              <div 
-                key={idx}
-                className={`bg-white rounded-[2rem] border transition-all duration-500 overflow-hidden shadow-[0_5px_20px_rgba(0,0,0,0.005)] ${
-                  isOpen 
-                    ? "border-[#2C5F2E]/40 ring-1 ring-[#2C5F2E]/10" 
-                    : "border-black/[0.03] hover:border-black/10"
-                }`}
-              >
-                <button
-                  onClick={() => setActiveIndex(isOpen ? null : idx)}
-                  className="w-full px-6 py-6 md:px-8 flex justify-between items-center text-left cursor-pointer focus:outline-none border-none select-none group bg-white"
-                >
-                  <h3 className="text-sm sm:text-base font-black uppercase tracking-tight text-[#1A1A1A] group-hover:text-[#2C5F2E] pr-6 transition-colors leading-snug">
-                    {faq.q}
-                  </h3>
-                  <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 shrink-0 select-none ${
-                    isOpen ? "bg-[#2C5F2E] text-white rotate-45" : "bg-[#F7F4EF] text-[#2D2D2D] group-hover:bg-[#2C5F2E]/10"
-                  }`}>
-                    ＋
-                  </span>
-                </button>
-
-                <div className={`transition-all duration-500 ease-in-out overflow-hidden ${
-                  isOpen ? "max-h-[300px] border-t border-black/[0.05]" : "max-h-0"
-                }`}>
-                  <p className="px-6 py-6 md:px-8 text-xs sm:text-sm leading-relaxed text-[#2D2D2D]/75 bg-[#F7F4EF]/20">
-                    {faq.a}
-                  </p>
+      {/* Section 3: Materials */}
+      <section className="reveal-section py-stack-xl bg-[#fcf9f4]">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-stack-xl gap-6">
+            <div className="max-w-2xl text-left reveal-up">
+              <span className="font-label-technical text-[#C9A84C] tracking-[0.2em] uppercase font-semibold text-xs block mb-4">
+                Core Materials
+              </span>
+              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#002f09] mb-4 font-bold">
+                Sustainable Materials We Use
+              </h2>
+              <div className="w-24 h-1 bg-[#C9A84C] mb-6"></div>
+              <p className="font-body-lg text-body-lg text-[#41493f]">Every material is carefully selected to balance aesthetics, performance and sustainability.</p>
+            </div>
+            <Link
+              to="/resources/materials"
+              className="bg-[#2C5F2E] text-white px-8 py-4 font-label-technical text-label-technical uppercase tracking-wider flex items-center gap-2 hover:opacity-90 transition-opacity no-underline rounded-sm font-bold shrink-0"
+            >
+              Explore Our Materials <span className="material-symbols-outlined">arrow_forward</span>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-gutter reveal-up">
+            {/* WPC Card */}
+            <div className="group flex flex-col border border-[#2D2D2D]/10 overflow-hidden bg-white">
+              <div className="h-64 overflow-hidden relative">
+                <img 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  src={getOptimizedImageUrl("https://lh3.googleusercontent.com/aida-public/AB6AXuBnSv-DJxIny_Y75-uOgvpu0Xs_CeIepLusJu0tj9P-1LPDc4L3bRsax0IQeJnW8mLN9yKEtAhT04xZN28SuiCB7sSKpPy9leDWF4Ws6bQqfRmFf9rT4q-0iU4XOy0q8uKZKkOUb_0XcyFmu6bzF4I1O0gXSzWcV8mthQ2aIjERC_goJAA6NhGMjxLRzQLp56LGX9348VjJ7qPVjOrSVG5DQP6xscJXQZq5WESM5g8PZqzFeFfoo33Y3PEROgffadtR7wqzhMt1CzqY")}
+                  alt="Wood-Plastic Composite (WPC) material grain"
+                />
+                <div className="absolute top-4 left-4 bg-[#002f09] text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+                  Composite
                 </div>
               </div>
-            );
-          })}
+              <div className="p-8 flex-1 flex flex-col">
+                <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-[#2D2D2D]">WPC</h3>
+                <p className="text-[#41493f] text-sm leading-relaxed mb-6">
+                  Manufactured using recycled plastics and natural fibres, WPC delivers the appearance of wood with excellent weather resistance and low maintenance.
+                </p>
+              </div>
+            </div>
+            {/* NFC Wood Card */}
+            <div className="group flex flex-col border border-[#2D2D2D]/10 overflow-hidden bg-white">
+              <div className="h-64 overflow-hidden relative">
+                <img 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  src={getOptimizedImageUrl("https://lh3.googleusercontent.com/aida-public/AB6AXuBFByxy7KX8uSgbx0hWj2Lm236gxTSqEDprxz2RTCB4W9dfWi2WXffsDKgjkpnqfmsVf3JJucAyCSb6C7JVo38mvzaGsrJeire0IwmKTFrcv82WLNRwKt5FrKqpy-iE_Y0Y_X1qNgjHx3PwnilxIkHGmXpnwtiSQlYZ7KqZJc6JF11B8HBtBuKVIl-J8DFvkPxcV4ouQCHxeI4AtT7A0jdJOWu93PjbA2F08QPPe5WL4M3YRWu1UhBabTvnnPCYIRByBlCeZlhYvrRn")}
+                  alt="Natural Fiber Composite (NFC) wood planks"
+                />
+                <div className="absolute top-4 left-4 bg-[#002f09] text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+                  Premium
+                </div>
+              </div>
+              <div className="p-8 flex-1 flex flex-col">
+                <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-[#2D2D2D]">NFC Wood</h3>
+                <p className="text-[#41493f] text-sm leading-relaxed mb-6">
+                  A premium composite material offering exceptional durability, dimensional stability and a refined natural finish.
+                </p>
+              </div>
+            </div>
+            {/* Metal Card */}
+            <div className="group flex flex-col border border-[#2D2D2D]/10 overflow-hidden bg-white">
+              <div className="h-64 overflow-hidden relative">
+                <img 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  src={getOptimizedImageUrl("https://lh3.googleusercontent.com/aida-public/AB6AXuC38o4Bi7gsVHFmBqGKADPALCzK7h05uptWduJ90JeLy_qAR-VA_uffs2L7zKU92AgfWuZQnM6H5FQJEOBL8YbElejfUOPQkaqk6Y3G6g56qpZHaQpmXENtLSWHgyieZiKOgVDszGbPyEGYjIt3ip8t59IssGdhW7y6NENXXUHiT6atZHVOG_K7Sd4Ev-rJtFNBmmM4I-ahrx_DE5vE2CQXIiu3TrZopj76-XBelEukJRXsjnREPyL97x6-qxwKcfCTF-Rq4UAPnhFG")}
+                  alt="Brushed aluminum and stainless steel joints"
+                />
+                <div className="absolute top-4 left-4 bg-[#002f09] text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+                  Recyclable
+                </div>
+              </div>
+              <div className="p-8 flex-1 flex flex-col">
+                <h3 className="font-headline-md text-xl md:text-headline-md mb-4 text-[#2D2D2D]">Aluminium &amp; Stainless Steel</h3>
+                <p className="text-[#41493f] text-sm leading-relaxed mb-6">
+                  Highly durable and recyclable metals that provide excellent structural performance with long service life.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Final Call-to-Action */}
-      <CTASection 
-        title="Ready to Partner with a Truly Green Outdoor Furniture Manufacturer?"
-        description="Support biophilic architectural design, earn IGBC points, and reduce deforestation with our premium WPC and NFC solutions."
-        tagText="Ecological Integrity"
-        primaryText="Request Sustainable Quote →"
-        primaryLink="/contact"
-        secondaryText="Download Sustainability Report ↓"
-        secondaryLink="/resources/downloads"
+      {/* Section 4: Projects Gallery */}
+      <section className="reveal-section py-stack-xl bg-[#F0EDE9] border-y border-[#2D2D2D]/5">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-stack-xl items-center">
+            <div className="text-left reveal-up">
+              <span className="font-label-technical text-[#C9A84C] tracking-[0.2em] uppercase font-semibold text-xs block mb-4">
+                Proven Excellence
+              </span>
+              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#002f09] mb-4 font-bold">
+                Creating Sustainable Outdoor Spaces Across India
+              </h2>
+              <div className="w-24 h-1 bg-[#C9A84C] mb-6"></div>
+              <p className="font-body-lg text-body-lg text-[#41493f] mb-8 leading-relaxed">
+                Urbanland Products has delivered 50+ outdoor furniture projects for residential communities,
+                hospitality developments, educational institutions, municipalities and public
+                infrastructure. Every installation reflects our commitment to durable design, responsible
+                material selection and long-term environmental value.
+              </p>
+              <Link
+                to="/projects"
+                className="bg-[#2C5F2E] text-white px-8 py-4 font-label-technical text-label-technical uppercase tracking-wider flex items-center gap-2 hover:opacity-90 transition-opacity no-underline w-fit rounded-sm font-bold"
+              >
+                View Our Projects <span className="material-symbols-outlined">visibility</span>
+              </Link>
+              <div className="mt-stack-lg pt-stack-lg border-t border-[#2D2D2D]/10">
+                <p className="text-label-technical uppercase tracking-widest text-[#41493f]/60 mb-6 font-bold">Trusted By Leading Developers</p>
+                <div className="flex flex-wrap gap-8 opacity-40 grayscale items-center">
+                  <div className="font-bold text-xl tracking-tighter text-[#2D2D2D]">LODHA</div>
+                  <div className="font-bold text-xl tracking-tighter text-[#2D2D2D]">Godrej</div>
+                  <div className="font-bold text-xl tracking-tighter uppercase text-[#2D2D2D]">Kalpataru</div>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="aspect-square bg-[#e5e2dd] overflow-hidden">
+                <img 
+                  className="w-full h-full object-cover"
+                  src={getOptimizedImageUrl("https://lh3.googleusercontent.com/aida-public/AB6AXuAc-baM-pM0qWq9Tv0a7NDB_vmbn5_oJVCHCLodmfbLVHResL3nyEz5xyFN2WqrafDspHlCJQEDe0jJcx47cpj7THWlgl09CvlZ9y-cp5BJFlWAX31C5Y96V33HHBnmBpdWXVZXALZFD1P2O9cusgHpM0IQ6vTC4pr8UJYiiVavRbo3IIv1Y--AamZ-CzvUnwB2XPU6uz48Dq7cg37RS3Eih7T2IREeCLyw6J-Uu8J4tSPPlwfAwvIW3Rtg3i3vtOA9Onzm5LbKisNl")}
+                  alt="Sustainable outdoor seating in residential township"
+                />
+              </div>
+              <div className="aspect-square bg-[#e5e2dd] overflow-hidden mt-8">
+                <img 
+                  className="w-full h-full object-cover"
+                  src={getOptimizedImageUrl("https://lh3.googleusercontent.com/aida-public/AB6AXuAS0-a1ADGFX_dkwuc-QlSDwVU7T8dOnyTOyhizBpUfmKSRRh0hDqT3LMj-YHS8nUisAs42v33OoFsLJyug-6pp7-Stxz5Wl6nXOKLV_iJDiPT1BB3_W4ycC6BiWJDaBMG62pTIGZg0PCUN_2tAS6qiEFWEwdjrvoI_T2j1iDSGysajw7Vl0S9vEtIdqFqWFodnBHpBL9yQZlh4XkoWlyGsue2zAY2b55kV0HCVXzS3u-Qs7V2xcObXg0_Pn0BbzpLHdKW_xtruXnSF")}
+                  alt="Recycled WPC courtyard planters and seating"
+                />
+              </div>
+              <div className="aspect-square bg-[#e5e2dd] overflow-hidden -mt-8">
+                <img 
+                  className="w-full h-full object-cover"
+                  src={getOptimizedImageUrl("https://lh3.googleusercontent.com/aida-public/AB6AXuC45Vj4Ref3nWKB0oysuQ_dw04gpLRXfDDNhM_KZHq6T6DyxOp-bUBH6Kppdb_7bmKEx5y6tl5gBSoHwbHm8fMyFbpKN2rgPIZuBX8zhNMO7dyF96fHKyylJ73H9UADQMb5BrBGsodOHMXEdgztC0OiyQgBjrWrgCbsaMDXXBigD5a4F5mCbmtdIDW-0kZt-8kTuxWoc9Sj5giCO687FacieCJu_3fc7njtn78OitRwYT4U08t320i0DJMy-ZGyPHipwh_6DmouyGzd")}
+                  alt="Durable composite outdoor benches overlooking water"
+                />
+              </div>
+              <div className="aspect-square bg-[#e5e2dd] overflow-hidden">
+                <img 
+                  className="w-full h-full object-cover"
+                  src={getOptimizedImageUrl("https://lh3.googleusercontent.com/aida-public/AB6AXuCZCY3EiAwkbWNU50-wirJgCSEGGx9Qc_iWzhhbKJd24MaOiWVlue7gRy6tqeoN8C7Aj-KGC8TxaFGquBVcIvD6YcZmMqG6_Mmzn1hQxe2iHx99poOOlIRI3LgNkSjDLkHC-GZ92yBnptHjDkS1TvaCALxXjrXchc0ChwzqVedKq3bjK345YFWZXWtvLgV6A9gj3V_2611W6NnPzuJnWTXNWvIgL9qiyr_iRA1BnKlrSzuJ7u5nAd_FDCw6bho9EI4qkCeULiBje1Pp")}
+                  alt="Luxury hotel WPC loungers and poolside tables"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Promise */}
+      <section className="reveal-section py-stack-xl bg-[#002f09] text-white relative overflow-hidden">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+          <div className="text-left mb-stack-lg reveal-up">
+            <span className="font-label-technical text-[#C9A84C] tracking-[0.2em] uppercase font-semibold text-xs block mb-4">
+              Our Commitment
+            </span>
+            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold mb-4">
+              Our Sustainability Promise
+            </h2>
+            <div className="w-24 h-1 bg-[#C9A84C]"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-6">
+            <div className="flex items-start gap-4">
+              <span className="material-symbols-outlined text-[#C9A84C]">verified</span>
+              <p className="font-body-lg text-body-lg m-0">Using responsibly selected materials</p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="material-symbols-outlined text-[#C9A84C]">verified</span>
+              <p className="font-body-lg text-body-lg m-0">Reducing reliance on traditional hardwood</p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="material-symbols-outlined text-[#C9A84C]">verified</span>
+              <p className="font-body-lg text-body-lg m-0">Manufacturing durable products that minimise replacement waste</p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="material-symbols-outlined text-[#C9A84C]">verified</span>
+              <p class="font-body-lg text-body-lg m-0">Supporting sustainable building initiatives</p>
+            </div>
+            <div className="flex items-start gap-4">
+              <span className="material-symbols-outlined text-[#C9A84C]">verified</span>
+              <p className="font-body-lg text-body-lg m-0">Continuously improving our products and manufacturing processes</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="reveal-section py-20 bg-white border-t border-[#2D2D2D]/10">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-12 space-y-4 reveal-up flex flex-col items-center">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+              Support &amp; FAQ
+            </span>
+            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#002f09] font-bold">
+              Sustainability FAQ
+            </h2>
+            <div className="w-24 h-1 bg-craftsman-gold"></div>
+          </div>
+          <div className="space-y-4">
+            {sustainabilityFaqsList.map((faq, idx) => {
+              const isOpen = activeFAQIndex === idx;
+              return (
+                <div key={idx} className="border-b border-outline-variant pb-4 text-left reveal-up">
+                  <button
+                    onClick={() => setActiveFAQIndex(isOpen ? null : idx)}
+                    className="w-full flex justify-between items-center text-left py-4 focus:outline-none cursor-pointer border-none bg-transparent"
+                  >
+                    <span className="font-body-lg font-semibold text-[#2D2D2D] text-base md:text-lg">
+                      {faq.q}
+                    </span>
+                    <span
+                      className={`material-symbols-outlined text-craftsman-gold transition-transform duration-300 ${
+                        isOpen ? "rotate-45" : ""
+                      }`}
+                    >
+                      add
+                    </span>
+                  </button>
+                  <div
+                    className={`transition-all duration-300 ease-out overflow-hidden ${
+                      isOpen ? "max-h-[300px] opacity-100 mt-2" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="font-body-md text-[#41493f] text-sm md:text-base leading-relaxed pb-4">
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <AdvantageCTA
+        advantages={sustainabilityAdvantages}
+        title="Ready to Build More Sustainable Outdoor Spaces Together?"
+        ctaText="Request a Quote"
+        ctaLink="/contact"
+        brochureText="Download Product Catalogue"
+        brochureLink="/resources/downloads"
+        statsText="Whether you're planning a township, park, campus or commercial landscape, Urbanland Products can help you create durable outdoor spaces with responsible materials."
       />
     </div>
   );
 };
 
 export default Sustainability;
-

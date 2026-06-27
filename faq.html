@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FAQ | ARCH-FAB Urbanland Products</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Playfair+Display:wght@100..900&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e5e2dd",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1c1c19",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "secondary": "#755b00",
+                        "surface-bright": "#fcf9f4",
+                        "primary-container": "#124719",
+                        "on-secondary-fixed": "#241a00",
+                        "inverse-on-surface": "#f3f0eb",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#9cd597",
+                        "secondary-fixed": "#ffdf90",
+                        "on-surface-variant": "#41493f",
+                        "secondary-fixed-dim": "#e6c366",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c1c9bc",
+                        "surface-container-highest": "#e5e2dd",
+                        "surface-container": "#f0ede9",
+                        "site-canvas": "#F7F4EF",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dcdad5",
+                        "tertiary-fixed": "#e4e2e1",
+                        "forest-deep": "#2C5F2E",
+                        "on-secondary-fixed-variant": "#584400",
+                        "primary": "#002f09",
+                        "surface-tint": "#366937",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#31302d",
+                        "surface-container-low": "#f6f3ee",
+                        "surface": "#fcf9f4",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#72796E",
+                        "primary-fixed": "#b7f1b1",
+                        "on-primary-container": "#7eb67b",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebe8e3",
+                        "secondary-container": "#fed979",
+                        "background": "#fcf9f4",
+                        "industrial-charcoal": "#2D2D2D",
+                        "on-surface": "#1c1c19",
+                        "on-primary-fixed": "#002105",
+                        "architectural-gold": "#C9A84C",
+                        "on-tertiary-container": "#a9a8a7",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "tertiary": "#272727",
+                        "tertiary-container": "#3d3d3d",
+                        "on-primary-fixed-variant": "#1d5122",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#9cd597",
+                        "on-secondary-container": "#785d03"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-xl": "80px",
+                        "base": "8px",
+                        "stack-sm": "16px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "stack-md": "32px",
+                        "gutter": "24px",
+                        "stack-lg": "64px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding-bottom: 24px;
+        }
+
+        .accordion-item.active .icon-toggle {
+            transform: rotate(180deg);
+        }
+
+        .category-sidebar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .custom-shadow:hover {
+            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-site-canvas text-on-surface font-body-md selection:bg-architectural-gold selection:text-white">
+    <!-- TopNavBar Shell -->
+    <nav
+        class="fixed top-0 w-full h-20 bg-surface dark:bg-industrial-charcoal border-b border-industrial-charcoal/10 dark:border-outline-variant/20 z-50">
+        <div class="max-w-container-max mx-auto px-margin-desktop flex items-center justify-between h-full">
+            <div class="font-headline-lg text-headline-lg text-forest-deep dark:text-inverse-primary tracking-tight">
+                ARCH-FAB</div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-industrial-charcoal dark:text-surface-container-highest font-label-md text-label-md hover:text-forest-deep transition-colors duration-300 cursor-pointer transition-all active:scale-95"
+                    href="#">Collections</a>
+                <a class="text-industrial-charcoal dark:text-surface-container-highest font-label-md text-label-md hover:text-forest-deep transition-colors duration-300 cursor-pointer transition-all active:scale-95"
+                    href="#">Projects</a>
+                <a class="text-industrial-charcoal dark:text-surface-container-highest font-label-md text-label-md hover:text-forest-deep transition-colors duration-300 cursor-pointer transition-all active:scale-95"
+                    href="#">Materials</a>
+                <a class="text-industrial-charcoal dark:text-surface-container-highest font-label-md text-label-md hover:text-forest-deep transition-colors duration-300 cursor-pointer transition-all active:scale-95"
+                    href="#">Downloads</a>
+                <a class="text-industrial-charcoal dark:text-surface-container-highest font-label-md text-label-md hover:text-forest-deep transition-colors duration-300 cursor-pointer transition-all active:scale-95"
+                    href="#">Sustainability</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="material-symbols-outlined text-industrial-charcoal cursor-pointer">search</button>
+                <button
+                    class="bg-forest-deep text-on-primary px-6 py-2 font-label-md text-label-md hover:opacity-90 transition-all uppercase tracking-wider">Contact
+                    Us</button>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="bg-surface py-stack-xl border-b border-outline-variant/10">
+            <div class="max-w-container-max mx-auto px-margin-desktop text-center">
+                <span
+                    class="inline-block px-4 py-1 bg-surface-container text-forest-deep font-label-sm text-label-sm uppercase tracking-widest mb-6">Support
+                    Center</span>
+                <h1 class="font-display-lg text-display-lg md:text-display-lg-mobile text-on-surface mb-6">Frequently
+                    Asked Questions</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                    Clear answers to the most common questions about our sustainable outdoor furniture, materials,
+                    projects, warranty and services.
+                </p>
+                <!-- Trust Line -->
+                <div
+                    class="flex flex-wrap justify-center items-center gap-y-4 gap-x-12 pt-8 border-t border-outline-variant/30">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-forest-deep"
+                            style="font-variation-settings: 'wght' 700;">check</span>
+                        <span class="font-label-md text-label-md text-industrial-charcoal">Honest Answers</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-forest-deep"
+                            style="font-variation-settings: 'wght' 700;">check</span>
+                        <span class="font-label-md text-label-md text-industrial-charcoal">2-Year Guarantee</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-forest-deep"
+                            style="font-variation-settings: 'wght' 700;">check</span>
+                        <span class="font-label-md text-label-md text-industrial-charcoal">Sustainable & Green
+                            Focus</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-forest-deep"
+                            style="font-variation-settings: 'wght' 700;">check</span>
+                        <span class="font-label-md text-label-md text-industrial-charcoal">Made in India</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Main FAQ Section -->
+        <section class="py-stack-xl max-w-container-max mx-auto px-margin-desktop">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+                <!-- Side Navigation Categories -->
+                <div class="lg:col-span-3">
+                    <div class="sticky top-28 space-y-2 category-sidebar">
+                        <h3 class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-4">Categories
+                        </h3>
+                        <button
+                            class="w-full text-left p-4 font-label-md text-label-md text-forest-deep bg-surface-container border-l-4 border-forest-deep transition-all category-btn"
+                            data-target="general" onclick="scrollToCategory('general')">General</button>
+                        <button
+                            class="w-full text-left p-4 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all category-btn"
+                            data-target="products" onclick="scrollToCategory('products')">Products & Materials</button>
+                        <button
+                            class="w-full text-left p-4 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all category-btn"
+                            data-target="sustainability"
+                            onclick="scrollToCategory('sustainability')">Sustainability</button>
+                        <button
+                            class="w-full text-left p-4 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all category-btn"
+                            data-target="projects" onclick="scrollToCategory('projects')">Projects & Delivery</button>
+                        <button
+                            class="w-full text-left p-4 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all category-btn"
+                            data-target="warranty" onclick="scrollToCategory('warranty')">Warranty & Support</button>
+                        <button
+                            class="w-full text-left p-4 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all category-btn"
+                            data-target="customization" onclick="scrollToCategory('customization')">Customization &
+                            Quotations</button>
+                    </div>
+                </div>
+                <!-- FAQ Accordions -->
+                <div class="lg:col-span-9 space-y-16">
+                    <h2 class="font-headline-lg text-headline-lg text-industrial-charcoal mb-8">All Your Questions
+                        Answered</h2>
+                    <!-- General -->
+                    <div class="category-section scroll-mt-32" id="general">
+                        <h3
+                            class="font-headline-md text-headline-md text-forest-deep border-b border-outline-variant/30 pb-4 mb-6">
+                            General</h3>
+                        <div class="space-y-4">
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">Who
+                                        is ARCH-FAB Urbanland Products?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">ARCH-FAB is a
+                                        premier Indian manufacturer specializing in high-performance, architecturally
+                                        designed outdoor furniture and urban landscape solutions, engineered for
+                                        permanence and aesthetic excellence.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">Where
+                                        are your products manufactured?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">Every ARCH-FAB
+                                        product is proudly engineered and manufactured in our advanced facility in
+                                        India, ensuring rigorous quality control and support for local craftsmanship.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Products & Materials -->
+                    <div class="category-section scroll-mt-32" id="products">
+                        <h3
+                            class="font-headline-md text-headline-md text-forest-deep border-b border-outline-variant/30 pb-4 mb-6">
+                            Products & Materials</h3>
+                        <div class="space-y-4">
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">What
+                                        materials do you use for durability?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">We utilize
+                                        industrial-grade materials including powder-coated galvanized steel,
+                                        high-performance concrete, and sustainable hardwoods designed to withstand harsh
+                                        tropical weather and heavy public use.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">Are
+                                        the metal components rust-proof?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">Yes, all metal
+                                        components undergo a multi-stage finishing process including hot-dip
+                                        galvanization and architectural-grade powder coating to prevent corrosion in
+                                        high-moisture environments.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sustainability -->
+                    <div class="category-section scroll-mt-32" id="sustainability">
+                        <h3
+                            class="font-headline-md text-headline-md text-forest-deep border-b border-outline-variant/30 pb-4 mb-6">
+                            Sustainability</h3>
+                        <div class="space-y-4">
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">How
+                                        does ARCH-FAB prioritize the environment?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">Sustainability is at
+                                        our core. We use recycled content in our metals, responsibly sourced wood, and
+                                        low-VOC coatings, ensuring our products contribute to LEED and IGBC certified
+                                        projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Projects & Delivery -->
+                    <div class="category-section scroll-mt-32" id="projects">
+                        <h3
+                            class="font-headline-md text-headline-md text-forest-deep border-b border-outline-variant/30 pb-4 mb-6">
+                            Projects & Delivery</h3>
+                        <div class="space-y-4">
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">What
+                                        is the standard lead time for orders?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">Standard production
+                                        lead time is typically 4–6 weeks, though this can vary based on order volume and
+                                        customization requirements.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">Do
+                                        you provide installation services?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">Yes, we offer
+                                        on-site assembly and installation guidance through our specialized technical
+                                        team for large-scale commercial and public projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Warranty & Support -->
+                    <div class="category-section scroll-mt-32" id="warranty">
+                        <h3
+                            class="font-headline-md text-headline-md text-forest-deep border-b border-outline-variant/30 pb-4 mb-6">
+                            Warranty & Support</h3>
+                        <div class="space-y-4">
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">What
+                                        does the 2-Year Guarantee cover?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">Our comprehensive
+                                        2-year guarantee covers manufacturing defects, structural failures, and abnormal
+                                        degradation of finishes under standard usage conditions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Customization & Quotations -->
+                    <div class="category-section scroll-mt-32" id="customization">
+                        <h3
+                            class="font-headline-md text-headline-md text-forest-deep border-b border-outline-variant/30 pb-4 mb-6">
+                            Customization & Quotations</h3>
+                        <div class="space-y-4">
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">Can
+                                        we request custom dimensions or colors?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">Absolutely. We
+                                        collaborate closely with architects to provide custom RAL colors and dimensional
+                                        modifications to fit specific project site plans.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="accordion-item bg-surface border border-outline-variant/20 rounded-lg overflow-hidden group transition-all duration-300">
+                                <button class="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                                    onclick="toggleAccordion(this)">
+                                    <span
+                                        class="font-label-md text-label-md md:text-body-md text-industrial-charcoal group-hover:text-forest-deep transition-colors">How
+                                        do I get a technical specification sheet?</span>
+                                    <span
+                                        class="material-symbols-outlined icon-toggle transition-transform duration-300 text-outline">expand_more</span>
+                                </button>
+                                <div class="accordion-content px-6">
+                                    <p class="text-on-surface-variant font-body-md leading-relaxed">Technical data
+                                        sheets and CAD files are available for download on individual product pages or
+                                        can be requested via our 'Contact Support' portal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA -->
+        <section class="bg-forest-deep py-stack-xl relative overflow-hidden">
+            <!-- Subtle Overlay Pattern -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none"
+                style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 40px 40px;">
+            </div>
+            <div class="max-w-container-max mx-auto px-margin-desktop text-center relative z-10">
+                <h2 class="font-display-lg text-display-lg md:text-display-lg-mobile text-on-primary mb-6">Still Have
+                    Questions?</h2>
+                <p class="font-body-lg text-body-lg text-primary-fixed/80 max-w-2xl mx-auto mb-10">
+                    Our technical team is ready to provide specific engineering answers and design consultations for
+                    your upcoming urban project.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <button
+                        class="bg-surface-container text-forest-deep px-8 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-white transition-all shadow-lg active:scale-95 flex items-center gap-2">
+                        Get in Touch With Us <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                    <button
+                        class="border-2 border-architectural-gold text-architectural-gold px-8 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-architectural-gold/10 transition-all active:scale-95 flex items-center gap-2">
+                        Download Master Catalogue <span class="material-symbols-outlined">download</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Shell -->
+    <footer class="w-full pt-stack-xl pb-stack-md bg-industrial-charcoal dark:bg-surface-container-lowest">
+        <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+            <div class="space-y-6">
+                <div class="font-headline-md text-headline-md text-architectural-gold">ARCH-FAB</div>
+                <p class="font-body-md text-body-md text-surface-variant/60 leading-relaxed">
+                    Pioneering urban resilience through architectural excellence. India's leader in premium outdoor
+                    furniture.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-label-md text-label-md text-white uppercase tracking-widest mb-6">Resources</h4>
+                <ul class="space-y-4">
+                    <li><a class="text-surface-variant dark:text-on-surface-variant hover:text-white transition-colors duration-200 cursor-pointer font-label-sm text-label-sm"
+                            href="#">Technical Specifications</a></li>
+                    <li><a class="text-surface-variant dark:text-on-surface-variant hover:text-white transition-colors duration-200 cursor-pointer font-label-sm text-label-sm"
+                            href="#">Project Gallery</a></li>
+                    <li><a class="text-surface-variant dark:text-on-surface-variant hover:text-white transition-colors duration-200 cursor-pointer font-label-sm text-label-sm"
+                            href="#">Material Library</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-label-md text-label-md text-white uppercase tracking-widest mb-6">Company</h4>
+                <ul class="space-y-4">
+                    <li><a class="text-surface-variant dark:text-on-surface-variant hover:text-white transition-colors duration-200 cursor-pointer font-label-sm text-label-sm"
+                            href="#">Sustainability Report</a></li>
+                    <li><a class="text-surface-variant dark:text-on-surface-variant hover:text-white transition-colors duration-200 cursor-pointer font-label-sm text-label-sm"
+                            href="#">Contact Support</a></li>
+                    <li><a class="text-surface-variant dark:text-on-surface-variant hover:text-white transition-colors duration-200 cursor-pointer font-label-sm text-label-sm"
+                            href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-label-md text-label-md text-white uppercase tracking-widest mb-6">Headquarters</h4>
+                <p class="font-body-md text-body-md text-surface-variant/60 leading-relaxed">
+                    Plot No. 42, Architectural District,<br />
+                    Industrial Hub, New Delhi, India.<br />
+                    support@arch-fab.com
+                </p>
+            </div>
+        </div>
+        <div
+            class="max-w-container-max mx-auto px-margin-desktop mt-stack-lg pt-stack-sm border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-label-sm text-label-sm text-surface-variant/40">© 2024 ARCH-FAB Urbanland Products. All
+                Rights Reserved. Engineered for Permanence.</p>
+            <div class="flex gap-4">
+                <span
+                    class="material-symbols-outlined text-surface-variant/40 hover:text-architectural-gold cursor-pointer transition-all">public</span>
+                <span
+                    class="material-symbols-outlined text-surface-variant/40 hover:text-architectural-gold cursor-pointer transition-all">mail</span>
+                <span
+                    class="material-symbols-outlined text-surface-variant/40 hover:text-architectural-gold cursor-pointer transition-all">share</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function toggleAccordion(button) {
+            const item = button.closest('.accordion-item');
+            const isActive = item.classList.contains('active');
+
+            // Close all others
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Toggle current
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        function scrollToCategory(id) {
+            const element = document.getElementById(id);
+            element.scrollIntoView({ behavior: 'smooth' });
+
+            // Update active sidebar state
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('text-forest-deep', 'bg-surface-container', 'border-l-4', 'border-forest-deep');
+                btn.classList.add('text-on-surface-variant');
+            });
+
+            const activeBtn = document.querySelector(`[data-target="${id}"]`);
+            activeBtn.classList.remove('text-on-surface-variant');
+            activeBtn.classList.add('text-forest-deep', 'bg-surface-container', 'border-l-4', 'border-forest-deep');
+        }
+
+        // Highlight category on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.category-section');
+            const navButtons = document.querySelectorAll('.category-btn');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navButtons.forEach(btn => {
+                btn.classList.remove('text-forest-deep', 'bg-surface-container', 'border-l-4', 'border-forest-deep');
+                btn.classList.add('text-on-surface-variant');
+                if (btn.getAttribute('data-target') === current) {
+                    btn.classList.remove('text-on-surface-variant');
+                    btn.classList.add('text-forest-deep', 'bg-surface-container', 'border-l-4', 'border-forest-deep');
+                }
+            });
+        });
+
+        // Open first accordion by default
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstItem = document.querySelector('.accordion-item');
+            if (firstItem) firstItem.classList.add('active');
+        });
+    </script>
+</body>
+
+</html>

@@ -2,12 +2,12 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap, { ScrollTrigger, SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import colimg1 from "../../assets/Bench_Planter.png";
-import colimg2 from "../../assets/Car_Shelter.png";
-import colimg3 from "../../assets/Wicker_Furniture.png";
-import colimg4 from "../../assets/Bus_Shelters.png";
+import colimg1 from "../../../../assets/Bench_Planter.png";
+import colimg2 from "../../../../assets/Car_Shelter.png";
+import colimg3 from "../../../../assets/Wicker_Furniture.png";
+import colimg4 from "../../../../assets/Bus_Shelters.png";
 
-const StickyCols = () => {
+const StickyColsOld = () => {
     const containerRef = useRef(null);
     const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -282,34 +282,24 @@ const StickyCols = () => {
                 </div>
             </section>
 
-            {/* Mobile Layout - Premium Responsive Card Stack (Scrolls Naturally) */}
+            {/* Mobile Layout */}
             <section className="sticky-cols-mobile w-full bg-[#F7F4EF] px-6 pt-2 pb-16 flex flex-col gap-8 lg:hidden block">
-                <div className="flex flex-col gap-4 mb-6 text-left">
-                    <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
-                        Case Studies
-                    </span>
-                    <h2 className="font-headline-lg text-headline-lg text-deep-ink">
-                        Specified by Industry Leaders
-                    </h2>
-                    <div className="w-24 h-1 bg-craftsman-gold"></div>
+                <div className="flex flex-col gap-2 mb-4">
+                    <p className="text-[.7rem] font-bold text-[#2C5F2E] uppercase tracking-widest">— Case Studies</p>
+                    <h2 className="text-3xl font-bold text-[#1A1A1A] tracking-tight leading-tight">Specified by Industry Leaders</h2>
                 </div>
 
                 <div className="mobile-projects-wrapper flex flex-col gap-8 w-full">
                     {/* Card 1: Lodha */}
                     <div className="mobile-project-card bg-[#2D2D2D] rounded-[2.25rem] border border-white/[0.06] shadow-2xl flex flex-col overflow-hidden">
-                        {/* Text Content Wrapper */}
                         <div className="p-[34px] flex flex-col gap-5">
-                            {/* 1. Top Heading block */}
                             <div className="flex flex-col gap-1">
                                 <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight pt-[10px] pb-[90px]">
                                     Lodha Group —<br />
                                     <span className="text-[#C9A84C]">Multiple Townships</span>
                                 </h3>
                             </div>
-
-                            {/* 2. Middle Row: Circles + Description */}
                             <div className="flex items-start gap-4">
-                                {/* Circle Indices */}
                                 <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5 text-[16px]">
                                     <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-bold">
                                         01
@@ -318,39 +308,31 @@ const StickyCols = () => {
                                         04
                                     </div>
                                 </div>
-                                {/* Description Paragraph */}
                                 <p className="text-[11px] text-[#F7F4EF]/85 leading-relaxed font-medium">
                                     420+ WPC & SS benches + concrete planters supplied across Lodha's premium residential township developments.
                                 </p>
                             </div>
                         </div>
-
-                        {/* 3. Bottom Image Container - Full width & seamless */}
                         <div className="w-full aspect-[16/10] bg-black/20 rounded-[37.4px] overflow-hidden relative group mt-auto">
                             <img 
                                 src={colimg1} 
                                 alt="Urbanland Products WPC benches and planters installed in Lodha township" 
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                                style={{ borderRadius: "38px", boxShadow: "rgba(255, 255, 255, 0.3) 5px 5px 10px 10px inset" }}
+                                style={{ borderRadius: "38px" }}
                             />
                         </div>
                     </div>
 
                     {/* Card 2: Adani */}
                     <div className="mobile-project-card bg-[#2C5F2E] rounded-[2.25rem] border border-white/[0.06] shadow-2xl flex flex-col overflow-hidden">
-                        {/* Text Content Wrapper */}
                         <div className="p-[34px] flex flex-col gap-5">
-                            {/* 1. Top Heading block */}
                             <div className="flex flex-col gap-1">
                                 <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight pt-[10px] pb-[90px]">
                                     Adani Realty —<br />
                                     <span className="text-[#C9A84C]">Premium Residential</span>
                                 </h3>
                             </div>
-
-                            {/* 2. Middle Row: Circles + Description */}
                             <div className="flex items-start gap-4">
-                                {/* Circle Indices */}
                                 <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5 text-[16px]">
                                     <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-bold">
                                         02
@@ -359,39 +341,31 @@ const StickyCols = () => {
                                         04
                                     </div>
                                 </div>
-                                {/* Description Paragraph */}
                                 <p className="text-[11px] text-[#F7F4EF]/85 leading-relaxed font-medium">
                                     Complete outdoor furniture solution including benches, dustbins, planters, and car parking sheds delivered on schedule.
                                 </p>
                             </div>
                         </div>
-
-                        {/* 3. Bottom Image Container - Full width & seamless */}
                         <div className="w-full aspect-[16/10] bg-black/20 rounded-[37.4px] overflow-hidden relative group mt-auto">
                             <img 
                                 src={colimg2} 
                                 alt="Outdoor urban furniture installed at Adani Realty residential project by Urbanland Products" 
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                                style={{ borderRadius: "38px", boxShadow: "rgba(255, 255, 255, 0.3) 5px 5px 10px 10px inset" }}
+                                style={{ borderRadius: "38px" }}
                             />
                         </div>
                     </div>
 
                     {/* Card 3: Oberoi */}
                     <div className="mobile-project-card bg-[#2D2D2D] rounded-[2.25rem] border border-white/[0.06] shadow-2xl flex flex-col overflow-hidden">
-                        {/* Text Content Wrapper */}
                         <div className="p-[34px] flex flex-col gap-5">
-                            {/* 1. Top Heading block */}
                             <div className="flex flex-col gap-1">
                                 <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight pt-[10px] pb-[90px]">
                                     Oberoi Realty —<br />
                                     <span className="text-[#C9A84C]">Luxury Project</span>
                                 </h3>
                             </div>
-
-                            {/* 2. Middle Row: Circles + Description */}
                             <div className="flex items-start gap-4">
-                                {/* Circle Indices */}
                                 <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5 text-[16px]">
                                     <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-bold">
                                         03
@@ -400,39 +374,31 @@ const StickyCols = () => {
                                         04
                                     </div>
                                 </div>
-                                {/* Description Paragraph */}
                                 <p className="text-[11px] text-[#F7F4EF]/85 leading-relaxed font-medium">
                                     Premium wicker furniture, poolside loungers, and cabanas crafted for Oberoi's high-end residential and hospitality developments.
                                 </p>
                             </div>
                         </div>
-
-                        {/* 3. Bottom Image Container - Full width & seamless */}
                         <div className="w-full aspect-[16/10] bg-black/20 rounded-[37.4px] overflow-hidden relative group mt-auto">
                             <img 
                                 src={colimg3} 
                                 alt="Premium wicker furniture, poolside loungers, and cabanas crafted for Oberoi's luxury project" 
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                                style={{ borderRadius: "38px", boxShadow: "rgba(255, 255, 255, 0.3) 5px 5px 10px 10px inset" }}
+                                style={{ borderRadius: "38px" }}
                             />
                         </div>
                     </div>
 
                     {/* Card 4: Smart City */}
                     <div className="mobile-project-card bg-[#2C5F2E] rounded-[2.25rem] border border-white/[0.06] shadow-2xl flex flex-col overflow-hidden">
-                        {/* Text Content Wrapper */}
                         <div className="p-[34px] flex flex-col gap-5">
-                            {/* 1. Top Heading block */}
                             <div className="flex flex-col gap-1">
                                 <h3 className="text-2xl font-black text-[#F7F4EF] leading-tight uppercase tracking-tight pt-[10px] pb-[90px]">
                                     Smart City —<br />
                                     <span className="text-[#C9A84C]">Transit Shelters</span>
                                 </h3>
                             </div>
-
-                            {/* 2. Middle Row: Circles + Description */}
                             <div className="flex items-start gap-4">
-                                {/* Circle Indices */}
                                 <div className="flex items-center gap-1.5 shrink-0 select-none mt-0.5 text-[16px]">
                                     <div className="border border-[#F7F4EF]/45 text-[#F7F4EF] rounded-[38px] w-9 h-9 flex items-center justify-center font-mono text-[12px] font-bold">
                                         04
@@ -441,26 +407,22 @@ const StickyCols = () => {
                                         04
                                     </div>
                                 </div>
-                                {/* Description Paragraph */}
                                 <p className="text-[11px] text-[#F7F4EF]/85 leading-relaxed font-medium">
                                     MS/SS bus shelters, park benches, bollards, and outdoor dustbins delivered for urban infrastructure development.
                                 </p>
                             </div>
                         </div>
-
-                        {/* 3. Bottom Image Container - Full width & seamless */}
                         <div className="w-full aspect-[16/10] bg-black/20 rounded-[37.4px] overflow-hidden relative group mt-auto">
                             <img 
                                 src={colimg4} 
                                 alt="MS/SS bus shelters, park benches, bollards, and outdoor dustbins delivered for urban infrastructure" 
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                                style={{ borderRadius: "38px", boxShadow: "rgba(255, 255, 255, 0.3) 5px 5px 10px 10px inset" }}
+                                style={{ borderRadius: "38px" }}
                             />
                         </div>
                     </div>
                 </div>
 
-                {/* Mobile Section CTAs */}
                 <div className="flex flex-row justify-center items-stretch gap-3 mt-8 pt-8 border-t border-[#1A1A1A]/10 w-full">
                     <Link 
                         to="/projects" 
@@ -480,4 +442,4 @@ const StickyCols = () => {
     );
 };
 
-export default StickyCols;
+export default StickyColsOld;

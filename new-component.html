@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Heritage Furniture | Industrial Heritage Manufacturer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#7eb67b",
+                        "on-surface": "#1c1c19",
+                        "surface-container-low": "#f6f3ee",
+                        "secondary": "#755b00",
+                        "on-tertiary-container": "#a9a8a7",
+                        "surface-variant": "#e5e2dd",
+                        "industrial-charcoal": "#2D2D2D",
+                        "primary": "#002f09",
+                        "inverse-primary": "#9cd597",
+                        "surface-bright": "#fcf9f4",
+                        "surface-container-high": "#ebe8e3",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#584400",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "forest-deep": "#2C5F2E",
+                        "primary-fixed-dim": "#9cd597",
+                        "background": "#fcf9f4",
+                        "surface-container": "#F0EDE9",
+                        "surface": "#fcf9f4",
+                        "secondary-container": "#fed979",
+                        "on-background": "#1c1c19",
+                        "tertiary-fixed": "#e4e2e1",
+                        "tertiary-container": "#3d3d3d",
+                        "surface-container-lowest": "#ffffff",
+                        "architectural-gold": "#C9A84C",
+                        "on-secondary-fixed": "#241a00",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "site-canvas": "#F7F4EF",
+                        "outline": "#72796E",
+                        "primary-fixed": "#b7f1b1",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#124719",
+                        "surface-dim": "#dcdad5",
+                        "on-surface-variant": "#41493f",
+                        "secondary-fixed": "#ffdf90",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#e6c366",
+                        "outline-variant": "#c1c9bc",
+                        "inverse-on-surface": "#f3f0eb",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#272727",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-primary-fixed": "#002105",
+                        "surface-container-highest": "#e5e2dd",
+                        "on-secondary-container": "#785d03",
+                        "on-primary-fixed-variant": "#1d5122",
+                        "inverse-surface": "#31302d",
+                        "surface-tint": "#366937",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-sm": "16px",
+                        "stack-xl": "80px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "stack-md": "32px",
+                        "base": "8px",
+                        "stack-lg": "64px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Montserrat"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .nav-active {
+            border-bottom: 2px solid #C9A84C;
+            padding-bottom: 0.25rem;
+        }
+
+        .smooth-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0, 47, 9, 0.08);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md selection:bg-architectural-gold/30">
+    <!-- TopNavBar -->
+    <header class="bg-surface border-b border-industrial-charcoal/10 sticky top-0 z-50">
+        <nav class="flex justify-between items-center px-margin-desktop w-full max-w-container-max mx-auto h-20">
+            <div class="text-headline-lg font-headline-lg text-forest-deep uppercase tracking-tight">
+                Heritage Furniture
+            </div>
+            <div class="hidden md:flex items-center space-x-10">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-architectural-gold transition-colors duration-300"
+                    href="#">Collections</a>
+                <a class="font-label-md text-label-md text-forest-deep nav-active" href="#">Projects</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-architectural-gold transition-colors duration-300"
+                    href="#">Materials</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-architectural-gold transition-colors duration-300"
+                    href="#">About</a>
+            </div>
+            <button
+                class="bg-forest-deep text-white px-8 py-3 font-label-md text-label-md uppercase tracking-widest hover:bg-primary-container transition-all active:opacity-80">
+                Get Quote
+            </button>
+        </nav>
+    </header>
+    <main class="w-full">
+        <!-- Hero / Featured Section: Built for Projects That Last -->
+        <section class="py-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="flex flex-col lg:flex-row items-center lg:items-stretch gap-0 relative">
+                <!-- Left 60%: Visual Anchor -->
+                <div class="w-full lg:w-3/5 z-0">
+                    <div class="relative overflow-hidden rounded-[24px] smooth-shadow group">
+                        <img alt="Luxury outdoor architectural project featuring modern seating and premium landscaping"
+                            class="w-full h-[500px] md:h-[640px] object-cover transition-transform duration-700 group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida/AP1WRLu4iiQ54J7h7nj7fVnbQxlDbNz1ZI9iySR1IKIS39bkzkxgnoDKAvSddta-Qoj0vsYUG9U5RJuC18jeuNFRp6pJV5smJhtDTGWMyXEBCQyRsdztpjT1mtp8fAxhG2vjg6UNnBFuYzob2WGNPKivwOwO4eKQew-AdW5oZ39DUND4cwLoZ7d_0E8mr0FB0Ib6JpJ2elqyFEAGWxYGuFUYFTh0NzunpL1u-4NGRecT1WU7NmWdOY-YZIQMre9Q" />
+                        <div class="absolute inset-0 bg-forest-deep/5 mix-blend-multiply"></div>
+                    </div>
+                </div>
+                <!-- Right 40%: Content Card (Overlapping) -->
+                <div class="w-full lg:w-2/5 lg:-ml-20 mt-10 lg:mt-20 z-10">
+                    <div
+                        class="bg-surface-container-lowest p-8 md:p-12 rounded-[24px] smooth-shadow border border-industrial-charcoal/5">
+                        <span
+                            class="font-label-md text-label-md text-architectural-gold uppercase tracking-[0.2em] block mb-4">
+                            ABOUT URBANLAND
+                        </span>
+                        <h1 class="font-headline-lg text-headline-lg text-forest-deep mb-6 leading-tight">
+                            Built for Projects That Last
+                        </h1>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                            Urbanland Products is a Made-in-India manufacturer of premium outdoor furniture and urban
+                            infrastructure solutions for residential, commercial, hospitality and public spaces across
+                            India. From benches and planter boxes to bus shelters, pergolas and custom site furnishings,
+                            every product is built for durability, sustainability and long-term outdoor performance.
+                        </p>
+                        <!-- Proof Points Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4 mb-10">
+                            <div class="flex items-center space-x-3 group">
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-forest-deep group-hover:bg-architectural-gold group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined" data-icon="apartment">apartment</span>
+                                </div>
+                                <span class="font-label-md text-label-md text-on-surface">50+ Projects Delivered</span>
+                            </div>
+                            <div class="flex items-center space-x-3 group">
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-forest-deep group-hover:bg-architectural-gold group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined" data-icon="verified">verified</span>
+                                </div>
+                                <span class="font-label-md text-label-md text-on-surface">ISO 9001:2015 Certified</span>
+                            </div>
+                            <div class="flex items-center space-x-3 group">
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-forest-deep group-hover:bg-architectural-gold group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined" data-icon="shield">shield</span>
+                                </div>
+                                <span class="font-label-md text-label-md text-on-surface">2-Year Warranty</span>
+                            </div>
+                            <div class="flex items-center space-x-3 group">
+                                <div
+                                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-high text-forest-deep group-hover:bg-architectural-gold group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined"
+                                        data-icon="local_shipping">local_shipping</span>
+                                </div>
+                                <span class="font-label-md text-label-md text-on-surface">Pan-India Delivery</span>
+                            </div>
+                        </div>
+                        <a class="inline-flex items-center justify-center bg-forest-deep text-white px-10 py-4 rounded-[4px] font-label-md text-label-md uppercase tracking-widest hover:bg-primary-container transition-all group"
+                            href="#">
+                            Explore Our Story
+                            <span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1"
+                                data-icon="arrow_forward">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Secondary Section: Architectural Spec Focus -->
+        <section class="bg-surface-container-low py-stack-xl border-t border-industrial-charcoal/5">
+            <div class="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <div class="border-l border-architectural-gold/30 pl-8 py-4">
+                    <h3 class="font-headline-md text-headline-md text-forest-deep mb-2">Sustainable Materials</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">FSC certified timber and recyclable
+                        high-grade architectural steel finishes.</p>
+                </div>
+                <div class="border-l border-architectural-gold/30 pl-8 py-4">
+                    <h3 class="font-headline-md text-headline-md text-forest-deep mb-2">Precision Engineering</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Automated manufacturing ensuring 0.1mm
+                        tolerance for heavy-duty urban use.</p>
+                </div>
+                <div class="border-l border-architectural-gold/30 pl-8 py-4">
+                    <h3 class="font-headline-md text-headline-md text-forest-deep mb-2">Architectural Support</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Direct CAD/BIM assistance for seamless
+                        landscape integration and project planning.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-tertiary text-surface-bright py-stack-lg px-margin-desktop w-full">
+        <div class="max-w-container-max mx-auto flex flex-col items-center space-y-stack-md text-center">
+            <div class="font-headline-md text-headline-md text-architectural-gold">
+                Heritage Furniture
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                <a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright underline transition-all active:translate-y-[-2px]"
+                    href="#">Technical Specifications</a>
+                <a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright underline transition-all active:translate-y-[-2px]"
+                    href="#">Maintenance Guides</a>
+                <a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright underline transition-all active:translate-y-[-2px]"
+                    href="#">Sustainability Report</a>
+                <a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright underline transition-all active:translate-y-[-2px]"
+                    href="#">Warranty Terms</a>
+                <a class="font-label-sm text-label-sm text-tertiary-fixed-dim hover:text-surface-bright underline transition-all active:translate-y-[-2px]"
+                    href="#">Contact Engineering</a>
+            </div>
+            <div class="pt-10 border-t border-industrial-charcoal/20 w-full">
+                <p class="font-body-md text-body-md text-tertiary-fixed-dim/60">
+                    © 2024 Industrial Heritage Manufacturer. All Rights Reserved. ISO 9001:2015 Certified.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Simple intersection observer for reveal effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.lg\\:-ml-20');
+            if (card) {
+                card.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                observer.observe(card);
+            }
+        });
+    </script>
+</body>
+
+</html>

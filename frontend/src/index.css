@@ -145,6 +145,11 @@ body {
   width: 100%;
 }
 
+.after-why-developers,
+.after-why-developers .font-outfit {
+  font-family: "Playfair Display", serif !important;
+}
+
 /* Thin elegant webkit scrollbar (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 3px;

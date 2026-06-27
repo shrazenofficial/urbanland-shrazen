@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import RootErrorBoundary from "../components/RootErrorBoundary";
 import Home from "../pages/Home/Home";
+import HomeOld from "../pages/Home/backup/HomeOld";
 import BlogList from "../pages/Blog/BlogList";
 import BlogDetail from "../pages/Blog/BlogDetail";
 
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
                 errorElement: <RootErrorBoundary layout={true} />,
                 children: [
                     { path: "", element: <Home /> }, // default page
+                    { path: "home-old", element: <HomeOld /> },
                     { path: "blog", element: <BlogList /> }, // blogs collection listing
                     { path: "blog/:slug", element: <BlogDetail /> }, // single blog article details
                     

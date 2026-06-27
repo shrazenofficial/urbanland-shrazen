@@ -1,13 +1,13 @@
 import { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import ClickIndicator from "./ClickIndicator";
+import ClickIndicator from "../../../../components/MapLink/ClickIndicator";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
-import mapThumb1 from "../../assets/products/Product Images/Benches/Create_a_clean,_premium,_professional_202605162312.jpeg";
-import mapThumb2 from "../../assets/products/Product Images/Bus Shelters/Create_a_clean,_premium,_professional_202605170115.jpeg";
+import mapThumb1 from "../../../../assets/products/Product Images/Benches/Create_a_clean,_premium,_professional_202605162312.jpeg";
+import mapThumb2 from "../../../../assets/products/Product Images/Bus Shelters/Create_a_clean,_premium,_professional_202605170115.jpeg";
 
 // Create a custom marker icon
 const customIcon = new L.DivIcon({
@@ -17,7 +17,7 @@ const customIcon = new L.DivIcon({
   iconAnchor: [9, 9]
 });
 
-const MapLink = () => {
+const MapLinkOld = () => {
     const [active, setActive] = useState(false);
     
     const container = useRef(null);
@@ -69,15 +69,14 @@ const MapLink = () => {
     return (
         <section ref={container} id="map-link" className="w-full h-auto py-20 md:py-0 md:h-[90vh] bg-[#F7F4EF] flex flex-col justify-center items-center text-center">
             {/* Existing Title Text */}
-            <div className="flex flex-col items-center space-y-4 text-center mb-4">
-                <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
-                    Urbanland in the world
-                </span>
-                <h2 className="font-headline-lg text-headline-lg text-deep-ink max-w-4xl mx-auto leading-tight">
-                    Urbanland® delivers custom outdoor furniture from<br />
-                    Mumbai to architects and developers
-                </h2>
-                <div className="w-24 h-1 bg-craftsman-gold mx-auto"></div>
+            <div>
+                <p className="text-[0.7rem] font-bold text-[#2C5F2E] choose-subtitle uppercase tracking-widest mb-4">
+                    — Urbanland in the world
+                </p>                
+                <h1 className="text-3xl md:text-[5vw] md:leading-[1.1] tracking-tight mt-5 text-[#1A1A1A]">
+                    Urbanland® delivers custom outdoor furniture<br />
+                    Mumbai to architects and developers<br />
+                </h1>
             </div>
 
             <ClickIndicator active={active} />
@@ -87,7 +86,7 @@ const MapLink = () => {
                 onClick={openMap}
                 onMouseEnter={() => setActive(true)}
                 onMouseLeave={() => setActive(false)}
-                className="text-[#2C5F2E] font-headline-lg text-headline-lg underline hover:text-[#C9A84C] cursor-pointer bg-transparent border-none outline-none mt-4 transition-colors duration-300"
+                className="text-[#2C5F2E] text-3xl md:text-[5vw] underline hover:text-[#C9A84C] cursor-pointer bg-transparent border-none outline-none mt-2 transition-colors duration-300"
             >
                 anywhere in India.
             </button>
@@ -210,4 +209,4 @@ const MapLink = () => {
     );
 };
 
-export default MapLink;
+export default MapLinkOld;

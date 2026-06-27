@@ -1,6 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from "react-responsive";
-import { activitiesLinesLG, activitiesLinesSM } from "../../constants/activites";
 import './activities.css';
 
 import logo1 from "../../assets/brands/1.png";
@@ -17,7 +15,6 @@ import logo11 from "../../assets/brands/7-1.png";
 import logo12 from "../../assets/brands/8-1.png";
 import logo13 from "../../assets/brands/9-1.png";
 import logo14 from "../../assets/brands/New-Project-7-Photoroom.png";
-import featuredImg from "../../assets/Bench_Planter.png";
 
 const brandNames = [
     "Lodha", "Adani Realty", "Oberoi", "Kalpataru", "Rustomjee",
@@ -31,78 +28,32 @@ const brandLogos = [
 ];
 
 const Activities = () => {
-    const isMobD = useMediaQuery({
-        query: "(max-width:768px)",
-    });
-    const activitiesLines = isMobD ? activitiesLinesSM : activitiesLinesLG;
-
     return (
-        <section id="activities" className="activities-section w-full py-16 lg:py-0 lg:h-auto p-6 sm:p-8 flex flex-col justify-between gap-12">
-            <div>
-                <p className='text-[.7rem] font-bold text-[#2C5F2E] activities-subtitle uppercase tracking-widest'>— Trusted Across India</p>
-                <div className="lg:mt-10 mt-7 activities-part origin-bottom">
-                    {activitiesLines.map((line, index) => (
-                        <h2 key={index} className="text-[#1A1A1A] lg:text-[4.2rem] md:text-[3rem] text-[2rem] leading-[1.05] font-bold tracking-tight uppercase">
-                            {line}
-                        </h2>
-                    ))}
+        <section id="activities" className="activities-section w-full py-16 p-6 sm:p-8 md:px-16 lg:px-20 relative overflow-hidden bg-background">
+            {/* Infinite Scrolling Client logo Marquee */}
+            <div className="w-full">
+                <div className="text-center mb-10">
+                    <span className="font-label-technical text-craftsman-gold tracking-[0.25em] uppercase font-semibold text-xs block mb-3">
+                        Trusted Across India
+                    </span>
+                    <div className="w-20 h-[1px] bg-craftsman-gold/40 mx-auto"></div>
                 </div>
-            </div>
-            
-            <div className="activities-sec w-full flex lg:flex-row flex-col justify-between items-start gap-10 lg:mt-0 mt-8">
-                <div className='lg:w-[50%] w-full'>
-                    <div className="mb-6">
-                        <p className="text-[.8rem] font-bold text-[#1A1A1A]/70 uppercase tracking-wider">— Partner Developers & Public Bodies</p>
-                    </div>
-                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 md:gap-4">
-                        {brandLogos.map((logo, index) => (
-                            <div key={index} className="brand-logo-card flex justify-center items-center h-14 md:h-16 p-3 bg-[#2D2D2D]/5 hover:bg-[#2C5F2E]/10 rounded-xl transition-all duration-300 shadow-sm hover:scale-105 transform">
+
+                <div className="logo-marquee-container">
+                    <div className="logo-marquee-track">
+                        {/* Repeat logos twice for seamless infinite scrolling loop */}
+                        {[...brandLogos, ...brandLogos].map((logo, index) => (
+                            <div 
+                                key={index} 
+                                className="flex justify-center items-center h-16 w-36 px-6 mx-4 bg-white/60 backdrop-blur-sm rounded-xl border border-[#2D2D2D]/10 hover:border-craftsman-gold/40 transition-all duration-300"
+                            >
                                 <img 
                                     src={logo} 
-                                    alt={`${brandNames[index] || "Leading real estate developer"} outdoor furniture supplier — Urbanland Products`} 
-                                    className="max-h-full max-w-full object-contain hover:scale-110 transition-transform duration-300"
+                                    alt={`${brandNames[index % brandNames.length] || "Real Estate Developer"} partner logo`} 
+                                    className="max-h-10 max-w-full object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                                 />
                             </div>
                         ))}
-                    </div>
-                </div>
-                
-                <div className='lg:w-[45%] w-full flex flex-col justify-end gap-6'>
-                    <div className="activities-featured-img w-full h-[200px] md:h-[250px] overflow-hidden rounded-3xl border border-[#2D2D2D]/10 shadow-2xl">
-                        <img 
-                            src={featuredImg} 
-                            alt="Lodha township WPC benches and concrete planters installed by Urbanland Products" 
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
-                        />
-                    </div>
-                    
-                    <div className='text-[#2D2D2D]/90 lg:text-[1.5rem] text-[1.1rem] md:leading-[1.25] font-light'>
-                        <p>Over 50 major outdoor furniture projects delivered across 15+ cities. Our products have been specified by India's most respected real estate developers, hospitality groups, and municipal bodies — backed by India's only 2-year outdoor furniture guarantee.</p>
-                    </div>
-
-                    {/* 3 Stat Counters */}
-                    <div className="grid grid-cols-3 gap-4 border-t border-[#2D2D2D]/10 pt-6">
-                        <div>
-                            <p className="text-xl md:text-3xl font-black text-[#2C5F2E]">50+</p>
-                            <p className="text-[10px] text-[#2D2D2D]/70 font-bold uppercase tracking-wider mt-1">Major Projects</p>
-                        </div>
-                        <div>
-                            <p className="text-xl md:text-3xl font-black text-[#2C5F2E]">15+</p>
-                            <p className="text-[10px] text-[#2D2D2D]/70 font-bold uppercase tracking-wider mt-1">Cities Nationwide</p>
-                        </div>
-                        <div>
-                            <p className="text-xl md:text-3xl font-black text-[#2C5F2E]">2-Year</p>
-                            <p className="text-[10px] text-[#2D2D2D]/70 font-bold uppercase tracking-wider mt-1">Full Guarantee</p>
-                        </div>
-                    </div>
-
-                    {/* ISO & Trust Badges */}
-                    <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold text-[#1A1A1A]/80 bg-[#2D2D2D]/5 px-4 py-3 rounded-2xl border border-black/5 mt-2">
-                        <span className="flex items-center gap-1">★ ISO 9001:2015 Certified</span>
-                        <span className="opacity-30">•</span>
-                        <span className="flex items-center gap-1">✓ 2-Year Guarantee Badge</span>
-                        <span className="opacity-30">•</span>
-                        <span className="flex items-center gap-1">Made in India</span>
                     </div>
                 </div>
             </div>

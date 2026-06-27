@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About Urbanland Products | India's Sustainable Outdoor Furniture Manufacturer</title>
+    <meta
+        content="Learn about Urbanland Products, our mission, founder, team, and commitment to manufacturing premium sustainable outdoor furniture for projects across India."
+        name="description" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .text-shadow-sm {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .architectural-line {
+            position: relative;
+        }
+
+        .architectural-line::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 48px;
+            height: 2px;
+            background-color: #C9A84C;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#31302d",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e5e2dd",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "on-surface-variant": "#41493f",
+                        "primary": "#002f09",
+                        "surface-bright": "#fcf9f4",
+                        "site-canvas": "#F7F4EF",
+                        "on-secondary-container": "#785d03",
+                        "on-tertiary": "#ffffff",
+                        "forest-deep": "#2C5F2E",
+                        "primary-fixed-dim": "#9cd597",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "architectural-gold": "#C9A84C",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcdad5",
+                        "secondary-fixed-dim": "#e6c366",
+                        "surface-container": "#f0ede9",
+                        "surface-container-low": "#f6f3ee",
+                        "on-primary-container": "#7eb67b",
+                        "secondary": "#755b00",
+                        "primary-fixed": "#b7f1b1",
+                        "tertiary-fixed": "#e4e2e1",
+                        "outline-variant": "#c1c9bc",
+                        "surface-container-highest": "#e5e2dd",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#124719",
+                        "secondary-fixed": "#ffdf90",
+                        "on-secondary-fixed": "#241a00",
+                        "on-secondary-fixed-variant": "#584400",
+                        "surface-tint": "#366937",
+                        "surface-container-lowest": "#ffffff",
+                        "industrial-charcoal": "#2D2D2D",
+                        "error-container": "#ffdad6",
+                        "surface": "#fcf9f4",
+                        "on-primary-fixed": "#002105",
+                        "tertiary-container": "#3d3d3d",
+                        "on-background": "#1c1c19",
+                        "outline": "#72796E",
+                        "on-error": "#ffffff",
+                        "tertiary": "#272727",
+                        "inverse-on-surface": "#f3f0eb",
+                        "secondary-container": "#fed979",
+                        "inverse-primary": "#9cd597",
+                        "on-primary-fixed-variant": "#1d5122",
+                        "background": "#fcf9f4",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-surface": "#1c1c19",
+                        "surface-container-high": "#ebe8e3",
+                        "on-tertiary-container": "#a9a8a7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-xl": "80px",
+                        "base": "8px",
+                        "stack-sm": "16px",
+                        "stack-lg": "64px",
+                        "margin-desktop": "64px",
+                        "stack-md": "32px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "label-md": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+    <!-- Top Navigation -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 border-b border-industrial-charcoal/10 bg-surface h-20 flex items-center transition-all duration-300">
+        <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+            <div class="font-headline-md text-headline-md font-bold text-primary">Urbanland Products</div>
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Products</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Projects</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Materials</a>
+                <a class="font-label-md text-label-md text-primary border-b-2 border-architectural-gold pb-1 opacity-80 transition-opacity"
+                    href="#">About Us</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Specs</a>
+            </div>
+            <button
+                class="bg-primary text-on-primary px-8 py-3 font-label-md text-label-md uppercase tracking-wider hover:opacity-90 transition-all">
+                Let's Build
+            </button>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="relative w-full h-[921px] min-h-[600px] flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full bg-cover bg-center"
+                data-alt="A sweeping wide-angle architectural shot of a contemporary urban plaza at sunset. The space features premium Urbanland wood-composite benches with cast-iron frames, set against a backdrop of minimalist landscape design with ornamental grasses and warm atmospheric lighting. The mood is sophisticated, peaceful, and professional, echoing a premium industrial aesthetic."
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJaj7ZzTk-LfCZLjEDK6N94vTzH-S2nEuRAZ5EDYJg5EyUydp792DQpT9ozD5Ht_rdo68jh9F0TMbZfIsSu0cmzz6FpnJQbpSRFhmlKXvY-JoFLIBxb5xvf5GCWX9S31quwdBRO6oK3FsmHQeldHtajsExOnCgNvI2TEEowFH3uXkbTAJK3YsNUMbDibwSH55h1MhHox8lTJvrVxyQBb5-CTDORHb3aF6YtKD0Zvw21p7AIEauYMF-_gBdklRSomBLYvtUGdRAIL3w')">
+            </div>
+            <div class="absolute inset-0 bg-industrial-charcoal/30"></div>
+        </div>
+        <div class="relative z-10 w-full px-margin-desktop max-w-container-max mx-auto text-white">
+            <div class="max-w-3xl">
+                <h1 class="font-display-lg text-display-lg mb-6 leading-tight drop-shadow-md">Building Sustainable
+                    Outdoor Spaces for Tomorrow</h1>
+                <p class="font-body-lg text-body-lg mb-10 opacity-90 leading-relaxed">Urbanland Products designs and
+                    manufactures premium outdoor furniture and urban infrastructure solutions that combine durability,
+                    sustainability, and timeless design for India's evolving landscapes.</p>
+                <div class="flex flex-wrap gap-4 mb-12">
+                    <button
+                        class="bg-forest-deep text-white px-8 py-4 font-label-md text-label-md uppercase tracking-widest flex items-center gap-2 hover:bg-primary transition-colors">
+                        Explore Our Products <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                    <button
+                        class="border-2 border-architectural-gold text-architectural-gold px-8 py-4 font-label-md text-label-md uppercase tracking-widest hover:bg-architectural-gold/10 transition-colors">
+                        Contact Our Team
+                    </button>
+                </div>
+                <!-- Trust Badges -->
+                <div class="flex flex-wrap gap-x-8 gap-y-4 pt-8 border-t border-white/20">
+                    <div class="flex items-center gap-2 font-label-md text-label-md"><span
+                            class="material-symbols-outlined text-architectural-gold">check_circle</span> Made in India
+                    </div>
+                    <div class="flex items-center gap-2 font-label-md text-label-md"><span
+                            class="material-symbols-outlined text-architectural-gold">check_circle</span> ISO 9001:2015
+                        Certified</div>
+                    <div class="flex items-center gap-2 font-label-md text-label-md"><span
+                            class="material-symbols-outlined text-architectural-gold">check_circle</span> 2-Year
+                        Warranty</div>
+                    <div class="flex items-center gap-2 font-label-md text-label-md"><span
+                            class="material-symbols-outlined text-architectural-gold">check_circle</span> 50+ Projects
+                        Delivered</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Meet the Founder -->
+    <section class="py-stack-xl px-margin-desktop max-w-container-max mx-auto">
+        <div class="grid md:grid-cols-2 gap-stack-md items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="font-headline-lg text-headline-lg mb-6 architectural-line">Meet Our Founder</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-loose">
+                    Founded by Raj Shekhar in 2023, Urbanland Products was built on a simple belief—outdoor spaces
+                    should be beautiful, durable, and environmentally responsible. Watch Raj share the vision behind
+                    Urbanland, our commitment to sustainable manufacturing, and how we're helping shape greener
+                    communities across India.
+                </p>
+                <button
+                    class="flex items-center gap-3 font-label-md text-label-md text-primary uppercase tracking-widest group">
+                    <span
+                        class="w-12 h-12 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined"
+                            style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                    </span>
+                    Watch Founder Story
+                </button>
+            </div>
+            <div class="order-1 md:order-2 grid grid-cols-12 gap-4 relative">
+                <div class="col-span-8 h-96 bg-surface-container relative z-10 overflow-hidden">
+                    <img class="w-full h-full object-cover"
+                        data-alt="A professional portrait of Raj Shekhar, founder of Urbanland Products, in a bright modern office with architectural sketches in the background. He is dressed in business casual attire, projecting an air of authoritative leadership and visionary design expertise. The lighting is soft and natural."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm5XSys0gybXBlcF-qyh5z00D4Ppdw369F6iNuxj2HK4hYzvU4UCoIu3ycvS7KfnfgUgrpM0VhhoAWVpLhPecxLjO0TwmlCW1ZJP2pLzgpHvapEajOK-7TjoomLe_PXXsOfz0wNGT-CAXOvifTGd5v0NiRAgF1NyAUJ0Reymlp5_0EOdU2LR-U2mT08ocIiXtyqdxDz4NJd4uU40w80p2vLH1IP_zq9M_93vOrrzX31ZGzPOse-m55kWpzt8i5nyDC3RF_RAwmsqWQ" />
+                </div>
+                <div
+                    class="col-span-10 col-start-3 -mt-32 relative z-20 aspect-video bg-industrial-charcoal flex items-center justify-center group cursor-pointer shadow-xl">
+                    <img class="absolute inset-0 w-full h-full object-cover opacity-60"
+                        data-alt="A cinematic video thumbnail showing a manufacturing floor in India where workers are crafting sustainable furniture. Overlaid with a play icon. The scene is bright, clean, and industrial, showcasing modern machinery and high-end materials like WPC."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR3s1qp4gGvJths9T-z1i3P_jRxLjlYgJl6wt4RvbCELAXwHeMKUtQEfLkJAH2iUiFBTeSH-r64ngm4VJPrHL6uEO4nol7vzUcpmUuM6Ls7IiHeNpZnARoaUTLruRtNpmAhpxTgKlf7nrPwDJQaTwtW96ESZnQPN4z0_ALJKm04nMfo5pIgbqLOpOdQgbE1KZDG14Fc-1NQtDz7KyUgfTd1seE4u12PGyPSnTHQmKBs8_Fv7GRZCGaE1DnhX0UEcjijIHhfuPYeHgx" />
+                    <span
+                        class="material-symbols-outlined text-white text-6xl group-hover:scale-110 transition-transform"
+                        style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                </div>
+                <div
+                    class="absolute -top-4 -right-4 w-32 h-32 border-t-2 border-r-2 border-architectural-gold/30 hidden md:block">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Story -->
+    <section class="bg-surface-container py-stack-xl">
+        <div class="px-margin-desktop max-w-container-max mx-auto grid md:grid-cols-12 gap-gutter">
+            <div class="md:col-span-5">
+                <h2 class="font-headline-lg text-headline-lg mb-6 architectural-line">Our Journey</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-10 leading-loose">
+                    From a manufacturing unit in Vasai, Maharashtra, Urbanland Products has grown into a trusted partner
+                    for architects, developers, municipalities, hospitality brands, educational institutions, and
+                    infrastructure projects across India. Today, we manufacture benches, planter boxes, bus shelters,
+                    litter bins, pergolas, street furniture, and custom urban solutions designed specifically for Indian
+                    weather conditions.
+                </p>
+                <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary uppercase tracking-widest border-b-2 border-primary pb-1 hover:text-architectural-gold hover:border-architectural-gold transition-colors"
+                    href="#">
+                    View Our Projects <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+            <div class="md:col-span-7 grid grid-cols-2 gap-4">
+                <div class="h-64 bg-cover bg-center mt-8"
+                    data-alt="A detailed shot of a manufacturing facility in Maharashtra, India. High-precision laser cutting machines and skilled craftsmen working on premium outdoor furniture frames. The space is organized, clean, and modern, illustrating a professional industrial heritage."
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApkPAanoNjQEEQGfh8HFJoi-GEb6_4LNSRi6E3ZFrEGAhQZG1SWPy3-iPN7KCcCo398HmUYdNQxaL230bTjI90kpTsJ9NwXg_dLQBVGmcuMK9c6UxVziEl4JfsREbi2psjVM0EqsN1zkeDxTllfquNJd1kXYgFS6KMVF1rsnqG47XBvDfMETyipaX9pVcTAR8DgMFtpj-2FctTcf_y8phJ7pSuurEPpvhxi4fOus4LMR8TRw1Lgz_Cba25xFQONh6uzYpRiiR7sm-U')">
+                </div>
+                <div class="h-64 bg-cover bg-center"
+                    data-alt="A completed urban installation of Urbanland products in a premium residential complex. Modern street furniture, pergolas, and planter boxes integrated seamlessly into a lush landscape design. Architectural photography style with clean lines and high contrast."
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3JH01lKMnM39y_xHM-ffYFL55ug-E2DTerZ3eBn7CiBFzWNV0dx8EHriavOiw4bjnt8PF5nxlGkYbXPYpRtisQlt10a5zshf-hwCiUUFqDVMOeWcI0RpmLsMTW2Tl4ulZoxqqyV7qF9j2ke3hc7REI85LYkcKgrBUYpqBnlUk2VDldB6h6TJyQ9jr8lExto9XopNFZeszS4XmoUzd0jPLlpGC8SHJDNmf4WftA-JkqwfCJ85jvquI62JmhcLrT11YkVeZiX3wrMa1')">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Mission & Vision -->
+    <section class="py-stack-xl px-margin-desktop max-w-container-max mx-auto">
+        <div class="text-center mb-stack-md">
+            <h2 class="font-headline-lg text-headline-lg architectural-line inline-block">Driven by Purpose</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-gutter">
+            <div
+                class="p-10 border border-industrial-charcoal/10 bg-white hover:border-architectural-gold transition-colors">
+                <span class="material-symbols-outlined text-architectural-gold text-4xl mb-6">flag</span>
+                <h3 class="font-headline-md text-headline-md mb-4 text-primary">Our Mission</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    To create outdoor furniture that combines thoughtful design, lasting durability, and sustainable
+                    materials for modern Indian spaces.
+                </p>
+            </div>
+            <div
+                class="p-10 border border-industrial-charcoal/10 bg-white hover:border-architectural-gold transition-colors">
+                <span class="material-symbols-outlined text-architectural-gold text-4xl mb-6">visibility</span>
+                <h3 class="font-headline-md text-headline-md mb-4 text-primary">Our Vision</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    To become India's most trusted manufacturer of sustainable outdoor furniture and urban
+                    infrastructure solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Sustainability (Forest Green Section) -->
+    <section class="bg-primary-container py-stack-xl text-on-primary">
+        <div class="px-margin-desktop max-w-container-max mx-auto grid md:grid-cols-2 gap-stack-md items-center">
+            <div>
+                <h2 class="font-headline-lg text-headline-lg mb-8 text-on-primary-container">Sustainability Isn't an
+                    Add-on. It's Our Foundation.</h2>
+                <p class="font-body-lg text-body-lg mb-10 opacity-90">
+                    We replace traditional hardwood with innovative materials like WPC and NFC Wood, reducing
+                    deforestation while improving product longevity.
+                </p>
+                <ul class="space-y-4 mb-12">
+                    <li class="flex items-center gap-3 font-body-md text-body-md">
+                        <span class="material-symbols-outlined text-architectural-gold">eco</span> Last 12–20+ years
+                    </li>
+                    <li class="flex items-center gap-3 font-body-md text-body-md">
+                        <span class="material-symbols-outlined text-architectural-gold">eco</span> Reduce maintenance
+                        costs
+                    </li>
+                    <li class="flex items-center gap-3 font-body-md text-body-md">
+                        <span class="material-symbols-outlined text-architectural-gold">eco</span> Support green
+                        building initiatives
+                    </li>
+                    <li class="flex items-center gap-3 font-body-md text-body-md">
+                        <span class="material-symbols-outlined text-architectural-gold">eco</span> Minimise
+                        environmental impact
+                    </li>
+                </ul>
+                <button
+                    class="bg-architectural-gold text-primary px-10 py-4 font-label-md text-label-md uppercase tracking-widest hover:brightness-110 transition-all">
+                    Explore Our Materials
+                </button>
+            </div>
+            <div class="relative h-[500px] overflow-hidden group">
+                <img class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700"
+                    data-alt="A macro texture shot of high-end WPC (Wood Plastic Composite) material used in Urbanland furniture. The texture is refined, resembling natural wood grain but with a crisp, industrial finish. The lighting highlights the durable, weather-resistant surface in a rich forest-green and earthy charcoal color palette."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc7KXqwSY_d3RAD1vewxzgcWxqPBWmKDvSqaoUKHtUHEk7cZPkg-gV300hoPuiFUy--fL1DieV2ND4jNeJ6JYoD_eOXr1phyC7DYAJmNUntiYGif_CNxAbA1sDGiH6vbPFwK6xT36imZhEgtUaW6jn4Pu4r0RDAixNjCrfIP2oc1I72lC4wBINlbvkoNoyyJnG5d-PESj7p_lffrV99JRnHYgRjWkTj2RuB7KoxdLdxukgEY7gxJkTT_8lWP_Njqpq5mSe6Q2VlC89" />
+                <div class="absolute inset-0 border-[20px] border-white/5 pointer-events-none"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Meet the Team -->
+    <section class="py-stack-xl px-margin-desktop max-w-container-max mx-auto">
+        <div class="max-w-3xl mb-stack-md">
+            <h2 class="font-headline-lg text-headline-lg mb-6 architectural-line">The People Behind Urbanland</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Every project is backed by a passionate team of designers, engineers, craftsmen, and project specialists
+                who ensure every product meets the highest standards of quality and sustainability. From concept to
+                installation, we work together to deliver outdoor spaces that last for years.
+            </p>
+        </div>
+        <!-- Bento-style Team Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+            <div class="group relative aspect-[3/4] overflow-hidden bg-surface-container">
+                <img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    data-alt="Professional headshot of a lead industrial designer at Urbanland. Clean white background, minimalist architectural aesthetic. Soft lighting."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjQ9lLzJQ2tuaduJnZd5AVdQ1lSIpZqbgNLihGlyuICk3y0Zj0Mq6rSuLhYUfY9OmRjETJVeY2KaUGmi4Gj9589bjPkIAP6ICQnfI8nMNHj6gj-zkKT0rm6CP5qUsXkPIqqAbPGQeF_9kAPuK44pEU476ZTFI8wtT9SDoIlUEe3xKdBwyNe9jbpYMI3O21K_uQBPzvYxHxnmp45L1O4XzBp279lHOGCghtvuO0aLz0nYhIY8VO_MKB2pi_agyzU_OZgtWzmvOsJjwf" />
+                <div
+                    class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-industrial-charcoal to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p class="font-label-md text-label-md">Lead Designer</p>
+                </div>
+            </div>
+            <div class="group relative aspect-[3/4] overflow-hidden bg-surface-container">
+                <img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    data-alt="Professional headshot of a senior project engineer at Urbanland. Modern industrial workshop background, blurred. Professional and confident."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf1rosto9YMDdRzzScSFe0Wu92FXUZ_FJddzMLBVCX3O31IjQbsriWEig7IzKd55y4d3Oxnh5BGvLw2_F4Y7xcb22sBO466YymU66IHdv6y1Ccr600xvQOmheMIoczzE1Jlhu5cW7suxziKUWBArNfaNj6OLF5FGN26CSGwlxSj8mlBceoigUyeEpuip3EO9QVfdh7QD8-p7iIOTnrSbxD2eXXfchLKBVAQQq8lzhqxvU1u08PGfm4vaVqnanUxQPTlKYUPUjXi6Fa" />
+                <div
+                    class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-industrial-charcoal to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p class="font-label-md text-label-md">Project Engineer</p>
+                </div>
+            </div>
+            <div class="group relative aspect-[3/4] overflow-hidden bg-surface-container">
+                <img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    data-alt="Professional headshot of a materials specialist at Urbanland. Looking at a wood composite sample. Architectural light-mode style."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNzlJvbH3V_zJsom5aSJe6einwh0mkIyAwZuNhFAfNGfAoNIKhQF-Ec_v91_M9eO545k_fqXU6ooaeIGbGnaUni07810MUthb2gPNjEt9csS5ejMyDxZbw_SS8d5baI2vjIPJf3lfRuYGS4bLlowIAjll9rHxgvcZP-gl1RKqCC2EAwO7-w3-ne1n6uXJ8sImjRkzYop00SiCCBwHcxyWZn_bAdvUFl0N8txrOhr79u-r4orob5gK-jgELXN6MeXRVZUbOz4vBVzGh" />
+                <div
+                    class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-industrial-charcoal to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p class="font-label-md text-label-md">Materials Specialist</p>
+                </div>
+            </div>
+            <div class="group relative aspect-[3/4] overflow-hidden bg-surface-container">
+                <img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                    data-alt="Professional headshot of a customer relations manager at Urbanland. Friendly, professional smile, bright office setting."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXZ_yE13_xfiuAYBmnJtEG5ULOzAaOpLpWfBEA4S3BOFSkGmp5Y62UAbPTMNAzb6fjhAhKZR2DcH145xGnfYWEzT9EbhIfGa6l1Hsty-NvamJk3DRPT2oiLOAIL0WlW5jKp6O1FL8phlt_8vC8EGPxgJPPww-nTmhSGBHCs4QQCdYkqBmN8AlzuA-hvzBFAZbXDOLpp7UFavh6GpWTf5vcEnjGWfxa_TPfGwDgR_R4DdvEG7kMdLJAIhnXewAKOrHvXkak8VovN-rG" />
+                <div
+                    class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-industrial-charcoal to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p class="font-label-md text-label-md">Client Relations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Urbanland -->
+    <section class="bg-inverse-surface text-on-primary py-stack-xl">
+        <div class="px-margin-desktop max-w-container-max mx-auto">
+            <h2 class="font-headline-lg text-headline-lg mb-stack-md text-center">Why Clients Choose Urbanland</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-12 gap-x-gutter">
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-architectural-gold text-3xl">verified</span>
+                    <div>
+                        <h4 class="font-label-md text-label-md uppercase tracking-wider mb-2">Premium sustainable
+                            materials</h4>
+                        <p class="text-sm opacity-70">Sourced for resilience and environmental responsibility.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span
+                        class="material-symbols-outlined text-architectural-gold text-3xl">settings_input_component</span>
+                    <div>
+                        <h4 class="font-label-md text-label-md uppercase tracking-wider mb-2">Custom manufacturing</h4>
+                        <p class="text-sm opacity-70">Bespoke urban solutions tailored to your unique site requirements.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-architectural-gold text-3xl">speed</span>
+                    <div>
+                        <h4 class="font-label-md text-label-md uppercase tracking-wider mb-2">Fast project execution
+                        </h4>
+                        <p class="text-sm opacity-70">Optimized timelines for rapid delivery and on-site assembly.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-architectural-gold text-3xl">local_shipping</span>
+                    <div>
+                        <h4 class="font-label-md text-label-md uppercase tracking-wider mb-2">Pan-India delivery &amp;
+                            installation</h4>
+                        <p class="text-sm opacity-70">Dedicated logistics and expert setup in any state.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-architectural-gold text-3xl">support_agent</span>
+                    <div>
+                        <h4 class="font-label-md text-label-md uppercase tracking-wider mb-2">Dedicated project support
+                        </h4>
+                        <p class="text-sm opacity-70">Expert guidance from blueprint planning to final walkthrough.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-architectural-gold text-3xl">security</span>
+                    <div>
+                        <h4 class="font-label-md text-label-md uppercase tracking-wider mb-2">2-Year Comprehensive
+                            Warranty</h4>
+                        <p class="text-sm opacity-70">Guaranteed durability and peace of mind for every installation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Trusted Across India -->
+    <section class="py-stack-xl px-margin-desktop max-w-container-max mx-auto">
+        <div class="grid md:grid-cols-2 gap-gutter mb-stack-md">
+            <div>
+                <h2 class="font-headline-lg text-headline-lg mb-6 architectural-line">Trusted by Industry Leaders</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    We've successfully delivered outdoor furniture solutions for developers, hospitality brands,
+                    educational institutions, healthcare facilities, municipalities, and infrastructure projects across
+                    multiple states.
+                </p>
+            </div>
+            <div class="flex items-end justify-end">
+                <button
+                    class="font-label-md text-label-md text-primary uppercase tracking-widest flex items-center gap-2 group">
+                    See Our Portfolio <span
+                        class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+        <!-- Logo Grid -->
+        <div
+            class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center opacity-40 grayscale hover:grayscale-0 transition-all duration-1000">
+            <div class="h-12 w-32 bg-gray-400 rounded-sm flex items-center justify-center font-bold text-gray-800">LODHA
+            </div>
+            <div class="h-12 w-32 bg-gray-400 rounded-sm flex items-center justify-center font-bold text-gray-800">
+                GODREJ</div>
+            <div class="h-12 w-32 bg-gray-400 rounded-sm flex items-center justify-center font-bold text-gray-800">
+                KALPATARU</div>
+            <div class="h-12 w-32 bg-gray-400 rounded-sm flex items-center justify-center font-bold text-gray-800">TATA
+            </div>
+            <div class="h-12 w-32 bg-gray-400 rounded-sm flex items-center justify-center font-bold text-gray-800">
+                OBEROI</div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="py-stack-xl bg-surface-container-highest border-y border-industrial-charcoal/5">
+        <div class="px-margin-desktop max-w-container-max mx-auto text-center">
+            <h2 class="font-headline-lg text-headline-lg mb-6">Ready to Create Better Outdoor Spaces?</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                Whether you're designing a township, resort, park, campus, or public space, we'd love to be part of your
+                project.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <button
+                    class="w-full sm:w-auto bg-primary text-on-primary px-12 py-5 font-label-md text-label-md uppercase tracking-widest hover:opacity-90 transition-all">
+                    Request a Quote
+                </button>
+                <button
+                    class="w-full sm:w-auto border-2 border-primary text-primary px-12 py-5 font-label-md text-label-md uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                    Contact Our Team
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-inverse-surface text-on-primary border-t border-white/5">
+        <div
+            class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base">
+            <div class="text-center md:text-left">
+                <div class="font-headline-md text-headline-md text-surface-container-lowest mb-2">Urbanland Products
+                </div>
+                <p class="font-body-md text-body-md text-surface-variant/70 mb-4 max-w-md">Premium sustainable urban
+                    furniture designed for India's architectural landscape.</p>
+            </div>
+            <div class="flex gap-8">
+                <a class="font-label-sm text-label-sm text-surface-variant hover:text-secondary-fixed-dim transition-colors"
+                    href="#">Sustainability</a>
+                <a class="font-label-sm text-label-sm text-surface-variant hover:text-secondary-fixed-dim transition-colors"
+                    href="#">Technical Specs</a>
+                <a class="font-label-sm text-label-sm text-surface-variant hover:text-secondary-fixed-dim transition-colors"
+                    href="#">Privacy Policy</a>
+                <a class="font-label-sm text-label-sm text-surface-variant hover:text-secondary-fixed-dim transition-colors"
+                    href="#">Contact</a>
+            </div>
+        </div>
+        <div class="w-full py-8 border-t border-white/5 text-center px-margin-desktop max-w-container-max mx-auto">
+            <p class="font-label-sm text-label-sm text-surface-variant/50">© 2024 Urbanland Products (ARCH-FAB). All
+                rights reserved. Built for Permanence.</p>
+        </div>
+    </footer>
+    <script>
+        // Simple scroll effect for navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+                nav.classList.remove('h-20');
+                nav.classList.add('h-16');
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.classList.add('h-20');
+                nav.classList.remove('h-16');
+            }
+        });
+    </script>
+</body>
+
+</html>

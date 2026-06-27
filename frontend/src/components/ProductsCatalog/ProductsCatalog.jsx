@@ -348,16 +348,25 @@ const ProductsCatalog = ({ showTitle = true }) => {
     >
       {/* Title block */}
       {showTitle && (
-        <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-[#2D2D2D]/10 pb-8 catalog-title">
-          <div>
-            <p className="text-[0.7rem] uppercase tracking-[0.2em] font-semibold text-[#2C5F2E] mb-2">Our Collection</p>
-            <h2 className="text-4xl lg:text-6xl font-bold tracking-tight text-[#1A1A1A]">
-              Urban furniture that connects.
+        <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-4 catalog-title">
+          <div className="space-y-4 text-left">
+            <span className="font-label-technical text-craftsman-gold tracking-[0.2em] uppercase font-semibold text-xs block">
+              Our Collection
+            </span>
+            <h2 className="font-headline-lg text-headline-lg text-deep-ink max-w-xl leading-tight">
+              Outdoor Furniture &amp; Urban Solutions
             </h2>
+            <div className="w-24 h-1 bg-craftsman-gold"></div>
           </div>
-          <p className="text-sm md:text-base text-[#2D2D2D]/80 max-w-sm">
-            Discover modular designs built to blend natural aesthetics with sustainable, smart urban living.
-          </p>
+          <Link 
+            to="/products"
+            className="inline-flex items-center gap-1.5 text-[#2C5F2E] hover:text-[#C9A84C] font-semibold text-xs sm:text-sm uppercase tracking-wider transition-colors group no-underline pb-1 border-b-2 border-transparent hover:border-[#C9A84C]/30"
+          >
+            <span>Explore all products</span>
+            <span className="material-symbols-outlined text-sm sm:text-base transition-transform group-hover:translate-x-1.5">
+              arrow_forward
+            </span>
+          </Link>
         </div>
       )}
 
