@@ -219,7 +219,7 @@ const Hero = () => {
           <h2 className="font-label-sm text-[10px] sm:text-label-sm lg:text-sm uppercase tracking-[0.2em] text-on-surface-variant mb-6 sm:mb-10">
             Trusted by Leading Developers &amp; Institutions
           </h2>
-          <div className="grid grid-cols-3 gap-y-6 gap-x-4 md:flex md:flex-wrap md:justify-center md:items-center md:gap-x-16 md:gap-y-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 text-on-surface">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-16 md:gap-y-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 text-on-surface">
             <div className="text-lg sm:text-xl md:text-2xl font-bold tracking-tighter">LODHA</div>
             <div className="text-lg sm:text-xl md:text-2xl font-bold tracking-tighter">adani Realty</div>
             <div className="text-lg sm:text-xl md:text-2xl font-bold tracking-tighter">OBEROI</div>
